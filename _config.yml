@@ -3,17 +3,19 @@
 # ----------------------- #
 
 url: http://bobbielf2.github.io
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+title: Bobbie's Blog
+subtitle: Boys be ambitious.
+author: Bowei "Bobbie" Wu .
 simple_search: https://www.google.com/search
-description:
+description: This is my personal web blog, more things to come.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
 # http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
 # Additionally, %o will give you the ordinal representation of the day
-date_format: "ordinal"
+# date_format: "ordinal"
+date_format: "%m-%d-%y"  # e.g. 2014-07-03
+time_format: "%H:%M"     # 24 hour time
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
 subscribe_rss: /atom.xml
@@ -33,8 +35,8 @@ destination: public
 plugins: plugins
 code_dir: downloads/code
 category_dir: blog/categories
-markdown: rdiscount
-rdiscount:
+markdown: kramdown
+kramdown:
   extensions:
     - autolink
     - footnotes
@@ -91,7 +93,7 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
+disqus_short_name: "bobbies-blog"
 disqus_show_comment_count: false
 
 # Google Analytics
