@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>写数学 Blog - Bobbie's Blog</title>
+  <meta name="author" content="Bowei "Bobbie" Wu .">
+
+  
+  <meta name="description" content="上一篇文章讲了如何用 Octopress 在 GitHub 上搭建个人主页，今天这篇写给可爱的科研狗们，介绍怎么样让网页兼容 LaTeX！首先看看效果： LaTeX 行间模式（displayed math） latex1
+2
+3
+4
+5
+6
+$$
+\begin{align}
+\mbox{欧拉公式 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://bobbielf2.github.io/blog/2016/08/06/shu-xue-blog/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Bobbie's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Bobbie's Blog</a></h1>
+  
+    <h2>Boys be ambitious.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="bobbielf2.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/aboutme/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">写数学 Blog</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-06T19:11:58-04:00'><span class='date'>08-06-16</span> <span class='time'>19:11</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html">上一篇文章</a>讲了如何用 Octopress 在 GitHub 上搭建个人主页，今天这篇写给可爱的科研狗们，介绍怎么样让网页兼容 LaTeX！首先看看效果：</p>
+
+<ul>
+  <li>LaTeX 行间模式（displayed math）</li>
+</ul>
+
+<figure class="code"><figcaption><span>latex</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="latex"><span class="line"><span class="sb">$$</span><span class="nb"></span>
+</span><span class="line"><span class="nv">\begin</span><span class="nb">{align}</span>
+</span><span class="line"><span class="nv">\mbox</span><span class="nb">{欧拉公式：} &amp; e^{i</span><span class="nv">\pi</span><span class="nb">} </span><span class="o">+</span><span class="nb"> </span><span class="m">1</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span><span class="nv">\\</span><span class="nb"></span>
+</span><span class="line"><span class="nv">\mbox</span><span class="nb">{牛顿公式：} &amp; x_{i</span><span class="o">+</span><span class="m">1</span><span class="nb">} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{</span><span class="m">2</span><span class="nb">}</span><span class="nv">\left</span><span class="o">(</span><span class="nb">x_i</span><span class="o">+</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">2</span><span class="nb">}{x_i}</span><span class="nv">\right</span><span class="o">)</span><span class="nb"></span>
+</span><span class="line"><span class="nv">\end</span><span class="nb">{align}</span>
+</span><span class="line"><span class="s">$$</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+\mbox{欧拉公式：} & e^{i\pi} + 1 = 0\\
+\mbox{牛顿公式：} & x_{i+1} = \frac{1}{2}\left(x_i+\frac{2}{x_i}\right)
+\end{align} %]]></script>
+
+<!--more-->
+
+<ul>
+  <li>LaTeX 内嵌模式（inline math）</li>
+</ul>
+
+<figure class="code"><figcaption><span>latex</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="latex"><span class="line">爱因斯坦说过：<span class="s">$</span><span class="nb">E </span><span class="o">=</span><span class="nb"> mc^</span><span class="m">2</span><span class="s">$</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>爱因斯坦说过：$E = mc^2$</p>
+
+<h4 id="markdown-kramdown--mathjax">让 Markdown 显示数学公式：kramdown 和 MathJax</h4>
+
+<h5 id="kramdown--rdiscount">1, 用 kramdown 代替 rdiscount</h5>
+
+<p>Octopress 中默认的 rdiscount 不支持把 Markdown 中的 LaTeX 公式呈现出来，所以要换成 <a href="http://kramdown.gettalong.org/">kramdown</a>（这个 Markdown 转换器也是开源的，他家号称全球最快）。</p>
+
+<ul>
+  <li>安装 kramdown，运行命令</li>
+</ul>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">gem install kramdown
+</span></code></pre></td></tr></table></div></figure>
+
+<p>如果系统安全系数太高（OS X 10.11）就用</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">gem install -n /usr/local/bin kramdown
+</span></code></pre></td></tr></table></div></figure>
+
+<ul>
+  <li>修改 Octopress 的<code>_config.yml</code>配置文件，把全部<code>rdiscount</code>都改成<code>kramdown</code></li>
+  <li>修改 Octopress 的<code>Gemfile</code>，把里面的<code>gem 'rdiscount', '~&gt; 2.0'</code>改成<code>gem 'kramdown'</code></li>
+</ul>
+
+<h4 id="mathjax">2, 配置 MathJax</h4>
+
+<p>在<code>/source/_includes/custom/head.html</code>文件里添加</p>
+
+<figure class="code"><figcaption><span>head.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+</pre></td><td class="code"><pre><code class="html"><span class="line"><span class="c">&lt;!-- mathjax config similar to math.stackexchange --&gt;</span>
+</span><span class="line"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/x-mathjax-config&quot;</span><span class="nt">&gt;</span>
+</span><span class="line"><span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Config</span><span class="p">({</span>
+</span><span class="line">  <span class="nx">jax</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;input/TeX&quot;</span><span class="p">,</span> <span class="s2">&quot;output/HTML-CSS&quot;</span><span class="p">],</span>
+</span><span class="line">  <span class="nx">tex2jax</span><span class="o">:</span> <span class="p">{</span>
+</span><span class="line">    <span class="nx">inlineMath</span><span class="o">:</span> <span class="p">[</span> <span class="p">[</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="s1">&#39;$&#39;</span><span class="p">]</span> <span class="p">],</span>
+</span><span class="line">    <span class="nx">displayMath</span><span class="o">:</span> <span class="p">[</span> <span class="p">[</span><span class="s1">&#39;$$&#39;</span><span class="p">,</span> <span class="s1">&#39;$$&#39;</span><span class="p">]],</span>
+</span><span class="line">    <span class="nx">processEscapes</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class="line">    <span class="nx">skipTags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;script&#39;</span><span class="p">,</span> <span class="s1">&#39;noscript&#39;</span><span class="p">,</span> <span class="s1">&#39;style&#39;</span><span class="p">,</span> <span class="s1">&#39;textarea&#39;</span><span class="p">,</span> <span class="s1">&#39;pre&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">]</span>
+</span><span class="line">  <span class="p">},</span>
+</span><span class="line">  <span class="nx">messageStyle</span><span class="o">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+</span><span class="line">  <span class="s2">&quot;HTML-CSS&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">preferredFont</span><span class="o">:</span> <span class="s2">&quot;TeX&quot;</span><span class="p">,</span> <span class="nx">availableFonts</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;STIX&quot;</span><span class="p">,</span><span class="s2">&quot;TeX&quot;</span><span class="p">]</span> <span class="p">}</span>
+</span><span class="line"><span class="p">});</span>
+</span><span class="line"><span class="nt">&lt;/script&gt;</span>
+</span><span class="line"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<h4 id="mathjax--bug">3, 修复 MathJax 在页面中右键变白屏的 bug</h4>
+
+<p>修改 Octopress 的<code>/sass/base/_theme.scss</code>文件，把代码中的</p>
+
+<figure class="code"><figcaption><span>_theme.scss</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="sass"><span class="line"><span class="o">&gt;</span> <span class="nt">div</span> <span class="err">{</span>
+</span><span class="line">     <span class="na">background</span><span class="o">:</span> <span class="nv">$sidebar-bg</span> <span class="nv">$noise-bg</span><span class="err">;</span>
+</span><span class="line">     <span class="na">border-bottom</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$page-border-bottom</span><span class="err">;</span>
+</span><span class="line">     <span class="o">&gt;</span> <span class="nt">div</span> <span class="err">{</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>加入<code>#main</code>，变成</p>
+
+<figure class="code"><figcaption><span>sass</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="sass"><span class="line"><span class="o">&gt;</span> <span class="nt">div</span><span class="nn">#main</span> <span class="err">{</span>
+</span><span class="line">     <span class="na">background</span><span class="o">:</span> <span class="nv">$sidebar-bg</span> <span class="nv">$noise-bg</span><span class="err">;</span>
+</span><span class="line">     <span class="na">border-bottom</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$page-border-bottom</span><span class="err">;</span>
+</span><span class="line">     <span class="o">&gt;</span> <span class="nt">div</span> <span class="err">{</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<h4 id="pygments-">4, 修复 Pygments 的问题</h4>
+
+<p>这个是新版本出现的问题。使用 kramdown 之后，以前写的博客突然编译不出来了；当你运行 rake generate 时候，会报错：</p>
+
+<pre><code>Error: Pygments can't parse unknown language: &lt;/p&gt;
+</code></pre>
+
+<p>原因是最新版的 Pygments 这个插件对于 Markdown 的书写要求更严格了。</p>
+
+<p>为了找出原来，可以修改 Pygments 的报错代码，在<code>/plugins/pygments_code.rb</code>文件中:</p>
+
+<figure class="code"><figcaption><span>pygments_code.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">pygments</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">lang</span><span class="p">)</span>
+</span><span class="line">    <span class="k">if</span> <span class="n">defined?</span><span class="p">(</span><span class="no">PYGMENTS_CACHE_DIR</span><span class="p">)</span>
+</span><span class="line">      <span class="n">path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">PYGMENTS_CACHE_DIR</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">lang</span><span class="si">}</span><span class="s2">-</span><span class="si">#{</span><span class="no">Digest</span><span class="o">::</span><span class="no">MD5</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(</span><span class="n">code</span><span class="p">)</span><span class="si">}</span><span class="s2">.html&quot;</span><span class="p">)</span>
+</span><span class="line">      <span class="k">if</span> <span class="no">File</span><span class="o">.</span><span class="n">exist?</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span><span class="line">        <span class="n">highlighted_code</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span><span class="line">      <span class="k">else</span>
+</span><span class="line">        <span class="k">begin</span>
+</span><span class="line">          <span class="n">highlighted_code</span> <span class="o">=</span> <span class="no">Pygments</span><span class="o">.</span><span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="ss">:lexer</span> <span class="o">=&gt;</span> <span class="n">lang</span><span class="p">,</span> <span class="ss">:formatter</span> <span class="o">=&gt;</span> <span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="ss">:options</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:encoding</span> <span class="o">=&gt;</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="ss">:startinline</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">})</span>
+</span><span class="line">        <span class="k">rescue</span> <span class="no">MentosError</span>
+</span><span class="line">          <span class="k">raise</span> <span class="s2">&quot;Pygments can&#39;t parse unknown language: </span><span class="si">#{</span><span class="n">lang</span><span class="si">}</span><span class="s2">.&quot;</span>
+</span><span class="line">        <span class="k">end</span>
+</span><span class="line">        <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="n">f</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">highlighted_code</span><span class="p">)</span> <span class="p">}</span>
+</span><span class="line">      <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>把这里的</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="k">raise</span> <span class="s2">&quot;Pygments can&#39;t parse unknown language: </span><span class="si">#{</span><span class="n">lang</span><span class="si">}</span><span class="s2">.&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>修改成</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="k">raise</span> <span class="s2">&quot;Pygments can&#39;t parse unknown language: </span><span class="si">#{</span><span class="n">lang</span><span class="si">}#{</span><span class="n">code</span><span class="si">}</span><span class="s2">.&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>可以使得<code>rake generate</code>编译时，把有问题的部分抛出来。</p>
+
+<p>通过这个方法，我最终确定了我这里的情况是，用来标记 code block 的<code>```</code>符号和段落符号<code>&lt;/p&gt;</code>放在一起时产生某种错误（反正我是试不出怎么回事）。最后我用<code>~~~</code>代替了<code>```</code>（同样是 Markdown 标记代码的符号），终于没有编译错误了。</p>
+
+<h4 id="section">后记</h4>
+
+<p>写这篇文章的时候，遇到一个问题，就是不知道怎么让 Markdown 显示 <code>`</code>这个符号，后来发现了解决方法：</p>
+
+<p>显示一个撇<code>`</code>，可以用两个撇来包裹</p>
+
+<pre><code>`` ` ``(两撇，空格，一撇，空格，两撇)  
+</code></pre>
+
+<p>显示两个撇<code>``</code>，可以用三个撇来包裹</p>
+
+<pre><code>``` `` ```(三撇，空格，两撇，空格，三撇)
+</code></pre>
+
+<p>以此类推。</p>
+
+<h4 id="section-1">参考：</h4>
+
+<p>构建：<a href="http://dreamrunner.org/blog/2014/03/09/octopresszhong-shi-yong-latexxie-shu-xue-gong-shi/">Octopress中使用Latex写数学公式</a><br />
+修复：<a href="http://lvraikkonen.github.io/blog/2015/08/08/adding-support-for-math-formula/">配置Octopress支持LaTex数学公式</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">波儿比 Bobbie</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-08-06T19:11:58-04:00'><span class='date'>08-06-16</span> <span class='time'>19:11</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/latex/'>latex</a>, <a class='category' href='/blog/categories/technology/'>technology</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://bobbielf2.github.io/blog/2016/08/06/shu-xue-blog/" data-via="" data-counturl="http://bobbielf2.github.io/blog/2016/08/06/shu-xue-blog/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/" title="Previous Post: 拥有你的个人博客">&laquo; 拥有你的个人博客</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/08/11/dimensional-analysis/" title="Next Post: Dimensional Analysis">Dimensional Analysis &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/09/13/fluid-or-solid/">Fluid or Solid?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/09/12/human-brain-works-logarithmically/">Human Brain Works Logarithmically</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/29/ying-wen-ge-ci/">谁说英文歌词都没有深度？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/28/guan-li-yin-yong-wen-xian/">管理引用文献</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/25/shu-xue-shi-fa-ming-huan-shi-fa-xian/">数学是发明还是发现</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Bowei "Bobbie" Wu . -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'bobbies-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://bobbielf2.github.io/blog/2016/08/06/shu-xue-blog/';
+        var disqus_url = 'http://bobbielf2.github.io/blog/2016/08/06/shu-xue-blog/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Latex | Bobbie's Blog]]></title>
+  <link href="http://bobbielf2.github.io/blog/categories/latex/atom.xml" rel="self"/>
+  <link href="http://bobbielf2.github.io/"/>
+  <updated>2016-11-25T18:32:52-05:00</updated>
+  <id>http://bobbielf2.github.io/</id>
+  <author>
+    <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[管理引用文献]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/08/28/guan-li-yin-yong-wen-xian/"/>
+    <updated>2016-08-28T00:31:02-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/08/28/guan-li-yin-yong-wen-xian</id>
+    <content type="html"><![CDATA[<p>管理文献对于做研究或者各种技术工程师都是很重要的事情。需要资料时要快速查得到，运用资料时要给出出处，这就要平时把文献资料整理得井井有条；尤其当文献数量达到上百甚至上千条，没有有效的管理方法简直寸步难行。</p>
+
+<p>于是专业人员都会用到软件来管理文献。比如文章 <a href="http://pne.people.si.umich.edu/PDF/howtoread.pdf">How to read a book</a> 就提到一些常用的文献管理软件(Reference Management Software)。</p>
+
+<h4 id="section">市面上的文献管理软件</h4>
+
+<p>个人测试过以下这几个最流行的软件</p>
+
+<ul>
+  <li>EndNote：据说挺好用，但是（1）需要花稍多一点的时间学习使用，（2）收费，差不多 80 大洋。网络 basic 版免费，但是试用了一下并不方便，也有导入数量限制。</li>
+  <li>Papers：据说很好用，但是收费，学生版差不多 50 大洋。iPad 版免费，但是只用 iPad 版而没有桌面版也是很不方便。</li>
+  <li>Bookends：优势是可以找 Amazon 上的书，不用费神想到底要连哪个出版商的数据库。</li>
+  <li>Mendeley：暂时觉得最好用的一个。免费。可以把 PDF 文献原文拖入软件窗口，就会帮你自动识别 citation 信息，虽然并不总是准确，但如果知道 DOI 的话可以自动更正。在 mendeley 中可以连接到本地 PDF，并且直接打开做笔记挺方便。</li>
+  <li>BibDesk：神器，免费，原生支持 <a href="http://www.bibtex.org/">BibTeX</a> (BibTeX 是基于 <a href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a> 的文献管理软件)。适合习惯用 LaTeX 写论文的人 (理工科写论文基本标配用 LaTeX )。就用它了！</li>
+</ul>
+
+<blockquote>
+  <p>Remark: 如果不怎么用 LaTeX 写论文的话，Mendeley 就很好用。以前大部分人都用 Mendeley，现在很多科研人员不用的原因是因为“洁癖”： Mendeley 被 Elsevier (爱思唯尔出版社) 收购了，Elsevier 在学术界变得“臭名昭著”可以参考 <a href="https://en.wikipedia.org/wiki/The_Cost_of_Knowledge">Wikipedia: The Cost of Knowledge</a>，中文参考 <a href="http://news.sciencenet.cn/htmlnews/2012/7/266578.shtm">科学网：逾万科学家联名抵制爱思唯尔</a>。</p>
+</blockquote>
+
+<!--more-->
+
+<h4 id="bibdesk">BibDesk</h4>
+
+<p>这里有一篇介绍 <a href="http://www.mit.edu/people/lucylim/BibDesk.html">为什么要用 BibDesk</a> 的文章，作者是 NASA 的物理科学家 Lucy F. G. Lim。主要就是上面提到的三个优点：</p>
+
+<ul>
+  <li>可以做你想做的一切</li>
+  <li>原生支持 BibTeX</li>
+  <li>免费</li>
+</ul>
+
+<p>在 BibDesk 新增文献引用信息的条目很简单：只要找到文章的 BibTeX 形式的引用信息，command-C 复制到剪贴版，然后在 BibDesk 窗口按 alt-command-L 就自动把剪贴版的信息生成新的条目了。</p>
+
+<h4 id="ads--arxiv">两个很有用的在线数据库：ADS 和 arXiv</h4>
+
+<p>录入文献的引用信息，是整理文献的第一步，也是最机械最烦人的一步。如果有现成整理好的信息直接导入成 BibTeX 那该多好！幸好大家都是这么想的，you are not alone。早有牛人意识好这个需求，建立了收集文献信息的在线数据库，最著名的有 ADS 和 arXiv。配合 Google Scholar 的强大搜索功能，几乎所向披靡。</p>
+
+<ul>
+  <li><a href="http://adswww.harvard.edu/">ADS (Astrophysics Data System)</a> 是由美国宇航局（NASA）开发、哈佛大学（Harvard）天体物理中心运营的在线数据库，上面保存了大量的 astronomy 和 physics 的科研论文。论文不一定是同行评审过的。论文的 abstract 和 citation 信息都完整可查，而且几乎所有文章原文都可以 GIF 或者 PDF 的形式获取。</li>
+  <li><a href="http://arxiv.org/">arXiv.org</a> 是由物理学家 Paul Ginsparg 开发、现由康奈尔大学（Cornell）运营的在线数据库，保存科研论文的预印本（preprint），涉及的学科包括 mathematics, physics, astronomy, computer science, quantitative biology, statistics, quantitative finance。所有文章的原文都可以 PDF 形式获取，论文的 abstract 和 citation 信息都完整可查。</li>
+  <li><a href="https://scholar.google.com/">Google Scholar</a> 可以搜索到包括上面提到的数据库在内的文献，而且自带把 Citation 输出成包括 BibTeX 在内的多种格式的功能。</li>
+</ul>
+
+<blockquote>
+  <p>Remark: 另外也要善用学校图书馆。各个大学的图书馆都有统一订阅了主流出版社的在线数据库，学生可以免费获得大量文章和书籍。</p>
+</blockquote>
+
+<h4 id="adsbibdesk">再安利一个软件：adsbibdesk</h4>
+
+<p>这里再介绍多一种方式：用 <a href="https://pypi.python.org/pypi/adsbibdesk">adsbibdesk</a> 软件导入 citation 到 BibDesk。顾名思义 adsbibdesk 可以把 ADS 或者 arXiv 上的数据自动整理导入到 BibDesk 中。</p>
+
+<p>使用方法很简单，按照 <a href="https://pypi.python.org/pypi/adsbibdesk">adsbibdesk</a> 主页指示安装好软件之后，就可以用 <code>adsbibdesk</code> 命令导入信息了。</p>
+
+<p>导入时，在 BibDesk 打开想要修改的 .bib 文档，然后用 <code>adsbibdesk</code> 命令导入信息。用这个命令需要找到文章的 <strong>ADS 识别码</strong> (ADS bibcode)，在命令行运行</p>
+
+<p><code>batch
+adsbibdesk 1998ApJ...500..525S
+</code></p>
+
+<p>或者找到 <strong>arXiv 识别码</strong> （arXiv identifier），在命令行运行</p>
+
+<p><code>batch
+adsbibdesk 1401.3068
+</code></p>
+
+<p>或者找到 <strong>DOI 码</strong>（Digital Object Identifier），在命令行运行</p>
+
+<p><code>batch
+adsbibdesk 10.1137/S0036144502417715
+</code></p>
+
+<p>都可以把 citation 信息添加到 .bib 文档。</p>
+
+<h4 id="section-1">后记</h4>
+
+<p>网上还有很多比较不同管理软件的文章，比如</p>
+
+<ul>
+  <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Comparison_of_reference_management_software">Comparison of reference management software</a></li>
+  <li>密大图书馆 Research Guides: <a href="http://guides.lib.umich.edu/citationmanagementoptions">Citation management software</a></li>
+  <li>数据科学家 Max Masnick 的博客：
+<a href="https://www.maxmasnick.com/2015/02/28/reference-managers/">Thoughts on Reference Management Software</a></li>
+</ul>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[写数学 Blog]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/08/06/shu-xue-blog/"/>
+    <updated>2016-08-06T19:11:58-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/08/06/shu-xue-blog</id>
+    <content type="html"><![CDATA[<p><a href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html">上一篇文章</a>讲了如何用 Octopress 在 GitHub 上搭建个人主页，今天这篇写给可爱的科研狗们，介绍怎么样让网页兼容 LaTeX！首先看看效果：</p>
+
+<ul>
+  <li>LaTeX 行间模式（displayed math）</li>
+</ul>
+
+<p><code>latex latex
+$$
+\begin{align}
+\mbox{欧拉公式：} &amp; e^{i\pi} + 1 = 0\\
+\mbox{牛顿公式：} &amp; x_{i+1} = \frac{1}{2}\left(x_i+\frac{2}{x_i}\right)
+\end{align}
+$$
+</code></p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{align}
+\mbox{欧拉公式：} & e^{i\pi} + 1 = 0\\
+\mbox{牛顿公式：} & x_{i+1} = \frac{1}{2}\left(x_i+\frac{2}{x_i}\right)
+\end{align} %]]&gt;</script>
+
+<!--more-->
+
+<ul>
+  <li>LaTeX 内嵌模式（inline math）</li>
+</ul>
+
+<p><code>latex latex
+爱因斯坦说过：$E = mc^2$
+</code></p>
+
+<p>爱因斯坦说过：$E = mc^2$</p>
+
+<h4 id="markdown-kramdown--mathjax">让 Markdown 显示数学公式：kramdown 和 MathJax</h4>
+
+<h5 id="kramdown--rdiscount">1, 用 kramdown 代替 rdiscount</h5>
+
+<p>Octopress 中默认的 rdiscount 不支持把 Markdown 中的 LaTeX 公式呈现出来，所以要换成 <a href="http://kramdown.gettalong.org/">kramdown</a>（这个 Markdown 转换器也是开源的，他家号称全球最快）。</p>
+
+<ul>
+  <li>安装 kramdown，运行命令</li>
+</ul>
+
+<p><code>bash
+gem install kramdown
+</code></p>
+
+<p>如果系统安全系数太高（OS X 10.11）就用</p>
+
+<p><code>bash
+gem install -n /usr/local/bin kramdown
+</code></p>
+
+<ul>
+  <li>修改 Octopress 的<code>_config.yml</code>配置文件，把全部<code>rdiscount</code>都改成<code>kramdown</code></li>
+  <li>修改 Octopress 的<code>Gemfile</code>，把里面的<code>gem 'rdiscount', '~&gt; 2.0'</code>改成<code>gem 'kramdown'</code></li>
+</ul>
+
+<h4 id="mathjax">2, 配置 MathJax</h4>
+
+<p>在<code>/source/_includes/custom/head.html</code>文件里添加</p>
+
+<p><code>html head.html
+&lt;!-- mathjax config similar to math.stackexchange --&gt;
+&lt;script type="text/x-mathjax-config"&gt;
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+&lt;/script&gt;
+&lt;script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"&gt;&lt;/script&gt;
+</code></p>
+
+<h4 id="mathjax--bug">3, 修复 MathJax 在页面中右键变白屏的 bug</h4>
+
+<p>修改 Octopress 的<code>/sass/base/_theme.scss</code>文件，把代码中的</p>
+
+<p><code>sass _theme.scss
+&gt; div {
+     background: $sidebar-bg $noise-bg;
+     border-bottom: 1px solid $page-border-bottom;
+     &gt; div {
+</code></p>
+
+<p>加入<code>#main</code>，变成</p>
+
+<p><code>sass sass
+&gt; div#main {
+     background: $sidebar-bg $noise-bg;
+     border-bottom: 1px solid $page-border-bottom;
+     &gt; div {
+</code></p>
+
+<h4 id="pygments-">4, 修复 Pygments 的问题</h4>
+
+<p>这个是新版本出现的问题。使用 kramdown 之后，以前写的博客突然编译不出来了；当你运行 rake generate 时候，会报错：</p>
+
+<pre><code>Error: Pygments can't parse unknown language: &lt;/p&gt;
+</code></pre>
+
+<p>原因是最新版的 Pygments 这个插件对于 Markdown 的书写要求更严格了。</p>
+
+<p>为了找出原来，可以修改 Pygments 的报错代码，在<code>/plugins/pygments_code.rb</code>文件中:</p>
+
+<p><code>ruby pygments_code.rb
+def self.pygments(code, lang)
+    if defined?(PYGMENTS_CACHE_DIR)
+      path = File.join(PYGMENTS_CACHE_DIR, "#{lang}-#{Digest::MD5.hexdigest(code)}.html")
+      if File.exist?(path)
+        highlighted_code = File.read(path)
+      else
+        begin
+          highlighted_code = Pygments.highlight(code, :lexer =&gt; lang, :formatter =&gt; 'html', :options =&gt; {:encoding =&gt; 'utf-8', :startinline =&gt; true})
+        rescue MentosError
+          raise "Pygments can't parse unknown language: #{lang}."
+        end
+        File.open(path, 'w') {|f| f.print(highlighted_code) }
+      end
+</code></p>
+
+<p>把这里的</p>
+
+<p><code>ruby
+raise "Pygments can't parse unknown language: #{lang}."
+</code></p>
+
+<p>修改成</p>
+
+<p><code>ruby
+raise "Pygments can't parse unknown language: #{lang}#{code}."
+</code></p>
+
+<p>可以使得<code>rake generate</code>编译时，把有问题的部分抛出来。</p>
+
+<p>通过这个方法，我最终确定了我这里的情况是，用来标记 code block 的<code>```</code>符号和段落符号<code>&lt;/p&gt;</code>放在一起时产生某种错误（反正我是试不出怎么回事）。最后我用<code>~~~</code>代替了<code>```</code>（同样是 Markdown 标记代码的符号），终于没有编译错误了。</p>
+
+<h4 id="section">后记</h4>
+
+<p>写这篇文章的时候，遇到一个问题，就是不知道怎么让 Markdown 显示 <code>`</code>这个符号，后来发现了解决方法：</p>
+
+<p>显示一个撇<code>`</code>，可以用两个撇来包裹</p>
+
+<pre><code>`` ` ``(两撇，空格，一撇，空格，两撇)  
+</code></pre>
+
+<p>显示两个撇<code>``</code>，可以用三个撇来包裹</p>
+
+<pre><code>``` `` ```(三撇，空格，两撇，空格，三撇)
+</code></pre>
+
+<p>以此类推。</p>
+
+<h4 id="section-1">参考：</h4>
+
+<p>构建：<a href="http://dreamrunner.org/blog/2014/03/09/octopresszhong-shi-yong-latexxie-shu-xue-gong-shi/">Octopress中使用Latex写数学公式</a><br />
+修复：<a href="http://lvraikkonen.github.io/blog/2015/08/08/adding-support-for-math-formula/">配置Octopress支持LaTex数学公式</a></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Science | Bobbie's Blog]]></title>
+  <link href="http://bobbielf2.github.io/blog/categories/science/atom.xml" rel="self"/>
+  <link href="http://bobbielf2.github.io/"/>
+  <updated>2016-11-25T18:32:52-05:00</updated>
+  <id>http://bobbielf2.github.io/</id>
+  <author>
+    <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fluid or Solid?]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/09/13/fluid-or-solid/"/>
+    <updated>2016-09-13T20:26:57-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/09/13/fluid-or-solid</id>
+    <content type="html"><![CDATA[<p>This is something I learned today from the Fluid Mechanics class in the Chemical Engineering department, class number CHE 527.</p>
+
+<p>We have had the intuitive ideas about what a fluid is versus what a solid is. A solid is something that can resist shear stress, and will maintain its shape, while a fluid is something that will deform continuously when a shear is applied to it, without changing back to the original shape.</p>
+
+<p>But there are many substances in the world that cannot be classified into solid or fluid with the above simple and intuitive definitions. Here are some examples:</p>
+
+<h4 id="silly-putty">Silly putty:</h4>
+
+<!--more-->
+
+<p><img src="/images/blog_figures/Silly_Putty.jpg" width="200"></p>
+
+<p>The silly putty is a moldable toy that you can stretch and shape it into any shapes. With a glance it looks like a solid, does not seem to flow like a fluid, and you may even bounce it like a ball. But this is only true in short term, if you put in a container and give it a rest, in long term it will start to look like a fluid; the piece of silly putty will flow (slowly) and eventually take the shape of the container.</p>
+
+<h4 id="mayonnaise">Mayonnaise:</h4>
+
+<p><img src="/images/blog_figures/mayonnaise.jpg" width="200"></p>
+
+<p>Mayonnaise is a comment condiment. If a lump of mayo sits there, it won’t flow and will stay as it is, like solid would do. But if the same lump of mayo is sheared by a small (but big enough) stress, it will start to deform continuously like a fluid and never come back to the initial shape. (Toothpaste has the similar property.)</p>
+
+<h4 id="orbitz-a-drink">Orbitz (a drink)</h4>
+
+<p><img src="/images/blog_figures/orbitz.jpg" width="200"></p>
+
+<p>The Orbitz was once a popular beverage. Inside the transparent drink you can see some little solid “beads” suspended in the fluid. A remarkable fact is that although the “beads” have different density than the fluid, will neither sink nor rise and will just stay in the same position provided the bottle of drink is put stationary. On the other hand, if you simply give the bottle a shake, the beads will start flowing (swimming) around right away, making it obvious that the drink is a fluid. The reason behind this is that, the fluid in the bottle is somehow like the mayonnaise, it requires a certain (small but big enough) shear stress to flow like a fluid, otherwise it just stay put like a solid; the bare gravitational force is not enough to move the fluid.</p>
+
+<p>Glass, on the other hand, is not strictly a solid. The glass has relatively small viscosity in high temperature and can flow like honey, in low temperature the glass will become (much) harder to deform, but nevertheless can be essentially treated as a “fluid” with super high viscosity.</p>
+
+<p>In summary, we have come to the funny conclusion that <strong>the Orbitz beverage technically consists of a fluid container (the glass bottle) holding a solid (the drink) inside.</strong></p>
+
+<h4 id="corn-starch">Corn starch:</h4>
+
+<p><img src="/images/blog_figures/Tara-Corn-Starch.jpg" width="400"></p>
+
+<p>Like silly putty, the corn starch when subject to sudden and huge impact will behave like a solid; you can even walk on a pool of corn starch (shown in the picture) as long as you move fast enough. But if you move slowly in this pool (i.e. shearing the corn starch slowly), it starts to behave like a fluid and sinks you inside.</p>
+
+<p>All these examples remind us that we need to re-think our (intuitive) definitions for fluid and solid. Strictly speaking, nothing in this world is completely a solid or fluid, but there exists a spectrum between the two extreme states, some substances are more fluidlike while some others are more solidlike.</p>
+
+<p>Let’s summarize with a verse in the Bible: “The mountains flowed before the Lord” - prophet Deborah (Judges 5:5).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Human Brain Works Logarithmically]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/09/12/human-brain-works-logarithmically/"/>
+    <updated>2016-09-12T11:20:24-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/09/12/human-brain-works-logarithmically</id>
+    <content type="html"><![CDATA[<p><em>Do you know that our brain works logarithmically?</em></p>
+
+<ol>
+  <li>Do this exercise:
+    <ul>
+      <li>Draw a number line</li>
+      <li>Mark $0$ and $1,000,000,000$ on the line.</li>
+      <li>Ask yourself a question: where is $1,000$?</li>
+    </ul>
+  </li>
+  <li>Many people put $1,000$ at the $1/3$ position. Note that $1,000=10^3$, $1,000,000,000=10^9$, where $9$ is triple of $3$. This implies that we perceive number logarithmically!</li>
+  <li>Not only <strong>size</strong> of a number, but also <strong>weight</strong> of an object, <strong>loudness</strong> of a sound, <strong>brightness</strong> of a star, <strong>spiciness</strong> of a chili, all of these are perceived logarithmically by the human brain.</li>
+  <li>Such logarithmic law is known more than 100 years ago, under the name “<a href="https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law"><strong>Weber-Fechner law</strong></a>” in psychophysics.</li>
+</ol>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[不要计算]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/08/17/bu-yao-ji-suan/"/>
+    <updated>2016-08-17T13:01:14-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/08/17/bu-yao-ji-suan</id>
+    <content type="html"><![CDATA[<p>计算是一种需要被抵制的诱惑。有经验的人对于计算这个工具，都持谨慎的态度：</p>
+
+<blockquote>
+  <p>A computation is a temptation that should be resisted as long as possible.<br />
+- John P. Boyd (Michigan)</p>
+</blockquote>
+
+<blockquote>
+  <p>Never do a calculation until you already know the answer.<br />
+- John Wheeler</p>
+</blockquote>
+
+<p>更有甚者，以反讽态度强调理论之于计算的重要性。</p>
+
+<blockquote>
+  <p>Six months in the lab can save you a day in the library.<br />
+- Albert Migliori</p>
+</blockquote>
+
+<!--more-->
+
+<p>后人补充</p>
+
+<blockquote>
+  <p>Six months in the lab will save you: Half a day in the library or 30 minutes searching online.<br />
+- Paul G. Kotula</p>
+</blockquote>
+
+<p>好像大家都在贬低计算的作用，尽管我的爱豆 Trefethen 说过计算是一门伟大的科学：</p>
+
+<blockquote>
+  <p>There are three great branches of science: theory, experiment, and computation.</p>
+</blockquote>
+
+<p>传说中的 Knuth 也以计算作为验证科学的标准：</p>
+
+<blockquote>
+  <p>Science is what we understand well enough to explain to a computer. Art is everything else we do.</p>
+</blockquote>
+
+<p>正如所有科学家一样，大家都明白计算机是现代科学一个最最重要的发明。因为计算机导致计算能力的提升，我们可以用前所未有的方法去进行科学研究：计算卫星轨道，模拟湍流，模拟黑洞，挑战人类顶尖棋手。不敢想像没有发明计算机的世界会是怎么样的。如果说中世纪宗教统治的欧洲是“黑暗中世纪”，那以前没有计算机的所有时代就是“黑暗蜗牛时代”。</p>
+
+<p><em>既然计算这么好，为什么前辈们都在“贬低”计算呢？</em></p>
+
+<p>所有认真写过代码的人，无论是在学校学习的学生还是在业界工作的程序猿，都尝过 debug 的痛苦，著名的“九十-九十法则”说过：</p>
+
+<blockquote>
+  <p><strong>Ninety-ninety rule</strong>:
+The first 90% of the code takes 90% of the time. The remaining 10% takes the other 90% of the time.</p>
+</blockquote>
+
+<p>代码纠错是任何项目中最最烦人的过程。而“贬低”计算的前辈们就是那些成功打败各种 bug 生存下来的佼佼者。说到底，他们强调了一件事：<strong>理解</strong>与<strong>计算</strong>的关系。</p>
+
+<h3 id="section">理解 — 计算</h3>
+
+<ul>
+  <li>计算是用来验证你是不是理解一个概念或者方法的。如果你已经理解，计算的成功验证可以给你更多的信心；如果计算没有验证成功，你也找不出 bug 在哪里，那只说明一件事，你还没有完全理解。所以<strong>理解是计算的前提</strong>。</li>
+  <li>计算是运用理解力去实践创造的过程。理解一个理论之后，你就可以通过计算让理论在现实中派上用场。比如理解了建筑学和材料科学，就可以用模拟地震来研究建筑结构的薄弱部分；但是模拟出残垣断壁，并不能反过来让你自动学会材料科学。又比如理解了椭圆积分，就可以运用 AGM 算法来轻易算出 $\pi$ 到数亿位的精度；但是通过读 AGM 算法那几行简单的代码，并不能反过来告诉你它为什么这么有效，也不能教会你椭圆积分。<strong>理解是计算的前提</strong>。</li>
+</ul>
+
+<blockquote>
+  <p>附上计算 $\pi$ 的 AGM 算法，看看代码简单到什么程度，看看光看代码你能学会什么。</p>
+</blockquote>
+
+<p><code>matlab 
+% MATLAB code: compute Pi via AGM
+y = sqrt(sqrt(2));
+x = (y+1/y)/2;
+p = 2+sqrt(2);
+for i = 1:6
+    fprintf('%21.16g\n',p)
+    p = p*(1+x)/(1+y);
+    s = sqrt(x);
+    y = (y*s+1/s)/(1+y);
+    x = (s+1/s)/2;
+end
+</code></p>
+
+<p>所以，当你的程序有 bug 时，你应该做的不是死抠每一行代码，而是停止 debug，回去审视这些代码所基于的理论，让理论告诉你问题在哪里。这里再次引用那句话：</p>
+
+<blockquote>
+  <p>Never do a calculation until you already know the answer.</p>
+</blockquote>
+
+<p>真正的理解会告诉你答案，计算能做的只是验证和运用你的理解。</p>
+
+<blockquote>
+  <p>Things may seem magical, but to the people who understand math there is no magic. - Bobbie</p>
+</blockquote>
+]]></content>
+  </entry>
+  
+</feed>

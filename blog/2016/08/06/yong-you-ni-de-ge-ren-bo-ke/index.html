@@ -1,0 +1,533 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>拥有你的个人博客 - Bobbie's Blog</title>
+  <meta name="author" content="Bowei "Bobbie" Wu .">
+
+  
+  <meta name="description" content="每个人或多或少，某时某地，都想表达自己，最有收益的表达方法莫过于写 Blog！ 搭建个人博客一直是我想做的事。之前试过在不同的地方栖息，包括 QQ 空间和 weebly，写的都是纯文字。后来想写带数学公式的文章，发觉只能把公式制作成图片插入文章，极其麻烦。然后我的好基友 Kuphrer 对我说：“ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://bobbielf2.github.io/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Bobbie's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Bobbie's Blog</a></h1>
+  
+    <h2>Boys be ambitious.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="bobbielf2.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/aboutme/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">拥有你的个人博客</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-06T15:57:31-04:00'><span class='date'>08-06-16</span> <span class='time'>15:57</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>每个人或多或少，某时某地，都想表达自己，最有收益的表达方法莫过于写 Blog！</p>
+
+<p>搭建个人博客一直是我想做的事。之前试过在不同的地方栖息，包括 QQ 空间和 <a href="bobbielf2.weebly.com/index.html">weebly</a>，写的都是纯文字。后来想写带数学公式的文章，发觉只能把公式制作成图片插入文章，极其麻烦。然后我的好基友 Kuphrer 对我说：“没有原生latex不博客啊！”于是在他的指导下搭了一个 WordPress，又要另外弄存储空间又要备份什么的，弄得我这个网络小白晕头转向，终于还是没有坚持下去。</p>
+
+<p>斗转星移，technology 一日千里，最近学习和编程的需要让我开始了解GitHub，发现这是一个大牛云集的宝地，而且只要项目是开源的就可以免费任意上传文件，而且没有广告，没有任何限制，简直就是搭建个人 Blog 的理想国。在网上搜了一下教程之后，我的博客搭建之旅开始了！</p>
+
+<!--more-->
+
+<h3 id="section">一、 预备知识</h3>
+
+<h4 id="github">什么是 GitHub？</h4>
+
+<p>Git 和 GitHub 并不是同一个东西。Git 是一个版本控制软件，而 GitHub 是一个公司，他家提供基于 git 的版本托管服务。因为 GitHub 上的开源项目的托管是<strong>免费的</strong>，全球最著名的开源社区和大公司的程序猿都聚集在这里。比如大公司都包括：</p>
+
+<ul>
+  <li><a href="https://github.com/google">Google</a></li>
+  <li><a href="https://github.com/apple">Apple</a></li>
+  <li><a href="https://github.com/facebook">Facebook</a></li>
+  <li><a href="https://github.com/twitter">Twitter</a></li>
+  <li><a href="https://github.com/microsoft">Microsoft</a></li>
+  <li><a href="https://github.com/alibaba">阿里巴巴</a></li>
+  <li>…</li>
+</ul>
+
+<p>开源项目包括</p>
+
+<ul>
+  <li><a href="https://github.com/torvalds/linux">Linux</a></li>
+  <li><a href="https://github.com/apple/swift">Swift</a></li>
+  <li><a href="https://github.com/ruby/ruby">Ruby</a></li>
+  <li>…</li>
+</ul>
+
+<h4 id="octopress">什么是 Octopress</h4>
+
+<p>Octopress 是一个基于 <strong>Jekyll</strong> 的<em>静态博客架构</em>（static blogging framework）。换句话说就是有个人使用 Jekyll 这个东西建了一个叫做 Octopress 的博客模版，我们可以修改它来建自己的博客，免去很多从头建设的技术上的麻烦。那 Jekyll 又是什么东东？</p>
+
+<p>Jekyll 是一个对写作者友好的<em>网页模版系统</em>（web template system），能够处理文本文档生成<em>静态网站</em>（static site, 访问速度远远快于动态网站，因为动态网站是每次访问都重新生成的）。按它开发者的话来说，Jekyll 具有 “blog-aware（博客意识）” 的特点，意思是说它是为博客而生的，写作者用它来发布文章时，只需要处理好文字，而不用费神去处理数据库和网页内容管理之类的技术问题。当然，“好用”是基于不同人的体验的，对于我这种技术小白来说，学会 Jekyll 还是有点麻烦的，所以才要用 Octopress 这个现成模版。</p>
+
+<blockquote>
+  <p>Remark: Jekyll 是用 <a href="https://en.wikipedia.org/wiki/Ruby_(programming_language)">Ruby 编程语言</a>写出来的软件。
+<br />
+所有用 Ruby 写出来的软件都是用 <a href="https://en.wikipedia.org/wiki/RubyGems">RubyGems</a> 这个<em>软件包管理系统</em>（package manager）分发安装的。在 RubyGems 中，一个封装好的软件叫 Gem。RubyGems 的命令一般是用 <code>gem</code> 开头的。当需要安装不止一个软件甚至一些第三方软件包的时候，可以用 Bundler（另一个 Ruby 软件）来批量处理，命令以 <code>bundle</code> 开头，被执行的命令写在一个 Gemfile 里面。
+<br />
+Ruby 和其他编程语言一样可以执行脚本，叫做 Rakefile（类似 C 语言里面的 Makefile），方便编译运行 Ruby 程序。Rakefile 用 <code>rake</code> 执行（类似 Makefile 用 <code>make</code> 执行）。
+<br />
+综上所述，等下安装 Jekyll 和 Octopress 时首先要安装 Ruby， RubyGems 和 Bundler。</p>
+</blockquote>
+
+<h3 id="section-1">二、 安装博客的流程</h3>
+
+<h4 id="git--ruby--rubygems">1. 安装 Git 和 Ruby (以及 RubyGems)</h4>
+
+<p>如果用 Mac 的话有自带的 Git 和 Ruby 2.0，不需要安装。需要的话 git 可以从<a href="http://git-scm.com/downloads">这里</a>下载和安装。用 <code>ruby -v</code> 可以查询当前 Ruby 版本。新版的 Ruby 自带 RubyGems，所以也不用特别安装，如果没有的话可以在<a href="https://rubygems.org/">这里</a>安装。</p>
+
+<h4 id="rbenv">1.5 安装 rbenv</h4>
+
+<p>如果你的系统用 Mac OS，系统自带 Ruby，然而这个 Ruby 的目录（<code>/Library/Ruby/Gems/</code>）你是没有权限直接修改的，用<code>sudo</code>也不行。所以需要一个“虚拟机”：安装另一个版本的 Ruby 在虚拟机上就可以自由修改了。主流的 Ruby 虚拟机（又叫版本管理器，Ruby Version Manager）有 rbenv 和 RVM。</p>
+
+<p>我用的是 rbenv。安装方法极其简单，用 Mac 自带的软件管理器 Homebrew 来安装，命令是 <code>brew</code></p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">brew update
+</span><span class="line">brew install rbenv
+</span></code></pre></td></tr></table></div></figure>
+
+<p>安装好了之后运行</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rbenv init
+</span></code></pre></td></tr></table></div></figure>
+
+<p>系统会返回指令，教你怎么配置 rbenv。具体来说就是打开 <code>~/.bash_profile</code> 文件，在里面加入一行</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nb">eval</span> <span class="s2">&quot;$(rbenv init -)&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>重启 terminal 或者执行 <code>source ~/.bash_profile</code> 马上生效。</p>
+
+<h4 id="octopress-1">2. 安装 Octopress</h4>
+
+<p>有了 rbenv 一切都简单了，首先安装 Jekyll 和 Bundler，运行以下命令即可：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">gem install jekyll
+</span><span class="line">gem install bundler
+</span></code></pre></td></tr></table></div></figure>
+
+<p>如果在 Mac 用 rbenv 安装的话，装好 bundler 之后就更新 rbenv 以便之后使用 <code>bundle</code> 命令:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rbenv rehash
+</span></code></pre></td></tr></table></div></figure>
+
+<p>终于！到了建立 Octopress 的时候了。 首先为你的网站文档新建一个文件夹，假设是 <code>/Users/YOURNAME/Sites</code>，然后把 Octopress 的文档用 git 下载到里面：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nb">cd</span> ~/Sites
+</span><span class="line">git clone git://github.com/imathis/octopress.git octopress
+</span><span class="line"><span class="nb">cd </span>octopress
+</span></code></pre></td></tr></table></div></figure>
+
+<p>然后用 Rake（也就是 Ruby 的 Make）来安装 Octopress：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">bundle install
+</span><span class="line">rake install
+</span></code></pre></td></tr></table></div></figure>
+
+<h4 id="github-1">3. 关联 GitHub</h4>
+
+<p>接着去 <a href="https://github.com/new">GitHub</a> 建一个新的 repository，名字要起成这样 <code>USERNAME.github.io</code>，比如我的就是 <code>bobbielf2.github.io</code>。然后用以下命令来建立 Octopress 和 GitHub 的连接：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rake setup_github_pages
+</span></code></pre></td></tr></table></div></figure>
+
+<p>执行这个命令，会让你输入 Repository url，把刚在 GitHub 建的 repository 地址输进去就好了，以下两种格式任选一个都可以</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">https://github.com/USERNAME/USERNAME.github.io <span class="c">#格式1  </span>
+</span><span class="line">git@github.com:USERNAME/USERNAME.github.io.git <span class="c">#格式2  </span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>例如我就输入</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">https://github.com/bobbielf2/bobbielf2.github.io
+</span></code></pre></td></tr></table></div></figure>
+
+<p>接着按照提示输入密码之类的，就完成和 GitHub 的关联了。</p>
+
+<h4 id="section-2">4. 生成和部署博客网站</h4>
+
+<p>连接完成之后，继续可以生成和部署网站：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rake generate
+</span><span class="line">rake deploy
+</span></code></pre></td></tr></table></div></figure>
+
+<p>把文件同步 push 到 GitHub 上</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">git add .
+</span><span class="line">git commit -m <span class="s1">&#39;create blog&#39;</span>
+</span><span class="line">git push origin <span class="nb">source</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>现在可以去你的 GitHub 网址看自己的网页了，比如我的就是 <a href="https://bobbielf2.github.io/">https://bobbielf2.github.io/</a>。</p>
+
+<p>接着可以修改网页配置，位置在 <code>octopress/_config.yml</code>。</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+</pre></td><td class="code"><pre><code class="yaml"><span class="line"><span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>                <span class="c1"># For rewriting urls for RSS, etc</span>
+</span><span class="line"><span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span>              <span class="c1"># Used in the header and title tags</span>
+</span><span class="line"><span class="l-Scalar-Plain">subtitle</span><span class="p-Indicator">:</span>           <span class="c1"># A description used in the header</span>
+</span><span class="line"><span class="l-Scalar-Plain">author</span><span class="p-Indicator">:</span>             <span class="c1"># Your name, for RSS, Copyright, Metadata</span>
+</span><span class="line"><span class="l-Scalar-Plain">simple_search</span><span class="p-Indicator">:</span>      <span class="c1"># Search engine for simple site search</span>
+</span><span class="line"><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span>        <span class="c1"># A default meta description for your site</span>
+</span><span class="line"><span class="l-Scalar-Plain">date_format</span><span class="p-Indicator">:</span>        <span class="c1"># Format dates using Ruby&#39;s date strftime syntax</span>
+</span><span class="line"><span class="l-Scalar-Plain">subscribe_rss</span><span class="p-Indicator">:</span>      <span class="c1"># Url for your blog&#39;s feed, defauts to /atom.xml</span>
+</span><span class="line"><span class="l-Scalar-Plain">subscribe_email</span><span class="p-Indicator">:</span>    <span class="c1"># Url to subscribe by email (service required)</span>
+</span><span class="line"><span class="l-Scalar-Plain">category_feeds</span><span class="p-Indicator">:</span>     <span class="c1"># Enable per category RSS feeds (defaults to false in 2.1)</span>
+</span><span class="line"><span class="l-Scalar-Plain">email</span><span class="p-Indicator">:</span>              <span class="c1"># Email address for the RSS feed if you want it.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>编辑完成后再 push 更新一次</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rake generate
+</span><span class="line">
+</span><span class="line">git add .
+</span><span class="line">git commit -m <span class="s2">&quot;settings&quot;</span>
+</span><span class="line">git push origin <span class="nb">source</span>
+</span><span class="line"><span class="nb">	</span>
+</span><span class="line">rake deploy
+</span></code></pre></td></tr></table></div></figure>
+
+<blockquote>
+  <p>Remark: 每次 commit 来确认改变之前，都要 add 来更新索引。最终 push 来把所有变化应用到当前的 branch 中。所以 commit 之前可以 add 很多次，push 之前也可以 commit 很多次。</p>
+</blockquote>
+
+<h3 id="section-3">三、 写博客</h3>
+
+<p>终于！搭建好博客，就可以开始写文章了！GitHub 上的文章严重推荐用 <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> 写。</p>
+
+<blockquote>
+  <p>题外话：Markdown 是当今很多网络写作者和程序员最爱用的格式。这种语言就一个字：简单！纯文本编辑，用简单的额外符号设置文字格式，没有像 MS Word 或者 Apple Pages 那样，不同版本不同平台就打不开文档的问题；然而又基本没什么学习成本，就能写出漂亮的排版。推荐看这个速成：
+<br />
+<a href="http://www.jianshu.com/p/q81RER">献给写作者的 Markdown 新手指南</a>。</p>
+</blockquote>
+
+<h4 id="section-4">1. 创建新的文章</h4>
+
+<p>用这个命令生成新的 Blog artcle</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rake new_post<span class="o">[</span><span class="s1">&#39;title&#39;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>生成的 Markdown 文件在 <code>octopress/source/_posts</code> 目录下</p>
+
+<h4 id="section-5">2. 编辑和发布文章</h4>
+
+<p>用 Markdown 语言写好文章，保存后可以预览： 运行 <code>rake preview </code>，然后在浏览器访问 <a href="http://localhost:4000/">http://localhost:4000/</a></p>
+
+<p>然后发布：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rake generate
+</span><span class="line">git add .
+</span><span class="line">git commit -m <span class="s2">&quot;new post&quot;</span>
+</span><span class="line">git push origin <span class="nb">source</span>
+</span><span class="line">rake deploy
+</span></code></pre></td></tr></table></div></figure>
+
+<h3 id="section-6">四、 使用不同的主题。</h3>
+
+<p>网上有很多人制作不同的网页主题（theme）。举例安装第三方主题：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="c">#这里以安装allenhsu定制的greyshade主题为例，原作者是shashankmehta</span>
+</span><span class="line">git clone git@github.com:allenhsu/greyshade.git .themes/greyshade
+</span><span class="line"><span class="c">#Substitue &#39;color&#39; with your highlight color</span>
+</span><span class="line"><span class="nb">echo</span> <span class="s2">&quot;\$greyshade: color;&quot;</span> &gt;&gt; sass/custom/_colors.scss
+</span><span class="line">rake <span class="s2">&quot;install[greyshade]&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>安装完再次更新</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rake generate
+</span><span class="line">git add .
+</span><span class="line">git commit -m <span class="s2">&quot;theme&quot;</span>
+</span><span class="line">git push origin <span class="nb">source</span>
+</span><span class="line">rake deploy
+</span></code></pre></td></tr></table></div></figure>
+
+<p>安装完 greyshade，你会发现左方导航栏上的 About me 是指向原作者的主页的，可以这样改回来：在 <code>/source/_includes/custom/navigation.html</code> 中记录了导航栏的内容</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="html"><span class="line"><span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class="line"><span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://about.me/shashankmehta&quot;</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class="line"><span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/blog/archives&quot;</span><span class="nt">&gt;</span>Archives<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>把里面的网址 <code>http://about.me/shashankmehta</code> 改成别的东西就好了。</p>
+
+<h4 id="section-7">后续参考：</h4>
+
+<p><a href="http://zwgithub.github.io/2016/06/14/%E7%94%A8Octopress%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84github%E5%8D%9A%E5%AE%A2/">设置头像，文章以摘要形式显示，评论功能</a></p>
+
+<p><a href="https://shengmingzhiqing.com/blog/octopress-tutorials-toc.html/">生命之氢 - Octopress 教程目录</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">波儿比 Bobbie</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-08-06T15:57:31-04:00'><span class='date'>08-06-16</span> <span class='time'>15:57</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/technology/'>technology</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://bobbielf2.github.io/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/" data-via="" data-counturl="http://bobbielf2.github.io/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/08/06/shu-xue-blog/" title="Next Post: 写数学 Blog">写数学 Blog &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/09/13/fluid-or-solid/">Fluid or Solid?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/09/12/human-brain-works-logarithmically/">Human Brain Works Logarithmically</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/29/ying-wen-ge-ci/">谁说英文歌词都没有深度？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/28/guan-li-yin-yong-wen-xian/">管理引用文献</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/25/shu-xue-shi-fa-ming-huan-shi-fa-xian/">数学是发明还是发现</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Bowei "Bobbie" Wu . -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'bobbies-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://bobbielf2.github.io/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/';
+        var disqus_url = 'http://bobbielf2.github.io/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

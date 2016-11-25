@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Pde | Bobbie's Blog]]></title>
+  <link href="http://bobbielf2.github.io/blog/categories/pde/atom.xml" rel="self"/>
+  <link href="http://bobbielf2.github.io/"/>
+  <updated>2016-11-25T18:32:52-05:00</updated>
+  <id>http://bobbielf2.github.io/</id>
+  <author>
+    <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Dimensional Analysis]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/08/11/dimensional-analysis/"/>
+    <updated>2016-08-11T16:00:40-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/08/11/dimensional-analysis</id>
+    <content type="html"><![CDATA[<p>Once one of my engineering friends asked me: “Why would you need all these dimensionless numbers? There are so many of them and they just complicate stuff!”</p>
+
+<p>If something is not useful, it wouldn’t have been invented in science; this is particularly true for dimensional analysis which has made great success across all fields of science.</p>
+
+<p>To put things simple, dimensional analysis has two major fundamental applications:</p>
+
+<ul>
+  <li>Simplify equations and lead to new scientific branches/specialties.</li>
+  <li>Guide scientific experiments with dynamic similitude.</li>
+</ul>
+
+<!--more-->
+
+<h4 id="simplification-of-the-navier-stokes-equation">Simplification of the Navier-Stokes equation</h4>
+
+<p>Look at the Navier-Stokes equation</p>
+
+<script type="math/tex; mode=display">\rho \left(\frac{\partial \mathbf{u}}{\partial t} + \mathbf{u}\cdot\nabla\mathbf{u}\right) = -\nabla p + \mu\Delta \mathbf{u} + \rho\mathbf{g}</script>
+
+<p>At a particular point in a flow, We may find that some term in this equation is <em>orders of magnitude</em> bigger than others. We could simplify the N-S equation by retaining those terms that matter, and eliminating those that don’t.</p>
+
+<p>How do we go about to eliminate the negligible terms? To put the conclusion first, the magnitudes of each term in the N-S equation depend on both the <strong>sturcture</strong> of the flow and <strong>location</strong> in the flow – with appropriate flow structure and at appropriate location, one can safely delete certain terms in the N-S equation. This whole process of simplfying the equations, is called <strong>dimensional analysis</strong>.</p>
+
+<h4 id="dimensional-analysis">Dimensional analysis</h4>
+
+<p>There are three steps in performing dimensional analysis.</p>
+
+<ol>
+  <li>Identify <strong>characteristic scales</strong> of a flow.
+    <ul>
+      <li>characteristic length $L$ is related to the size of the boundaries</li>
+      <li>characteristic velocity $U$ is determined by the particular mechanism driving the flow</li>
+      <li>characteristic time $T$ is either imposed by external means or simply defined as $T=L/U$.</li>
+    </ul>
+
+    <blockquote>
+      <p>For example:</p>
+
+      <ol>
+        <li>In the case of unidirectional flow through channel: $U = $ max velocity across channel.</li>
+        <li>In the case of uniform flow past stationary body: $U = $ velocity of the incident flow, $L =$ diameter of the body.</li>
+        <li>In the case of forced oscillatory flow: $T = $ period of oscillation.</li>
+      </ol>
+    </blockquote>
+  </li>
+  <li><em>Nondimensionalization</em>:
+    <ul>
+      <li>Rescale each variable in the equation into a dimensionless variable. 
+ <script type="math/tex">\hat{\mathbf{u}}:=\frac{\mathbf{u}}{U},\qquad \hat{\mathbf{x}}:=\frac{\mathbf{x}}{L},\qquad \hat{t}:=\frac{t}{T},\qquad \hat{p}:=\frac{pL}{\mu U}.</script></li>
+      <li>Rewrite the equation into a dimensionless form.
+ <script type="math/tex">\beta \frac{\partial \hat{\mathbf{u}}}{\partial \hat{t}} + \mbox{Re}\,\hat{\mathbf{u}}\cdot\hat{\nabla}\hat{\mathbf{u}} = -\hat{\nabla} \hat{p} + \hat{\nabla}^2 \hat{\mathbf{u}} + \frac{\mbox{Re}}{\mbox{Fr}^2}\frac{\mathbf{g}}{g}</script></li>
+      <li>The multiplication factors of each term are nondimensional groups, called <em>dimensionless numbers</em>
+        <ul>
+          <li>Frequency parameter: $\beta:=\frac{L^2}{\nu T}$, expresses the relative magnitudes of the inertial acceleration force and the viscous force</li>
+          <li>Reynolds number: $\mbox{Re}:=\frac{UL}{\nu}$, expresses the relative magnitudes of the inertia convective force and the viscous force</li>
+          <li>Froude number: $\mbox{Fr}:=\frac{U}{\sqrt{gL}}$ expresses the relative magnitudes of the inertial convective force and the body force</li>
+          <li>The group $\frac{\mbox{Re}}{\mbox{Fr}^2}=\frac{gL^2}{\nu U}$, expresses the relative magnitudes of the body force and the viscous force</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Eliminate the dominated terms.
+    <ul>
+      <li>If $\mbox{Re}\ll 1$ and $\beta\ll1$, the dominant terms give <strong>Stokes equation</strong>
+ <script type="math/tex">-\nabla p + \mu \nabla^2\mathbf{u}+ \rho\mathbf{g}=\mathbf{0}</script>
+ where the inertia terms go away, resulting in a quasi-steady fluid.</li>
+      <li>If $\mbox{Re}\gg 1$ and $\beta\gg1$, and rescale the pressure by $\hat{p}=\frac{p}{\rho U^2}$ instead, the dominant terms give <strong>Euler’s equation</strong>
+ <script type="math/tex">\rho \left(\frac{\partial \mathbf{u}}{\partial t} + \mathbf{u}\cdot\nabla\mathbf{u}\right) = -\nabla p + \rho\mathbf{g}</script>
+ where the viscous term goes away, making it behave like an inviscid fluid.</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="dynamic-similitude">Dynamic similitude</h4>
+
+<p>TBA.</p>
+
+<h5 id="reference">Reference:</h5>
+
+<p><a href="https://www.amazon.com/Introduction-Theoretical-Computational-Fluid-Dynamics/dp/0199752079">Pozrikidis C. (2011). Introduction to Theoretical and Computational Fluid Dynamics (2nd ed.). Oxford University Press.</a></p>
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,16 +1,960 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2016-11-25T18:08:22-05:00</updated>
+  <updated>2016-11-25T18:32:52-05:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Fluid or Solid?]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/09/13/fluid-or-solid/"/>
+    <updated>2016-09-13T20:26:57-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/09/13/fluid-or-solid</id>
+    <content type="html"><![CDATA[<p>This is something I learned today from the Fluid Mechanics class in the Chemical Engineering department, class number CHE 527.</p>
+
+<p>We have had the intuitive ideas about what a fluid is versus what a solid is. A solid is something that can resist shear stress, and will maintain its shape, while a fluid is something that will deform continuously when a shear is applied to it, without changing back to the original shape.</p>
+
+<p>But there are many substances in the world that cannot be classified into solid or fluid with the above simple and intuitive definitions. Here are some examples:</p>
+
+<h4 id="silly-putty">Silly putty:</h4>
+
+<!--more-->
+
+<p><img src="http://bobbielf2.github.io/images/blog_figures/Silly_Putty.jpg" width="200" /></p>
+
+<p>The silly putty is a moldable toy that you can stretch and shape it into any shapes. With a glance it looks like a solid, does not seem to flow like a fluid, and you may even bounce it like a ball. But this is only true in short term, if you put in a container and give it a rest, in long term it will start to look like a fluid; the piece of silly putty will flow (slowly) and eventually take the shape of the container.</p>
+
+<h4 id="mayonnaise">Mayonnaise:</h4>
+
+<p><img src="http://bobbielf2.github.io/images/blog_figures/mayonnaise.jpg" width="200" /></p>
+
+<p>Mayonnaise is a comment condiment. If a lump of mayo sits there, it won’t flow and will stay as it is, like solid would do. But if the same lump of mayo is sheared by a small (but big enough) stress, it will start to deform continuously like a fluid and never come back to the initial shape. (Toothpaste has the similar property.)</p>
+
+<h4 id="orbitz-a-drink">Orbitz (a drink)</h4>
+
+<p><img src="http://bobbielf2.github.io/images/blog_figures/orbitz.jpg" width="200" /></p>
+
+<p>The Orbitz was once a popular beverage. Inside the transparent drink you can see some little solid “beads” suspended in the fluid. A remarkable fact is that although the “beads” have different density than the fluid, will neither sink nor rise and will just stay in the same position provided the bottle of drink is put stationary. On the other hand, if you simply give the bottle a shake, the beads will start flowing (swimming) around right away, making it obvious that the drink is a fluid. The reason behind this is that, the fluid in the bottle is somehow like the mayonnaise, it requires a certain (small but big enough) shear stress to flow like a fluid, otherwise it just stay put like a solid; the bare gravitational force is not enough to move the fluid.</p>
+
+<p>Glass, on the other hand, is not strictly a solid. The glass has relatively small viscosity in high temperature and can flow like honey, in low temperature the glass will become (much) harder to deform, but nevertheless can be essentially treated as a “fluid” with super high viscosity.</p>
+
+<p>In summary, we have come to the funny conclusion that <strong>the Orbitz beverage technically consists of a fluid container (the glass bottle) holding a solid (the drink) inside.</strong></p>
+
+<h4 id="corn-starch">Corn starch:</h4>
+
+<p><img src="http://bobbielf2.github.io/images/blog_figures/Tara-Corn-Starch.jpg" width="400" /></p>
+
+<p>Like silly putty, the corn starch when subject to sudden and huge impact will behave like a solid; you can even walk on a pool of corn starch (shown in the picture) as long as you move fast enough. But if you move slowly in this pool (i.e. shearing the corn starch slowly), it starts to behave like a fluid and sinks you inside.</p>
+
+<p>All these examples remind us that we need to re-think our (intuitive) definitions for fluid and solid. Strictly speaking, nothing in this world is completely a solid or fluid, but there exists a spectrum between the two extreme states, some substances are more fluidlike while some others are more solidlike.</p>
+
+<p>Let’s summarize with a verse in the Bible: “The mountains flowed before the Lord” - prophet Deborah (Judges 5:5).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Human Brain Works Logarithmically]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/09/12/human-brain-works-logarithmically/"/>
+    <updated>2016-09-12T11:20:24-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/09/12/human-brain-works-logarithmically</id>
+    <content type="html"><![CDATA[<p><em>Do you know that our brain works logarithmically?</em></p>
+
+<ol>
+  <li>Do this exercise:
+    <ul>
+      <li>Draw a number line</li>
+      <li>Mark $0$ and $1,000,000,000$ on the line.</li>
+      <li>Ask yourself a question: where is $1,000$?</li>
+    </ul>
+  </li>
+  <li>Many people put $1,000$ at the $1/3$ position. Note that $1,000=10^3$, $1,000,000,000=10^9$, where $9$ is triple of $3$. This implies that we perceive number logarithmically!</li>
+  <li>Not only <strong>size</strong> of a number, but also <strong>weight</strong> of an object, <strong>loudness</strong> of a sound, <strong>brightness</strong> of a star, <strong>spiciness</strong> of a chili, all of these are perceived logarithmically by the human brain.</li>
+  <li>Such logarithmic law is known more than 100 years ago, under the name “<a href="https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law"><strong>Weber-Fechner law</strong></a>” in psychophysics.</li>
+</ol>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[谁说英文歌词都没有深度？]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/08/29/ying-wen-ge-ci/"/>
+    <updated>2016-08-29T10:24:36-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/08/29/ying-wen-ge-ci</id>
+    <content type="html"><![CDATA[<p>上周和朋友吃饭，听着餐厅用流行歌做BGM，聊起歌词的意思。朋友表示英文歌词都没什么深度，都是很肤浅直白的句子，比如艾薇儿、霉霉、Maroon 5 的歌大多都这样。我表示不同意，只是我们不知道哪些有深度的歌词而已，就像周杰伦的青花瓷老外大多没听过，歌词写得好的英文歌咱也很多都没听过。当时我一时没想出实例支持我的论点，后来想想，不少耳熟能详的英文老歌歌词都不错，比如 Scarborough Fair, The Sound of Silence, 歌词都很棒值得细细品味。</p>
+
+<p>昨天看一本<a href="http://press.princeton.edu/titles/8007.html">并行运算的书</a>，书的每章开头都会有一段引用文字作为引子，用来科普小历史或者纯粹增加趣味。其中关于数据依赖关系（Dependences）那一章的开头就引用了一句歌词 “I wish I didn’t know now what I didn’t know then”，来自 Bob Seger 的 “Against the Wind”。原歌词讲述了故事主角经历了很多世事之后怀念当初年轻时懵懂但拥有的那种兴奋感，现在放在“数据依赖”的语境下又多了一层玩味，看得出写这本书的几位科学家也是有感情有趣的有血有肉的人呢。</p>
+
+<!--more-->
+
+<p>在网上搜这句歌词，找到了一位 blogger 叫做 <a href="https://musingsofanoldfart.wordpress.com">musingsofanoldfart</a> (musings of an old fart)，写了一篇以这句歌词为题目的 blog，里面收集了一些值得品味的歌词，读着觉得很有感觉，特此分享一下。原 po 在这里 <a href="https://musingsofanoldfart.wordpress.com/2014/08/30/i-wish-i-didnt-know-now-what-i-didnt-know-then/">original post</a>，以下是原文：</p>
+
+<blockquote>
+  <h2 id="i-wish-i-didnt-know-now-what-i-didnt-know-then">I wish I didn’t know now what I didn’t know then</h2>
+  <p>by musingsofanoldfart
+<br />
+<br />
+I have always been a big fan of interesting song lyrics. The coining of a phrase that says more than the few words used in the song make it memorable.The above title comes from a Bob Seger song “Against the Wind” as he laments it was more exciting not knowing some things when you were younger about love and life. The following sample lyrics are not necessarily my favorites, but they are a few that represent my fascination with good wordsmithing.
+<br />
+<br />
+<strong>“See, the number on the matchbook is old and faded,”</strong> is a line from Jim Croce’s song “Operator.” He is struggling to find the number of an old girlfriend who ran off with his <strong>“best old ex-friend Ray.”</strong> Since it was written on a matchbook, it means it was probably written down in a bar, maybe when  she let him know she was leaving.
+<br />
+<br />
+<strong>“Just like a paperback novel, the kind the drugstore sells,”</strong> comes from Gordon Lightfoot’s “If you could read my mind.” He has several like this in the song, but to me he describes the cheesy romance novels you can buy in a drugstore where the hero saves the day. This is a melancholy song about people who can’t reclaim the love they once had, so the hero references are fantasy and not reality.
+<br />
+<br />
+<strong>“Clowns to the left of me, joker’s to the right, here I am stuck in the middle with you,”</strong> is a Stealers Wheel song whose title is the last phrase of the song lyric. The song can mean so many things, but it shows that we are in this together and we need to ignore the fools on either side telling us what to do. It is also a good metaphor for our political stalemate.
+<br />
+<br />
+Bob Dylan wrote and sang <strong>“How many ears must one man have, before he can hear people cry.”</strong> The song made famous by Peter, Paul and Mary’s rendition sung on the steps of the Lincoln Memorial beside Martin Luther King is called “Blowing in the Wind.”  There are great references throughout this song, but I like this one the most as African-Americans have been maltreated for so long and it seemed to resonate more.
+<br />
+<br />
+When people think of Rush, they do not first think of lyrics, but their many songs are replete with excellent wordsmithing. In the song “Free will” the words that resonate with me are <strong>“if you choose not to decide, you still have made a choice.”</strong> I found this very poignant as many do not realize that by not doing something, they are making a choice. A good example is choosing not to vote believing it makes no difference. Yet, by not voting, the lesser of two candidates can be elected making a problem worse.
+<br />
+<br />
+Of course, no list would be complete without some reference to a Beatles song. In “Lady Madonna,” Paul McCartney sings <strong>“Lady Madonna, children at your breast, it’s a wonder how you manage to feed the rest.”</strong>  This line speaks volumes of the difficulties in raising children, but especially in poverty or near poverty when you are a single parent.
+<br />
+<br />
+Let me close with romantic song from David Gates of “Bread.” The lyric goes <strong>“When my love for life has all run dry, you’ll come and pour yourself on me.”</strong>  This lyric from the song “If” resonates with me as we pick each other up. He has done all he can and needs help, so his lover comes and pour herself on him to bring his spirits back to life.
+<br />
+<br />
+I would love to hear your reaction to these and for you to share some of your favorites. These were top of mind, so I have overlooked many great lyrics.
+<br />
+<br />
+(The End)</p>
+</blockquote>
+
+<p>原 po 的评论里面还有提到别的歌词，也值得去看看。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[管理引用文献]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/08/28/guan-li-yin-yong-wen-xian/"/>
+    <updated>2016-08-28T00:31:02-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/08/28/guan-li-yin-yong-wen-xian</id>
+    <content type="html"><![CDATA[<p>管理文献对于做研究或者各种技术工程师都是很重要的事情。需要资料时要快速查得到，运用资料时要给出出处，这就要平时把文献资料整理得井井有条；尤其当文献数量达到上百甚至上千条，没有有效的管理方法简直寸步难行。</p>
+
+<p>于是专业人员都会用到软件来管理文献。比如文章 <a href="http://pne.people.si.umich.edu/PDF/howtoread.pdf">How to read a book</a> 就提到一些常用的文献管理软件(Reference Management Software)。</p>
+
+<h4 id="section">市面上的文献管理软件</h4>
+
+<p>个人测试过以下这几个最流行的软件</p>
+
+<ul>
+  <li>EndNote：据说挺好用，但是（1）需要花稍多一点的时间学习使用，（2）收费，差不多 80 大洋。网络 basic 版免费，但是试用了一下并不方便，也有导入数量限制。</li>
+  <li>Papers：据说很好用，但是收费，学生版差不多 50 大洋。iPad 版免费，但是只用 iPad 版而没有桌面版也是很不方便。</li>
+  <li>Bookends：优势是可以找 Amazon 上的书，不用费神想到底要连哪个出版商的数据库。</li>
+  <li>Mendeley：暂时觉得最好用的一个。免费。可以把 PDF 文献原文拖入软件窗口，就会帮你自动识别 citation 信息，虽然并不总是准确，但如果知道 DOI 的话可以自动更正。在 mendeley 中可以连接到本地 PDF，并且直接打开做笔记挺方便。</li>
+  <li>BibDesk：神器，免费，原生支持 <a href="http://www.bibtex.org/">BibTeX</a> (BibTeX 是基于 <a href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a> 的文献管理软件)。适合习惯用 LaTeX 写论文的人 (理工科写论文基本标配用 LaTeX )。就用它了！</li>
+</ul>
+
+<blockquote>
+  <p>Remark: 如果不怎么用 LaTeX 写论文的话，Mendeley 就很好用。以前大部分人都用 Mendeley，现在很多科研人员不用的原因是因为“洁癖”： Mendeley 被 Elsevier (爱思唯尔出版社) 收购了，Elsevier 在学术界变得“臭名昭著”可以参考 <a href="https://en.wikipedia.org/wiki/The_Cost_of_Knowledge">Wikipedia: The Cost of Knowledge</a>，中文参考 <a href="http://news.sciencenet.cn/htmlnews/2012/7/266578.shtm">科学网：逾万科学家联名抵制爱思唯尔</a>。</p>
+</blockquote>
+
+<!--more-->
+
+<h4 id="bibdesk">BibDesk</h4>
+
+<p>这里有一篇介绍 <a href="http://www.mit.edu/people/lucylim/BibDesk.html">为什么要用 BibDesk</a> 的文章，作者是 NASA 的物理科学家 Lucy F. G. Lim。主要就是上面提到的三个优点：</p>
+
+<ul>
+  <li>可以做你想做的一切</li>
+  <li>原生支持 BibTeX</li>
+  <li>免费</li>
+</ul>
+
+<p>在 BibDesk 新增文献引用信息的条目很简单：只要找到文章的 BibTeX 形式的引用信息，command-C 复制到剪贴版，然后在 BibDesk 窗口按 alt-command-L 就自动把剪贴版的信息生成新的条目了。</p>
+
+<h4 id="ads--arxiv">两个很有用的在线数据库：ADS 和 arXiv</h4>
+
+<p>录入文献的引用信息，是整理文献的第一步，也是最机械最烦人的一步。如果有现成整理好的信息直接导入成 BibTeX 那该多好！幸好大家都是这么想的，you are not alone。早有牛人意识好这个需求，建立了收集文献信息的在线数据库，最著名的有 ADS 和 arXiv。配合 Google Scholar 的强大搜索功能，几乎所向披靡。</p>
+
+<ul>
+  <li><a href="http://adswww.harvard.edu/">ADS (Astrophysics Data System)</a> 是由美国宇航局（NASA）开发、哈佛大学（Harvard）天体物理中心运营的在线数据库，上面保存了大量的 astronomy 和 physics 的科研论文。论文不一定是同行评审过的。论文的 abstract 和 citation 信息都完整可查，而且几乎所有文章原文都可以 GIF 或者 PDF 的形式获取。</li>
+  <li><a href="http://arxiv.org/">arXiv.org</a> 是由物理学家 Paul Ginsparg 开发、现由康奈尔大学（Cornell）运营的在线数据库，保存科研论文的预印本（preprint），涉及的学科包括 mathematics, physics, astronomy, computer science, quantitative biology, statistics, quantitative finance。所有文章的原文都可以 PDF 形式获取，论文的 abstract 和 citation 信息都完整可查。</li>
+  <li><a href="https://scholar.google.com/">Google Scholar</a> 可以搜索到包括上面提到的数据库在内的文献，而且自带把 Citation 输出成包括 BibTeX 在内的多种格式的功能。</li>
+</ul>
+
+<blockquote>
+  <p>Remark: 另外也要善用学校图书馆。各个大学的图书馆都有统一订阅了主流出版社的在线数据库，学生可以免费获得大量文章和书籍。</p>
+</blockquote>
+
+<h4 id="adsbibdesk">再安利一个软件：adsbibdesk</h4>
+
+<p>这里再介绍多一种方式：用 <a href="https://pypi.python.org/pypi/adsbibdesk">adsbibdesk</a> 软件导入 citation 到 BibDesk。顾名思义 adsbibdesk 可以把 ADS 或者 arXiv 上的数据自动整理导入到 BibDesk 中。</p>
+
+<p>使用方法很简单，按照 <a href="https://pypi.python.org/pypi/adsbibdesk">adsbibdesk</a> 主页指示安装好软件之后，就可以用 <code>adsbibdesk</code> 命令导入信息了。</p>
+
+<p>导入时，在 BibDesk 打开想要修改的 .bib 文档，然后用 <code>adsbibdesk</code> 命令导入信息。用这个命令需要找到文章的 <strong>ADS 识别码</strong> (ADS bibcode)，在命令行运行</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="batch"><span class="line">adsbibdesk <span class="m">1998</span>ApJ...<span class="m">500</span>..<span class="m">525</span>S
+</span></code></pre></td></tr></table></div></figure>
+
+<p>或者找到 <strong>arXiv 识别码</strong> （arXiv identifier），在命令行运行</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="batch"><span class="line">adsbibdesk <span class="m">1401</span>.<span class="m">3068</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>或者找到 <strong>DOI 码</strong>（Digital Object Identifier），在命令行运行</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="batch"><span class="line">adsbibdesk <span class="m">10</span>.<span class="m">1137</span><span class="n">/S0036144502417715</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>都可以把 citation 信息添加到 .bib 文档。</p>
+
+<h4 id="section-1">后记</h4>
+
+<p>网上还有很多比较不同管理软件的文章，比如</p>
+
+<ul>
+  <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Comparison_of_reference_management_software">Comparison of reference management software</a></li>
+  <li>密大图书馆 Research Guides: <a href="http://guides.lib.umich.edu/citationmanagementoptions">Citation management software</a></li>
+  <li>数据科学家 Max Masnick 的博客：
+<a href="https://www.maxmasnick.com/2015/02/28/reference-managers/">Thoughts on Reference Management Software</a></li>
+</ul>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[数学是发明还是发现]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/08/25/shu-xue-shi-fa-ming-huan-shi-fa-xian/"/>
+    <updated>2016-08-25T10:21:23-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/08/25/shu-xue-shi-fa-ming-huan-shi-fa-xian</id>
+    <content type="html"><![CDATA[<p>“<strong>亚里士多德阵营</strong>”支持数学来源于实践，是发明：</p>
+
+<blockquote>
+  <p>数学学是人类探索自然的经验抽象，是人类的发明；数学思想必须与现实经验结合才有其存在的价值。</p>
+</blockquote>
+
+<p>“<strong>柏拉图阵营</strong>”认为数学存在于理想世界，人只是发现它：</p>
+
+<blockquote>
+  <p>人类的数学思想是理念世界在人类意识中的投射，是人类的发现；理念世界有其自身的特质和变化，并非现实经验的简单抽象。</p>
+</blockquote>
+
+<p>其实，数学既是发现，也是发明。关键在于人类的智力发展出抽象能力，在发现的基础上进行发明。我属于“<strong>克罗内克阵营</strong>”：</p>
+
+<blockquote>
+  <p>上帝创造了整数，其余都是人的工作。</p>
+</blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[不要计算]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/08/17/bu-yao-ji-suan/"/>
+    <updated>2016-08-17T13:01:14-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/08/17/bu-yao-ji-suan</id>
+    <content type="html"><![CDATA[<p>计算是一种需要被抵制的诱惑。有经验的人对于计算这个工具，都持谨慎的态度：</p>
+
+<blockquote>
+  <p>A computation is a temptation that should be resisted as long as possible.<br />
+- John P. Boyd (Michigan)</p>
+</blockquote>
+
+<blockquote>
+  <p>Never do a calculation until you already know the answer.<br />
+- John Wheeler</p>
+</blockquote>
+
+<p>更有甚者，以反讽态度强调理论之于计算的重要性。</p>
+
+<blockquote>
+  <p>Six months in the lab can save you a day in the library.<br />
+- Albert Migliori</p>
+</blockquote>
+
+<!--more-->
+
+<p>后人补充</p>
+
+<blockquote>
+  <p>Six months in the lab will save you: Half a day in the library or 30 minutes searching online.<br />
+- Paul G. Kotula</p>
+</blockquote>
+
+<p>好像大家都在贬低计算的作用，尽管我的爱豆 Trefethen 说过计算是一门伟大的科学：</p>
+
+<blockquote>
+  <p>There are three great branches of science: theory, experiment, and computation.</p>
+</blockquote>
+
+<p>传说中的 Knuth 也以计算作为验证科学的标准：</p>
+
+<blockquote>
+  <p>Science is what we understand well enough to explain to a computer. Art is everything else we do.</p>
+</blockquote>
+
+<p>正如所有科学家一样，大家都明白计算机是现代科学一个最最重要的发明。因为计算机导致计算能力的提升，我们可以用前所未有的方法去进行科学研究：计算卫星轨道，模拟湍流，模拟黑洞，挑战人类顶尖棋手。不敢想像没有发明计算机的世界会是怎么样的。如果说中世纪宗教统治的欧洲是“黑暗中世纪”，那以前没有计算机的所有时代就是“黑暗蜗牛时代”。</p>
+
+<p><em>既然计算这么好，为什么前辈们都在“贬低”计算呢？</em></p>
+
+<p>所有认真写过代码的人，无论是在学校学习的学生还是在业界工作的程序猿，都尝过 debug 的痛苦，著名的“九十-九十法则”说过：</p>
+
+<blockquote>
+  <p><strong>Ninety-ninety rule</strong>:
+The first 90% of the code takes 90% of the time. The remaining 10% takes the other 90% of the time.</p>
+</blockquote>
+
+<p>代码纠错是任何项目中最最烦人的过程。而“贬低”计算的前辈们就是那些成功打败各种 bug 生存下来的佼佼者。说到底，他们强调了一件事：<strong>理解</strong>与<strong>计算</strong>的关系。</p>
+
+<h3 id="section">理解 — 计算</h3>
+
+<ul>
+  <li>计算是用来验证你是不是理解一个概念或者方法的。如果你已经理解，计算的成功验证可以给你更多的信心；如果计算没有验证成功，你也找不出 bug 在哪里，那只说明一件事，你还没有完全理解。所以<strong>理解是计算的前提</strong>。</li>
+  <li>计算是运用理解力去实践创造的过程。理解一个理论之后，你就可以通过计算让理论在现实中派上用场。比如理解了建筑学和材料科学，就可以用模拟地震来研究建筑结构的薄弱部分；但是模拟出残垣断壁，并不能反过来让你自动学会材料科学。又比如理解了椭圆积分，就可以运用 AGM 算法来轻易算出 $\pi$ 到数亿位的精度；但是通过读 AGM 算法那几行简单的代码，并不能反过来告诉你它为什么这么有效，也不能教会你椭圆积分。<strong>理解是计算的前提</strong>。</li>
+</ul>
+
+<blockquote>
+  <p>附上计算 $\pi$ 的 AGM 算法，看看代码简单到什么程度，看看光看代码你能学会什么。</p>
+</blockquote>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+</pre></td><td class="code"><pre><code class="matlab"><span class="line"><span class="c">% MATLAB code: compute Pi via AGM</span>
+</span><span class="line"><span class="n">y</span> <span class="p">=</span> <span class="nb">sqrt</span><span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+</span><span class="line"><span class="n">x</span> <span class="p">=</span> <span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+</span><span class="line"><span class="n">p</span> <span class="p">=</span> <span class="mi">2</span><span class="o">+</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span class="line"><span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">6</span>
+</span><span class="line">    <span class="n">fprintf</span><span class="p">(</span><span class="s">&#39;%21.16g\n&#39;</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+</span><span class="line">    <span class="n">p</span> <span class="p">=</span> <span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">y</span><span class="p">);</span>
+</span><span class="line">    <span class="n">s</span> <span class="p">=</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span><span class="line">    <span class="n">y</span> <span class="p">=</span> <span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">s</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">y</span><span class="p">);</span>
+</span><span class="line">    <span class="n">x</span> <span class="p">=</span> <span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">s</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+</span><span class="line"><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>所以，当你的程序有 bug 时，你应该做的不是死抠每一行代码，而是停止 debug，回去审视这些代码所基于的理论，让理论告诉你问题在哪里。这里再次引用那句话：</p>
+
+<blockquote>
+  <p>Never do a calculation until you already know the answer.</p>
+</blockquote>
+
+<p>真正的理解会告诉你答案，计算能做的只是验证和运用你的理解。</p>
+
+<blockquote>
+  <p>Things may seem magical, but to the people who understand math there is no magic. - Bobbie</p>
+</blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dimensional Analysis]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/08/11/dimensional-analysis/"/>
+    <updated>2016-08-11T16:00:40-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/08/11/dimensional-analysis</id>
+    <content type="html"><![CDATA[<p>Once one of my engineering friends asked me: “Why would you need all these dimensionless numbers? There are so many of them and they just complicate stuff!”</p>
+
+<p>If something is not useful, it wouldn’t have been invented in science; this is particularly true for dimensional analysis which has made great success across all fields of science.</p>
+
+<p>To put things simple, dimensional analysis has two major fundamental applications:</p>
+
+<ul>
+  <li>Simplify equations and lead to new scientific branches/specialties.</li>
+  <li>Guide scientific experiments with dynamic similitude.</li>
+</ul>
+
+<!--more-->
+
+<h4 id="simplification-of-the-navier-stokes-equation">Simplification of the Navier-Stokes equation</h4>
+
+<p>Look at the Navier-Stokes equation</p>
+
+<script type="math/tex; mode=display">\rho \left(\frac{\partial \mathbf{u}}{\partial t} + \mathbf{u}\cdot\nabla\mathbf{u}\right) = -\nabla p + \mu\Delta \mathbf{u} + \rho\mathbf{g}</script>
+
+<p>At a particular point in a flow, We may find that some term in this equation is <em>orders of magnitude</em> bigger than others. We could simplify the N-S equation by retaining those terms that matter, and eliminating those that don’t.</p>
+
+<p>How do we go about to eliminate the negligible terms? To put the conclusion first, the magnitudes of each term in the N-S equation depend on both the <strong>sturcture</strong> of the flow and <strong>location</strong> in the flow – with appropriate flow structure and at appropriate location, one can safely delete certain terms in the N-S equation. This whole process of simplfying the equations, is called <strong>dimensional analysis</strong>.</p>
+
+<h4 id="dimensional-analysis">Dimensional analysis</h4>
+
+<p>There are three steps in performing dimensional analysis.</p>
+
+<ol>
+  <li>Identify <strong>characteristic scales</strong> of a flow.
+    <ul>
+      <li>characteristic length $L$ is related to the size of the boundaries</li>
+      <li>characteristic velocity $U$ is determined by the particular mechanism driving the flow</li>
+      <li>characteristic time $T$ is either imposed by external means or simply defined as $T=L/U$.</li>
+    </ul>
+
+    <blockquote>
+      <p>For example:</p>
+
+      <ol>
+        <li>In the case of unidirectional flow through channel: $U = $ max velocity across channel.</li>
+        <li>In the case of uniform flow past stationary body: $U = $ velocity of the incident flow, $L =$ diameter of the body.</li>
+        <li>In the case of forced oscillatory flow: $T = $ period of oscillation.</li>
+      </ol>
+    </blockquote>
+  </li>
+  <li><em>Nondimensionalization</em>:
+    <ul>
+      <li>Rescale each variable in the equation into a dimensionless variable. 
+ <script type="math/tex">\hat{\mathbf{u}}:=\frac{\mathbf{u}}{U},\qquad \hat{\mathbf{x}}:=\frac{\mathbf{x}}{L},\qquad \hat{t}:=\frac{t}{T},\qquad \hat{p}:=\frac{pL}{\mu U}.</script></li>
+      <li>Rewrite the equation into a dimensionless form.
+ <script type="math/tex">\beta \frac{\partial \hat{\mathbf{u}}}{\partial \hat{t}} + \mbox{Re}\,\hat{\mathbf{u}}\cdot\hat{\nabla}\hat{\mathbf{u}} = -\hat{\nabla} \hat{p} + \hat{\nabla}^2 \hat{\mathbf{u}} + \frac{\mbox{Re}}{\mbox{Fr}^2}\frac{\mathbf{g}}{g}</script></li>
+      <li>The multiplication factors of each term are nondimensional groups, called <em>dimensionless numbers</em>
+        <ul>
+          <li>Frequency parameter: $\beta:=\frac{L^2}{\nu T}$, expresses the relative magnitudes of the inertial acceleration force and the viscous force</li>
+          <li>Reynolds number: $\mbox{Re}:=\frac{UL}{\nu}$, expresses the relative magnitudes of the inertia convective force and the viscous force</li>
+          <li>Froude number: $\mbox{Fr}:=\frac{U}{\sqrt{gL}}$ expresses the relative magnitudes of the inertial convective force and the body force</li>
+          <li>The group $\frac{\mbox{Re}}{\mbox{Fr}^2}=\frac{gL^2}{\nu U}$, expresses the relative magnitudes of the body force and the viscous force</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Eliminate the dominated terms.
+    <ul>
+      <li>If $\mbox{Re}\ll 1$ and $\beta\ll1$, the dominant terms give <strong>Stokes equation</strong>
+ <script type="math/tex">-\nabla p + \mu \nabla^2\mathbf{u}+ \rho\mathbf{g}=\mathbf{0}</script>
+ where the inertia terms go away, resulting in a quasi-steady fluid.</li>
+      <li>If $\mbox{Re}\gg 1$ and $\beta\gg1$, and rescale the pressure by $\hat{p}=\frac{p}{\rho U^2}$ instead, the dominant terms give <strong>Euler’s equation</strong>
+ <script type="math/tex">\rho \left(\frac{\partial \mathbf{u}}{\partial t} + \mathbf{u}\cdot\nabla\mathbf{u}\right) = -\nabla p + \rho\mathbf{g}</script>
+ where the viscous term goes away, making it behave like an inviscid fluid.</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="dynamic-similitude">Dynamic similitude</h4>
+
+<p>TBA.</p>
+
+<h5 id="reference">Reference:</h5>
+
+<p><a href="https://www.amazon.com/Introduction-Theoretical-Computational-Fluid-Dynamics/dp/0199752079">Pozrikidis C. (2011). Introduction to Theoretical and Computational Fluid Dynamics (2nd ed.). Oxford University Press.</a></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[写数学 Blog]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/08/06/shu-xue-blog/"/>
+    <updated>2016-08-06T19:11:58-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/08/06/shu-xue-blog</id>
+    <content type="html"><![CDATA[<p><a href="http://bobbielf2.github.io/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html">上一篇文章</a>讲了如何用 Octopress 在 GitHub 上搭建个人主页，今天这篇写给可爱的科研狗们，介绍怎么样让网页兼容 LaTeX！首先看看效果：</p>
+
+<ul>
+  <li>LaTeX 行间模式（displayed math）</li>
+</ul>
+
+<figure class="code"><figcaption><span>latex</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="latex"><span class="line"><span class="sb">$$</span><span class="nb"></span>
+</span><span class="line"><span class="nv">\begin</span><span class="nb">{align}</span>
+</span><span class="line"><span class="nv">\mbox</span><span class="nb">{欧拉公式：} &amp; e^{i</span><span class="nv">\pi</span><span class="nb">} </span><span class="o">+</span><span class="nb"> </span><span class="m">1</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span><span class="nv">\\</span><span class="nb"></span>
+</span><span class="line"><span class="nv">\mbox</span><span class="nb">{牛顿公式：} &amp; x_{i</span><span class="o">+</span><span class="m">1</span><span class="nb">} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{</span><span class="m">2</span><span class="nb">}</span><span class="nv">\left</span><span class="o">(</span><span class="nb">x_i</span><span class="o">+</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">2</span><span class="nb">}{x_i}</span><span class="nv">\right</span><span class="o">)</span><span class="nb"></span>
+</span><span class="line"><span class="nv">\end</span><span class="nb">{align}</span>
+</span><span class="line"><span class="s">$$</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{align}
+\mbox{欧拉公式：} & e^{i\pi} + 1 = 0\\
+\mbox{牛顿公式：} & x_{i+1} = \frac{1}{2}\left(x_i+\frac{2}{x_i}\right)
+\end{align} %]]&gt;</script>
+
+<!--more-->
+
+<ul>
+  <li>LaTeX 内嵌模式（inline math）</li>
+</ul>
+
+<figure class="code"><figcaption><span>latex</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="latex"><span class="line">爱因斯坦说过：<span class="s">$</span><span class="nb">E </span><span class="o">=</span><span class="nb"> mc^</span><span class="m">2</span><span class="s">$</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>爱因斯坦说过：$E = mc^2$</p>
+
+<h4 id="markdown-kramdown--mathjax">让 Markdown 显示数学公式：kramdown 和 MathJax</h4>
+
+<h5 id="kramdown--rdiscount">1, 用 kramdown 代替 rdiscount</h5>
+
+<p>Octopress 中默认的 rdiscount 不支持把 Markdown 中的 LaTeX 公式呈现出来，所以要换成 <a href="http://kramdown.gettalong.org/">kramdown</a>（这个 Markdown 转换器也是开源的，他家号称全球最快）。</p>
+
+<ul>
+  <li>安装 kramdown，运行命令</li>
+</ul>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">gem install kramdown
+</span></code></pre></td></tr></table></div></figure>
+
+<p>如果系统安全系数太高（OS X 10.11）就用</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">gem install -n /usr/local/bin kramdown
+</span></code></pre></td></tr></table></div></figure>
+
+<ul>
+  <li>修改 Octopress 的<code>_config.yml</code>配置文件，把全部<code>rdiscount</code>都改成<code>kramdown</code></li>
+  <li>修改 Octopress 的<code>Gemfile</code>，把里面的<code>gem 'rdiscount', '~&gt; 2.0'</code>改成<code>gem 'kramdown'</code></li>
+</ul>
+
+<h4 id="mathjax">2, 配置 MathJax</h4>
+
+<p>在<code>/source/_includes/custom/head.html</code>文件里添加</p>
+
+<figure class="code"><figcaption><span>head.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+</pre></td><td class="code"><pre><code class="html"><span class="line"><span class="c">&lt;!-- mathjax config similar to math.stackexchange --&gt;</span>
+</span><span class="line"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/x-mathjax-config&quot;</span><span class="nt">&gt;</span>
+</span><span class="line"><span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Config</span><span class="p">({</span>
+</span><span class="line">  <span class="nx">jax</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;input/TeX&quot;</span><span class="p">,</span> <span class="s2">&quot;output/HTML-CSS&quot;</span><span class="p">],</span>
+</span><span class="line">  <span class="nx">tex2jax</span><span class="o">:</span> <span class="p">{</span>
+</span><span class="line">    <span class="nx">inlineMath</span><span class="o">:</span> <span class="p">[</span> <span class="p">[</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="s1">&#39;$&#39;</span><span class="p">]</span> <span class="p">],</span>
+</span><span class="line">    <span class="nx">displayMath</span><span class="o">:</span> <span class="p">[</span> <span class="p">[</span><span class="s1">&#39;$$&#39;</span><span class="p">,</span> <span class="s1">&#39;$$&#39;</span><span class="p">]],</span>
+</span><span class="line">    <span class="nx">processEscapes</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class="line">    <span class="nx">skipTags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;script&#39;</span><span class="p">,</span> <span class="s1">&#39;noscript&#39;</span><span class="p">,</span> <span class="s1">&#39;style&#39;</span><span class="p">,</span> <span class="s1">&#39;textarea&#39;</span><span class="p">,</span> <span class="s1">&#39;pre&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">]</span>
+</span><span class="line">  <span class="p">},</span>
+</span><span class="line">  <span class="nx">messageStyle</span><span class="o">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+</span><span class="line">  <span class="s2">&quot;HTML-CSS&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">preferredFont</span><span class="o">:</span> <span class="s2">&quot;TeX&quot;</span><span class="p">,</span> <span class="nx">availableFonts</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;STIX&quot;</span><span class="p">,</span><span class="s2">&quot;TeX&quot;</span><span class="p">]</span> <span class="p">}</span>
+</span><span class="line"><span class="p">});</span>
+</span><span class="line"><span class="nt">&lt;/script&gt;</span>
+</span><span class="line"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<h4 id="mathjax--bug">3, 修复 MathJax 在页面中右键变白屏的 bug</h4>
+
+<p>修改 Octopress 的<code>/sass/base/_theme.scss</code>文件，把代码中的</p>
+
+<figure class="code"><figcaption><span>_theme.scss</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="sass"><span class="line"><span class="o">&gt;</span> <span class="nt">div</span> <span class="err">{</span>
+</span><span class="line">     <span class="na">background</span><span class="o">:</span> <span class="nv">$sidebar-bg</span> <span class="nv">$noise-bg</span><span class="err">;</span>
+</span><span class="line">     <span class="na">border-bottom</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$page-border-bottom</span><span class="err">;</span>
+</span><span class="line">     <span class="o">&gt;</span> <span class="nt">div</span> <span class="err">{</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>加入<code>#main</code>，变成</p>
+
+<figure class="code"><figcaption><span>sass</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="sass"><span class="line"><span class="o">&gt;</span> <span class="nt">div</span><span class="nn">#main</span> <span class="err">{</span>
+</span><span class="line">     <span class="na">background</span><span class="o">:</span> <span class="nv">$sidebar-bg</span> <span class="nv">$noise-bg</span><span class="err">;</span>
+</span><span class="line">     <span class="na">border-bottom</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$page-border-bottom</span><span class="err">;</span>
+</span><span class="line">     <span class="o">&gt;</span> <span class="nt">div</span> <span class="err">{</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<h4 id="pygments-">4, 修复 Pygments 的问题</h4>
+
+<p>这个是新版本出现的问题。使用 kramdown 之后，以前写的博客突然编译不出来了；当你运行 rake generate 时候，会报错：</p>
+
+<pre><code>Error: Pygments can't parse unknown language: &lt;/p&gt;
+</code></pre>
+
+<p>原因是最新版的 Pygments 这个插件对于 Markdown 的书写要求更严格了。</p>
+
+<p>为了找出原来，可以修改 Pygments 的报错代码，在<code>/plugins/pygments_code.rb</code>文件中:</p>
+
+<figure class="code"><figcaption><span>pygments_code.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">pygments</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">lang</span><span class="p">)</span>
+</span><span class="line">    <span class="k">if</span> <span class="n">defined?</span><span class="p">(</span><span class="no">PYGMENTS_CACHE_DIR</span><span class="p">)</span>
+</span><span class="line">      <span class="n">path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">PYGMENTS_CACHE_DIR</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">lang</span><span class="si">}</span><span class="s2">-</span><span class="si">#{</span><span class="no">Digest</span><span class="o">::</span><span class="no">MD5</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(</span><span class="n">code</span><span class="p">)</span><span class="si">}</span><span class="s2">.html&quot;</span><span class="p">)</span>
+</span><span class="line">      <span class="k">if</span> <span class="no">File</span><span class="o">.</span><span class="n">exist?</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span><span class="line">        <span class="n">highlighted_code</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span><span class="line">      <span class="k">else</span>
+</span><span class="line">        <span class="k">begin</span>
+</span><span class="line">          <span class="n">highlighted_code</span> <span class="o">=</span> <span class="no">Pygments</span><span class="o">.</span><span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="ss">:lexer</span> <span class="o">=&gt;</span> <span class="n">lang</span><span class="p">,</span> <span class="ss">:formatter</span> <span class="o">=&gt;</span> <span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="ss">:options</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:encoding</span> <span class="o">=&gt;</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="ss">:startinline</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">})</span>
+</span><span class="line">        <span class="k">rescue</span> <span class="no">MentosError</span>
+</span><span class="line">          <span class="k">raise</span> <span class="s2">&quot;Pygments can&#39;t parse unknown language: </span><span class="si">#{</span><span class="n">lang</span><span class="si">}</span><span class="s2">.&quot;</span>
+</span><span class="line">        <span class="k">end</span>
+</span><span class="line">        <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="n">f</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">highlighted_code</span><span class="p">)</span> <span class="p">}</span>
+</span><span class="line">      <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>把这里的</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="k">raise</span> <span class="s2">&quot;Pygments can&#39;t parse unknown language: </span><span class="si">#{</span><span class="n">lang</span><span class="si">}</span><span class="s2">.&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>修改成</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="k">raise</span> <span class="s2">&quot;Pygments can&#39;t parse unknown language: </span><span class="si">#{</span><span class="n">lang</span><span class="si">}#{</span><span class="n">code</span><span class="si">}</span><span class="s2">.&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>可以使得<code>rake generate</code>编译时，把有问题的部分抛出来。</p>
+
+<p>通过这个方法，我最终确定了我这里的情况是，用来标记 code block 的<code>```</code>符号和段落符号<code>&lt;/p&gt;</code>放在一起时产生某种错误（反正我是试不出怎么回事）。最后我用<code>~~~</code>代替了<code>```</code>（同样是 Markdown 标记代码的符号），终于没有编译错误了。</p>
+
+<h4 id="section">后记</h4>
+
+<p>写这篇文章的时候，遇到一个问题，就是不知道怎么让 Markdown 显示 <code>`</code>这个符号，后来发现了解决方法：</p>
+
+<p>显示一个撇<code>`</code>，可以用两个撇来包裹</p>
+
+<pre><code>`` ` ``(两撇，空格，一撇，空格，两撇)  
+</code></pre>
+
+<p>显示两个撇<code>``</code>，可以用三个撇来包裹</p>
+
+<pre><code>``` `` ```(三撇，空格，两撇，空格，三撇)
+</code></pre>
+
+<p>以此类推。</p>
+
+<h4 id="section-1">参考：</h4>
+
+<p>构建：<a href="http://dreamrunner.org/blog/2014/03/09/octopresszhong-shi-yong-latexxie-shu-xue-gong-shi/">Octopress中使用Latex写数学公式</a><br />
+修复：<a href="http://lvraikkonen.github.io/blog/2015/08/08/adding-support-for-math-formula/">配置Octopress支持LaTex数学公式</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[拥有你的个人博客]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/"/>
+    <updated>2016-08-06T15:57:31-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke</id>
+    <content type="html"><![CDATA[<p>每个人或多或少，某时某地，都想表达自己，最有收益的表达方法莫过于写 Blog！</p>
+
+<p>搭建个人博客一直是我想做的事。之前试过在不同的地方栖息，包括 QQ 空间和 <a href="bobbielf2.weebly.com/index.html">weebly</a>，写的都是纯文字。后来想写带数学公式的文章，发觉只能把公式制作成图片插入文章，极其麻烦。然后我的好基友 Kuphrer 对我说：“没有原生latex不博客啊！”于是在他的指导下搭了一个 WordPress，又要另外弄存储空间又要备份什么的，弄得我这个网络小白晕头转向，终于还是没有坚持下去。</p>
+
+<p>斗转星移，technology 一日千里，最近学习和编程的需要让我开始了解GitHub，发现这是一个大牛云集的宝地，而且只要项目是开源的就可以免费任意上传文件，而且没有广告，没有任何限制，简直就是搭建个人 Blog 的理想国。在网上搜了一下教程之后，我的博客搭建之旅开始了！</p>
+
+<!--more-->
+
+<h3 id="section">一、 预备知识</h3>
+
+<h4 id="github">什么是 GitHub？</h4>
+
+<p>Git 和 GitHub 并不是同一个东西。Git 是一个版本控制软件，而 GitHub 是一个公司，他家提供基于 git 的版本托管服务。因为 GitHub 上的开源项目的托管是<strong>免费的</strong>，全球最著名的开源社区和大公司的程序猿都聚集在这里。比如大公司都包括：</p>
+
+<ul>
+  <li><a href="https://github.com/google">Google</a></li>
+  <li><a href="https://github.com/apple">Apple</a></li>
+  <li><a href="https://github.com/facebook">Facebook</a></li>
+  <li><a href="https://github.com/twitter">Twitter</a></li>
+  <li><a href="https://github.com/microsoft">Microsoft</a></li>
+  <li><a href="https://github.com/alibaba">阿里巴巴</a></li>
+  <li>…</li>
+</ul>
+
+<p>开源项目包括</p>
+
+<ul>
+  <li><a href="https://github.com/torvalds/linux">Linux</a></li>
+  <li><a href="https://github.com/apple/swift">Swift</a></li>
+  <li><a href="https://github.com/ruby/ruby">Ruby</a></li>
+  <li>…</li>
+</ul>
+
+<h4 id="octopress">什么是 Octopress</h4>
+
+<p>Octopress 是一个基于 <strong>Jekyll</strong> 的<em>静态博客架构</em>（static blogging framework）。换句话说就是有个人使用 Jekyll 这个东西建了一个叫做 Octopress 的博客模版，我们可以修改它来建自己的博客，免去很多从头建设的技术上的麻烦。那 Jekyll 又是什么东东？</p>
+
+<p>Jekyll 是一个对写作者友好的<em>网页模版系统</em>（web template system），能够处理文本文档生成<em>静态网站</em>（static site, 访问速度远远快于动态网站，因为动态网站是每次访问都重新生成的）。按它开发者的话来说，Jekyll 具有 “blog-aware（博客意识）” 的特点，意思是说它是为博客而生的，写作者用它来发布文章时，只需要处理好文字，而不用费神去处理数据库和网页内容管理之类的技术问题。当然，“好用”是基于不同人的体验的，对于我这种技术小白来说，学会 Jekyll 还是有点麻烦的，所以才要用 Octopress 这个现成模版。</p>
+
+<blockquote>
+  <p>Remark: Jekyll 是用 <a href="https://en.wikipedia.org/wiki/Ruby_(programming_language)">Ruby 编程语言</a>写出来的软件。
+<br />
+所有用 Ruby 写出来的软件都是用 <a href="https://en.wikipedia.org/wiki/RubyGems">RubyGems</a> 这个<em>软件包管理系统</em>（package manager）分发安装的。在 RubyGems 中，一个封装好的软件叫 Gem。RubyGems 的命令一般是用 <code>gem</code> 开头的。当需要安装不止一个软件甚至一些第三方软件包的时候，可以用 Bundler（另一个 Ruby 软件）来批量处理，命令以 <code>bundle</code> 开头，被执行的命令写在一个 Gemfile 里面。
+<br />
+Ruby 和其他编程语言一样可以执行脚本，叫做 Rakefile（类似 C 语言里面的 Makefile），方便编译运行 Ruby 程序。Rakefile 用 <code>rake</code> 执行（类似 Makefile 用 <code>make</code> 执行）。
+<br />
+综上所述，等下安装 Jekyll 和 Octopress 时首先要安装 Ruby， RubyGems 和 Bundler。</p>
+</blockquote>
+
+<h3 id="section-1">二、 安装博客的流程</h3>
+
+<h4 id="git--ruby--rubygems">1. 安装 Git 和 Ruby (以及 RubyGems)</h4>
+
+<p>如果用 Mac 的话有自带的 Git 和 Ruby 2.0，不需要安装。需要的话 git 可以从<a href="http://git-scm.com/downloads">这里</a>下载和安装。用 <code>ruby -v</code> 可以查询当前 Ruby 版本。新版的 Ruby 自带 RubyGems，所以也不用特别安装，如果没有的话可以在<a href="https://rubygems.org/">这里</a>安装。</p>
+
+<h4 id="rbenv">1.5 安装 rbenv</h4>
+
+<p>如果你的系统用 Mac OS，系统自带 Ruby，然而这个 Ruby 的目录（<code>/Library/Ruby/Gems/</code>）你是没有权限直接修改的，用<code>sudo</code>也不行。所以需要一个“虚拟机”：安装另一个版本的 Ruby 在虚拟机上就可以自由修改了。主流的 Ruby 虚拟机（又叫版本管理器，Ruby Version Manager）有 rbenv 和 RVM。</p>
+
+<p>我用的是 rbenv。安装方法极其简单，用 Mac 自带的软件管理器 Homebrew 来安装，命令是 <code>brew</code></p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">brew update
+</span><span class="line">brew install rbenv
+</span></code></pre></td></tr></table></div></figure>
+
+<p>安装好了之后运行</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rbenv init
+</span></code></pre></td></tr></table></div></figure>
+
+<p>系统会返回指令，教你怎么配置 rbenv。具体来说就是打开 <code>~/.bash_profile</code> 文件，在里面加入一行</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nb">eval</span> <span class="s2">&quot;$(rbenv init -)&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>重启 terminal 或者执行 <code>source ~/.bash_profile</code> 马上生效。</p>
+
+<h4 id="octopress-1">2. 安装 Octopress</h4>
+
+<p>有了 rbenv 一切都简单了，首先安装 Jekyll 和 Bundler，运行以下命令即可：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">gem install jekyll
+</span><span class="line">gem install bundler
+</span></code></pre></td></tr></table></div></figure>
+
+<p>如果在 Mac 用 rbenv 安装的话，装好 bundler 之后就更新 rbenv 以便之后使用 <code>bundle</code> 命令:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rbenv rehash
+</span></code></pre></td></tr></table></div></figure>
+
+<p>终于！到了建立 Octopress 的时候了。 首先为你的网站文档新建一个文件夹，假设是 <code>/Users/YOURNAME/Sites</code>，然后把 Octopress 的文档用 git 下载到里面：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nb">cd</span> ~/Sites
+</span><span class="line">git clone git://github.com/imathis/octopress.git octopress
+</span><span class="line"><span class="nb">cd </span>octopress
+</span></code></pre></td></tr></table></div></figure>
+
+<p>然后用 Rake（也就是 Ruby 的 Make）来安装 Octopress：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">bundle install
+</span><span class="line">rake install
+</span></code></pre></td></tr></table></div></figure>
+
+<h4 id="github-1">3. 关联 GitHub</h4>
+
+<p>接着去 <a href="https://github.com/new">GitHub</a> 建一个新的 repository，名字要起成这样 <code>USERNAME.github.io</code>，比如我的就是 <code>bobbielf2.github.io</code>。然后用以下命令来建立 Octopress 和 GitHub 的连接：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rake setup_github_pages
+</span></code></pre></td></tr></table></div></figure>
+
+<p>执行这个命令，会让你输入 Repository url，把刚在 GitHub 建的 repository 地址输进去就好了，以下两种格式任选一个都可以</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">https://github.com/USERNAME/USERNAME.github.io <span class="c">#格式1  </span>
+</span><span class="line">git@github.com:USERNAME/USERNAME.github.io.git <span class="c">#格式2  </span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>例如我就输入</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">https://github.com/bobbielf2/bobbielf2.github.io
+</span></code></pre></td></tr></table></div></figure>
+
+<p>接着按照提示输入密码之类的，就完成和 GitHub 的关联了。</p>
+
+<h4 id="section-2">4. 生成和部署博客网站</h4>
+
+<p>连接完成之后，继续可以生成和部署网站：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rake generate
+</span><span class="line">rake deploy
+</span></code></pre></td></tr></table></div></figure>
+
+<p>把文件同步 push 到 GitHub 上</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">git add .
+</span><span class="line">git commit -m <span class="s1">&#39;create blog&#39;</span>
+</span><span class="line">git push origin <span class="nb">source</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>现在可以去你的 GitHub 网址看自己的网页了，比如我的就是 <a href="https://bobbielf2.github.io/">https://bobbielf2.github.io/</a>。</p>
+
+<p>接着可以修改网页配置，位置在 <code>octopress/_config.yml</code>。</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+</pre></td><td class="code"><pre><code class="yaml"><span class="line"><span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>                <span class="c1"># For rewriting urls for RSS, etc</span>
+</span><span class="line"><span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span>              <span class="c1"># Used in the header and title tags</span>
+</span><span class="line"><span class="l-Scalar-Plain">subtitle</span><span class="p-Indicator">:</span>           <span class="c1"># A description used in the header</span>
+</span><span class="line"><span class="l-Scalar-Plain">author</span><span class="p-Indicator">:</span>             <span class="c1"># Your name, for RSS, Copyright, Metadata</span>
+</span><span class="line"><span class="l-Scalar-Plain">simple_search</span><span class="p-Indicator">:</span>      <span class="c1"># Search engine for simple site search</span>
+</span><span class="line"><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span>        <span class="c1"># A default meta description for your site</span>
+</span><span class="line"><span class="l-Scalar-Plain">date_format</span><span class="p-Indicator">:</span>        <span class="c1"># Format dates using Ruby&#39;s date strftime syntax</span>
+</span><span class="line"><span class="l-Scalar-Plain">subscribe_rss</span><span class="p-Indicator">:</span>      <span class="c1"># Url for your blog&#39;s feed, defauts to /atom.xml</span>
+</span><span class="line"><span class="l-Scalar-Plain">subscribe_email</span><span class="p-Indicator">:</span>    <span class="c1"># Url to subscribe by email (service required)</span>
+</span><span class="line"><span class="l-Scalar-Plain">category_feeds</span><span class="p-Indicator">:</span>     <span class="c1"># Enable per category RSS feeds (defaults to false in 2.1)</span>
+</span><span class="line"><span class="l-Scalar-Plain">email</span><span class="p-Indicator">:</span>              <span class="c1"># Email address for the RSS feed if you want it.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>编辑完成后再 push 更新一次</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rake generate
+</span><span class="line">
+</span><span class="line">git add .
+</span><span class="line">git commit -m <span class="s2">&quot;settings&quot;</span>
+</span><span class="line">git push origin <span class="nb">source</span>
+</span><span class="line"><span class="nb">	</span>
+</span><span class="line">rake deploy
+</span></code></pre></td></tr></table></div></figure>
+
+<blockquote>
+  <p>Remark: 每次 commit 来确认改变之前，都要 add 来更新索引。最终 push 来把所有变化应用到当前的 branch 中。所以 commit 之前可以 add 很多次，push 之前也可以 commit 很多次。</p>
+</blockquote>
+
+<h3 id="section-3">三、 写博客</h3>
+
+<p>终于！搭建好博客，就可以开始写文章了！GitHub 上的文章严重推荐用 <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> 写。</p>
+
+<blockquote>
+  <p>题外话：Markdown 是当今很多网络写作者和程序员最爱用的格式。这种语言就一个字：简单！纯文本编辑，用简单的额外符号设置文字格式，没有像 MS Word 或者 Apple Pages 那样，不同版本不同平台就打不开文档的问题；然而又基本没什么学习成本，就能写出漂亮的排版。推荐看这个速成：
+<br />
+<a href="http://www.jianshu.com/p/q81RER">献给写作者的 Markdown 新手指南</a>。</p>
+</blockquote>
+
+<h4 id="section-4">1. 创建新的文章</h4>
+
+<p>用这个命令生成新的 Blog artcle</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rake new_post<span class="o">[</span><span class="s1">&#39;title&#39;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>生成的 Markdown 文件在 <code>octopress/source/_posts</code> 目录下</p>
+
+<h4 id="section-5">2. 编辑和发布文章</h4>
+
+<p>用 Markdown 语言写好文章，保存后可以预览： 运行 <code>rake preview </code>，然后在浏览器访问 <a href="http://localhost:4000/">http://localhost:4000/</a></p>
+
+<p>然后发布：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rake generate
+</span><span class="line">git add .
+</span><span class="line">git commit -m <span class="s2">&quot;new post&quot;</span>
+</span><span class="line">git push origin <span class="nb">source</span>
+</span><span class="line">rake deploy
+</span></code></pre></td></tr></table></div></figure>
+
+<h3 id="section-6">四、 使用不同的主题。</h3>
+
+<p>网上有很多人制作不同的网页主题（theme）。举例安装第三方主题：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="c">#这里以安装allenhsu定制的greyshade主题为例，原作者是shashankmehta</span>
+</span><span class="line">git clone git@github.com:allenhsu/greyshade.git .themes/greyshade
+</span><span class="line"><span class="c">#Substitue &#39;color&#39; with your highlight color</span>
+</span><span class="line"><span class="nb">echo</span> <span class="s2">&quot;\$greyshade: color;&quot;</span> &gt;&gt; sass/custom/_colors.scss
+</span><span class="line">rake <span class="s2">&quot;install[greyshade]&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>安装完再次更新</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rake generate
+</span><span class="line">git add .
+</span><span class="line">git commit -m <span class="s2">&quot;theme&quot;</span>
+</span><span class="line">git push origin <span class="nb">source</span>
+</span><span class="line">rake deploy
+</span></code></pre></td></tr></table></div></figure>
+
+<p>安装完 greyshade，你会发现左方导航栏上的 About me 是指向原作者的主页的，可以这样改回来：在 <code>/source/_includes/custom/navigation.html</code> 中记录了导航栏的内容</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="html"><span class="line"><span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class="line"><span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://about.me/shashankmehta&quot;</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class="line"><span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/blog/archives&quot;</span><span class="nt">&gt;</span>Archives<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>把里面的网址 <code>http://about.me/shashankmehta</code> 改成别的东西就好了。</p>
+
+<h4 id="section-7">后续参考：</h4>
+
+<p><a href="http://zwgithub.github.io/2016/06/14/%E7%94%A8Octopress%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84github%E5%8D%9A%E5%AE%A2/">设置头像，文章以摘要形式显示，评论功能</a></p>
+
+<p><a href="https://shengmingzhiqing.com/blog/octopress-tutorials-toc.html/">生命之氢 - Octopress 教程目录</a></p>
+]]></content>
+  </entry>
   
 </feed>

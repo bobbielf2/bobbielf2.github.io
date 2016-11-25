@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>Bobbie's Blog</title>
+  <meta name="author" content="Bowei "Bobbie" Wu .">
 
   
-  <meta name="description" content=" Blog Archives Recent Posts ">
+  <meta name="description" content="This is something I learned today from the Fluid Mechanics class in the Chemical Engineering department, class number CHE 527. We have had the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +21,7 @@
   <link rel="canonical" href="http://bobbielf2.github.io/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="Bobbie's Blog" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -29,16 +29,30 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
   
 
 </head>
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
+  <h1><a href="/">Bobbie's Blog</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>Boys be ambitious.</h2>
   
 </hgroup>
 
@@ -58,6 +72,7 @@
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/aboutme/">About</a></li>
 </ul>
 
 </nav>
@@ -65,6 +80,411 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/09/13/fluid-or-solid/">Fluid or Solid?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-09-13T20:26:57-04:00'><span class='date'>09-13-16</span> <span class='time'>20:26</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is something I learned today from the Fluid Mechanics class in the Chemical Engineering department, class number CHE 527.</p>
+
+<p>We have had the intuitive ideas about what a fluid is versus what a solid is. A solid is something that can resist shear stress, and will maintain its shape, while a fluid is something that will deform continuously when a shear is applied to it, without changing back to the original shape.</p>
+
+<p>But there are many substances in the world that cannot be classified into solid or fluid with the above simple and intuitive definitions. Here are some examples:</p>
+
+<h4 id="silly-putty">Silly putty:</h4>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/09/13/fluid-or-solid/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/09/12/human-brain-works-logarithmically/">Human Brain Works Logarithmically</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-09-12T11:20:24-04:00'><span class='date'>09-12-16</span> <span class='time'>11:20</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><em>Do you know that our brain works logarithmically?</em></p>
+
+<ol>
+  <li>Do this exercise:
+    <ul>
+      <li>Draw a number line</li>
+      <li>Mark $0$ and $1,000,000,000$ on the line.</li>
+      <li>Ask yourself a question: where is $1,000$?</li>
+    </ul>
+  </li>
+  <li>Many people put $1,000$ at the $1/3$ position. Note that $1,000=10^3$, $1,000,000,000=10^9$, where $9$ is triple of $3$. This implies that we perceive number logarithmically!</li>
+  <li>Not only <strong>size</strong> of a number, but also <strong>weight</strong> of an object, <strong>loudness</strong> of a sound, <strong>brightness</strong> of a star, <strong>spiciness</strong> of a chili, all of these are perceived logarithmically by the human brain.</li>
+  <li>Such logarithmic law is known more than 100 years ago, under the name “<a href="https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law"><strong>Weber-Fechner law</strong></a>” in psychophysics.</li>
+</ol>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/08/29/ying-wen-ge-ci/">谁说英文歌词都没有深度？</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-29T10:24:36-04:00'><span class='date'>08-29-16</span> <span class='time'>10:24</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>上周和朋友吃饭，听着餐厅用流行歌做BGM，聊起歌词的意思。朋友表示英文歌词都没什么深度，都是很肤浅直白的句子，比如艾薇儿、霉霉、Maroon 5 的歌大多都这样。我表示不同意，只是我们不知道哪些有深度的歌词而已，就像周杰伦的青花瓷老外大多没听过，歌词写得好的英文歌咱也很多都没听过。当时我一时没想出实例支持我的论点，后来想想，不少耳熟能详的英文老歌歌词都不错，比如 Scarborough Fair, The Sound of Silence, 歌词都很棒值得细细品味。</p>
+
+<p>昨天看一本<a href="http://press.princeton.edu/titles/8007.html">并行运算的书</a>，书的每章开头都会有一段引用文字作为引子，用来科普小历史或者纯粹增加趣味。其中关于数据依赖关系（Dependences）那一章的开头就引用了一句歌词 “I wish I didn’t know now what I didn’t know then”，来自 Bob Seger 的 “Against the Wind”。原歌词讲述了故事主角经历了很多世事之后怀念当初年轻时懵懂但拥有的那种兴奋感，现在放在“数据依赖”的语境下又多了一层玩味，看得出写这本书的几位科学家也是有感情有趣的有血有肉的人呢。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/08/29/ying-wen-ge-ci/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/08/28/guan-li-yin-yong-wen-xian/">管理引用文献</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-28T00:31:02-04:00'><span class='date'>08-28-16</span> <span class='time'>00:31</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>管理文献对于做研究或者各种技术工程师都是很重要的事情。需要资料时要快速查得到，运用资料时要给出出处，这就要平时把文献资料整理得井井有条；尤其当文献数量达到上百甚至上千条，没有有效的管理方法简直寸步难行。</p>
+
+<p>于是专业人员都会用到软件来管理文献。比如文章 <a href="http://pne.people.si.umich.edu/PDF/howtoread.pdf">How to read a book</a> 就提到一些常用的文献管理软件(Reference Management Software)。</p>
+
+<h4 id="section">市面上的文献管理软件</h4>
+
+<p>个人测试过以下这几个最流行的软件</p>
+
+<ul>
+  <li>EndNote：据说挺好用，但是（1）需要花稍多一点的时间学习使用，（2）收费，差不多 80 大洋。网络 basic 版免费，但是试用了一下并不方便，也有导入数量限制。</li>
+  <li>Papers：据说很好用，但是收费，学生版差不多 50 大洋。iPad 版免费，但是只用 iPad 版而没有桌面版也是很不方便。</li>
+  <li>Bookends：优势是可以找 Amazon 上的书，不用费神想到底要连哪个出版商的数据库。</li>
+  <li>Mendeley：暂时觉得最好用的一个。免费。可以把 PDF 文献原文拖入软件窗口，就会帮你自动识别 citation 信息，虽然并不总是准确，但如果知道 DOI 的话可以自动更正。在 mendeley 中可以连接到本地 PDF，并且直接打开做笔记挺方便。</li>
+  <li>BibDesk：神器，免费，原生支持 <a href="http://www.bibtex.org/">BibTeX</a> (BibTeX 是基于 <a href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a> 的文献管理软件)。适合习惯用 LaTeX 写论文的人 (理工科写论文基本标配用 LaTeX )。就用它了！</li>
+</ul>
+
+<blockquote>
+  <p>Remark: 如果不怎么用 LaTeX 写论文的话，Mendeley 就很好用。以前大部分人都用 Mendeley，现在很多科研人员不用的原因是因为“洁癖”： Mendeley 被 Elsevier (爱思唯尔出版社) 收购了，Elsevier 在学术界变得“臭名昭著”可以参考 <a href="https://en.wikipedia.org/wiki/The_Cost_of_Knowledge">Wikipedia: The Cost of Knowledge</a>，中文参考 <a href="http://news.sciencenet.cn/htmlnews/2012/7/266578.shtm">科学网：逾万科学家联名抵制爱思唯尔</a>。</p>
+</blockquote>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/08/28/guan-li-yin-yong-wen-xian/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/08/25/shu-xue-shi-fa-ming-huan-shi-fa-xian/">数学是发明还是发现</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-25T10:21:23-04:00'><span class='date'>08-25-16</span> <span class='time'>10:21</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>“<strong>亚里士多德阵营</strong>”支持数学来源于实践，是发明：</p>
+
+<blockquote>
+  <p>数学学是人类探索自然的经验抽象，是人类的发明；数学思想必须与现实经验结合才有其存在的价值。</p>
+</blockquote>
+
+<p>“<strong>柏拉图阵营</strong>”认为数学存在于理想世界，人只是发现它：</p>
+
+<blockquote>
+  <p>人类的数学思想是理念世界在人类意识中的投射，是人类的发现；理念世界有其自身的特质和变化，并非现实经验的简单抽象。</p>
+</blockquote>
+
+<p>其实，数学既是发现，也是发明。关键在于人类的智力发展出抽象能力，在发现的基础上进行发明。我属于“<strong>克罗内克阵营</strong>”：</p>
+
+<blockquote>
+  <p>上帝创造了整数，其余都是人的工作。</p>
+</blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/08/17/bu-yao-ji-suan/">不要计算</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-17T13:01:14-04:00'><span class='date'>08-17-16</span> <span class='time'>13:01</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>计算是一种需要被抵制的诱惑。有经验的人对于计算这个工具，都持谨慎的态度：</p>
+
+<blockquote>
+  <p>A computation is a temptation that should be resisted as long as possible.<br />
+- John P. Boyd (Michigan)</p>
+</blockquote>
+
+<blockquote>
+  <p>Never do a calculation until you already know the answer.<br />
+- John Wheeler</p>
+</blockquote>
+
+<p>更有甚者，以反讽态度强调理论之于计算的重要性。</p>
+
+<blockquote>
+  <p>Six months in the lab can save you a day in the library.<br />
+- Albert Migliori</p>
+</blockquote>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/08/17/bu-yao-ji-suan/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/08/11/dimensional-analysis/">Dimensional Analysis</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-11T16:00:40-04:00'><span class='date'>08-11-16</span> <span class='time'>16:00</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Once one of my engineering friends asked me: “Why would you need all these dimensionless numbers? There are so many of them and they just complicate stuff!”</p>
+
+<p>If something is not useful, it wouldn’t have been invented in science; this is particularly true for dimensional analysis which has made great success across all fields of science.</p>
+
+<p>To put things simple, dimensional analysis has two major fundamental applications:</p>
+
+<ul>
+  <li>Simplify equations and lead to new scientific branches/specialties.</li>
+  <li>Guide scientific experiments with dynamic similitude.</li>
+</ul>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/08/11/dimensional-analysis/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/08/06/shu-xue-blog/">写数学 Blog</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-06T19:11:58-04:00'><span class='date'>08-06-16</span> <span class='time'>19:11</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html">上一篇文章</a>讲了如何用 Octopress 在 GitHub 上搭建个人主页，今天这篇写给可爱的科研狗们，介绍怎么样让网页兼容 LaTeX！首先看看效果：</p>
+
+<ul>
+  <li>LaTeX 行间模式（displayed math）</li>
+</ul>
+
+<figure class="code"><figcaption><span>latex</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="latex"><span class="line"><span class="sb">$$</span><span class="nb"></span>
+</span><span class="line"><span class="nv">\begin</span><span class="nb">{align}</span>
+</span><span class="line"><span class="nv">\mbox</span><span class="nb">{欧拉公式：} &amp; e^{i</span><span class="nv">\pi</span><span class="nb">} </span><span class="o">+</span><span class="nb"> </span><span class="m">1</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span><span class="nv">\\</span><span class="nb"></span>
+</span><span class="line"><span class="nv">\mbox</span><span class="nb">{牛顿公式：} &amp; x_{i</span><span class="o">+</span><span class="m">1</span><span class="nb">} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{</span><span class="m">2</span><span class="nb">}</span><span class="nv">\left</span><span class="o">(</span><span class="nb">x_i</span><span class="o">+</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">2</span><span class="nb">}{x_i}</span><span class="nv">\right</span><span class="o">)</span><span class="nb"></span>
+</span><span class="line"><span class="nv">\end</span><span class="nb">{align}</span>
+</span><span class="line"><span class="s">$$</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+\mbox{欧拉公式：} & e^{i\pi} + 1 = 0\\
+\mbox{牛顿公式：} & x_{i+1} = \frac{1}{2}\left(x_i+\frac{2}{x_i}\right)
+\end{align} %]]></script>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/08/06/shu-xue-blog/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/">拥有你的个人博客</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-06T15:57:31-04:00'><span class='date'>08-06-16</span> <span class='time'>15:57</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>每个人或多或少，某时某地，都想表达自己，最有收益的表达方法莫过于写 Blog！</p>
+
+<p>搭建个人博客一直是我想做的事。之前试过在不同的地方栖息，包括 QQ 空间和 <a href="bobbielf2.weebly.com/index.html">weebly</a>，写的都是纯文字。后来想写带数学公式的文章，发觉只能把公式制作成图片插入文章，极其麻烦。然后我的好基友 Kuphrer 对我说：“没有原生latex不博客啊！”于是在他的指导下搭了一个 WordPress，又要另外弄存储空间又要备份什么的，弄得我这个网络小白晕头转向，终于还是没有坚持下去。</p>
+
+<p>斗转星移，technology 一日千里，最近学习和编程的需要让我开始了解GitHub，发现这是一个大牛云集的宝地，而且只要项目是开源的就可以免费任意上传文件，而且没有广告，没有任何限制，简直就是搭建个人 Blog 的理想国。在网上搜了一下教程之后，我的博客搭建之旅开始了！</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   <div class="pagination">
     
@@ -77,6 +497,26 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/09/13/fluid-or-solid/">Fluid or Solid?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/09/12/human-brain-works-logarithmically/">Human Brain Works Logarithmically</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/29/ying-wen-ge-ci/">谁说英文歌词都没有深度？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/28/guan-li-yin-yong-wen-xian/">管理引用文献</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/25/shu-xue-shi-fa-ming-huan-shi-fa-xian/">数学是发明还是发现</a>
+      </li>
     
   </ul>
 </section>
@@ -91,12 +531,25 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2016 - Your Name -
+  Copyright &copy; 2016 - Bowei "Bobbie" Wu . -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
 </footer>
   
+
+<script type="text/javascript">
+      var disqus_shortname = 'bobbies-blog';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 

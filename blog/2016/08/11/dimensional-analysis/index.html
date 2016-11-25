@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Dimensional Analysis - Bobbie's Blog</title>
+  <meta name="author" content="Bowei "Bobbie" Wu .">
+
+  
+  <meta name="description" content="Once one of my engineering friends asked me: “Why would you need all these dimensionless numbers? There are so many of them and they just complicate &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://bobbielf2.github.io/blog/2016/08/11/dimensional-analysis/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Bobbie's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Bobbie's Blog</a></h1>
+  
+    <h2>Boys be ambitious.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="bobbielf2.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/aboutme/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Dimensional Analysis</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-11T16:00:40-04:00'><span class='date'>08-11-16</span> <span class='time'>16:00</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Once one of my engineering friends asked me: “Why would you need all these dimensionless numbers? There are so many of them and they just complicate stuff!”</p>
+
+<p>If something is not useful, it wouldn’t have been invented in science; this is particularly true for dimensional analysis which has made great success across all fields of science.</p>
+
+<p>To put things simple, dimensional analysis has two major fundamental applications:</p>
+
+<ul>
+  <li>Simplify equations and lead to new scientific branches/specialties.</li>
+  <li>Guide scientific experiments with dynamic similitude.</li>
+</ul>
+
+<!--more-->
+
+<h4 id="simplification-of-the-navier-stokes-equation">Simplification of the Navier-Stokes equation</h4>
+
+<p>Look at the Navier-Stokes equation</p>
+
+<script type="math/tex; mode=display">\rho \left(\frac{\partial \mathbf{u}}{\partial t} + \mathbf{u}\cdot\nabla\mathbf{u}\right) = -\nabla p + \mu\Delta \mathbf{u} + \rho\mathbf{g}</script>
+
+<p>At a particular point in a flow, We may find that some term in this equation is <em>orders of magnitude</em> bigger than others. We could simplify the N-S equation by retaining those terms that matter, and eliminating those that don’t.</p>
+
+<p>How do we go about to eliminate the negligible terms? To put the conclusion first, the magnitudes of each term in the N-S equation depend on both the <strong>sturcture</strong> of the flow and <strong>location</strong> in the flow – with appropriate flow structure and at appropriate location, one can safely delete certain terms in the N-S equation. This whole process of simplfying the equations, is called <strong>dimensional analysis</strong>.</p>
+
+<h4 id="dimensional-analysis">Dimensional analysis</h4>
+
+<p>There are three steps in performing dimensional analysis.</p>
+
+<ol>
+  <li>Identify <strong>characteristic scales</strong> of a flow.
+    <ul>
+      <li>characteristic length $L$ is related to the size of the boundaries</li>
+      <li>characteristic velocity $U$ is determined by the particular mechanism driving the flow</li>
+      <li>characteristic time $T$ is either imposed by external means or simply defined as $T=L/U$.</li>
+    </ul>
+
+    <blockquote>
+      <p>For example:</p>
+
+      <ol>
+        <li>In the case of unidirectional flow through channel: $U = $ max velocity across channel.</li>
+        <li>In the case of uniform flow past stationary body: $U = $ velocity of the incident flow, $L =$ diameter of the body.</li>
+        <li>In the case of forced oscillatory flow: $T = $ period of oscillation.</li>
+      </ol>
+    </blockquote>
+  </li>
+  <li><em>Nondimensionalization</em>:
+    <ul>
+      <li>Rescale each variable in the equation into a dimensionless variable. 
+ <script type="math/tex">\hat{\mathbf{u}}:=\frac{\mathbf{u}}{U},\qquad \hat{\mathbf{x}}:=\frac{\mathbf{x}}{L},\qquad \hat{t}:=\frac{t}{T},\qquad \hat{p}:=\frac{pL}{\mu U}.</script></li>
+      <li>Rewrite the equation into a dimensionless form.
+ <script type="math/tex">\beta \frac{\partial \hat{\mathbf{u}}}{\partial \hat{t}} + \mbox{Re}\,\hat{\mathbf{u}}\cdot\hat{\nabla}\hat{\mathbf{u}} = -\hat{\nabla} \hat{p} + \hat{\nabla}^2 \hat{\mathbf{u}} + \frac{\mbox{Re}}{\mbox{Fr}^2}\frac{\mathbf{g}}{g}</script></li>
+      <li>The multiplication factors of each term are nondimensional groups, called <em>dimensionless numbers</em>
+        <ul>
+          <li>Frequency parameter: $\beta:=\frac{L^2}{\nu T}$, expresses the relative magnitudes of the inertial acceleration force and the viscous force</li>
+          <li>Reynolds number: $\mbox{Re}:=\frac{UL}{\nu}$, expresses the relative magnitudes of the inertia convective force and the viscous force</li>
+          <li>Froude number: $\mbox{Fr}:=\frac{U}{\sqrt{gL}}$ expresses the relative magnitudes of the inertial convective force and the body force</li>
+          <li>The group $\frac{\mbox{Re}}{\mbox{Fr}^2}=\frac{gL^2}{\nu U}$, expresses the relative magnitudes of the body force and the viscous force</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Eliminate the dominated terms.
+    <ul>
+      <li>If $\mbox{Re}\ll 1$ and $\beta\ll1$, the dominant terms give <strong>Stokes equation</strong>
+ <script type="math/tex">-\nabla p + \mu \nabla^2\mathbf{u}+ \rho\mathbf{g}=\mathbf{0}</script>
+ where the inertia terms go away, resulting in a quasi-steady fluid.</li>
+      <li>If $\mbox{Re}\gg 1$ and $\beta\gg1$, and rescale the pressure by $\hat{p}=\frac{p}{\rho U^2}$ instead, the dominant terms give <strong>Euler’s equation</strong>
+ <script type="math/tex">\rho \left(\frac{\partial \mathbf{u}}{\partial t} + \mathbf{u}\cdot\nabla\mathbf{u}\right) = -\nabla p + \rho\mathbf{g}</script>
+ where the viscous term goes away, making it behave like an inviscid fluid.</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="dynamic-similitude">Dynamic similitude</h4>
+
+<p>TBA.</p>
+
+<h5 id="reference">Reference:</h5>
+
+<p><a href="https://www.amazon.com/Introduction-Theoretical-Computational-Fluid-Dynamics/dp/0199752079">Pozrikidis C. (2011). Introduction to Theoretical and Computational Fluid Dynamics (2nd ed.). Oxford University Press.</a></p>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">波儿比 Bobbie</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-08-11T16:00:40-04:00'><span class='date'>08-11-16</span> <span class='time'>16:00</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/fluid-dynamics/'>fluid-dynamics</a>, <a class='category' href='/blog/categories/pde/'>pde</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://bobbielf2.github.io/blog/2016/08/11/dimensional-analysis/" data-via="" data-counturl="http://bobbielf2.github.io/blog/2016/08/11/dimensional-analysis/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/08/06/shu-xue-blog/" title="Previous Post: 写数学 Blog">&laquo; 写数学 Blog</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/08/17/bu-yao-ji-suan/" title="Next Post: 不要计算">不要计算 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/09/13/fluid-or-solid/">Fluid or Solid?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/09/12/human-brain-works-logarithmically/">Human Brain Works Logarithmically</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/29/ying-wen-ge-ci/">谁说英文歌词都没有深度？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/28/guan-li-yin-yong-wen-xian/">管理引用文献</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/25/shu-xue-shi-fa-ming-huan-shi-fa-xian/">数学是发明还是发现</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Bowei "Bobbie" Wu . -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'bobbies-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://bobbielf2.github.io/blog/2016/08/11/dimensional-analysis/';
+        var disqus_url = 'http://bobbielf2.github.io/blog/2016/08/11/dimensional-analysis/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
