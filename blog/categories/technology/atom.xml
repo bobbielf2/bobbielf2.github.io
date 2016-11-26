@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2016-11-26T17:56:51-05:00</updated>
+  <updated>2016-11-26T18:13:03-05:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -530,6 +530,8 @@ rake deploy
 <p><a href="http://zwgithub.github.io/2016/06/14/%E7%94%A8Octopress%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84github%E5%8D%9A%E5%AE%A2/">设置头像，文章以摘要形式显示，评论功能</a></p>
 
 <p><a href="https://shengmingzhiqing.com/blog/octopress-tutorials-toc.html/">生命之氢 - Octopress 教程目录</a></p>
+
+<p><a href="http://blog.pnkfx.org/blog/2015/12/18/fixing-octopress-table-rendering/">修复 Octopress 不能显示漂亮的 markdown 表格的问题</a></p>
 ]]></content>
   </entry>
   
