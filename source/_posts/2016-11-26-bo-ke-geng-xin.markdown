@@ -18,7 +18,7 @@ categories: [science, computation]
 吐嘈开始，首先看看这门课的大纲：
 
 | Week |                            Topic                            |
-|------|:-----------------------------------------------------------:|
+|------|-------------------------------------------------------------|
 | 1    | Introduction to Linux                                       |
 | 2    | Programming Langues: C, C++, Fortran                        |
 |      | Linux Bash Scripting & Introduction to Python               |
