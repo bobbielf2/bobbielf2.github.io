@@ -59,7 +59,7 @@ Jekyll 是一个对写作者友好的*网页模版系统*（web template system�
 
 如果用 Mac 的话有自带的 Git 和 Ruby 2.0，不需要安装。需要的话 git 可以从[这里](http://git-scm.com/downloads)下载和安装。用 `ruby -v` 可以查询当前 Ruby 版本。新版的 Ruby 自带 RubyGems，所以也不用特别安装，如果没有的话可以在[这里](https://rubygems.org/)安装。
 
-#### 1.5 安装 rbenv
+#### 1.1 安装 rbenv
 
 如果你的系统用 Mac OS，系统自带 Ruby，然而这个 Ruby 的目录（`/Library/Ruby/Gems/`）你是没有权限直接修改的，用`sudo`也不行。所以需要一个“虚拟机”：安装另一个版本的 Ruby 在虚拟机上就可以自由修改了。主流的 Ruby 虚拟机（又叫版本管理器，Ruby Version Manager）有 rbenv 和 RVM。
 
@@ -86,20 +86,7 @@ eval "$(rbenv init -)"
 
 #### 2. 安装 Octopress
 
-有了 rbenv 一切都简单了，首先安装 Jekyll 和 Bundler，运行以下命令即可：
-
-```bash
-gem install jekyll
-gem install bundler
-```
-
-如果在 Mac 用 rbenv 安装的话，装好 bundler 之后就更新 rbenv 以便之后使用 `bundle` 命令:
-
-```bash
-rbenv rehash
-```
-
-终于！到了建立 Octopress 的时候了。 首先为你的网站文档新建一个文件夹，假设是 `/Users/YOURNAME/Sites`，然后把 Octopress 的文档用 git 下载到里面：
+现在开始建立 Octopress！ 首先为你的网站文档新建一个文件夹，假设是 `/Users/YOURNAME/Sites`，然后把 Octopress 的文档用 git 下载到里面：
 
 ```bash
 cd ~/Sites
@@ -107,15 +94,24 @@ git clone git://github.com/imathis/octopress.git octopress
 cd octopress
 ```
 
-然后用 Rake（也就是 Ruby 的 Make）来安装 Octopress：
+有了 rbenv 一切都简单了，首先用 Bundler 安装 octopress 所依赖的其他软件：
 
 ```bash
+gem install bundler
+rbenv rehash # 更新 rbenv 以便之后使用 bundle 命令
 bundle install
+```
+
+> 如果你想知道最后一步`bundle install`做了什么，可以看看`Gemfile`文件，都安装了什么软件
+
+然后用 Rake（也就是 Ruby 的 Make）来安装 Octopress 的默认主题：
+
+```bash
 rake install
 ```
 
 	
-#### 3. 关联 GitHub
+#### 3. 关联 GitHub， 部署博客
 
 
 接着去 [GitHub](https://github.com/new) 建一个新的 repository，名字要起成这样 `USERNAME.github.io`，比如我的就是 `bobbielf2.github.io`。然后用以下命令来建立 Octopress 和 GitHub 的连接：
@@ -137,18 +133,14 @@ git@github.com:USERNAME/USERNAME.github.io.git #格式2
 https://github.com/bobbielf2/bobbielf2.github.io  
 ```
 
-接着按照提示输入密码之类的，就完成和 GitHub 的关联了。
-
-#### 4. 生成和部署博客网站
-
-连接完成之后，继续可以生成和部署网站：
+接着按照提示输入密码之类的，就完成和 GitHub 的关联了，接着可以生成和部署网站：
 
 ```bash
 rake generate
 rake deploy
 ```
 
-把文件同步 push 到 GitHub 上
+当然不要忘记备份博客，把文件同步 push 到 GitHub 上
 	
 ```bash
 git add .
@@ -158,6 +150,8 @@ git push origin source
 
 现在可以去你的 GitHub 网址看自己的网页了，比如我的就是 [https://bobbielf2.github.io/](https://bobbielf2.github.io/)。
 	
+#### 4. 配置博客
+
 接着可以修改网页配置，位置在 `octopress/_config.yml`。
 	
 ```yaml
@@ -174,19 +168,18 @@ category_feeds:     # Enable per category RSS feeds (defaults to false in 2.1)
 email:              # Email address for the RSS feed if you want it.
 ```
 
-编辑完成后再 push 更新一次
+编辑完成后再重新 generate 和 deploy 一次
 
 ```bash
 rake generate
-
+rake deploy
+# 别忘了用 git 备份
 git add .
 git commit -m "settings" 
 git push origin source
-	
-rake deploy
 ```
 
-> Remark: 每次 commit 来确认改变之前，都要 add 来更新索引。最终 push 来把所有变化应用到当前的 branch 中。所以 commit 之前可以 add 很多次，push 之前也可以 commit 很多次。 
+> Remark: 每次 commit 来确认改变之前，都要 add 来更新索引。最终 push 来把 source 里的文件都备份到 GitHub 上。所以 commit 之前可以 add 很多次，push 之前也可以 commit 很多次。 
 
 
 ### 三、 写博客
@@ -199,7 +192,7 @@ rake deploy
 
 #### 1. 创建新的文章
 
-用这个命令生成新的 Blog artcle 
+用这个命令生成新的 blog article 
   
 ```bash
 rake new_post['title']

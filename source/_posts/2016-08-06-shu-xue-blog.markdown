@@ -45,20 +45,14 @@ $$
 
 Octopress 中默认的 rdiscount 不支持把 Markdown 中的 LaTeX 公式呈现出来，所以要换成 [kramdown](http://kramdown.gettalong.org/)（这个 Markdown 转换器也是开源的，他家号称全球最快）。
 
-- 安装 kramdown，运行命令
+* 安装 kramdown（假设你已经有 rbenv，参考[上一篇文章](/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html) ），运行命令
 
 ```bash
 gem install kramdown
 ```
 
-如果系统安全系数太高（OS X 10.11）就用
-
-```bash
-gem install -n /usr/local/bin kramdown
-```
-
-- 修改 Octopress 的`_config.yml`配置文件，把全部`rdiscount`都改成`kramdown`
-- 修改 Octopress 的`Gemfile`，把里面的`gem 'rdiscount', '~> 2.0'`改成`gem 'kramdown'`
+* 修改 Octopress 的`_config.yml`配置文件，把全部`rdiscount`都改成`kramdown`
+* 修改 Octopress 的`Gemfile`，把里面的`gem 'rdiscount', '~> 2.0'`改成`gem 'kramdown'`
 
 #### 2, 配置 MathJax
 
@@ -87,28 +81,32 @@ MathJax.Hub.Config({
 修改 Octopress 的`/sass/base/_theme.scss`文件，把代码中的
 
 ```sass _theme.scss
+//...
 > div {
      background: $sidebar-bg $noise-bg;
      border-bottom: 1px solid $page-border-bottom;
      > div {
+//...
 ```
 
 加入`#main`，变成
 
 ```sass sass
+//...
 > div#main {
      background: $sidebar-bg $noise-bg;
      border-bottom: 1px solid $page-border-bottom;
      > div {
+//...
 ```
 
 #### 4, 修复 Pygments 的问题
 
 这个是新版本出现的问题。使用 kramdown 之后，以前写的博客突然编译不出来了；当你运行 rake generate 时候，会报错：
 
-~~~
+```
 Error: Pygments can't parse unknown language: </p>
-~~~
+```
 
 原因是最新版的 Pygments 这个插件对于 Markdown 的书写要求更严格了。
 
