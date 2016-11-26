@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Computation | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/computation/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2016-11-26T17:41:34-05:00</updated>
+  <updated>2016-11-26T17:45:50-05:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -32,73 +32,73 @@
   <thead>
     <tr>
       <th>Week</th>
-      <th style="text-align: center">Topic</th>
+      <th>Topic</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
-      <td style="text-align: center">Introduction to Linux</td>
+      <td>Introduction to Linux</td>
     </tr>
     <tr>
       <td>2</td>
-      <td style="text-align: center">Programming Langues: C, C++, Fortran</td>
+      <td>Programming Langues: C, C++, Fortran</td>
     </tr>
     <tr>
       <td> </td>
-      <td style="text-align: center">Linux Bash Scripting &amp; Introduction to Python</td>
+      <td>Linux Bash Scripting &amp; Introduction to Python</td>
     </tr>
     <tr>
       <td>3</td>
-      <td style="text-align: center">Elements of Development: Configuring, Compiling, Linking</td>
+      <td>Elements of Development: Configuring, Compiling, Linking</td>
     </tr>
     <tr>
       <td> </td>
-      <td style="text-align: center">Tools of the Trade: Version Control, Text Editors, Dev. Env</td>
+      <td>Tools of the Trade: Version Control, Text Editors, Dev. Env</td>
     </tr>
     <tr>
       <td>4</td>
-      <td style="text-align: center">Algorithms for Numerical Linear Algebra</td>
+      <td>Algorithms for Numerical Linear Algebra</td>
     </tr>
     <tr>
       <td> </td>
-      <td style="text-align: center">Sci. Computing Libs: BLAS, LAPACK, PETSc, Trilinos</td>
+      <td>Sci. Computing Libs: BLAS, LAPACK, PETSc, Trilinos</td>
     </tr>
     <tr>
       <td>5</td>
-      <td style="text-align: center">Software Engineering Practices &amp; Development Workflows</td>
+      <td>Software Engineering Practices &amp; Development Workflows</td>
     </tr>
     <tr>
       <td> </td>
-      <td style="text-align: center">Object-Oriented Programming, Design Patterns, UML</td>
+      <td>Object-Oriented Programming, Design Patterns, UML</td>
     </tr>
     <tr>
       <td>…</td>
-      <td style="text-align: center">…</td>
+      <td>…</td>
     </tr>
     <tr>
       <td>8</td>
-      <td style="text-align: center">Serial Optimization Techniques</td>
+      <td>Serial Optimization Techniques</td>
     </tr>
     <tr>
       <td> </td>
-      <td style="text-align: center">Parallel Programming Models</td>
+      <td>Parallel Programming Models</td>
     </tr>
     <tr>
       <td>…</td>
-      <td style="text-align: center">…</td>
+      <td>…</td>
     </tr>
     <tr>
       <td>11</td>
-      <td style="text-align: center">Data Format Libraries: HDF5, NetCDF, SILO</td>
+      <td>Data Format Libraries: HDF5, NetCDF, SILO</td>
     </tr>
     <tr>
       <td> </td>
-      <td style="text-align: center">Mesh Libraries: Libmesh, Exodus, others</td>
+      <td>Mesh Libraries: Libmesh, Exodus, others</td>
     </tr>
     <tr>
       <td>…</td>
-      <td style="text-align: center">…</td>
+      <td>…</td>
     </tr>
   </tbody>
 </table>
