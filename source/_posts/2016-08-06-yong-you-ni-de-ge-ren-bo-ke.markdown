@@ -252,3 +252,5 @@ rake deploy
 [设置头像，文章以摘要形式显示，评论功能](http://zwgithub.github.io/2016/06/14/%E7%94%A8Octopress%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84github%E5%8D%9A%E5%AE%A2/)
 
 [生命之氢 - Octopress 教程目录](https://shengmingzhiqing.com/blog/octopress-tutorials-toc.html/)  
+
+[修复 Octopress 不能显示漂亮的 markdown 表格的问题](http://blog.pnkfx.org/blog/2015/12/18/fixing-octopress-table-rendering/)
