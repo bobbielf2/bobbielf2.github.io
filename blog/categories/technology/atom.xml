@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2016-11-25T19:25:42-05:00</updated>
+  <updated>2016-11-25T21:15:16-05:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -150,17 +150,11 @@ $$
 <p>Octopress 中默认的 rdiscount 不支持把 Markdown 中的 LaTeX 公式呈现出来，所以要换成 <a href="http://kramdown.gettalong.org/">kramdown</a>（这个 Markdown 转换器也是开源的，他家号称全球最快）。</p>
 
 <ul>
-  <li>安装 kramdown，运行命令</li>
+  <li>安装 kramdown（假设你已经有 rbenv，参考<a href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html">上一篇文章</a> ），运行命令</li>
 </ul>
 
 <p><code>bash
 gem install kramdown
-</code></p>
-
-<p>如果系统安全系数太高（OS X 10.11）就用</p>
-
-<p><code>bash
-gem install -n /usr/local/bin kramdown
 </code></p>
 
 <ul>
@@ -195,27 +189,32 @@ MathJax.Hub.Config({
 <p>修改 Octopress 的<code>/sass/base/_theme.scss</code>文件，把代码中的</p>
 
 <p><code>sass _theme.scss
+//...
 &gt; div {
      background: $sidebar-bg $noise-bg;
      border-bottom: 1px solid $page-border-bottom;
      &gt; div {
+//...
 </code></p>
 
 <p>加入<code>#main</code>，变成</p>
 
 <p><code>sass sass
+//...
 &gt; div#main {
      background: $sidebar-bg $noise-bg;
      border-bottom: 1px solid $page-border-bottom;
      &gt; div {
+//...
 </code></p>
 
 <h4 id="pygments-">4, 修复 Pygments 的问题</h4>
 
 <p>这个是新版本出现的问题。使用 kramdown 之后，以前写的博客突然编译不出来了；当你运行 rake generate 时候，会报错：</p>
 
-<pre><code>Error: Pygments can't parse unknown language: &lt;/p&gt;
-</code></pre>
+<p><code>
+Error: Pygments can't parse unknown language: &lt;/p&gt;
+</code></p>
 
 <p>原因是最新版的 Pygments 这个插件对于 Markdown 的书写要求更严格了。</p>
 
@@ -336,7 +335,7 @@ Ruby 和其他编程语言一样可以执行脚本，叫做 Rakefile（类似 C 
 
 <p>如果用 Mac 的话有自带的 Git 和 Ruby 2.0，不需要安装。需要的话 git 可以从<a href="http://git-scm.com/downloads">这里</a>下载和安装。用 <code>ruby -v</code> 可以查询当前 Ruby 版本。新版的 Ruby 自带 RubyGems，所以也不用特别安装，如果没有的话可以在<a href="https://rubygems.org/">这里</a>安装。</p>
 
-<h4 id="rbenv">1.5 安装 rbenv</h4>
+<h4 id="rbenv">1.1 安装 rbenv</h4>
 
 <p>如果你的系统用 Mac OS，系统自带 Ruby，然而这个 Ruby 的目录（<code>/Library/Ruby/Gems/</code>）你是没有权限直接修改的，用<code>sudo</code>也不行。所以需要一个“虚拟机”：安装另一个版本的 Ruby 在虚拟机上就可以自由修改了。主流的 Ruby 虚拟机（又叫版本管理器，Ruby Version Manager）有 rbenv 和 RVM。</p>
 
@@ -363,20 +362,7 @@ eval "$(rbenv init -)"
 
 <h4 id="octopress-1">2. 安装 Octopress</h4>
 
-<p>有了 rbenv 一切都简单了，首先安装 Jekyll 和 Bundler，运行以下命令即可：</p>
-
-<p><code>bash
-gem install jekyll
-gem install bundler
-</code></p>
-
-<p>如果在 Mac 用 rbenv 安装的话，装好 bundler 之后就更新 rbenv 以便之后使用 <code>bundle</code> 命令:</p>
-
-<p><code>bash
-rbenv rehash
-</code></p>
-
-<p>终于！到了建立 Octopress 的时候了。 首先为你的网站文档新建一个文件夹，假设是 <code>/Users/YOURNAME/Sites</code>，然后把 Octopress 的文档用 git 下载到里面：</p>
+<p>现在开始建立 Octopress！ 首先为你的网站文档新建一个文件夹，假设是 <code>/Users/YOURNAME/Sites</code>，然后把 Octopress 的文档用 git 下载到里面：</p>
 
 <p><code>bash
 cd ~/Sites
@@ -384,14 +370,25 @@ git clone git://github.com/imathis/octopress.git octopress
 cd octopress
 </code></p>
 
-<p>然后用 Rake（也就是 Ruby 的 Make）来安装 Octopress：</p>
+<p>有了 rbenv 一切都简单了，首先用 Bundler 安装 octopress 所依赖的其他软件：</p>
 
 <p><code>bash
+gem install bundler
+rbenv rehash # 更新 rbenv 以便之后使用 bundle 命令
 bundle install
+</code></p>
+
+<blockquote>
+  <p>如果你想知道最后一步<code>bundle install</code>做了什么，可以看看<code>Gemfile</code>文件，都安装了什么软件</p>
+</blockquote>
+
+<p>然后用 Rake（也就是 Ruby 的 Make）来安装 Octopress 的默认主题：</p>
+
+<p><code>bash
 rake install
 </code></p>
 
-<h4 id="github-1">3. 关联 GitHub</h4>
+<h4 id="github-">3. 关联 GitHub， 部署博客</h4>
 
 <p>接着去 <a href="https://github.com/new">GitHub</a> 建一个新的 repository，名字要起成这样 <code>USERNAME.github.io</code>，比如我的就是 <code>bobbielf2.github.io</code>。然后用以下命令来建立 Octopress 和 GitHub 的连接：</p>
 
@@ -412,18 +409,14 @@ git@github.com:USERNAME/USERNAME.github.io.git #格式2
 https://github.com/bobbielf2/bobbielf2.github.io  
 </code></p>
 
-<p>接着按照提示输入密码之类的，就完成和 GitHub 的关联了。</p>
-
-<h4 id="section-2">4. 生成和部署博客网站</h4>
-
-<p>连接完成之后，继续可以生成和部署网站：</p>
+<p>接着按照提示输入密码之类的，就完成和 GitHub 的关联了，接着可以生成和部署网站：</p>
 
 <p><code>bash
 rake generate
 rake deploy
 </code></p>
 
-<p>把文件同步 push 到 GitHub 上</p>
+<p>当然不要忘记备份博客，把文件同步 push 到 GitHub 上</p>
 
 <p><code>bash
 git add .
@@ -432,6 +425,8 @@ git push origin source
 </code></p>
 
 <p>现在可以去你的 GitHub 网址看自己的网页了，比如我的就是 <a href="https://bobbielf2.github.io/">https://bobbielf2.github.io/</a>。</p>
+
+<h4 id="section-2">4. 配置博客</h4>
 
 <p>接着可以修改网页配置，位置在 <code>octopress/_config.yml</code>。</p>
 
@@ -449,20 +444,19 @@ category_feeds:     # Enable per category RSS feeds (defaults to false in 2.1)
 email:              # Email address for the RSS feed if you want it.
 </code></p>
 
-<p>编辑完成后再 push 更新一次</p>
+<p>编辑完成后再重新 generate 和 deploy 一次</p>
 
-<p>```bash
-rake generate</p>
-
-<p>git add .
-git commit -m “settings” 
-git push origin source</p>
-
-<p>rake deploy
-```</p>
+<p><code>bash
+rake generate
+rake deploy
+# 别忘了用 git 备份
+git add .
+git commit -m "settings" 
+git push origin source
+</code></p>
 
 <blockquote>
-  <p>Remark: 每次 commit 来确认改变之前，都要 add 来更新索引。最终 push 来把所有变化应用到当前的 branch 中。所以 commit 之前可以 add 很多次，push 之前也可以 commit 很多次。</p>
+  <p>Remark: 每次 commit 来确认改变之前，都要 add 来更新索引。最终 push 来把 source 里的文件都备份到 GitHub 上。所以 commit 之前可以 add 很多次，push 之前也可以 commit 很多次。</p>
 </blockquote>
 
 <h3 id="section-3">三、 写博客</h3>
@@ -477,7 +471,7 @@ git push origin source</p>
 
 <h4 id="section-4">1. 创建新的文章</h4>
 
-<p>用这个命令生成新的 Blog artcle</p>
+<p>用这个命令生成新的 blog article</p>
 
 <p><code>bash
 rake new_post['title']

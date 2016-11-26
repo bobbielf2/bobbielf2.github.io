@@ -155,7 +155,7 @@ Ruby 和其他编程语言一样可以执行脚本，叫做 Rakefile（类似 C 
 
 <p>如果用 Mac 的话有自带的 Git 和 Ruby 2.0，不需要安装。需要的话 git 可以从<a href="http://git-scm.com/downloads">这里</a>下载和安装。用 <code>ruby -v</code> 可以查询当前 Ruby 版本。新版的 Ruby 自带 RubyGems，所以也不用特别安装，如果没有的话可以在<a href="https://rubygems.org/">这里</a>安装。</p>
 
-<h4 id="rbenv">1.5 安装 rbenv</h4>
+<h4 id="rbenv">1.1 安装 rbenv</h4>
 
 <p>如果你的系统用 Mac OS，系统自带 Ruby，然而这个 Ruby 的目录（<code>/Library/Ruby/Gems/</code>）你是没有权限直接修改的，用<code>sudo</code>也不行。所以需要一个“虚拟机”：安装另一个版本的 Ruby 在虚拟机上就可以自由修改了。主流的 Ruby 虚拟机（又叫版本管理器，Ruby Version Manager）有 rbenv 和 RVM。</p>
 
@@ -183,21 +183,7 @@ Ruby 和其他编程语言一样可以执行脚本，叫做 Rakefile（类似 C 
 
 <h4 id="octopress-1">2. 安装 Octopress</h4>
 
-<p>有了 rbenv 一切都简单了，首先安装 Jekyll 和 Bundler，运行以下命令即可：</p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">gem install jekyll
-</span><span class="line">gem install bundler
-</span></code></pre></td></tr></table></div></figure>
-
-<p>如果在 Mac 用 rbenv 安装的话，装好 bundler 之后就更新 rbenv 以便之后使用 <code>bundle</code> 命令:</p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">rbenv rehash
-</span></code></pre></td></tr></table></div></figure>
-
-<p>终于！到了建立 Octopress 的时候了。 首先为你的网站文档新建一个文件夹，假设是 <code>/Users/YOURNAME/Sites</code>，然后把 Octopress 的文档用 git 下载到里面：</p>
+<p>现在开始建立 Octopress！ 首先为你的网站文档新建一个文件夹，假设是 <code>/Users/YOURNAME/Sites</code>，然后把 Octopress 的文档用 git 下载到里面：</p>
 
 <figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
@@ -207,15 +193,27 @@ Ruby 和其他编程语言一样可以执行脚本，叫做 Rakefile（类似 C 
 </span><span class="line"><span class="nb">cd </span>octopress
 </span></code></pre></td></tr></table></div></figure>
 
-<p>然后用 Rake（也就是 Ruby 的 Make）来安装 Octopress：</p>
+<p>有了 rbenv 一切都简单了，首先用 Bundler 安装 octopress 所依赖的其他软件：</p>
 
 <figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">bundle install
-</span><span class="line">rake install
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">gem install bundler
+</span><span class="line">rbenv rehash <span class="c"># 更新 rbenv 以便之后使用 bundle 命令</span>
+</span><span class="line">bundle install
 </span></code></pre></td></tr></table></div></figure>
 
-<h4 id="github-1">3. 关联 GitHub</h4>
+<blockquote>
+  <p>如果你想知道最后一步<code>bundle install</code>做了什么，可以看看<code>Gemfile</code>文件，都安装了什么软件</p>
+</blockquote>
+
+<p>然后用 Rake（也就是 Ruby 的 Make）来安装 Octopress 的默认主题：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rake install
+</span></code></pre></td></tr></table></div></figure>
+
+<h4 id="github-">3. 关联 GitHub， 部署博客</h4>
 
 <p>接着去 <a href="https://github.com/new">GitHub</a> 建一个新的 repository，名字要起成这样 <code>USERNAME.github.io</code>，比如我的就是 <code>bobbielf2.github.io</code>。然后用以下命令来建立 Octopress 和 GitHub 的连接：</p>
 
@@ -237,11 +235,7 @@ Ruby 和其他编程语言一样可以执行脚本，叫做 Rakefile（类似 C 
 </pre></td><td class="code"><pre><code class="bash"><span class="line">https://github.com/bobbielf2/bobbielf2.github.io
 </span></code></pre></td></tr></table></div></figure>
 
-<p>接着按照提示输入密码之类的，就完成和 GitHub 的关联了。</p>
-
-<h4 id="section-2">4. 生成和部署博客网站</h4>
-
-<p>连接完成之后，继续可以生成和部署网站：</p>
+<p>接着按照提示输入密码之类的，就完成和 GitHub 的关联了，接着可以生成和部署网站：</p>
 
 <figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
@@ -249,7 +243,7 @@ Ruby 和其他编程语言一样可以执行脚本，叫做 Rakefile（类似 C 
 </span><span class="line">rake deploy
 </span></code></pre></td></tr></table></div></figure>
 
-<p>把文件同步 push 到 GitHub 上</p>
+<p>当然不要忘记备份博客，把文件同步 push 到 GitHub 上</p>
 
 <figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
@@ -260,6 +254,8 @@ Ruby 和其他编程语言一样可以执行脚本，叫做 Rakefile（类似 C 
 </span></code></pre></td></tr></table></div></figure>
 
 <p>现在可以去你的 GitHub 网址看自己的网页了，比如我的就是 <a href="https://bobbielf2.github.io/">https://bobbielf2.github.io/</a>。</p>
+
+<h4 id="section-2">4. 配置博客</h4>
 
 <p>接着可以修改网页配置，位置在 <code>octopress/_config.yml</code>。</p>
 
@@ -287,7 +283,7 @@ Ruby 和其他编程语言一样可以执行脚本，叫做 Rakefile（类似 C 
 </span><span class="line"><span class="l-Scalar-Plain">email</span><span class="p-Indicator">:</span>              <span class="c1"># Email address for the RSS feed if you want it.</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<p>编辑完成后再 push 更新一次</p>
+<p>编辑完成后再重新 generate 和 deploy 一次</p>
 
 <figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
@@ -295,18 +291,16 @@ Ruby 和其他编程语言一样可以执行脚本，叫做 Rakefile（类似 C 
 <span class="line-number">4</span>
 <span class="line-number">5</span>
 <span class="line-number">6</span>
-<span class="line-number">7</span>
 </pre></td><td class="code"><pre><code class="bash"><span class="line">rake generate
-</span><span class="line">
+</span><span class="line">rake deploy
+</span><span class="line"><span class="c"># 别忘了用 git 备份</span>
 </span><span class="line">git add .
 </span><span class="line">git commit -m <span class="s2">&quot;settings&quot;</span>
 </span><span class="line">git push origin <span class="nb">source</span>
-</span><span class="line"><span class="nb">	</span>
-</span><span class="line">rake deploy
 </span></code></pre></td></tr></table></div></figure>
 
 <blockquote>
-  <p>Remark: 每次 commit 来确认改变之前，都要 add 来更新索引。最终 push 来把所有变化应用到当前的 branch 中。所以 commit 之前可以 add 很多次，push 之前也可以 commit 很多次。</p>
+  <p>Remark: 每次 commit 来确认改变之前，都要 add 来更新索引。最终 push 来把 source 里的文件都备份到 GitHub 上。所以 commit 之前可以 add 很多次，push 之前也可以 commit 很多次。</p>
 </blockquote>
 
 <h3 id="section-3">三、 写博客</h3>
@@ -321,7 +315,7 @@ Ruby 和其他编程语言一样可以执行脚本，叫做 Rakefile（类似 C 
 
 <h4 id="section-4">1. 创建新的文章</h4>
 
-<p>用这个命令生成新的 Blog artcle</p>
+<p>用这个命令生成新的 blog article</p>
 
 <figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 </pre></td><td class="code"><pre><code class="bash"><span class="line">rake new_post<span class="o">[</span><span class="s1">&#39;title&#39;</span><span class="o">]</span>

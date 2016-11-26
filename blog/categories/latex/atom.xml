@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Latex | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/latex/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2016-11-25T19:25:42-05:00</updated>
+  <updated>2016-11-25T21:15:16-05:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -150,17 +150,11 @@ $$
 <p>Octopress 中默认的 rdiscount 不支持把 Markdown 中的 LaTeX 公式呈现出来，所以要换成 <a href="http://kramdown.gettalong.org/">kramdown</a>（这个 Markdown 转换器也是开源的，他家号称全球最快）。</p>
 
 <ul>
-  <li>安装 kramdown，运行命令</li>
+  <li>安装 kramdown（假设你已经有 rbenv，参考<a href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html">上一篇文章</a> ），运行命令</li>
 </ul>
 
 <p><code>bash
 gem install kramdown
-</code></p>
-
-<p>如果系统安全系数太高（OS X 10.11）就用</p>
-
-<p><code>bash
-gem install -n /usr/local/bin kramdown
 </code></p>
 
 <ul>
@@ -195,27 +189,32 @@ MathJax.Hub.Config({
 <p>修改 Octopress 的<code>/sass/base/_theme.scss</code>文件，把代码中的</p>
 
 <p><code>sass _theme.scss
+//...
 &gt; div {
      background: $sidebar-bg $noise-bg;
      border-bottom: 1px solid $page-border-bottom;
      &gt; div {
+//...
 </code></p>
 
 <p>加入<code>#main</code>，变成</p>
 
 <p><code>sass sass
+//...
 &gt; div#main {
      background: $sidebar-bg $noise-bg;
      border-bottom: 1px solid $page-border-bottom;
      &gt; div {
+//...
 </code></p>
 
 <h4 id="pygments-">4, 修复 Pygments 的问题</h4>
 
 <p>这个是新版本出现的问题。使用 kramdown 之后，以前写的博客突然编译不出来了；当你运行 rake generate 时候，会报错：</p>
 
-<pre><code>Error: Pygments can't parse unknown language: &lt;/p&gt;
-</code></pre>
+<p><code>
+Error: Pygments can't parse unknown language: &lt;/p&gt;
+</code></p>
 
 <p>原因是最新版的 Pygments 这个插件对于 Markdown 的书写要求更严格了。</p>
 

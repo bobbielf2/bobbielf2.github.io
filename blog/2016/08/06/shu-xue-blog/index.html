@@ -153,17 +153,11 @@ MathJax.Hub.Config({
 <p>Octopress 中默认的 rdiscount 不支持把 Markdown 中的 LaTeX 公式呈现出来，所以要换成 <a href="http://kramdown.gettalong.org/">kramdown</a>（这个 Markdown 转换器也是开源的，他家号称全球最快）。</p>
 
 <ul>
-  <li>安装 kramdown，运行命令</li>
+  <li>安装 kramdown（假设你已经有 rbenv，参考<a href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html">上一篇文章</a> ），运行命令</li>
 </ul>
 
 <figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 </pre></td><td class="code"><pre><code class="bash"><span class="line">gem install kramdown
-</span></code></pre></td></tr></table></div></figure>
-
-<p>如果系统安全系数太高（OS X 10.11）就用</p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">gem install -n /usr/local/bin kramdown
 </span></code></pre></td></tr></table></div></figure>
 
 <ul>
@@ -215,10 +209,14 @@ MathJax.Hub.Config({
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
-</pre></td><td class="code"><pre><code class="sass"><span class="line"><span class="o">&gt;</span> <span class="nt">div</span> <span class="err">{</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="sass"><span class="line"><span class="c1">//...</span>
+</span><span class="line"><span class="o">&gt;</span> <span class="nt">div</span> <span class="err">{</span>
 </span><span class="line">     <span class="na">background</span><span class="o">:</span> <span class="nv">$sidebar-bg</span> <span class="nv">$noise-bg</span><span class="err">;</span>
 </span><span class="line">     <span class="na">border-bottom</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$page-border-bottom</span><span class="err">;</span>
 </span><span class="line">     <span class="o">&gt;</span> <span class="nt">div</span> <span class="err">{</span>
+</span><span class="line"><span class="c1">//...</span>
 </span></code></pre></td></tr></table></div></figure>
 
 <p>加入<code>#main</code>，变成</p>
@@ -227,18 +225,23 @@ MathJax.Hub.Config({
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
-</pre></td><td class="code"><pre><code class="sass"><span class="line"><span class="o">&gt;</span> <span class="nt">div</span><span class="nn">#main</span> <span class="err">{</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="sass"><span class="line"><span class="c1">//...</span>
+</span><span class="line"><span class="o">&gt;</span> <span class="nt">div</span><span class="nn">#main</span> <span class="err">{</span>
 </span><span class="line">     <span class="na">background</span><span class="o">:</span> <span class="nv">$sidebar-bg</span> <span class="nv">$noise-bg</span><span class="err">;</span>
 </span><span class="line">     <span class="na">border-bottom</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$page-border-bottom</span><span class="err">;</span>
 </span><span class="line">     <span class="o">&gt;</span> <span class="nt">div</span> <span class="err">{</span>
+</span><span class="line"><span class="c1">//...</span>
 </span></code></pre></td></tr></table></div></figure>
 
 <h4 id="pygments-">4, 修复 Pygments 的问题</h4>
 
 <p>这个是新版本出现的问题。使用 kramdown 之后，以前写的博客突然编译不出来了；当你运行 rake generate 时候，会报错：</p>
 
-<pre><code>Error: Pygments can't parse unknown language: &lt;/p&gt;
-</code></pre>
+<figure class="code"><figcaption><span>sass</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sass"><span class="line"><span class="na">Error</span><span class="o">:</span> <span class="n">Pygments</span> <span class="n">can</span><span class="s1">&#39;</span><span class="s2">t parse unknown language: &lt;/p&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>原因是最新版的 Pygments 这个插件对于 Markdown 的书写要求更严格了。</p>
 
