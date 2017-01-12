@@ -144,6 +144,21 @@ raise "Pygments can't parse unknown language: #{lang}#{code}."
 
 通过这个方法，我最终确定了我这里的情况是，用来标记 code block 的```` ``` ````符号和段落符号`</p>`放在一起时产生某种错误（反正我是试不出怎么回事）。最后我用`~~~`代替了```` ``` ````（同样是 Markdown 标记代码的符号），终于没有编译错误了。
 
+**2017/1/12 update:** 更新到 python 3 之后，pygments 又出错了，不能 parse language。原因就是因为 pygments 只支持 python 2。**解决方法：** 用 anaconda 建立一个 python 2 的 environment:
+
+``` bash 
+conda create -n py27 python=2.7 anaconda
+```
+
+安装好 python 2.7 后，激活这个 environment:
+
+``` bash 
+source activate py27
+```
+
+这样就能正常编译了。
+
+
 #### 后记
 
 写这篇文章的时候，遇到一个问题，就是不知道怎么让 Markdown 显示 `` ` ``这个符号，后来发现了解决方法：
