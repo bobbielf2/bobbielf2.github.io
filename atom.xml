@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2016-11-26T18:13:03-05:00</updated>
+  <updated>2017-01-12T16:46:50-05:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,103 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Beamer Video Tutorial]]></title>
+    <link href="http://bobbielf2.github.io/blog/2017/01/12/beamer-video-tutorial/"/>
+    <updated>2017-01-12T16:04:51-05:00</updated>
+    <id>http://bobbielf2.github.io/blog/2017/01/12/beamer-video-tutorial</id>
+    <content type="html"><![CDATA[<p>As a researcher, I often need to make presentation slides, and want to embed movies in my slides for better illustrations. After doing a little research, I converged to the solution described in this article.</p>
+
+<!--more-->
+
+<p>If you want to benefit from this tutorial, here are two most important assumptions:</p>
+
+<p><strong>1</strong>. Slides are made with the <a href="https://en.wikipedia.org/wiki/Beamer_(LaTeX)"><strong>LaTeX beamer</strong></a> package.<br />
+<strong>2</strong>. Movie format is assumed to be <code>.flv</code> (because I can’t play <code>.mp4</code> movies on my Mac).</p>
+
+<p>Accordingly, this tutorial has two parts:</p>
+
+<p><strong>1</strong>. How to embed <code>.flv</code> in beamer.<br />
+<strong>2</strong>. How to convert movie format to <code>.flv</code>.</p>
+
+<h2 id="part-i-embed-flv-movies-in-latex">Part I: Embed <code>.flv</code> movies in LaTeX</h2>
+
+<p><strong>Step 1</strong>: Download the <code>flashmovie.sty</code> package file from <a href="http://tug.ctan.org/tex-archive/macros/latex/contrib/flashmovie/">CTAN</a></p>
+
+<blockquote>
+  <p>Remark: The <code>flashmovie.sty</code> package is written by Professor Timo Hartmann from TU Berlin.</p>
+</blockquote>
+
+<p><strong>Step 2</strong>: Download the <a href="https://ia601703.us.archive.org/8/items/JwPlayerFiles/player.swf"><code>player.swf</code></a> file from <a href="https://archive.org/details/JwPlayerFiles">https://archive.org/details/JwPlayerFiles</a>. This file is needed by the JW Player engine in order to correctly compile the <code>.tex</code> file.</p>
+
+<p><strong>Step 3</strong>: Embed the <code>.flv</code> movie in your beamer. Here is an example <code>.tex</code> file.</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+</pre></td><td class="code"><pre><code class="latex"><span class="line"><span class="k">\RequirePackage</span><span class="nb">{</span>flashmovie<span class="nb">}</span>
+</span><span class="line"><span class="k">\documentclass</span><span class="nb">{</span>beamer<span class="nb">}</span>
+</span><span class="line"><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+</span><span class="line"><span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}</span>
+</span><span class="line"><span class="k">\frametitle</span><span class="nb">{</span>embed a movie<span class="nb">}</span>
+</span><span class="line"><span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
+</span><span class="line"><span class="k">\flashmovie</span><span class="na">[width=0.7\textwidth,engine=jw-player,auto=0,image=POSTER.jpg,controlbar=1,loop=0]</span><span class="nb">{</span>YOUR<span class="nb">_</span>MOVIE.flv<span class="nb">}</span>
+</span><span class="line"><span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
+</span><span class="line"><span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
+</span><span class="line"><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>Here <code>YOUR_MOVIE.flv</code> is the flv movie you want to embed, and <code>POSTER.jpg</code> is the image shown before the movie is played (note that the poster image is optional).</p>
+
+<p><strong>Step 4</strong>: Compile the <code>.tex</code> file into PDF with all the neccessary files in the same directory (i.e. <code>flashmovie.sty</code>, <code>player.swf</code>, <code>YOUR_MOVIE.flv</code>, <code>POSTER.jpg</code>). Then open the PDF file using <strong>Adobe Reader 9 or above</strong></p>
+
+<blockquote>
+  <p>Remark:<br />
+1. more options of the <code>\flashmovie</code> command can be found in the <code>flashmovie.sty</code> file.<br />
+2. there are more different player options for <code>engine</code> other than the JW Player. For example, you may instead set <code>engine=flv-player</code> which uses an open-source player from <a href="http://flv-player.net">http://flv-player.net</a>. For this player another <code>.swf</code> file, <a href="http://flv-player.net/medias/player_flv_maxi.swf"><code>player_flv_maxi.swf</code></a>, is needed.</p>
+</blockquote>
+
+<h2 id="part-ii-convert-movie-formats-to-flv">Part II: Convert movie formats to <code>.flv</code></h2>
+
+<p>The software used to convert movie formats is <a href="https://ffmpeg.org/"><strong>FFmpeg</strong></a>. This is a free and open-source software.</p>
+
+<p>Assuming you are using Mac OSX like me, here are the steps:</p>
+
+<p><strong>1</strong>. Make sure you installed <strong>Homebrew</strong> on your Mac, for details go to <a href="http://brew.sh/">http://brew.sh/</a>.<br />
+<strong>2</strong>. Install <strong>ffmpeg</strong> by running <code>brew install ffmpeg</code> in command line.<br />
+<strong>3</strong>. Convert movie formats using the <code>ffmpeg</code> command.</p>
+
+<blockquote>
+  <p>An explanation of the <code>ffmpeg</code> options can be found <a href="https://www.virag.si/2012/01/web-video-encoding-tutorial-with-ffmpeg-0-9/">here</a>. (Also a helpful article if your are using Windows or Linux.)</p>
+</blockquote>
+
+<p>An example command that I used to convert an <code>.mp4</code> file to <code>.flv</code>:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">ffmpeg -i input_file.mp4 -c:v libx264 -vf <span class="nv">scale</span><span class="o">=</span>-1:270 -ar <span class="m">22050</span> output_file.flv
+</span></code></pre></td></tr></table></div></figure>
+
+<p>Some explanation of the command</p>
+
+<ul>
+  <li><strong><code>-i input_file.mp4</code></strong>: specify the input file</li>
+  <li><strong><code>-c:v libx264</code></strong>: set video codec to be libx264</li>
+  <li><strong><code>-vf scale=-1:270</code></strong>: set resolution of output file, <code>-1</code> means to maintain aspect ratio, <code>270</code> indicates the vertical resolution is 270p. (1080p is Full HD.) If not specified, resolution remains unchanged.</li>
+  <li><strong><code>-ar 22050</code></strong>: set the audio sampling frequency. If don’t want any sound, use <code>-an</code> flag instead.</li>
+  <li><strong><code>output_file.flv</code></strong>: specify output file and format</li>
+</ul>
+
+<p>Hope this is helpful!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[博客更新]]></title>
