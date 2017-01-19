@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Latex | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/latex/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-01-12T17:09:07-05:00</updated>
+  <updated>2017-01-19T17:43:49-05:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -33,6 +33,8 @@
 <strong>2</strong>. How to convert movie format to <code>.flv</code>.</p>
 
 <h2 id="part-i-embed-flv-movies-in-latex">Part I: Embed <code>.flv</code> movies in LaTeX</h2>
+
+<p><strong>(I have found a better option, please ignore this part and jump to Part III)</strong></p>
 
 <p><strong>Step 1</strong>: Download the <code>flashmovie.sty</code> package file from <a href="http://tug.ctan.org/tex-archive/macros/latex/contrib/flashmovie/">CTAN</a></p>
 
@@ -96,6 +98,59 @@ ffmpeg -i input_file.mp4 -c:v libx264 -vf scale=-1:270 -ar 22050 output_file.flv
   <li><strong><code>-ar 22050</code></strong>: set the audio sampling frequency. If don’t want any sound, use <code>-an</code> flag instead.</li>
   <li><strong><code>output_file.flv</code></strong>: specify output file and format</li>
 </ul>
+
+<h2 id="part-iii-embed-flv-movies-in-latex-to-replace-part-i">Part III: Embed <code>.flv</code> movies in LaTeX (To replace Part I)</h2>
+
+<p><strong>(Updated 1/19/17)</strong></p>
+
+<p>I have used the following movie embedding option a couple times before I posted this article, but I didn’t summarize it back then and forgot about it. Now memory strikes back.</p>
+
+<p>The <a href="https://www.ctan.org/pkg/media9?lang=en"><code>media9</code> package</a> is the best option so far for embedding movies in beamer. Here is an example <code>.tex</code> file to do it:</p>
+
+<p>``` latex 
+\documentclass{beamer} <br />
+\usepackage{media9}
+\usepackage{graphicx}</p>
+
+<p>\begin{document}</p>
+
+<p>\begin{frame}{embed a movie}
+\begin{center}
+\includemedia[
+	width=0.4\linewidth,height=0.3\linewidth,
+	activate=pageopen,
+	addresource=YOUR_MOVIE.flv,
+	flashvars={
+	   source=YOUR_MOVIE.flv
+	}
+]{\includegraphics[height=0.3\linewidth]{POSTER.jpg}{VPlayer9.swf}
+\end{center}
+\end{frame}</p>
+
+<p>\end{document}
+```</p>
+
+<p>A couple remarks about this example:</p>
+
+<p><strong>1.</strong> Compile the <code>.tex</code> file into <code>.pdf</code> with all neccesary files (<code>YOUR_MOVIE.flv</code>, <code>POSTER.jpg</code>) in the same folder<br />
+<strong>2.</strong> <code>POSTER.jpg</code> is the image displayed before <code>YOUR_MOVIE.flv</code> is played, and is included using the <code>\includegraphics</code> command from the <code>graphicx</code> package. The poster image is optional, you may intead use a <code>{}</code> (before the <code>{VPlayer9.swf}</code>) to leave it blank.<br />
+<strong>3.</strong> <code>VPlayer9.swf</code> is the video player. You may use a fancier player <code>StrobeMediaPlayback.swf</code> and correspondingly in the <code>flashvars</code> options change <code>source=...</code> into <code>src=...</code>. Or if you are embedding audio, use <code>APlayer9.swf</code>.<br />
+<strong>4.</strong> Embedding YouTube video would be a piece of cake with this package, here is an example given in the official documentation:</p>
+
+<p><code>latex 
+\includemedia[
+  width=0.6\linewidth,height=0.3375\linewidth, % 16:9
+  activate=pageopen,
+  flashvars={
+    modestbranding=1 % no YT logo in control bar
+    &amp;autohide=1 % controlbar autohide
+    &amp;showinfo=0 % no title and other info before start
+    &amp;rel=0      % no related videos after end
+  }
+]{}{http://www.youtube.com/v/r382kfkqAF4?rel=0}
+</code></p>
+
+<p><strong>5.</strong> Go to the <a href="https://www.ctan.org/pkg/media9?lang=en">CTAN</a> page to find the complete <a href="http://mirrors.ctan.org/macros/latex/contrib/media9/doc/media9.pdf">documentation</a> for <code>media9</code>.</p>
 
 <p>Hope this is helpful!</p>
 ]]></content>

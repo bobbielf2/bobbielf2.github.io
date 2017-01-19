@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-01-12T17:09:07-05:00</updated>
+  <updated>2017-01-19T17:43:49-05:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -33,6 +33,8 @@
 <strong>2</strong>. How to convert movie format to <code>.flv</code>.</p>
 
 <h2 id="part-i-embed-flv-movies-in-latex">Part I: Embed <code>.flv</code> movies in LaTeX</h2>
+
+<p><strong>(I have found a better option, please ignore this part and jump to Part III)</strong></p>
 
 <p><strong>Step 1</strong>: Download the <code>flashmovie.sty</code> package file from <a href="http://tug.ctan.org/tex-archive/macros/latex/contrib/flashmovie/">CTAN</a></p>
 
@@ -105,6 +107,87 @@
   <li><strong><code>-ar 22050</code></strong>: set the audio sampling frequency. If don’t want any sound, use <code>-an</code> flag instead.</li>
   <li><strong><code>output_file.flv</code></strong>: specify output file and format</li>
 </ul>
+
+<h2 id="part-iii-embed-flv-movies-in-latex-to-replace-part-i">Part III: Embed <code>.flv</code> movies in LaTeX (To replace Part I)</h2>
+
+<p><strong>(Updated 1/19/17)</strong></p>
+
+<p>I have used the following movie embedding option a couple times before I posted this article, but I didn’t summarize it back then and forgot about it. Now memory strikes back.</p>
+
+<p>The <a href="https://www.ctan.org/pkg/media9?lang=en"><code>media9</code> package</a> is the best option so far for embedding movies in beamer. Here is an example <code>.tex</code> file to do it:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+</pre></td><td class="code"><pre><code class="latex"><span class="line"><span class="k">\documentclass</span><span class="nb">{</span>beamer<span class="nb">}</span>
+</span><span class="line"><span class="k">\usepackage</span><span class="nb">{</span>media9<span class="nb">}</span>
+</span><span class="line"><span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>
+</span><span class="line">
+</span><span class="line"><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+</span><span class="line">
+</span><span class="line"><span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}{</span>embed a movie<span class="nb">}</span>
+</span><span class="line"><span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
+</span><span class="line"><span class="k">\includemedia</span>[
+</span><span class="line">	width=0.4<span class="k">\linewidth</span>,height=0.3<span class="k">\linewidth</span>,
+</span><span class="line">	activate=pageopen,
+</span><span class="line">	addresource=YOUR<span class="nb">_</span>MOVIE.flv,
+</span><span class="line">	flashvars=<span class="nb">{</span>
+</span><span class="line">	   source=YOUR<span class="nb">_</span>MOVIE.flv
+</span><span class="line">	<span class="nb">}</span>
+</span><span class="line">]<span class="nb">{</span><span class="k">\includegraphics</span><span class="na">[height=0.3\linewidth]</span><span class="nb">{</span>POSTER.jpg<span class="nb">}{</span>VPlayer9.swf<span class="nb">}</span>
+</span><span class="line"><span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
+</span><span class="line"><span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
+</span><span class="line">
+</span><span class="line"><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>A couple remarks about this example:</p>
+
+<p><strong>1.</strong> Compile the <code>.tex</code> file into <code>.pdf</code> with all neccesary files (<code>YOUR_MOVIE.flv</code>, <code>POSTER.jpg</code>) in the same folder<br />
+<strong>2.</strong> <code>POSTER.jpg</code> is the image displayed before <code>YOUR_MOVIE.flv</code> is played, and is included using the <code>\includegraphics</code> command from the <code>graphicx</code> package. The poster image is optional, you may intead use a <code>{}</code> (before the <code>{VPlayer9.swf}</code>) to leave it blank.<br />
+<strong>3.</strong> <code>VPlayer9.swf</code> is the video player. You may use a fancier player <code>StrobeMediaPlayback.swf</code> and correspondingly in the <code>flashvars</code> options change <code>source=...</code> into <code>src=...</code>. Or if you are embedding audio, use <code>APlayer9.swf</code>.<br />
+<strong>4.</strong> Embedding YouTube video would be a piece of cake with this package, here is an example given in the official documentation:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+</pre></td><td class="code"><pre><code class="latex"><span class="line"><span class="k">\includemedia</span>[
+</span><span class="line">  width=0.6<span class="k">\linewidth</span>,height=0.3375<span class="k">\linewidth</span>, <span class="c">% 16:9</span>
+</span><span class="line">  activate=pageopen,
+</span><span class="line">  flashvars=<span class="nb">{</span>
+</span><span class="line">    modestbranding=1 <span class="c">% no YT logo in control bar</span>
+</span><span class="line">    <span class="nb">&amp;</span>autohide=1 <span class="c">% controlbar autohide</span>
+</span><span class="line">    <span class="nb">&amp;</span>showinfo=0 <span class="c">% no title and other info before start</span>
+</span><span class="line">    <span class="nb">&amp;</span>rel=0      <span class="c">% no related videos after end</span>
+</span><span class="line">  <span class="nb">}</span>
+</span><span class="line">]<span class="nb">{}{</span>http://www.youtube.com/v/r382kfkqAF4?rel=0<span class="nb">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p><strong>5.</strong> Go to the <a href="https://www.ctan.org/pkg/media9?lang=en">CTAN</a> page to find the complete <a href="http://mirrors.ctan.org/macros/latex/contrib/media9/doc/media9.pdf">documentation</a> for <code>media9</code>.</p>
 
 <p>Hope this is helpful!</p>
 ]]></content>
