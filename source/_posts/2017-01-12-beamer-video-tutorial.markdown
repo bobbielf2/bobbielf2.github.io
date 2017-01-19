@@ -23,6 +23,8 @@ Accordingly, this tutorial has two parts:
 
 ## Part I: Embed `.flv` movies in LaTeX
 
+**(I have found a better option, please ignore this part and jump to Part III)**
+
 **Step 1**: Download the `flashmovie.sty` package file from [CTAN](http://tug.ctan.org/tex-archive/macros/latex/contrib/flashmovie/)  
 
 > Remark: The `flashmovie.sty` package is written by Professor Timo Hartmann from TU Berlin.
@@ -78,5 +80,49 @@ Some explanation of the command
 * **`-vf scale=-1:270`**: set resolution of output file, `-1` means to maintain aspect ratio, `270` indicates the vertical resolution is 270p. (1080p is Full HD.) If not specified, resolution remains unchanged.
 * **`-ar 22050`**: set the audio sampling frequency. If don't want any sound, use `-an` flag instead.
 * **`output_file.flv`**: specify output file and format
+
+## Part III: Embed `.flv` movies in LaTeX (To replace Part I)
+
+**(Updated 1/19/17)**
+
+I have used the following movie embedding option a couple times before I posted this article, but I didn't summarize it back then and forgot about it. Now memory strikes back.
+
+The [`media9` package](https://www.ctan.org/pkg/media9?lang=en) is the best option so far for embedding movies in beamer. Here is an example `.tex` file to do it:
+
+``` latex 
+\documentclass{beamer}   
+\usepackage{media9}
+\usepackage{graphicx}
+
+\begin{document}
+
+\begin{frame}{embed a movie}
+\begin{center}
+\includemedia[
+	width=0.4\linewidth,height=0.3\linewidth,
+	activate=pageopen,
+	addresource=YOUR_MOVIE.flv,
+	flashvars={
+	   source=YOUR_MOVIE.flv
+	}
+]{\includegraphics[height=0.3\linewidth]{POSTER.jpg}{VPlayer9.swf}
+\end{center}
+\end{frame}
+
+\end{document}
+```
+
+A couple remarks about this example:
+
+**1.** Compile the `.tex` file into `.pdf` with all neccesary files (`YOUR_MOVIE.flv`, `POSTER.jpg`) in the same folder  
+**2.** `POSTER.jpg` is the image displayed before `YOUR_MOVIE.flv` is played, and is included using the `\includegraphics` command from the `graphicx` package. The poster image is optional, you may intead use a `{}` (before the `{VPlayer9.swf}`) to leave it blank.  
+**3.** `VPlayer9.swf` is the video player. You may use a fancier player `StrobeMediaPlayback.swf` and correspondingly in the `flashvars` options change `source=...` into `src=...`. Or if you are embedding audio, use `APlayer9.swf`.  
+**4.** Embedding YouTube video would be a piece of cake with this package, here is an example given in the official documentation:
+
+``` latex 
+\includemedia[  width=0.6\linewidth,height=0.3375\linewidth, % 16:9  activate=pageopen,  flashvars={    modestbranding=1 % no YT logo in control bar    &autohide=1 % controlbar autohide    &showinfo=0 % no title and other info before start    &rel=0      % no related videos after end  }]{}{http://www.youtube.com/v/r382kfkqAF4?rel=0}
+```
+  
+**5.** Go to the [CTAN](https://www.ctan.org/pkg/media9?lang=en) page to find the complete [documentation](http://mirrors.ctan.org/macros/latex/contrib/media9/doc/media9.pdf) for `media9`.
 
 Hope this is helpful!
