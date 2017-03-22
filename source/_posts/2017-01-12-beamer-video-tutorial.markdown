@@ -23,7 +23,7 @@ Accordingly, this tutorial has two parts:
 
 ## Part I: Embed `.flv` movies in LaTeX
 
-**(I have found a better option, please ignore this part and jump to Part III)**
+**(Update: I have found a better option, please ignore this part and jump to Part III)**
 
 **Step 1**: Download the `flashmovie.sty` package file from [CTAN](http://tug.ctan.org/tex-archive/macros/latex/contrib/flashmovie/)  
 
