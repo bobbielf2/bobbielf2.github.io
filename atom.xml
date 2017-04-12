@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-04-11T21:10:28-04:00</updated>
+  <updated>2017-04-11T21:30:57-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -47,6 +47,8 @@
 </span></code></pre></td></tr></table></div></figure>
 
 <h2 id="convert-the-table-of-contents">2. Convert the Table of Contents</h2>
+
+<p>(Note: all materials in this section follow closely the <a href="https://superuser.com/a/915399">original answer</a> on StackExchange, except I did a very simple python program in Step 2.)</p>
 
 <p>Suppose now you have converted <code>book.djvu</code> into <code>book.pdf</code>, the former has a table of contests but the latter doesn’t.</p>
 
