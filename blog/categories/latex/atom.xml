@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Latex | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/latex/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-03-21T22:46:47-04:00</updated>
+  <updated>2017-04-11T21:10:28-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -107,14 +107,12 @@ ffmpeg -i input_file.mp4 -c:v libx264 -vf scale=-1:270 -ar 22050 output_file.flv
 
 <p>The <a href="https://www.ctan.org/pkg/media9?lang=en"><code>media9</code> package</a> is the best option so far for embedding movies in beamer. Here is an example <code>.tex</code> file to do it:</p>
 
-<p>``` latex 
-\documentclass{beamer} <br />
+<p><code>latex 
+\documentclass{beamer}   
 \usepackage{media9}
-\usepackage{graphicx}</p>
-
-<p>\begin{document}</p>
-
-<p>\begin{frame}{embed a movie}
+\usepackage{graphicx}
+\begin{document}
+\begin{frame}{embed a movie}
 \begin{center}
 \includemedia[
 	width=0.4\linewidth,height=0.3\linewidth,
@@ -125,10 +123,9 @@ ffmpeg -i input_file.mp4 -c:v libx264 -vf scale=-1:270 -ar 22050 output_file.flv
 	}
 ]{\includegraphics[height=0.3\linewidth]{POSTER.jpg}{VPlayer9.swf}
 \end{center}
-\end{frame}</p>
-
-<p>\end{document}
-```</p>
+\end{frame}
+\end{document}
+</code></p>
 
 <p>A couple remarks about this example:</p>
 

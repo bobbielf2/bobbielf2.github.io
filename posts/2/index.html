@@ -9,7 +9,15 @@
   <meta name="author" content="Bowei "Bobbie" Wu .">
 
   
-  <meta name="description" content="每个人或多或少，某时某地，都想表达自己，最有收益的表达方法莫过于写 Blog！ 搭建个人博客一直是我想做的事。之前试过在不同的地方栖息，包括 QQ 空间和 weebly，写的都是纯文字。后来想写带数学公式的文章，发觉只能把公式制作成图片插入文章，极其麻烦。然后我的好基友 Kuphrer 对我说：“ &hellip;">
+  <meta name="description" content="上一篇文章讲了如何用 Octopress 在 GitHub 上搭建个人主页，今天这篇写给可爱的科研狗们，介绍怎么样让网页兼容 LaTeX！首先看看效果： LaTeX 行间模式（displayed math） latex1
+2
+3
+4
+5
+6
+$$
+\begin{align}
+\mbox{欧拉公式 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -87,6 +95,64 @@ MathJax.Hub.Config({
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2016/08/06/shu-xue-blog/">写数学 Blog</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-06T19:11:58-04:00'><span class='date'>08-06-16</span> <span class='time'>19:11</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html">上一篇文章</a>讲了如何用 Octopress 在 GitHub 上搭建个人主页，今天这篇写给可爱的科研狗们，介绍怎么样让网页兼容 LaTeX！首先看看效果：</p>
+
+<ul>
+  <li>LaTeX 行间模式（displayed math）</li>
+</ul>
+
+<figure class="code"><figcaption><span>latex</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="latex"><span class="line"><span class="sb">$$</span><span class="nb"></span>
+</span><span class="line"><span class="nv">\begin</span><span class="nb">{align}</span>
+</span><span class="line"><span class="nv">\mbox</span><span class="nb">{欧拉公式：} &amp; e^{i</span><span class="nv">\pi</span><span class="nb">} </span><span class="o">+</span><span class="nb"> </span><span class="m">1</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span><span class="nv">\\</span><span class="nb"></span>
+</span><span class="line"><span class="nv">\mbox</span><span class="nb">{牛顿公式：} &amp; x_{i</span><span class="o">+</span><span class="m">1</span><span class="nb">} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{</span><span class="m">2</span><span class="nb">}</span><span class="nv">\left</span><span class="o">(</span><span class="nb">x_i</span><span class="o">+</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">2</span><span class="nb">}{x_i}</span><span class="nv">\right</span><span class="o">)</span><span class="nb"></span>
+</span><span class="line"><span class="nv">\end</span><span class="nb">{align}</span>
+</span><span class="line"><span class="s">$$</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+\mbox{欧拉公式：} & e^{i\pi} + 1 = 0\\
+\mbox{牛顿公式：} & x_{i+1} = \frac{1}{2}\left(x_i+\frac{2}{x_i}\right)
+\end{align} %]]></script>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/08/06/shu-xue-blog/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/">拥有你的个人博客</a></h1>
     
     
@@ -135,6 +201,10 @@ MathJax.Hub.Config({
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/04/11/preserve-the-table-of-contents-when-converting-a-book-from-djvu-to-pdf/">Preserve the Table of Contents When Converting a Book From Djvu to PDF</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2017/01/12/beamer-video-tutorial/">Beamer Video Tutorial</a>
       </li>
     
@@ -148,10 +218,6 @@ MathJax.Hub.Config({
     
       <li class="post">
         <a href="/blog/2016/09/12/human-brain-works-logarithmically/">Human Brain Works Logarithmically</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/08/29/ying-wen-ge-ci/">谁说英文歌词都没有深度？</a>
       </li>
     
   </ul>

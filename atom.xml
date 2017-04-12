@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-03-21T22:46:47-04:00</updated>
+  <updated>2017-04-11T21:10:28-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,246 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Preserve the Table of Contents When Converting a Book From Djvu to PDF]]></title>
+    <link href="http://bobbielf2.github.io/blog/2017/04/11/preserve-the-table-of-contents-when-converting-a-book-from-djvu-to-pdf/"/>
+    <updated>2017-04-11T20:47:57-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2017/04/11/preserve-the-table-of-contents-when-converting-a-book-from-djvu-to-pdf</id>
+    <content type="html"><![CDATA[<p>There are many readily available softwares (e.g. <a href="https://itunes.apple.com/us/app/djvu2pdf/id629039447?mt=12">DjVu2PDF</a>) for converting a book from <code>.djvu</code> to <code>.pdf</code> format, but none of those will preserve the table of contents in the output PDF.</p>
+
+<!--more-->
+
+<p>Having a table of contents is very handy. For example when viewing a book in Preview, the table of contents works like a multi-level bookmark, you can simply click on any link in the sidebar to jump to any chapter/section of the book.</p>
+
+<p><img src="http://bobbielf2.github.io/images/blog_figures/toc_in_preview.png" width="600" /></p>
+
+<p>So I Googled and found <a href="https://superuser.com/a/915399">this quetion</a> on StackExchange that asked exactly my question. Here is a summary of the accepted answer on how you can preserve (or more precisely, create) the table of contents in a PDF converted from Djvu.</p>
+
+<h2 id="preliminary">1. Preliminary</h2>
+
+<p>You will need to install <a href="https://www.pdflabs.com/tools/pdftk-server/">pdftk</a> (part of PDFtk Server) and <a href="https://sourceforge.net/projects/djvu/">djvused</a> (part of DjVuLibre)</p>
+
+<p><strong>Note 1:</strong> pdftk for Mac OS X 10.11 and above. I found in <a href="http://stackoverflow.com/a/33248310/4608899">this answer</a> on Stack Overflow that the developer of PDFtk provides an installer for PDFtk Server on OS X 10.11 and above. It is kind of strange that the <a href="https://www.pdflabs.com/tools/pdftk-server/">official website</a> only provides the installer for OS X up to 10.8. (This older version can be installed, but won’t run. When you type pdftk commands in the Terminal, it will make you wait forever.)</p>
+
+<p><strong>Note 2:</strong> About djvused command line setup on OS X. After installing DjVuLibre, in order to use djvused in command line, you need to run</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nb">eval</span> <span class="s1">&#39;/Applications/DjView.app/Contents/setpath.sh&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>If this doesn’t add the correct path, you can also manually add the following line into <code>~/.bash_profile</code></p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="vim"><span class="line">PATH<span class="p">=</span><span class="s2">&quot;/Applications/DjView.app/Contents/bin:${PATH}&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<h2 id="convert-the-table-of-contents">2. Convert the Table of Contents</h2>
+
+<p>Suppose now you have converted <code>book.djvu</code> into <code>book.pdf</code>, the former has a table of contests but the latter doesn’t.</p>
+
+<h3 id="step-1-extract-djvu-outline">Step 1. extract Djvu outline</h3>
+
+<p>Use the following command to extract the table of contents from <code>book.djvu</code></p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">djvused <span class="s2">&quot;book.djvu&quot;</span> -e <span class="s1">&#39;print-outline&#39;</span> &gt; bmarks.out
+</span></code></pre></td></tr></table></div></figure>
+
+<p>The output file <code>bmarks.out</code> lists the table of contents in a serialized tree format using <a href="https://en.wikipedia.org/wiki/S-expression">SEXPR</a>, which can be summarized as:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">file ::<span class="o">=</span> <span class="o">(</span>bookmarks
+</span><span class="line">           &lt;bookmark&gt;*<span class="o">)</span>
+</span><span class="line">bookmark ::<span class="o">=</span> <span class="o">(</span>name
+</span><span class="line">               page
+</span><span class="line">               &lt;bookmark&gt;*<span class="o">)</span>
+</span><span class="line">name ::<span class="o">=</span> <span class="s2">&quot;&lt;character&gt;*&quot;</span>
+</span><span class="line">page ::<span class="o">=</span> <span class="s2">&quot;#&lt;digit&gt;+&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>Notice that under this format, you can append a “child bookmark” inside a “parent bookmark”. For example, a <code>bmarks.out</code> may look like this</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="o">(</span>bookmarks
+</span><span class="line">  <span class="o">(</span><span class="s2">&quot;bmark1&quot;</span>
+</span><span class="line">    <span class="s2">&quot;#1&quot;</span><span class="o">)</span>
+</span><span class="line">  <span class="o">(</span><span class="s2">&quot;bmark2&quot;</span>
+</span><span class="line">    <span class="s2">&quot;#5&quot;</span>
+</span><span class="line">    <span class="o">(</span><span class="s2">&quot;bmark2subbmark1&quot;</span>
+</span><span class="line">      <span class="s2">&quot;#6&quot;</span><span class="o">)</span>
+</span><span class="line">    <span class="o">(</span><span class="s2">&quot;bmark2subbmark2&quot;</span>
+</span><span class="line">      <span class="s2">&quot;#7&quot;</span><span class="o">))</span>
+</span><span class="line">  <span class="o">(</span><span class="s2">&quot;bmark3&quot;</span>
+</span><span class="line">    <span class="s2">&quot;#9&quot;</span>
+</span><span class="line">    ...<span class="o">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<h3 id="step-2-translate-the-djvu-outline-to-pdf-metadata-format">Step 2. translate the Djvu outline to PDF metadata format</h3>
+
+<p>Now, Djvu and PDF store the bookmark data in different formats. While Djvu uses SEXPR, PDF uses metadata, which looks like this:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">file ::<span class="o">=</span> &lt;entry&gt;*
+</span><span class="line">entry ::<span class="o">=</span> BookmarkBegin
+</span><span class="line">          BookmarkTitle: &lt;title&gt;
+</span><span class="line">          BookmarkLevel: &lt;number&gt;
+</span><span class="line">          BookmarkPageNumber: &lt;number&gt;
+</span><span class="line">title ::<span class="o">=</span> &lt;character&gt;*
+</span></code></pre></td></tr></table></div></figure>
+
+<p>The example in Step 1 when translated into PDF metadata will look like</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">BookmarkBegin
+</span><span class="line">BookmarkTitle: bmark1
+</span><span class="line">BookmarkLevel: 1
+</span><span class="line">BookmarkPageNumber: 1
+</span><span class="line">BookmarkBegin
+</span><span class="line">BookmarkTitle: bmark2
+</span><span class="line">BookmarkLevel: 1
+</span><span class="line">BookmarkPageNumber: 5
+</span><span class="line">BookmarkBegin
+</span><span class="line">BookmarkTitle: bmark2subbmark1
+</span><span class="line">BookmarkLevel: 2
+</span><span class="line">BookmarkPageNumber: 6
+</span><span class="line">BookmarkBegin
+</span><span class="line">BookmarkTitle: bmark2subbmark2
+</span><span class="line">BookmarkLevel: 2
+</span><span class="line">BookmarkPageNumber: 7
+</span><span class="line">BookmarkBegin
+</span><span class="line">BookmarkTitle: bmark3
+</span><span class="line">BookmarkLevel: 1
+</span><span class="line">BookmarkPageNumber: 9
+</span><span class="line">...
+</span></code></pre></td></tr></table></div></figure>
+
+<p>It is a fun exercise to work out the correspondence of the two formats.</p>
+
+<p><strong>Note:</strong> I have written a python program to automatically convert the Djvu SEXPR <code>bmarks.out</code> into the PDF metadata form <code>bmarks2.txt</code></p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="n">metadata</span> <span class="o">=</span> <span class="s">&quot;&quot;</span> <span class="c"># string to be written into PDF metadata</span>
+</span><span class="line"><span class="n">level</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</span><span class="line"><span class="n">istxt</span> <span class="o">=</span> <span class="mi">0</span>	<span class="c"># toggle of the &quot;text writing mode&quot;, to write to the metadata</span>
+</span><span class="line"><span class="n">ispage</span> <span class="o">=</span> <span class="mi">0</span>	<span class="c"># toggle of the &quot;page mode&quot;, signal to enter page number</span>
+</span><span class="line"><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;bmarks.out&quot;</span><span class="p">):</span>
+</span><span class="line">	<span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class="line">	<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+</span><span class="line">		<span class="k">if</span> <span class="p">((</span><span class="n">w</span> <span class="o">==</span> <span class="s">&#39;(&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="ow">not</span> <span class="n">istxt</span><span class="p">)):</span> <span class="c"># left parenthesis = move up 1 level</span>
+</span><span class="line">			<span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="o">+</span><span class="mi">1</span>
+</span><span class="line">			<span class="k">if</span> <span class="p">(</span><span class="n">level</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+</span><span class="line">				<span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">+</span><span class="s">&quot;BookmarkBegin</span><span class="se">\n</span><span class="s">BookmarkTitle: &quot;</span>
+</span><span class="line">		<span class="k">if</span> <span class="p">((</span><span class="n">w</span> <span class="o">==</span> <span class="s">&#39;)&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="ow">not</span> <span class="n">istxt</span><span class="p">)):</span> <span class="c"># right parenthesis = move down 1 level</span>
+</span><span class="line">			<span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="o">-</span><span class="mi">1</span>
+</span><span class="line">		<span class="k">if</span> <span class="p">(</span><span class="n">w</span> <span class="o">==</span> <span class="s">&#39;&quot;&#39;</span><span class="p">):</span>	<span class="c"># toggle the &quot;text writing mode&quot; to write &quot;title&quot; or &quot;page number&quot;</span>
+</span><span class="line">			<span class="k">if</span> <span class="n">istxt</span><span class="p">:</span>	<span class="c"># enter &quot;page mode&quot; after writing the &quot;title&quot;</span>
+</span><span class="line">				<span class="k">if</span> <span class="n">ispage</span><span class="p">:</span>
+</span><span class="line">					<span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
+</span><span class="line">				<span class="k">else</span><span class="p">:</span>	<span class="c"># add keywords to metadata before writing the page number</span>
+</span><span class="line">					<span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">BookmarkLevel: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">level</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">+</span><span class="s">&quot;BookmarkPageNumber: &quot;</span>
+</span><span class="line">				<span class="n">ispage</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">ispage</span>
+</span><span class="line">			<span class="n">istxt</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">istxt</span>
+</span><span class="line">		<span class="k">if</span> <span class="n">istxt</span><span class="p">:</span>	<span class="c"># write data into metadata</span>
+</span><span class="line">			<span class="k">if</span> <span class="p">((</span><span class="n">w</span> <span class="o">!=</span> <span class="s">&#39;#&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="ow">not</span> <span class="n">ispage</span><span class="p">)):</span>
+</span><span class="line">				<span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">+</span><span class="n">w</span>
+</span><span class="line">	<span class="k">if</span> <span class="p">(</span><span class="n">level</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+</span><span class="line">		<span class="k">break</span>
+</span><span class="line">
+</span><span class="line"><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;bmarks2.txt&quot;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="c"># output file to write</span>
+</span><span class="line"><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+</span><span class="line"><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<h3 id="step-3-modify-pdf-metadata-to-include-the-bookmark-data">Step 3. modify PDF metadata to include the bookmark data</h3>
+
+<p>Extract PDF metadata with this command:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">pdftk <span class="s2">&quot;book.pdf&quot;</span> dump_data &gt; pdfmetadata.out
+</span></code></pre></td></tr></table></div></figure>
+
+<p>Open the <code>pdfmetadata.out</code> file, and find the line that begins with <code>NumberOfPages:</code>, and insert your list of bookmarks after this line. Save the new file as <code>pdfmetadata.in</code>. Now run this command:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">pdftk <span class="s2">&quot;book.pdf&quot;</span> update_info <span class="s2">&quot;pdfmetadata.in&quot;</span> output newbook.pdf
+</span></code></pre></td></tr></table></div></figure>
+
+<p>The output <code>newbook.pdf</code> is your new <code>book.pdf</code> equiped with a convenient table of contents. Happy reading!</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Beamer Video Tutorial]]></title>
@@ -133,15 +373,10 @@
 <span class="line-number">15</span>
 <span class="line-number">16</span>
 <span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-<span class="line-number">20</span>
 </pre></td><td class="code"><pre><code class="latex"><span class="line"><span class="k">\documentclass</span><span class="nb">{</span>beamer<span class="nb">}</span>
 </span><span class="line"><span class="k">\usepackage</span><span class="nb">{</span>media9<span class="nb">}</span>
 </span><span class="line"><span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>
-</span><span class="line">
 </span><span class="line"><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-</span><span class="line">
 </span><span class="line"><span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}{</span>embed a movie<span class="nb">}</span>
 </span><span class="line"><span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
 </span><span class="line"><span class="k">\includemedia</span>[
@@ -154,7 +389,6 @@
 </span><span class="line">]<span class="nb">{</span><span class="k">\includegraphics</span><span class="na">[height=0.3\linewidth]</span><span class="nb">{</span>POSTER.jpg<span class="nb">}{</span>VPlayer9.swf<span class="nb">}</span>
 </span><span class="line"><span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
 </span><span class="line"><span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
-</span><span class="line">
 </span><span class="line"><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </span></code></pre></td></tr></table></div></figure>
 

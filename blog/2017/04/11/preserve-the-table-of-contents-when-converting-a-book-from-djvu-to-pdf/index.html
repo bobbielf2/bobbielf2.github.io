@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Preserve the Table of Contents When Converting a Book From Djvu to PDF - Bobbie's Blog</title>
+  <meta name="author" content="Bowei "Bobbie" Wu .">
+
+  
+  <meta name="description" content="There are many readily available softwares (e.g. DjVu2PDF) for converting a book from .djvu to .pdf format, but none of those will preserve the table &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://bobbielf2.github.io/blog/2017/04/11/preserve-the-table-of-contents-when-converting-a-book-from-djvu-to-pdf/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Bobbie's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Bobbie's Blog</a></h1>
+  
+    <h2>Boys be ambitious.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="bobbielf2.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/links/">Links</a></li>
+  <li><a href="/aboutme/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Preserve the Table of Contents When Converting a Book From Djvu to PDF</h1>
+      <h3></h3>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-04-11T20:47:57-04:00'><span class='date'>04-11-17</span> <span class='time'>20:47</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>There are many readily available softwares (e.g. <a href="https://itunes.apple.com/us/app/djvu2pdf/id629039447?mt=12">DjVu2PDF</a>) for converting a book from <code>.djvu</code> to <code>.pdf</code> format, but none of those will preserve the table of contents in the output PDF.</p>
+
+<!--more-->
+
+<p>Having a table of contents is very handy. For example when viewing a book in Preview, the table of contents works like a multi-level bookmark, you can simply click on any link in the sidebar to jump to any chapter/section of the book.</p>
+
+<p><img src="/images/blog_figures/toc_in_preview.png" width="600" /></p>
+
+<p>So I Googled and found <a href="https://superuser.com/a/915399">this quetion</a> on StackExchange that asked exactly my question. Here is a summary of the accepted answer on how you can preserve (or more precisely, create) the table of contents in a PDF converted from Djvu.</p>
+
+<h2 id="preliminary">1. Preliminary</h2>
+
+<p>You will need to install <a href="https://www.pdflabs.com/tools/pdftk-server/">pdftk</a> (part of PDFtk Server) and <a href="https://sourceforge.net/projects/djvu/">djvused</a> (part of DjVuLibre)</p>
+
+<p><strong>Note 1:</strong> pdftk for Mac OS X 10.11 and above. I found in <a href="http://stackoverflow.com/a/33248310/4608899">this answer</a> on Stack Overflow that the developer of PDFtk provides an installer for PDFtk Server on OS X 10.11 and above. It is kind of strange that the <a href="https://www.pdflabs.com/tools/pdftk-server/">official website</a> only provides the installer for OS X up to 10.8. (This older version can be installed, but won’t run. When you type pdftk commands in the Terminal, it will make you wait forever.)</p>
+
+<p><strong>Note 2:</strong> About djvused command line setup on OS X. After installing DjVuLibre, in order to use djvused in command line, you need to run</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nb">eval</span> <span class="s1">&#39;/Applications/DjView.app/Contents/setpath.sh&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>If this doesn’t add the correct path, you can also manually add the following line into <code>~/.bash_profile</code></p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="vim"><span class="line">PATH<span class="p">=</span><span class="s2">&quot;/Applications/DjView.app/Contents/bin:${PATH}&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<h2 id="convert-the-table-of-contents">2. Convert the Table of Contents</h2>
+
+<p>Suppose now you have converted <code>book.djvu</code> into <code>book.pdf</code>, the former has a table of contests but the latter doesn’t.</p>
+
+<h3 id="step-1-extract-djvu-outline">Step 1. extract Djvu outline</h3>
+
+<p>Use the following command to extract the table of contents from <code>book.djvu</code></p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">djvused <span class="s2">&quot;book.djvu&quot;</span> -e <span class="s1">&#39;print-outline&#39;</span> &gt; bmarks.out
+</span></code></pre></td></tr></table></div></figure>
+
+<p>The output file <code>bmarks.out</code> lists the table of contents in a serialized tree format using <a href="https://en.wikipedia.org/wiki/S-expression">SEXPR</a>, which can be summarized as:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">file ::<span class="o">=</span> <span class="o">(</span>bookmarks
+</span><span class="line">           &lt;bookmark&gt;*<span class="o">)</span>
+</span><span class="line">bookmark ::<span class="o">=</span> <span class="o">(</span>name
+</span><span class="line">               page
+</span><span class="line">               &lt;bookmark&gt;*<span class="o">)</span>
+</span><span class="line">name ::<span class="o">=</span> <span class="s2">&quot;&lt;character&gt;*&quot;</span>
+</span><span class="line">page ::<span class="o">=</span> <span class="s2">&quot;#&lt;digit&gt;+&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>Notice that under this format, you can append a “child bookmark” inside a “parent bookmark”. For example, a <code>bmarks.out</code> may look like this</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="o">(</span>bookmarks
+</span><span class="line">  <span class="o">(</span><span class="s2">&quot;bmark1&quot;</span>
+</span><span class="line">    <span class="s2">&quot;#1&quot;</span><span class="o">)</span>
+</span><span class="line">  <span class="o">(</span><span class="s2">&quot;bmark2&quot;</span>
+</span><span class="line">    <span class="s2">&quot;#5&quot;</span>
+</span><span class="line">    <span class="o">(</span><span class="s2">&quot;bmark2subbmark1&quot;</span>
+</span><span class="line">      <span class="s2">&quot;#6&quot;</span><span class="o">)</span>
+</span><span class="line">    <span class="o">(</span><span class="s2">&quot;bmark2subbmark2&quot;</span>
+</span><span class="line">      <span class="s2">&quot;#7&quot;</span><span class="o">))</span>
+</span><span class="line">  <span class="o">(</span><span class="s2">&quot;bmark3&quot;</span>
+</span><span class="line">    <span class="s2">&quot;#9&quot;</span>
+</span><span class="line">    ...<span class="o">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<h3 id="step-2-translate-the-djvu-outline-to-pdf-metadata-format">Step 2. translate the Djvu outline to PDF metadata format</h3>
+
+<p>Now, Djvu and PDF store the bookmark data in different formats. While Djvu uses SEXPR, PDF uses metadata, which looks like this:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">file ::<span class="o">=</span> &lt;entry&gt;*
+</span><span class="line">entry ::<span class="o">=</span> BookmarkBegin
+</span><span class="line">          BookmarkTitle: &lt;title&gt;
+</span><span class="line">          BookmarkLevel: &lt;number&gt;
+</span><span class="line">          BookmarkPageNumber: &lt;number&gt;
+</span><span class="line">title ::<span class="o">=</span> &lt;character&gt;*
+</span></code></pre></td></tr></table></div></figure>
+
+<p>The example in Step 1 when translated into PDF metadata will look like</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">BookmarkBegin
+</span><span class="line">BookmarkTitle: bmark1
+</span><span class="line">BookmarkLevel: 1
+</span><span class="line">BookmarkPageNumber: 1
+</span><span class="line">BookmarkBegin
+</span><span class="line">BookmarkTitle: bmark2
+</span><span class="line">BookmarkLevel: 1
+</span><span class="line">BookmarkPageNumber: 5
+</span><span class="line">BookmarkBegin
+</span><span class="line">BookmarkTitle: bmark2subbmark1
+</span><span class="line">BookmarkLevel: 2
+</span><span class="line">BookmarkPageNumber: 6
+</span><span class="line">BookmarkBegin
+</span><span class="line">BookmarkTitle: bmark2subbmark2
+</span><span class="line">BookmarkLevel: 2
+</span><span class="line">BookmarkPageNumber: 7
+</span><span class="line">BookmarkBegin
+</span><span class="line">BookmarkTitle: bmark3
+</span><span class="line">BookmarkLevel: 1
+</span><span class="line">BookmarkPageNumber: 9
+</span><span class="line">...
+</span></code></pre></td></tr></table></div></figure>
+
+<p>It is a fun exercise to work out the correspondence of the two formats.</p>
+
+<p><strong>Note:</strong> I have written a python program to automatically convert the Djvu SEXPR <code>bmarks.out</code> into the PDF metadata form <code>bmarks2.txt</code></p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="n">metadata</span> <span class="o">=</span> <span class="s">&quot;&quot;</span> <span class="c"># string to be written into PDF metadata</span>
+</span><span class="line"><span class="n">level</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</span><span class="line"><span class="n">istxt</span> <span class="o">=</span> <span class="mi">0</span>	<span class="c"># toggle of the &quot;text writing mode&quot;, to write to the metadata</span>
+</span><span class="line"><span class="n">ispage</span> <span class="o">=</span> <span class="mi">0</span>	<span class="c"># toggle of the &quot;page mode&quot;, signal to enter page number</span>
+</span><span class="line"><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;bmarks.out&quot;</span><span class="p">):</span>
+</span><span class="line">	<span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class="line">	<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+</span><span class="line">		<span class="k">if</span> <span class="p">((</span><span class="n">w</span> <span class="o">==</span> <span class="s">&#39;(&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="ow">not</span> <span class="n">istxt</span><span class="p">)):</span> <span class="c"># left parenthesis = move up 1 level</span>
+</span><span class="line">			<span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="o">+</span><span class="mi">1</span>
+</span><span class="line">			<span class="k">if</span> <span class="p">(</span><span class="n">level</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+</span><span class="line">				<span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">+</span><span class="s">&quot;BookmarkBegin</span><span class="se">\n</span><span class="s">BookmarkTitle: &quot;</span>
+</span><span class="line">		<span class="k">if</span> <span class="p">((</span><span class="n">w</span> <span class="o">==</span> <span class="s">&#39;)&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="ow">not</span> <span class="n">istxt</span><span class="p">)):</span> <span class="c"># right parenthesis = move down 1 level</span>
+</span><span class="line">			<span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="o">-</span><span class="mi">1</span>
+</span><span class="line">		<span class="k">if</span> <span class="p">(</span><span class="n">w</span> <span class="o">==</span> <span class="s">&#39;&quot;&#39;</span><span class="p">):</span>	<span class="c"># toggle the &quot;text writing mode&quot; to write &quot;title&quot; or &quot;page number&quot;</span>
+</span><span class="line">			<span class="k">if</span> <span class="n">istxt</span><span class="p">:</span>	<span class="c"># enter &quot;page mode&quot; after writing the &quot;title&quot;</span>
+</span><span class="line">				<span class="k">if</span> <span class="n">ispage</span><span class="p">:</span>
+</span><span class="line">					<span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
+</span><span class="line">				<span class="k">else</span><span class="p">:</span>	<span class="c"># add keywords to metadata before writing the page number</span>
+</span><span class="line">					<span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">BookmarkLevel: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">level</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">+</span><span class="s">&quot;BookmarkPageNumber: &quot;</span>
+</span><span class="line">				<span class="n">ispage</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">ispage</span>
+</span><span class="line">			<span class="n">istxt</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">istxt</span>
+</span><span class="line">		<span class="k">if</span> <span class="n">istxt</span><span class="p">:</span>	<span class="c"># write data into metadata</span>
+</span><span class="line">			<span class="k">if</span> <span class="p">((</span><span class="n">w</span> <span class="o">!=</span> <span class="s">&#39;#&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="ow">not</span> <span class="n">ispage</span><span class="p">)):</span>
+</span><span class="line">				<span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">+</span><span class="n">w</span>
+</span><span class="line">	<span class="k">if</span> <span class="p">(</span><span class="n">level</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+</span><span class="line">		<span class="k">break</span>
+</span><span class="line">
+</span><span class="line"><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;bmarks2.txt&quot;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="c"># output file to write</span>
+</span><span class="line"><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+</span><span class="line"><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<h3 id="step-3-modify-pdf-metadata-to-include-the-bookmark-data">Step 3. modify PDF metadata to include the bookmark data</h3>
+
+<p>Extract PDF metadata with this command:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">pdftk <span class="s2">&quot;book.pdf&quot;</span> dump_data &gt; pdfmetadata.out
+</span></code></pre></td></tr></table></div></figure>
+
+<p>Open the <code>pdfmetadata.out</code> file, and find the line that begins with <code>NumberOfPages:</code>, and insert your list of bookmarks after this line. Save the new file as <code>pdfmetadata.in</code>. Now run this command:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">pdftk <span class="s2">&quot;book.pdf&quot;</span> update_info <span class="s2">&quot;pdfmetadata.in&quot;</span> output newbook.pdf
+</span></code></pre></td></tr></table></div></figure>
+
+<p>The output <code>newbook.pdf</code> is your new <code>book.pdf</code> equiped with a convenient table of contents. Happy reading!</p>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bowei "Bobbie" Wu .</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2017-04-11T20:47:57-04:00'><span class='date'>04-11-17</span> <span class='time'>20:47</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/technology/'>technology</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://bobbielf2.github.io/blog/2017/04/11/preserve-the-table-of-contents-when-converting-a-book-from-djvu-to-pdf/" data-via="" data-counturl="http://bobbielf2.github.io/blog/2017/04/11/preserve-the-table-of-contents-when-converting-a-book-from-djvu-to-pdf/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2017/01/12/beamer-video-tutorial/" title="Previous Post: Beamer video tutorial">&laquo; Beamer video tutorial</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/04/11/preserve-the-table-of-contents-when-converting-a-book-from-djvu-to-pdf/">Preserve the Table of Contents When Converting a Book From Djvu to PDF</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/12/beamer-video-tutorial/">Beamer Video Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/11/26/bo-ke-geng-xin/">博客更新</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/09/13/fluid-or-solid/">Fluid or Solid?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/09/12/human-brain-works-logarithmically/">Human Brain Works Logarithmically</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - Bowei "Bobbie" Wu . -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'bobbies-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://bobbielf2.github.io/blog/2017/04/11/preserve-the-table-of-contents-when-converting-a-book-from-djvu-to-pdf/';
+        var disqus_url = 'http://bobbielf2.github.io/blog/2017/04/11/preserve-the-table-of-contents-when-converting-a-book-from-djvu-to-pdf/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

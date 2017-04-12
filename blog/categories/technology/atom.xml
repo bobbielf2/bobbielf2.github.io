@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-03-21T22:46:47-04:00</updated>
+  <updated>2017-04-11T21:10:28-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,175 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Preserve the Table of Contents When Converting a Book From Djvu to PDF]]></title>
+    <link href="http://bobbielf2.github.io/blog/2017/04/11/preserve-the-table-of-contents-when-converting-a-book-from-djvu-to-pdf/"/>
+    <updated>2017-04-11T20:47:57-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2017/04/11/preserve-the-table-of-contents-when-converting-a-book-from-djvu-to-pdf</id>
+    <content type="html"><![CDATA[<p>There are many readily available softwares (e.g. <a href="https://itunes.apple.com/us/app/djvu2pdf/id629039447?mt=12">DjVu2PDF</a>) for converting a book from <code>.djvu</code> to <code>.pdf</code> format, but none of those will preserve the table of contents in the output PDF.</p>
+
+<!--more-->
+
+<p>Having a table of contents is very handy. For example when viewing a book in Preview, the table of contents works like a multi-level bookmark, you can simply click on any link in the sidebar to jump to any chapter/section of the book.</p>
+
+<p><img src="/images/blog_figures/toc_in_preview.png" width="600"></p>
+
+<p>So I Googled and found <a href="https://superuser.com/a/915399">this quetion</a> on StackExchange that asked exactly my question. Here is a summary of the accepted answer on how you can preserve (or more precisely, create) the table of contents in a PDF converted from Djvu.</p>
+
+<h2 id="preliminary">1. Preliminary</h2>
+
+<p>You will need to install <a href="https://www.pdflabs.com/tools/pdftk-server/">pdftk</a> (part of PDFtk Server) and <a href="https://sourceforge.net/projects/djvu/">djvused</a> (part of DjVuLibre)</p>
+
+<p><strong>Note 1:</strong> pdftk for Mac OS X 10.11 and above. I found in <a href="http://stackoverflow.com/a/33248310/4608899">this answer</a> on Stack Overflow that the developer of PDFtk provides an installer for PDFtk Server on OS X 10.11 and above. It is kind of strange that the <a href="https://www.pdflabs.com/tools/pdftk-server/">official website</a> only provides the installer for OS X up to 10.8. (This older version can be installed, but won’t run. When you type pdftk commands in the Terminal, it will make you wait forever.)</p>
+
+<p><strong>Note 2:</strong> About djvused command line setup on OS X. After installing DjVuLibre, in order to use djvused in command line, you need to run</p>
+
+<p><code>bash
+eval '/Applications/DjView.app/Contents/setpath.sh'
+</code></p>
+
+<p>If this doesn’t add the correct path, you can also manually add the following line into <code>~/.bash_profile</code></p>
+
+<p><code>vim
+PATH="/Applications/DjView.app/Contents/bin:${PATH}"
+</code></p>
+
+<h2 id="convert-the-table-of-contents">2. Convert the Table of Contents</h2>
+
+<p>Suppose now you have converted <code>book.djvu</code> into <code>book.pdf</code>, the former has a table of contests but the latter doesn’t.</p>
+
+<h3 id="step-1-extract-djvu-outline">Step 1. extract Djvu outline</h3>
+
+<p>Use the following command to extract the table of contents from <code>book.djvu</code></p>
+
+<p><code>bash
+djvused "book.djvu" -e 'print-outline' &gt; bmarks.out
+</code></p>
+
+<p>The output file <code>bmarks.out</code> lists the table of contents in a serialized tree format using <a href="https://en.wikipedia.org/wiki/S-expression">SEXPR</a>, which can be summarized as:</p>
+
+<p><code>
+file ::= (bookmarks
+           &lt;bookmark&gt;*)
+bookmark ::= (name
+               page
+               &lt;bookmark&gt;*)
+name ::= "&lt;character&gt;*"
+page ::= "#&lt;digit&gt;+"
+</code></p>
+
+<p>Notice that under this format, you can append a “child bookmark” inside a “parent bookmark”. For example, a <code>bmarks.out</code> may look like this</p>
+
+<p><code>
+(bookmarks
+  ("bmark1"
+    "#1")
+  ("bmark2"
+    "#5"
+    ("bmark2subbmark1"
+      "#6")
+    ("bmark2subbmark2"
+      "#7"))
+  ("bmark3"
+    "#9"
+    ...))
+</code></p>
+
+<h3 id="step-2-translate-the-djvu-outline-to-pdf-metadata-format">Step 2. translate the Djvu outline to PDF metadata format</h3>
+
+<p>Now, Djvu and PDF store the bookmark data in different formats. While Djvu uses SEXPR, PDF uses metadata, which looks like this:</p>
+
+<p><code>
+file ::= &lt;entry&gt;*
+entry ::= BookmarkBegin
+          BookmarkTitle: &lt;title&gt;
+          BookmarkLevel: &lt;number&gt;
+          BookmarkPageNumber: &lt;number&gt;
+title ::= &lt;character&gt;*
+</code></p>
+
+<p>The example in Step 1 when translated into PDF metadata will look like</p>
+
+<p><code>
+BookmarkBegin
+BookmarkTitle: bmark1
+BookmarkLevel: 1
+BookmarkPageNumber: 1
+BookmarkBegin
+BookmarkTitle: bmark2
+BookmarkLevel: 1
+BookmarkPageNumber: 5
+BookmarkBegin
+BookmarkTitle: bmark2subbmark1
+BookmarkLevel: 2
+BookmarkPageNumber: 6
+BookmarkBegin
+BookmarkTitle: bmark2subbmark2
+BookmarkLevel: 2
+BookmarkPageNumber: 7
+BookmarkBegin
+BookmarkTitle: bmark3
+BookmarkLevel: 1
+BookmarkPageNumber: 9
+...
+</code></p>
+
+<p>It is a fun exercise to work out the correspondence of the two formats.</p>
+
+<p><strong>Note:</strong> I have written a python program to automatically convert the Djvu SEXPR <code>bmarks.out</code> into the PDF metadata form <code>bmarks2.txt</code></p>
+
+<p>``` python
+metadata = “” # string to be written into PDF metadata
+level = -1
+istxt = 0	# toggle of the “text writing mode”, to write to the metadata
+ispage = 0	# toggle of the “page mode”, signal to enter page number
+for line in open(“bmarks.out”):
+	line = line.strip()
+	for w in line:
+		if ((w == ‘(‘) &amp; (not istxt)): # left parenthesis = move up 1 level
+			level = level+1
+			if (level&gt;0):
+				metadata = metadata+”BookmarkBegin\nBookmarkTitle: “
+		if ((w == ‘)’) &amp; (not istxt)): # right parenthesis = move down 1 level
+			level = level-1
+		if (w == ‘”’):	# toggle the “text writing mode” to write “title” or “page number”
+			if istxt:	# enter “page mode” after writing the “title”
+				if ispage:
+					metadata = metadata+’\n’
+				else:	# add keywords to metadata before writing the page number
+					metadata = metadata+”\nBookmarkLevel: “+str(level)+’\n’+”BookmarkPageNumber: “
+				ispage = 1-ispage
+			istxt = 1-istxt
+		if istxt:	# write data into metadata
+			if ((w != ‘#’) | (not ispage)):
+				metadata = metadata+w
+	if (level == -1):
+		break</p>
+
+<p>f = open(“bmarks2.txt”,’w’) # output file to write
+f.write(metadata)
+f.close()
+```</p>
+
+<h3 id="step-3-modify-pdf-metadata-to-include-the-bookmark-data">Step 3. modify PDF metadata to include the bookmark data</h3>
+
+<p>Extract PDF metadata with this command:</p>
+
+<p><code>bash
+pdftk "book.pdf" dump_data &gt; pdfmetadata.out
+</code></p>
+
+<p>Open the <code>pdfmetadata.out</code> file, and find the line that begins with <code>NumberOfPages:</code>, and insert your list of bookmarks after this line. Save the new file as <code>pdfmetadata.in</code>. Now run this command:</p>
+
+<p><code>bash
+pdftk "book.pdf" update_info "pdfmetadata.in" output newbook.pdf
+</code></p>
+
+<p>The output <code>newbook.pdf</code> is your new <code>book.pdf</code> equiped with a convenient table of contents. Happy reading!</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Beamer Video Tutorial]]></title>
@@ -107,14 +276,12 @@ ffmpeg -i input_file.mp4 -c:v libx264 -vf scale=-1:270 -ar 22050 output_file.flv
 
 <p>The <a href="https://www.ctan.org/pkg/media9?lang=en"><code>media9</code> package</a> is the best option so far for embedding movies in beamer. Here is an example <code>.tex</code> file to do it:</p>
 
-<p>``` latex 
-\documentclass{beamer} <br />
+<p><code>latex 
+\documentclass{beamer}   
 \usepackage{media9}
-\usepackage{graphicx}</p>
-
-<p>\begin{document}</p>
-
-<p>\begin{frame}{embed a movie}
+\usepackage{graphicx}
+\begin{document}
+\begin{frame}{embed a movie}
 \begin{center}
 \includemedia[
 	width=0.4\linewidth,height=0.3\linewidth,
@@ -125,10 +292,9 @@ ffmpeg -i input_file.mp4 -c:v libx264 -vf scale=-1:270 -ar 22050 output_file.flv
 	}
 ]{\includegraphics[height=0.3\linewidth]{POSTER.jpg}{VPlayer9.swf}
 \end{center}
-\end{frame}</p>
-
-<p>\end{document}
-```</p>
+\end{frame}
+\end{document}
+</code></p>
 
 <p>A couple remarks about this example:</p>
 
