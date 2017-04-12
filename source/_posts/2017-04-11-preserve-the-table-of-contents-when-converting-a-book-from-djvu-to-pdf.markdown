@@ -135,38 +135,7 @@ It is a fun exercise to work out the correspondence of the two formats.
 
 **Note:** I have written a python program to automatically convert the Djvu SEXPR `bmarks.out` into the PDF metadata form `bmarks2.txt`
 
-``` python
-metadata = "" # string to be written into PDF metadata
-level = -1
-istxt = 0	# toggle of the "text writing mode", to write to the metadata
-ispage = 0	# toggle of the "page mode", signal to enter page number
-for line in open("bmarks.out"):
-	line = line.strip()
-	for w in line:
-		if ((w == '(') & (not istxt)): # left parenthesis = move up 1 level
-			level = level+1
-			if (level>0):
-				metadata = metadata+"BookmarkBegin\nBookmarkTitle: "
-		if ((w == ')') & (not istxt)): # right parenthesis = move down 1 level
-			level = level-1
-		if (w == '"'):	# toggle the "text writing mode" to write "title" or "page number"
-			if istxt:	# enter "page mode" after writing the "title"
-				if ispage:
-					metadata = metadata+'\n'
-				else:	# add keywords to metadata before writing the page number
-					metadata = metadata+"\nBookmarkLevel: "+str(level)+'\n'+"BookmarkPageNumber: "
-				ispage = 1-ispage
-			istxt = 1-istxt
-		if istxt:	# write data into metadata
-			if ((w != '#') | (not ispage)):
-				metadata = metadata+w
-	if (level == -1):
-		break
-
-f = open("bmarks2.txt",'w') # output file to write
-f.write(metadata)
-f.close()
-``` 
+{% include_code Convert Djvu outline into PDF metadata bmarkDjvu2pdf.py %}
 
 ### Step 3. modify PDF metadata to include the bookmark data
 
