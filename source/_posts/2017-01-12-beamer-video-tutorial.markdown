@@ -5,6 +5,7 @@ subtitle: "how to embed videos in a presentation slides"
 date: 2017-01-12 16:04:51 -0500
 comments: true
 categories: [Technology, LaTeX]
+published: true
 ---
 
 As a researcher, I often need to make presentation slides, and want to embed movies in my slides for better illustrations. After doing a little research, I converged to the solution described in this article.
@@ -93,9 +94,7 @@ The [`media9` package](https://www.ctan.org/pkg/media9?lang=en) is the best opti
 \documentclass{beamer}   
 \usepackage{media9}
 \usepackage{graphicx}
-
 \begin{document}
-
 \begin{frame}{embed a movie}
 \begin{center}
 \includemedia[
@@ -108,7 +107,6 @@ The [`media9` package](https://www.ctan.org/pkg/media9?lang=en) is the best opti
 ]{\includegraphics[height=0.3\linewidth]{POSTER.jpg}{VPlayer9.swf}
 \end{center}
 \end{frame}
-
 \end{document}
 ```
 
