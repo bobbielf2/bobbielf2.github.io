@@ -47,6 +47,10 @@ PATH="/Applications/DjView.app/Contents/bin:${PATH}"
 
 ## 2. Convert the Table of Contents
 
+(Note: all materials in this section follow closely the [original answer] on StackExchange, except I did a very simple python program in Step 2.)
+
+[original answer]: https://superuser.com/a/915399
+
 Suppose now you have converted `book.djvu` into `book.pdf`, the former has a table of contests but the latter doesn't.
 
 ### Step 1. extract Djvu outline
