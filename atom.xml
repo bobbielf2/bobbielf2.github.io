@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-04-11T21:30:57-04:00</updated>
+  <updated>2017-04-12T11:05:03-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -174,7 +174,8 @@
 
 <p><strong>Note:</strong> I have written a python program to automatically convert the Djvu SEXPR <code>bmarks.out</code> into the PDF metadata form <code>bmarks2.txt</code></p>
 
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<figure class="code"><figcaption><span>Convert Djvu outline into PDF metadata (bmarkDjvu2pdf.py)</span> <a href="http://bobbielf2.github.io/downloads/code/bmarkDjvu2pdf.py">download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -200,38 +201,30 @@
 <span class="line-number">24</span>
 <span class="line-number">25</span>
 <span class="line-number">26</span>
-<span class="line-number">27</span>
-<span class="line-number">28</span>
-<span class="line-number">29</span>
-<span class="line-number">30</span>
-</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="n">metadata</span> <span class="o">=</span> <span class="s">&quot;&quot;</span> <span class="c"># string to be written into PDF metadata</span>
-</span><span class="line"><span class="n">level</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-</span><span class="line"><span class="n">istxt</span> <span class="o">=</span> <span class="mi">0</span>	<span class="c"># toggle of the &quot;text writing mode&quot;, to write to the metadata</span>
-</span><span class="line"><span class="n">ispage</span> <span class="o">=</span> <span class="mi">0</span>	<span class="c"># toggle of the &quot;page mode&quot;, signal to enter page number</span>
-</span><span class="line"><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;bmarks.out&quot;</span><span class="p">):</span>
-</span><span class="line">	<span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-</span><span class="line">	<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-</span><span class="line">		<span class="k">if</span> <span class="p">((</span><span class="n">w</span> <span class="o">==</span> <span class="s">&#39;(&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="ow">not</span> <span class="n">istxt</span><span class="p">)):</span> <span class="c"># left parenthesis = move up 1 level</span>
-</span><span class="line">			<span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="o">+</span><span class="mi">1</span>
-</span><span class="line">			<span class="k">if</span> <span class="p">(</span><span class="n">level</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
-</span><span class="line">				<span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">+</span><span class="s">&quot;BookmarkBegin</span><span class="se">\n</span><span class="s">BookmarkTitle: &quot;</span>
-</span><span class="line">		<span class="k">if</span> <span class="p">((</span><span class="n">w</span> <span class="o">==</span> <span class="s">&#39;)&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="ow">not</span> <span class="n">istxt</span><span class="p">)):</span> <span class="c"># right parenthesis = move down 1 level</span>
-</span><span class="line">			<span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="o">-</span><span class="mi">1</span>
-</span><span class="line">		<span class="k">if</span> <span class="p">(</span><span class="n">w</span> <span class="o">==</span> <span class="s">&#39;&quot;&#39;</span><span class="p">):</span>	<span class="c"># toggle the &quot;text writing mode&quot; to write &quot;title&quot; or &quot;page number&quot;</span>
-</span><span class="line">			<span class="k">if</span> <span class="n">istxt</span><span class="p">:</span>	<span class="c"># enter &quot;page mode&quot; after writing the &quot;title&quot;</span>
-</span><span class="line">				<span class="k">if</span> <span class="n">ispage</span><span class="p">:</span>
-</span><span class="line">					<span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
-</span><span class="line">				<span class="k">else</span><span class="p">:</span>	<span class="c"># add keywords to metadata before writing the page number</span>
-</span><span class="line">					<span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">BookmarkLevel: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">level</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">+</span><span class="s">&quot;BookmarkPageNumber: &quot;</span>
-</span><span class="line">				<span class="n">ispage</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">ispage</span>
-</span><span class="line">			<span class="n">istxt</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">istxt</span>
-</span><span class="line">		<span class="k">if</span> <span class="n">istxt</span><span class="p">:</span>	<span class="c"># write data into metadata</span>
-</span><span class="line">			<span class="k">if</span> <span class="p">((</span><span class="n">w</span> <span class="o">!=</span> <span class="s">&#39;#&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="ow">not</span> <span class="n">ispage</span><span class="p">)):</span>
-</span><span class="line">				<span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">+</span><span class="n">w</span>
-</span><span class="line">	<span class="k">if</span> <span class="p">(</span><span class="n">level</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-</span><span class="line">		<span class="k">break</span>
+</pre></td><td class="code"><pre><code class="py"><span class="line"><span class="c">#! /usr/bin/env python</span>
+</span><span class="line"><span class="n">metadata</span> <span class="o">=</span> <span class="s">&#39;&#39;</span> <span class="c"># string to be written into PDF metadata</span>
+</span><span class="line"><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;bmarks.out&quot;</span><span class="p">)</span> <span class="c"># open input file: djvu outline</span>
+</span><span class="line"><span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class="line"><span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;(bookmarks&#39;</span><span class="p">):</span>
+</span><span class="line">    <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span>
 </span><span class="line">
-</span><span class="line"><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;bmarks2.txt&quot;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="c"># output file to write</span>
+</span><span class="line"><span class="k">while</span> <span class="p">(</span><span class="n">level</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
+</span><span class="line">    <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class="line">    <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;(&quot;&#39;</span><span class="p">):</span>
+</span><span class="line">        <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class="line">        <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span> <span class="o">+</span> <span class="s">&quot;BookmarkBegin</span><span class="se">\n</span><span class="s">BookmarkTitle: &quot;</span><span class="o">+</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&#39;(&quot;&#39;</span><span class="p">)</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">BookmarkLevel: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">level</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
+</span><span class="line">        <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class="line">        <span class="k">while</span> <span class="n">line</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;)&#39;</span><span class="p">):</span>
+</span><span class="line">            <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span class="line">            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class="line">        <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span> <span class="o">+</span> <span class="s">&quot;BookmarkPageNumber: &quot;</span><span class="o">+</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&#39;&quot;#&#39;</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
+</span><span class="line">    <span class="k">else</span><span class="p">:</span>
+</span><span class="line">        <span class="k">while</span> <span class="n">line</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;)&#39;</span><span class="p">):</span>
+</span><span class="line">            <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span class="line">            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class="line">
+</span><span class="line"><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span class="line"><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;bmarks2.txt&quot;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="c"># output file: for PDF metadata</span>
 </span><span class="line"><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
 </span><span class="line"><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span></code></pre></td></tr></table></div></figure>

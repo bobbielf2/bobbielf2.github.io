@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-04-11T21:30:57-04:00</updated>
+  <updated>2017-04-12T11:05:03-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -132,38 +132,60 @@ BookmarkPageNumber: 9
 
 <p><strong>Note:</strong> I have written a python program to automatically convert the Djvu SEXPR <code>bmarks.out</code> into the PDF metadata form <code>bmarks2.txt</code></p>
 
-<p>``` python
-metadata = “” # string to be written into PDF metadata
-level = -1
-istxt = 0	# toggle of the “text writing mode”, to write to the metadata
-ispage = 0	# toggle of the “page mode”, signal to enter page number
-for line in open(“bmarks.out”):
-	line = line.strip()
-	for w in line:
-		if ((w == ‘(‘) &amp; (not istxt)): # left parenthesis = move up 1 level
-			level = level+1
-			if (level&gt;0):
-				metadata = metadata+”BookmarkBegin\nBookmarkTitle: “
-		if ((w == ‘)’) &amp; (not istxt)): # right parenthesis = move down 1 level
-			level = level-1
-		if (w == ‘”’):	# toggle the “text writing mode” to write “title” or “page number”
-			if istxt:	# enter “page mode” after writing the “title”
-				if ispage:
-					metadata = metadata+’\n’
-				else:	# add keywords to metadata before writing the page number
-					metadata = metadata+”\nBookmarkLevel: “+str(level)+’\n’+”BookmarkPageNumber: “
-				ispage = 1-ispage
-			istxt = 1-istxt
-		if istxt:	# write data into metadata
-			if ((w != ‘#’) | (not ispage)):
-				metadata = metadata+w
-	if (level == -1):
-		break</p>
-
-<p>f = open(“bmarks2.txt”,’w’) # output file to write
-f.write(metadata)
-f.close()
-```</p>
+<p><figure class='code'><figcaption><span>Convert Djvu outline into PDF metadata (bmarkDjvu2pdf.py)</span> <a href='/downloads/code/bmarkDjvu2pdf.py'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='py'><span class='line'><span class="c">#! /usr/bin/env python</span>
+</span><span class='line'><span class="n">metadata</span> <span class="o">=</span> <span class="s">&#39;&#39;</span> <span class="c"># string to be written into PDF metadata</span>
+</span><span class='line'><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;bmarks.out&quot;</span><span class="p">)</span> <span class="c"># open input file: djvu outline</span>
+</span><span class='line'><span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class='line'><span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;(bookmarks&#39;</span><span class="p">):</span>
+</span><span class='line'>    <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">while</span> <span class="p">(</span><span class="n">level</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
+</span><span class='line'>    <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;(&quot;&#39;</span><span class="p">):</span>
+</span><span class='line'>        <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span> <span class="o">+</span> <span class="s">&quot;BookmarkBegin</span><span class="se">\n</span><span class="s">BookmarkTitle: &quot;</span><span class="o">+</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&#39;(&quot;&#39;</span><span class="p">)</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">BookmarkLevel: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">level</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
+</span><span class='line'>        <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class='line'>        <span class="k">while</span> <span class="n">line</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;)&#39;</span><span class="p">):</span>
+</span><span class='line'>            <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span class='line'>            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class='line'>        <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span> <span class="o">+</span> <span class="s">&quot;BookmarkPageNumber: &quot;</span><span class="o">+</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&#39;&quot;#&#39;</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
+</span><span class='line'>    <span class="k">else</span><span class="p">:</span>
+</span><span class='line'>        <span class="k">while</span> <span class="n">line</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;)&#39;</span><span class="p">):</span>
+</span><span class='line'>            <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span class='line'>            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span class='line'><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;bmarks2.txt&quot;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="c"># output file: for PDF metadata</span>
+</span><span class='line'><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+</span><span class='line'><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <h3 id="step-3-modify-pdf-metadata-to-include-the-bookmark-data">Step 3. modify PDF metadata to include the bookmark data</h3>
 
