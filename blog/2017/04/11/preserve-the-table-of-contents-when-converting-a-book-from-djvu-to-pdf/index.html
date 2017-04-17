@@ -131,9 +131,9 @@ MathJax.Hub.Config({
 
 <h2 id="convert-the-table-of-contents">2. Convert the Table of Contents</h2>
 
-<p>(Note: all materials in this section follow closely the <a href="https://superuser.com/a/915399">original answer</a> on StackExchange, except I did a very simple python program in Step 2.)</p>
+<p>(Note: all materials in this section follow closely the <a href="https://superuser.com/a/915399">original answer</a> on StackExchange, except I coded a very simple python program in Step 2.)</p>
 
-<p>Suppose now you have converted <code>book.djvu</code> into <code>book.pdf</code>, the former has a table of contests but the latter doesn’t.</p>
+<p>Suppose now you have converted <code>book.djvu</code> into <code>book.pdf</code>, the former has a table of contents but the latter doesn’t.</p>
 
 <h3 id="step-1-extract-djvu-outline">Step 1. extract Djvu outline</h3>
 
@@ -255,7 +255,7 @@ MathJax.Hub.Config({
 
 <p>It is a fun exercise to work out the correspondence of the two formats.</p>
 
-<p><strong>Note:</strong> I have written a python program to automatically convert the Djvu SEXPR <code>bmarks.out</code> into the PDF metadata form <code>bmarks2.txt</code></p>
+<p><strong>Note:</strong> I have written a python program to automatically convert the Djvu SEXPR <code>bmarks.out</code> into the PDF metadata form and output as <code>bmarks2.txt</code></p>
 
 <figure class="code"><figcaption><span>Convert Djvu outline into PDF metadata (bmarkDjvu2pdf.py)</span> <a href="/downloads/code/bmarkDjvu2pdf.py">download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
