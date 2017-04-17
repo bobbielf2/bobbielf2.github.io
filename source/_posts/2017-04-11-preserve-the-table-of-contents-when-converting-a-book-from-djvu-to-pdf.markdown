@@ -47,11 +47,11 @@ PATH="/Applications/DjView.app/Contents/bin:${PATH}"
 
 ## 2. Convert the Table of Contents
 
-(Note: all materials in this section follow closely the [original answer] on StackExchange, except I did a very simple python program in Step 2.)
+(Note: all materials in this section follow closely the [original answer] on StackExchange, except I coded a very simple python program in Step 2.)
 
 [original answer]: https://superuser.com/a/915399
 
-Suppose now you have converted `book.djvu` into `book.pdf`, the former has a table of contests but the latter doesn't.
+Suppose now you have converted `book.djvu` into `book.pdf`, the former has a table of contents but the latter doesn't.
 
 ### Step 1. extract Djvu outline
 
@@ -133,7 +133,7 @@ BookmarkPageNumber: 9
 
 It is a fun exercise to work out the correspondence of the two formats. 
 
-**Note:** I have written a python program to automatically convert the Djvu SEXPR `bmarks.out` into the PDF metadata form `bmarks2.txt`
+**Note:** I have written a python program to automatically convert the Djvu SEXPR `bmarks.out` into the PDF metadata form and output as `bmarks2.txt`
 
 {% include_code Convert Djvu outline into PDF metadata bmarkDjvu2pdf.py %}
 
