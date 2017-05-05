@@ -14,6 +14,7 @@ This page stores links to some useful websites for myself.
 
 * [Prof. Nick Trefethen's essays](http://people.maths.ox.ac.uk/trefethen/essays.html): well-written essays regarding all aspects of numerical analysis.
 * [Prof. Shidong Jiang's fast numerical algorithms course page](https://web.njit.edu/~jiang/math707.html): contain reference for all state-of-the-art fast algorithms in scientific computing
+* [Prof. Alex Barnett's page for boundary integral equations (BIEs)](https://math.dartmouth.edu/~ahb/BIE/): tutorials and resources for the BIE method
 * [disasters attributable to bad computing](http://www-users.math.umn.edu/~arnold/disasters/disasters.html), by Doug Arnold
 
 
