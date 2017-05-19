@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Latex | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/latex/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-05-19T15:21:46-04:00</updated>
+  <updated>2017-05-19T15:40:02-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -322,6 +322,12 @@ MathJax.Hub.Config({
 });
 &lt;/script&gt;
 &lt;script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"&gt;&lt;/script&gt;
+</code></p>
+
+<p><strong>2017/5/19 update:</strong> MathJax 最近<a href="https://www.mathjax.org/cdn-shutting-down/">更改了他们 CDN 的提供商</a>,所以上面这个 script 里最后一行的 cdn 地址很快就会不适用了，新的地址变成下面这个（注：我还把<code>http</code>改为<code>https</code>，保证在安全模式下看到数学公式）：</p>
+
+<p><code>html
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"&gt;&lt;/script&gt;
 </code></p>
 
 <h4 id="mathjax--bug">3, 修复 MathJax 在页面中右键变白屏的 bug</h4>

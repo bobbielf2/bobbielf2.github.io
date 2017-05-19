@@ -202,6 +202,12 @@ MathJax.Hub.Config({
 </span><span class="line"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
+<p><strong>2017/5/19 update:</strong> MathJax 最近<a href="https://www.mathjax.org/cdn-shutting-down/">更改了他们 CDN 的提供商</a>,所以上面这个 script 里最后一行的 cdn 地址很快就会不适用了，新的地址变成下面这个（注：我还把<code>http</code>改为<code>https</code>，保证在安全模式下看到数学公式）：</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="html"><span class="line"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
 <h4 id="mathjax--bug">3, 修复 MathJax 在页面中右键变白屏的 bug</h4>
 
 <p>修改 Octopress 的<code>/sass/base/_theme.scss</code>文件，把代码中的</p>
