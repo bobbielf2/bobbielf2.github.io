@@ -76,6 +76,12 @@ MathJax.Hub.Config({
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 ```
 
+**2017/5/19 update:** MathJax 最近[更改了他们 CDN 的提供商](https://www.mathjax.org/cdn-shutting-down/),所以上面这个 script 里最后一行的 cdn 地址很快就会不适用了，新的地址变成下面这个（注：我还把`http`改为`https`，保证在安全模式下看到数学公式）：
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+```
+
 #### 3, 修复 MathJax 在页面中右键变白屏的 bug
 
 修改 Octopress 的`/sass/base/_theme.scss`文件，把代码中的
