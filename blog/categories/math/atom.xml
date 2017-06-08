@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Math | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/math/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-06-07T21:42:18-04:00</updated>
+  <updated>2017-06-07T21:49:11-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -20,7 +20,7 @@
     <id>http://bobbielf2.github.io/blog/2017/05/19/the-holy-trinity</id>
     <content type="html"><![CDATA[<p>We love the number three. Many of our rules/doctrines consist of three parts. For example, in Christianity, there is the theory of the Holy Trinity, stating that God manifests Himself in three forms: the Father, the Son, and the Holy Spirit. I’d love to cast them into a shamrock diagram:</p>
 
-<p><img class="center" src="/images/blog_figures/shamrock_holy.png" width="300"></p>
+<p>{% img center /images/blog_figures/shamrock_holy.png 300 %}</p>
 
 <p>The key idea here is that, although there are three forms, there is really only one God.</p>
 
@@ -38,7 +38,7 @@
   <p>There are three great branches of modern science: theory, experiment, and computation.</p>
 </blockquote>
 
-<p><img class="center" src="/images/blog_figures/shamrock_science.png" width="300"></p>
+<p>{% img center /images/blog_figures/shamrock_science.png 300 %}</p>
 
 <p>The keyword in this shamrock is <em>computation</em>, it reminds us how computation has influenced science, and has evolved from a mere tool into a full-fledged scientific branch.</p>
 
@@ -56,7 +56,7 @@
 
 <p>The function shamrock has three leaves respectively labeled formula, spectral coefficients, and grid point values. Together, these three concepts help us better understand and use functions. To see how these three concepts connect to each other, we realize that we go from the symbolic $f(x)$ to values ${f_j}$ by sampling, from $f(x)$ to spectral coefficients ${a_j}$ by integral transforms (e.g. Fourier transform), and from ${f_j}$ to ${a_j}$ by discrete algorithms (e.g. FFT).</p>
 
-<p><img class="center" src="/images/blog_figures/shamrock_function.png" width="300"></p>
+<p>{% img center /images/blog_figures/shamrock_function.png 300 %}</p>
 
 <p>When solving a problem that involves a function $f(x)$, the symbolic formula is manipulated with analytical methods, its spectral coefficients are useful for Galerkin methods, and the grid point values are what the convenient pseudospectral methods operate on.</p>
 
@@ -66,7 +66,7 @@
 
 <p>This probably is my favorite shamrock. In analysis, the three types of series, Fourier, Laurent, and Chebyshev, are really the same series looking from different angles.</p>
 
-<p><img class="center" src="/images/blog_figures/shamrock_analysis.png" width="300"></p>
+<p>{% img center /images/blog_figures/shamrock_analysis.png 300 %}</p>
 
 <p>Let’s consider the substitutions</p>
 
