@@ -172,7 +172,7 @@ MathJax.Hub.Config({
 
 <p>This is completely fine with a simple function. But if you are debugging a <strong>high-order function</strong>, i.e. a function whose input (or output) is also a function:</p>
 
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -210,7 +210,7 @@ MathJax.Hub.Config({
 
 <p>We see that redefining a function is okay if you just want to evaluate it, but redefining for the testing of another high-order function won’t work. Unless you also <strong>redefine that high-order function to update the dependence</strong>:</p>
 
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -238,7 +238,7 @@ MathJax.Hub.Config({
   <li>The JIT compiler would compile a custom function (high-order or not) when it is executed for the first time. So you see behavior like this</li>
 </ul>
 
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -285,7 +285,7 @@ MathJax.Hub.Config({
   </li>
 </ul>
 
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -307,7 +307,7 @@ MathJax.Hub.Config({
   <li>Unless you also redefine <code>f2</code>, then <code>f2</code> becomes an uncompiled function again. The next time <code>f2</code> is called, it will be compiled again and updates its behavior.</li>
 </ul>
 
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -333,7 +333,7 @@ MathJax.Hub.Config({
 
 <p>I have found a solution in <a href="https://github.com/JuliaPlots/Plots.jl/issues/508#issuecomment-250200614">a comment of issue #508</a>, which is to use the lambda function notation <code>-&gt;</code> in Julia to define an anonymous function, and assign the anonymous function to a variable <code>f</code>. Then feed this variable into the high-order function you want to test.</p>
 
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -367,7 +367,7 @@ MathJax.Hub.Config({
 
 <p>I have downloaded the pre-released version <code>julia v0.6.0-rc2</code> to check if the issue is well handled. Apparently, the issue is well fixed in this new version:</p>
 
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -394,6 +394,7 @@ MathJax.Hub.Config({
 </span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </span><span class="line"><span class="mf">7.38905609893065</span>
 </span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 
@@ -402,7 +403,7 @@ MathJax.Hub.Config({
       
   
 
-<span class="byline author vcard">Posted by <span class="fn">Bowei "Bobbie" Wu .</span></span>
+<span class="byline author vcard">Posted by <span class="fn">波儿比 Bobbie</span></span>
 
       
 
@@ -411,6 +412,12 @@ MathJax.Hub.Config({
 
 <time class='entry-date' datetime='2017-06-07T16:39:19-04:00'><span class='date'>06-07-17</span> <span class='time'>16:39</span></time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/computation/'>computation</a>, <a class='category' href='/blog/categories/technology/'>technology</a>
+  
+</span>
 
 
     </p>

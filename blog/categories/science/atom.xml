@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Science | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/science/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-06-07T21:49:11-04:00</updated>
+  <updated>2017-06-07T21:57:02-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -20,7 +20,7 @@
     <id>http://bobbielf2.github.io/blog/2017/05/19/the-holy-trinity</id>
     <content type="html"><![CDATA[<p>We love the number three. Many of our rules/doctrines consist of three parts. For example, in Christianity, there is the theory of the Holy Trinity, stating that God manifests Himself in three forms: the Father, the Son, and the Holy Spirit. I’d love to cast them into a shamrock diagram:</p>
 
-<p>{% img center /images/blog_figures/shamrock_holy.png 300 %}</p>
+<p><img class="center" src="/images/blog_figures/shamrock_holy.png" width="300"></p>
 
 <p>The key idea here is that, although there are three forms, there is really only one God.</p>
 
@@ -38,7 +38,7 @@
   <p>There are three great branches of modern science: theory, experiment, and computation.</p>
 </blockquote>
 
-<p>{% img center /images/blog_figures/shamrock_science.png 300 %}</p>
+<p><img class="center" src="/images/blog_figures/shamrock_science.png" width="300"></p>
 
 <p>The keyword in this shamrock is <em>computation</em>, it reminds us how computation has influenced science, and has evolved from a mere tool into a full-fledged scientific branch.</p>
 
@@ -56,7 +56,7 @@
 
 <p>The function shamrock has three leaves respectively labeled formula, spectral coefficients, and grid point values. Together, these three concepts help us better understand and use functions. To see how these three concepts connect to each other, we realize that we go from the symbolic $f(x)$ to values ${f_j}$ by sampling, from $f(x)$ to spectral coefficients ${a_j}$ by integral transforms (e.g. Fourier transform), and from ${f_j}$ to ${a_j}$ by discrete algorithms (e.g. FFT).</p>
 
-<p>{% img center /images/blog_figures/shamrock_function.png 300 %}</p>
+<p><img class="center" src="/images/blog_figures/shamrock_function.png" width="300"></p>
 
 <p>When solving a problem that involves a function $f(x)$, the symbolic formula is manipulated with analytical methods, its spectral coefficients are useful for Galerkin methods, and the grid point values are what the convenient pseudospectral methods operate on.</p>
 
@@ -66,7 +66,7 @@
 
 <p>This probably is my favorite shamrock. In analysis, the three types of series, Fourier, Laurent, and Chebyshev, are really the same series looking from different angles.</p>
 
-<p>{% img center /images/blog_figures/shamrock_analysis.png 300 %}</p>
+<p><img class="center" src="/images/blog_figures/shamrock_analysis.png" width="300"></p>
 
 <p>Let’s consider the substitutions</p>
 
@@ -213,7 +213,7 @@
 
 <p>但是当你尽力从这门课里活下来了，你所看到的世界都不一样了，在科学计算的方方面面都已经有所涉足，对于这个信息时代的齿轮如何运作有了全新的深度和广度的理解。当然我还远远不是任何一方面的 expert，精确的说，现在的我对科学计算这门学问有了一个比以前更清晰的整体图像（big picture），就像下面这张图所展示的第二种（progressive）进程，对整个学科有了从低像素到高像素的改善。</p>
 
-<p>{% img /images/blog_figures/baseline_vs_progressive.jpg 500 %}</p>
+<p><img src="/images/blog_figures/baseline_vs_progressive.jpg" width="500"></p>
 
 <h3 id="section">万金油技能总结</h3>
 
@@ -245,19 +245,19 @@
 
 <!--more-->
 
-<p>{% img /images/blog_figures/Silly_Putty.jpg 200 %}</p>
+<p><img src="/images/blog_figures/Silly_Putty.jpg" width="200"></p>
 
 <p>The silly putty is a moldable toy that you can stretch and shape it into any shapes. With a glance it looks like a solid, does not seem to flow like a fluid, and you may even bounce it like a ball. But this is only true in short term, if you put in a container and give it a rest, in long term it will start to look like a fluid; the piece of silly putty will flow (slowly) and eventually take the shape of the container.</p>
 
 <h4 id="mayonnaise">Mayonnaise:</h4>
 
-<p>{% img /images/blog_figures/mayonnaise.jpg 200 %}</p>
+<p><img src="/images/blog_figures/mayonnaise.jpg" width="200"></p>
 
 <p>Mayonnaise is a comment condiment. If a lump of mayo sits there, it won’t flow and will stay as it is, like solid would do. But if the same lump of mayo is sheared by a small (but big enough) stress, it will start to deform continuously like a fluid and never come back to the initial shape. (Toothpaste has the similar property.)</p>
 
 <h4 id="orbitz-a-drink">Orbitz (a drink)</h4>
 
-<p>{% img /images/blog_figures/orbitz.jpg 200 %}</p>
+<p><img src="/images/blog_figures/orbitz.jpg" width="200"></p>
 
 <p>The Orbitz was once a popular beverage. Inside the transparent drink you can see some little solid “beads” suspended in the fluid. A remarkable fact is that although the “beads” have different density than the fluid, will neither sink nor rise and will just stay in the same position provided the bottle of drink is put stationary. On the other hand, if you simply give the bottle a shake, the beads will start flowing (swimming) around right away, making it obvious that the drink is a fluid. The reason behind this is that, the fluid in the bottle is somehow like the mayonnaise, it requires a certain (small but big enough) shear stress to flow like a fluid, otherwise it just stay put like a solid; the bare gravitational force is not enough to move the fluid.</p>
 
@@ -267,7 +267,7 @@
 
 <h4 id="corn-starch">Corn starch:</h4>
 
-<p>{% img /images/blog_figures/Tara-Corn-Starch.jpg 400 %}</p>
+<p><img src="/images/blog_figures/Tara-Corn-Starch.jpg" width="400"></p>
 
 <p>Like silly putty, the corn starch when subject to sudden and huge impact will behave like a solid; you can even walk on a pool of corn starch (shown in the picture) as long as you move fast enough. But if you move slowly in this pool (i.e. shearing the corn starch slowly), it starts to behave like a fluid and sinks you inside.</p>
 

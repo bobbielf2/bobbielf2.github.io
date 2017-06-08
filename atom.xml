@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-06-07T21:42:18-04:00</updated>
+  <updated>2017-06-07T21:57:02-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -89,7 +89,7 @@
 
 <p>This is completely fine with a simple function. But if you are debugging a <strong>high-order function</strong>, i.e. a function whose input (or output) is also a function:</p>
 
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -127,7 +127,7 @@
 
 <p>We see that redefining a function is okay if you just want to evaluate it, but redefining for the testing of another high-order function won’t work. Unless you also <strong>redefine that high-order function to update the dependence</strong>:</p>
 
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -155,7 +155,7 @@
   <li>The JIT compiler would compile a custom function (high-order or not) when it is executed for the first time. So you see behavior like this</li>
 </ul>
 
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -202,7 +202,7 @@
   </li>
 </ul>
 
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -224,7 +224,7 @@
   <li>Unless you also redefine <code>f2</code>, then <code>f2</code> becomes an uncompiled function again. The next time <code>f2</code> is called, it will be compiled again and updates its behavior.</li>
 </ul>
 
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -250,7 +250,7 @@
 
 <p>I have found a solution in <a href="https://github.com/JuliaPlots/Plots.jl/issues/508#issuecomment-250200614">a comment of issue #508</a>, which is to use the lambda function notation <code>-&gt;</code> in Julia to define an anonymous function, and assign the anonymous function to a variable <code>f</code>. Then feed this variable into the high-order function you want to test.</p>
 
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -284,7 +284,7 @@
 
 <p>I have downloaded the pre-released version <code>julia v0.6.0-rc2</code> to check if the issue is well handled. Apparently, the issue is well fixed in this new version:</p>
 
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -311,6 +311,7 @@
 </span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </span><span class="line"><span class="mf">7.38905609893065</span>
 </span></code></pre></td></tr></table></div></figure>
+
 ]]></content>
   </entry>
   

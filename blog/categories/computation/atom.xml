@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Computation | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/computation/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-06-07T21:49:11-04:00</updated>
+  <updated>2017-06-07T21:57:02-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -78,38 +78,61 @@ julia&gt; function myFun1(value)
 
 <p>This is completely fine with a simple function. But if you are debugging a <strong>high-order function</strong>, i.e. a function whose input (or output) is also a function:</p>
 
-<p>``` julia
-julia&gt; function myFun2(f)
-           return f(2)
-       end</p>
-
-<p>julia&gt; f(x) = x; myFun2(f)    #test case 1
-2</p>
-
-<p>julia&gt; f(x) = x^2; myFun2(f)    #test case 2
-WARNING: Method definition f(Any) in module Main at REPL[2]:1 overwritten at REPL[3]:1.
-2</p>
-
-<p>julia&gt; f(x) = exp(x); myFun2(f)    #test case 3
-WARNING: Method definition f(Any) in module Main at REPL[3]:1 overwritten at REPL[4]:1.
-2</p>
-
-<p>julia&gt; println([f(2), myFun2(f)])
-[7.38906,2.0] #both should have returned the same value f(2)!
-```</p>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='julia'><span class='line'><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">function</span><span class="nf"> myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class='line'>           <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span class='line'>       <span class="k">end</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>    <span class="c">#test case 1</span>
+</span><span class='line'><span class="mi">2</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>    <span class="c">#test case 2</span>
+</span><span class='line'><span class="n">WARNING</span><span class="p">:</span> <span class="n">Method</span> <span class="n">definition</span> <span class="n">f</span><span class="p">(</span><span class="kt">Any</span><span class="p">)</span> <span class="k">in</span> <span class="k">module</span> <span class="n">Main</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span><span class="mi">1</span> <span class="n">overwritten</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="mf">1.</span>
+</span><span class='line'><span class="mi">2</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>    <span class="c">#test case 3</span>
+</span><span class='line'><span class="n">WARNING</span><span class="p">:</span> <span class="n">Method</span> <span class="n">definition</span> <span class="n">f</span><span class="p">(</span><span class="kt">Any</span><span class="p">)</span> <span class="k">in</span> <span class="k">module</span> <span class="n">Main</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="mi">1</span> <span class="n">overwritten</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span><span class="mf">1.</span>
+</span><span class='line'><span class="mi">2</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">println</span><span class="p">([</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)])</span>
+</span><span class='line'><span class="p">[</span><span class="mf">7.38906</span><span class="p">,</span><span class="mf">2.0</span><span class="p">]</span> <span class="c">#both should have returned the same value f(2)!</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>We see that redefining a function is okay if you just want to evaluate it, but redefining for the testing of another high-order function won’t work. Unless you also <strong>redefine that high-order function to update the dependence</strong>:</p>
 
-<p>``` julia
-julia&gt; function myFun2(f)
-           return f(2)
-       end
-WARNING: Method definition myFun2(Any) in module Main at REPL[1]:2 overwritten at REPL[11]:2.
-myFun2 (generic function with 1 method)</p>
-
-<p>julia&gt; myFun2(f)
-7.38905609893065
-```</p>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='julia'><span class='line'><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">function</span><span class="nf"> myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class='line'>           <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span class='line'>       <span class="k">end</span>
+</span><span class='line'><span class="n">WARNING</span><span class="p">:</span> <span class="n">Method</span> <span class="n">definition</span> <span class="n">myFun2</span><span class="p">(</span><span class="kt">Any</span><span class="p">)</span> <span class="k">in</span> <span class="k">module</span> <span class="n">Main</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mi">2</span> <span class="n">overwritten</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span><span class="mf">2.</span>
+</span><span class='line'><span class="n">myFun2</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class='line'><span class="mf">7.38905609893065</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>But redefining every high-order function is cumbersome, and even impractical if there is a chain of dependencies among multiple high-order functions.</p>
 
@@ -121,26 +144,43 @@ myFun2 (generic function with 1 method)</p>
   <li>The JIT compiler would compile a custom function (high-order or not) when it is executed for the first time. So you see behavior like this</li>
 </ul>
 
-<p>``` julia
-julia&gt; function f1()
-           2;
-       end
-f1 (generic function with 1 method)</p>
-
-<p>julia&gt; function f2(f)
-           f()
-       end
-f2 (generic function with 1 method)</p>
-
-<p>julia&gt; function f1()
-           3;
-       end
-WARNING: Method definition f1() in module Main at REPL[1]:2 overwritten at REPL[3]:2.
-f1 (generic function with 1 method)</p>
-
-<p>julia&gt; f2(f1)
-3
-```</p>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='julia'><span class='line'><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">function</span><span class="nf"> f1</span><span class="p">()</span>
+</span><span class='line'>           <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>       <span class="k">end</span>
+</span><span class='line'><span class="n">f1</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">function</span><span class="nf"> f2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class='line'>           <span class="n">f</span><span class="p">()</span>
+</span><span class='line'>       <span class="k">end</span>
+</span><span class='line'><span class="n">f2</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">function</span><span class="nf"> f1</span><span class="p">()</span>
+</span><span class='line'>           <span class="mi">3</span><span class="p">;</span>
+</span><span class='line'>       <span class="k">end</span>
+</span><span class='line'><span class="n">WARNING</span><span class="p">:</span> <span class="n">Method</span> <span class="n">definition</span> <span class="n">f1</span><span class="p">()</span> <span class="k">in</span> <span class="k">module</span> <span class="n">Main</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mi">2</span> <span class="n">overwritten</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="mf">2.</span>
+</span><span class='line'><span class="n">f1</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">f2</span><span class="p">(</span><span class="n">f1</span><span class="p">)</span>
+</span><span class='line'><span class="mi">3</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <ul>
   <li>
@@ -151,31 +191,45 @@ f1 (generic function with 1 method)</p>
   </li>
 </ul>
 
-<p>``` julia
-julia&gt; function f1()
-           2;
-       end
-WARNING: Method definition f1() in module Main at REPL[3]:2 overwritten at REPL[5]:2.
-f1 (generic function with 1 method)</p>
-
-<p>julia&gt; f2(f1)
-3
-```</p>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='julia'><span class='line'><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">function</span><span class="nf"> f1</span><span class="p">()</span>
+</span><span class='line'>           <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>       <span class="k">end</span>
+</span><span class='line'><span class="n">WARNING</span><span class="p">:</span> <span class="n">Method</span> <span class="n">definition</span> <span class="n">f1</span><span class="p">()</span> <span class="k">in</span> <span class="k">module</span> <span class="n">Main</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="mi">2</span> <span class="n">overwritten</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span><span class="mf">2.</span>
+</span><span class='line'><span class="n">f1</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">f2</span><span class="p">(</span><span class="n">f1</span><span class="p">)</span>
+</span><span class='line'><span class="mi">3</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <ul>
   <li>Unless you also redefine <code>f2</code>, then <code>f2</code> becomes an uncompiled function again. The next time <code>f2</code> is called, it will be compiled again and updates its behavior.</li>
 </ul>
 
-<p>``` julia
-julia&gt; function f2(f)
-           f()
-       end
-WARNING: Method definition f2(Any) in module Main at REPL[2]:2 overwritten at REPL[7]:2.
-f2 (generic function with 1 method)</p>
-
-<p>julia&gt; f2(f1)
-2
-```</p>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='julia'><span class='line'><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">function</span><span class="nf"> f2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class='line'>           <span class="n">f</span><span class="p">()</span>
+</span><span class='line'>       <span class="k">end</span>
+</span><span class='line'><span class="n">WARNING</span><span class="p">:</span> <span class="n">Method</span> <span class="n">definition</span> <span class="n">f2</span><span class="p">(</span><span class="kt">Any</span><span class="p">)</span> <span class="k">in</span> <span class="k">module</span> <span class="n">Main</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span><span class="mi">2</span> <span class="n">overwritten</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span><span class="mf">2.</span>
+</span><span class='line'><span class="n">f2</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">f2</span><span class="p">(</span><span class="n">f1</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <ul>
   <li>This experiment shows that the compilation is down to the lowest-order function, so if a high-order function is called, the JIT will compile all the functions it calls, until it hits a simple function. (Compilation can also occur when you feed a custom function with variables of different types. This is the subject of <strong>multiple dispatch</strong>, another great advantage of Julia).</li>
@@ -185,21 +239,33 @@ f2 (generic function with 1 method)</p>
 
 <p>I have found a solution in <a href="https://github.com/JuliaPlots/Plots.jl/issues/508#issuecomment-250200614">a comment of issue #508</a>, which is to use the lambda function notation <code>-&gt;</code> in Julia to define an anonymous function, and assign the anonymous function to a variable <code>f</code>. Then feed this variable into the high-order function you want to test.</p>
 
-<p>``` julia
-julia&gt; function myFun2(f)
-           return f(2)
-       end
-myFun2 (generic function with 1 method)</p>
-
-<p>julia&gt; f = x -&gt; x; myFun2(f)
-2</p>
-
-<p>julia&gt; f = x -&gt; x^2; myFun2(f)
-4</p>
-
-<p>julia&gt; f = x -&gt; exp(x); myFun2(f)
-7.38905609893065
-```</p>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='julia'><span class='line'><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">function</span><span class="nf"> myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class='line'>           <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span class='line'>       <span class="k">end</span>
+</span><span class='line'><span class="n">myFun2</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">x</span><span class="p">;</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class='line'><span class="mi">4</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class='line'><span class="mf">7.38905609893065</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>All works well now! This is because the variable <code>f</code> is now pointing to an anonymous function. If it is later redefined to point to a different function, this pointer value is updated because every anonymous function receives a unique label. So there are no more confusions!</p>
 
@@ -207,21 +273,34 @@ myFun2 (generic function with 1 method)</p>
 
 <p>I have downloaded the pre-released version <code>julia v0.6.0-rc2</code> to check if the issue is well handled. Apparently, the issue is well fixed in this new version:</p>
 
-<p>``` julia
-julia&gt; function myFun2(f)
-           return f(2)
-       end
-myFun2 (generic function with 1 method)</p>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='julia'><span class='line'><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">function</span><span class="nf"> myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class='line'>           <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span class='line'>       <span class="k">end</span>
+</span><span class='line'><span class="n">myFun2</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class='line'><span class="mi">4</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">julia</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class='line'><span class="mf">7.38905609893065</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
-<p>julia&gt; f(x) = x; myFun2(f)
-2</p>
-
-<p>julia&gt; f(x) = x^2; myFun2(f)
-4</p>
-
-<p>julia&gt; f(x) = exp(x); myFun2(f)
-7.38905609893065
-```</p>
 ]]></content>
   </entry>
   
@@ -232,7 +311,7 @@ myFun2 (generic function with 1 method)</p>
     <id>http://bobbielf2.github.io/blog/2017/05/19/the-holy-trinity</id>
     <content type="html"><![CDATA[<p>We love the number three. Many of our rules/doctrines consist of three parts. For example, in Christianity, there is the theory of the Holy Trinity, stating that God manifests Himself in three forms: the Father, the Son, and the Holy Spirit. I’d love to cast them into a shamrock diagram:</p>
 
-<p>{% img center /images/blog_figures/shamrock_holy.png 300 %}</p>
+<p><img class="center" src="/images/blog_figures/shamrock_holy.png" width="300"></p>
 
 <p>The key idea here is that, although there are three forms, there is really only one God.</p>
 
@@ -250,7 +329,7 @@ myFun2 (generic function with 1 method)</p>
   <p>There are three great branches of modern science: theory, experiment, and computation.</p>
 </blockquote>
 
-<p>{% img center /images/blog_figures/shamrock_science.png 300 %}</p>
+<p><img class="center" src="/images/blog_figures/shamrock_science.png" width="300"></p>
 
 <p>The keyword in this shamrock is <em>computation</em>, it reminds us how computation has influenced science, and has evolved from a mere tool into a full-fledged scientific branch.</p>
 
@@ -268,7 +347,7 @@ myFun2 (generic function with 1 method)</p>
 
 <p>The function shamrock has three leaves respectively labeled formula, spectral coefficients, and grid point values. Together, these three concepts help us better understand and use functions. To see how these three concepts connect to each other, we realize that we go from the symbolic $f(x)$ to values ${f_j}$ by sampling, from $f(x)$ to spectral coefficients ${a_j}$ by integral transforms (e.g. Fourier transform), and from ${f_j}$ to ${a_j}$ by discrete algorithms (e.g. FFT).</p>
 
-<p>{% img center /images/blog_figures/shamrock_function.png 300 %}</p>
+<p><img class="center" src="/images/blog_figures/shamrock_function.png" width="300"></p>
 
 <p>When solving a problem that involves a function $f(x)$, the symbolic formula is manipulated with analytical methods, its spectral coefficients are useful for Galerkin methods, and the grid point values are what the convenient pseudospectral methods operate on.</p>
 
@@ -278,7 +357,7 @@ myFun2 (generic function with 1 method)</p>
 
 <p>This probably is my favorite shamrock. In analysis, the three types of series, Fourier, Laurent, and Chebyshev, are really the same series looking from different angles.</p>
 
-<p>{% img center /images/blog_figures/shamrock_analysis.png 300 %}</p>
+<p><img class="center" src="/images/blog_figures/shamrock_analysis.png" width="300"></p>
 
 <p>Let’s consider the substitutions</p>
 
@@ -425,7 +504,7 @@ myFun2 (generic function with 1 method)</p>
 
 <p>但是当你尽力从这门课里活下来了，你所看到的世界都不一样了，在科学计算的方方面面都已经有所涉足，对于这个信息时代的齿轮如何运作有了全新的深度和广度的理解。当然我还远远不是任何一方面的 expert，精确的说，现在的我对科学计算这门学问有了一个比以前更清晰的整体图像（big picture），就像下面这张图所展示的第二种（progressive）进程，对整个学科有了从低像素到高像素的改善。</p>
 
-<p>{% img /images/blog_figures/baseline_vs_progressive.jpg 500 %}</p>
+<p><img src="/images/blog_figures/baseline_vs_progressive.jpg" width="500"></p>
 
 <h3 id="section">万金油技能总结</h3>
 
