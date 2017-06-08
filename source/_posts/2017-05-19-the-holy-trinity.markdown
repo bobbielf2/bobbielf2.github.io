@@ -7,6 +7,7 @@ comments: true
 categories: [science, math, computation]
 ---
 
+This isn't about theology, but I will talk about the number three.
 
 We love the number three. Many of our rules/doctrines consist of three parts. For example, in Christianity, there is the theory of the Holy Trinity, stating that God manifests Himself in three forms: the Father, the Son, and the Holy Spirit. I'd love to cast them into a shamrock diagram:
 
