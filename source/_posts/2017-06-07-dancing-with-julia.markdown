@@ -2,9 +2,10 @@
 layout: post
 title: "Dancing With Julia"
 subtitle: "a powerful new language for scientific computing"
+author: "波儿比 Bobbie"
 date: 2017-06-07 16:39:19 -0400
 comments: true
-categories: 
+categories: [Computation, Technology]
 ---
 
 I have been having fun with [the Julia language][julia] lately. It is a new programming language for scientific computing. You may wonder, why do we need a new language at all? Don't we already have MATLAB, Mathematica, Python with NumPy and SciPy, etc., are't those enough?

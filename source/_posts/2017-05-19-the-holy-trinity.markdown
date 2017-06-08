@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "The Holy Trinity"
+author: "波儿比 Bobbie"
 date: 2017-05-19 22:03:22 -0400
 comments: true
 categories: [science, math, computation]
