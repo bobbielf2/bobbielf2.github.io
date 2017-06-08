@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-05-19T23:14:23-04:00</updated>
+  <updated>2017-06-07T21:42:18-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,307 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Dancing With Julia]]></title>
+    <link href="http://bobbielf2.github.io/blog/2017/06/07/dancing-with-julia/"/>
+    <updated>2017-06-07T16:39:19-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2017/06/07/dancing-with-julia</id>
+    <content type="html"><![CDATA[<p>I have been having fun with <a href="https://julialang.org/">the Julia language</a> lately. It is a new programming language for scientific computing. You may wonder, why do we need a new language at all? Don’t we already have MATLAB, Mathematica, Python with NumPy and SciPy, etc., are’t those enough?</p>
+
+<p>Well, it is true that those are awesome softwares for scientific computing, they have all the necessary functionalities and powerful libraries, and they are easy to learn. But there is a common (fatal) issue that prevents them from creating industrial quality codes – speed. We want faster speed! The Julia language is developed specifically for this.</p>
+
+<!--more-->
+
+<h2 id="the-julia-language">1. The Julia Language</h2>
+
+<p>What is the Julia language? According to its <a href="https://julialang.org/">official page</a></p>
+
+<blockquote>
+  <p>Julia a high-level, high-performance dynamic programming language for numerical computing.</p>
+</blockquote>
+
+<p>There are two keywords here: <strong>high-performance</strong> and <strong>dynamic programming</strong>. These two words don’t usually come together! If you have written some program for numerical computations, you probably have noticed:</p>
+
+<ul>
+  <li><strong>Dynamic programming</strong> languages like Python and MATLAB are very handy and human-friendly. Each such language has a <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a> that allows you to see the effects of your code immediately, so the workflow is interactive. You can easily explore ideas, quickly prototype a new software. The syntax is simple which allows for fast development.</li>
+  <li>However, when you finally decide to write some software for practical use, all these dynamic programming languages suffer from slow running speeds. Then you have to switch to a <strong>high-performance</strong> programming language like C/C++ and Fortran. These languages are static, use a classic edit-compile-run-debug (ECRD) cycle in contrast to REPL. It takes a lot of time to write the code and debug.</li>
+</ul>
+
+<p>This is called the <strong>Two-language problem</strong>: efficiency for human or efiiciency for the machine, pick one. There have been efforts trying to resolve this problem, for example, by linking the C libraries in a Python code, but such usage of multi-language programming quickly makes the code really complex and hard to maintain.</p>
+
+<h3 id="solving-the-two-language-problem">1.1 Solving the two-language problem</h3>
+
+<p>This is exactly where Julia kicks in.</p>
+
+<p>Julia is a dynamic programming language as MATLAB or Python, making it easy to use. But Julia also runs <a href="https://julialang.org/benchmarks/">very fast</a>, comparable to the performance of C codes. How could a dynamic language run fast? It does so by using the <a href="https://en.wikipedia.org/wiki/LLVM">LLVM</a>-based <a href="https://en.wikipedia.org/wiki/Just-in-time_compilation">just-in-time</a> (JIT) compiler. In fact Julia is designed for JIT from the very beginning!</p>
+
+<h3 id="want-to-try-julia">1.2 Want to try Julia?</h3>
+
+<p>If you would like to try out the Julia language, I recommend this quick hands-on approach: firstly, you learn the basics by going through some short tutorial found <a href="https://julialang.org/learning/#tutorials">here</a>; after having some familiarity with the syntax, you start some programming with your field of study with the help of some <a href="http://pkg.julialang.org/">existing packages</a>. For example, I work on numerical analysis and spectral methods, so I started with the <a href="https://github.com/JuliaApproximation/ApproxFun.jl">ApproxFun</a> package under the <a href="https://github.com/JuliaApproximation">JuliaApproximation</a> project; or if you have done some statistics programming with languages like R, there is a collection of statistics packages under the <a href="https://github.com/JuliaStats">Julia Statistics</a> project; or if you are an algebraist, you may have done some symbolic programming with languages like REDUCE, there is also a <a href="https://github.com/chakravala/Reduce.jl">Reduce</a> package for you. Check the <a href="http://pkg.julialang.org/">list of available packages</a>, no matter what you work on, you are likely to find something that suits your need.</p>
+
+<p>Next, I am going to talk about an experience I had when coding Julia. It will be an example with very technical details, so you may stop reading at this point if all you want is just some general information about Julia.</p>
+
+<h2 id="testing-my-code-why-cant-i-redefine-my-test-functions">2. Testing my code: why can’t I redefine my test functions?</h2>
+
+<p>(<strong>Note:</strong> the issue mentioned in this note pertains to julia version <code>v0.5</code>, there will be a change/fix of the behavior in <code>v0.6</code>; see the P.S. in the end.)</p>
+
+<h3 id="redefine-test-functions-that-will-be-called-by-a-high-order-function-the-failure">2.1 Redefine test functions that will be called by a high-order function: the failure</h3>
+
+<p>In scientific computing, we often need to test a function by feeding it different parameters to see if the behaviors are as expected.</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+</pre></td><td class="code"><pre><code class="julia"><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="k">function</span><span class="nf"> myFun1</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span><span class="line">           <span class="k">return</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class="line">       <span class="k">end</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">myFun1</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>    <span class="c">#test case 1</span>
+</span><span class="line"><span class="mi">2</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="nb">pi</span><span class="p">;</span> <span class="n">myFun1</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>    <span class="c">#test case 2</span>
+</span><span class="line"><span class="mf">4.141592653589793</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="o">-</span><span class="n">e</span><span class="p">;</span> <span class="n">myFun1</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>    <span class="c">#test case 3</span>
+</span><span class="line"><span class="o">-</span><span class="mf">1.718281828459045</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>This is completely fine with a simple function. But if you are debugging a <strong>high-order function</strong>, i.e. a function whose input (or output) is also a function:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+</pre></td><td class="code"><pre><code class="julia"><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="k">function</span><span class="nf"> myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class="line">           <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span class="line">       <span class="k">end</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>    <span class="c">#test case 1</span>
+</span><span class="line"><span class="mi">2</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>    <span class="c">#test case 2</span>
+</span><span class="line"><span class="n">WARNING</span><span class="p">:</span> <span class="n">Method</span> <span class="n">definition</span> <span class="n">f</span><span class="p">(</span><span class="kt">Any</span><span class="p">)</span> <span class="k">in</span> <span class="k">module</span> <span class="n">Main</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span><span class="mi">1</span> <span class="n">overwritten</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="mf">1.</span>
+</span><span class="line"><span class="mi">2</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>    <span class="c">#test case 3</span>
+</span><span class="line"><span class="n">WARNING</span><span class="p">:</span> <span class="n">Method</span> <span class="n">definition</span> <span class="n">f</span><span class="p">(</span><span class="kt">Any</span><span class="p">)</span> <span class="k">in</span> <span class="k">module</span> <span class="n">Main</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="mi">1</span> <span class="n">overwritten</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span><span class="mf">1.</span>
+</span><span class="line"><span class="mi">2</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">println</span><span class="p">([</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)])</span>
+</span><span class="line"><span class="p">[</span><span class="mf">7.38906</span><span class="p">,</span><span class="mf">2.0</span><span class="p">]</span> <span class="c">#both should have returned the same value f(2)!</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>We see that redefining a function is okay if you just want to evaluate it, but redefining for the testing of another high-order function won’t work. Unless you also <strong>redefine that high-order function to update the dependence</strong>:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+</pre></td><td class="code"><pre><code class="julia"><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="k">function</span><span class="nf"> myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class="line">           <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span class="line">       <span class="k">end</span>
+</span><span class="line"><span class="n">WARNING</span><span class="p">:</span> <span class="n">Method</span> <span class="n">definition</span> <span class="n">myFun2</span><span class="p">(</span><span class="kt">Any</span><span class="p">)</span> <span class="k">in</span> <span class="k">module</span> <span class="n">Main</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mi">2</span> <span class="n">overwritten</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span><span class="mf">2.</span>
+</span><span class="line"><span class="n">myFun2</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class="line"><span class="mf">7.38905609893065</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>But redefining every high-order function is cumbersome, and even impractical if there is a chain of dependencies among multiple high-order functions.</p>
+
+<h3 id="the-logic-behind-such-failure-how-the-jit-compiler-works">2.2 The logic behind such failure: how the JIT compiler works</h3>
+
+<p>This issue received a long discussion (started a couple years ago and is still going on) on GitHub <a href="https://github.com/JuliaLang/julia/issues/265">issue #265</a>. This goes back to the fundamental question of how Julia’s JIT compiler works (under the hood) in real time.</p>
+
+<ul>
+  <li>The JIT compiler would compile a custom function (high-order or not) when it is executed for the first time. So you see behavior like this</li>
+</ul>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+</pre></td><td class="code"><pre><code class="julia"><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="k">function</span><span class="nf"> f1</span><span class="p">()</span>
+</span><span class="line">           <span class="mi">2</span><span class="p">;</span>
+</span><span class="line">       <span class="k">end</span>
+</span><span class="line"><span class="n">f1</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="k">function</span><span class="nf"> f2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class="line">           <span class="n">f</span><span class="p">()</span>
+</span><span class="line">       <span class="k">end</span>
+</span><span class="line"><span class="n">f2</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="k">function</span><span class="nf"> f1</span><span class="p">()</span>
+</span><span class="line">           <span class="mi">3</span><span class="p">;</span>
+</span><span class="line">       <span class="k">end</span>
+</span><span class="line"><span class="n">WARNING</span><span class="p">:</span> <span class="n">Method</span> <span class="n">definition</span> <span class="n">f1</span><span class="p">()</span> <span class="k">in</span> <span class="k">module</span> <span class="n">Main</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mi">2</span> <span class="n">overwritten</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="mf">2.</span>
+</span><span class="line"><span class="n">f1</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">f2</span><span class="p">(</span><span class="n">f1</span><span class="p">)</span>
+</span><span class="line"><span class="mi">3</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<ul>
+  <li>
+    <p>Because <code>f2</code> is compiled when <code>f2(f1)</code> is called; before the call, <code>f1</code> is most recently defined to return <code>3</code>, so <code>f2(f1)</code> returns <code>3</code>; the first definition of <code>f1</code> that returned <code>2</code> was overwritten.</p>
+  </li>
+  <li>
+    <p>After the <code>f2(f1)</code> call, no matter how you overwrite the definition of <code>f1</code>, <code>f2(f1)</code> will always return <code>3</code> since that’s how it was when compiled at its first call.</p>
+  </li>
+</ul>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+</pre></td><td class="code"><pre><code class="julia"><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="k">function</span><span class="nf"> f1</span><span class="p">()</span>
+</span><span class="line">           <span class="mi">2</span><span class="p">;</span>
+</span><span class="line">       <span class="k">end</span>
+</span><span class="line"><span class="n">WARNING</span><span class="p">:</span> <span class="n">Method</span> <span class="n">definition</span> <span class="n">f1</span><span class="p">()</span> <span class="k">in</span> <span class="k">module</span> <span class="n">Main</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="mi">2</span> <span class="n">overwritten</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span><span class="mf">2.</span>
+</span><span class="line"><span class="n">f1</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">f2</span><span class="p">(</span><span class="n">f1</span><span class="p">)</span>
+</span><span class="line"><span class="mi">3</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<ul>
+  <li>Unless you also redefine <code>f2</code>, then <code>f2</code> becomes an uncompiled function again. The next time <code>f2</code> is called, it will be compiled again and updates its behavior.</li>
+</ul>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+</pre></td><td class="code"><pre><code class="julia"><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="k">function</span><span class="nf"> f2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class="line">           <span class="n">f</span><span class="p">()</span>
+</span><span class="line">       <span class="k">end</span>
+</span><span class="line"><span class="n">WARNING</span><span class="p">:</span> <span class="n">Method</span> <span class="n">definition</span> <span class="n">f2</span><span class="p">(</span><span class="kt">Any</span><span class="p">)</span> <span class="k">in</span> <span class="k">module</span> <span class="n">Main</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span><span class="mi">2</span> <span class="n">overwritten</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span><span class="mf">2.</span>
+</span><span class="line"><span class="n">f2</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">f2</span><span class="p">(</span><span class="n">f1</span><span class="p">)</span>
+</span><span class="line"><span class="mi">2</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<ul>
+  <li>This experiment shows that the compilation is down to the lowest-order function, so if a high-order function is called, the JIT will compile all the functions it calls, until it hits a simple function. (Compilation can also occur when you feed a custom function with variables of different types. This is the subject of <strong>multiple dispatch</strong>, another great advantage of Julia).</li>
+</ul>
+
+<h3 id="solution-using-anonymous-functions">2.3 Solution: using anonymous functions</h3>
+
+<p>I have found a solution in <a href="https://github.com/JuliaPlots/Plots.jl/issues/508#issuecomment-250200614">a comment of issue #508</a>, which is to use the lambda function notation <code>-&gt;</code> in Julia to define an anonymous function, and assign the anonymous function to a variable <code>f</code>. Then feed this variable into the high-order function you want to test.</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+</pre></td><td class="code"><pre><code class="julia"><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="k">function</span><span class="nf"> myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class="line">           <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span class="line">       <span class="k">end</span>
+</span><span class="line"><span class="n">myFun2</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="p">;</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class="line"><span class="mi">2</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class="line"><span class="mi">4</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class="line"><span class="mf">7.38905609893065</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>All works well now! This is because the variable <code>f</code> is now pointing to an anonymous function. If it is later redefined to point to a different function, this pointer value is updated because every anonymous function receives a unique label. So there are no more confusions!</p>
+
+<h3 id="ps-issue-fixed-in-v06">P.S. Issue fixed in <code>v0.6</code></h3>
+
+<p>I have downloaded the pre-released version <code>julia v0.6.0-rc2</code> to check if the issue is well handled. Apparently, the issue is well fixed in this new version:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+</pre></td><td class="code"><pre><code class="julia"><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="k">function</span><span class="nf"> myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class="line">           <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span class="line">       <span class="k">end</span>
+</span><span class="line"><span class="n">myFun2</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class="line"><span class="mi">2</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class="line"><span class="mi">4</span>
+</span><span class="line">
+</span><span class="line"><span class="n">julia</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="n">myFun2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span class="line"><span class="mf">7.38905609893065</span>
+</span></code></pre></td></tr></table></div></figure>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The Holy Trinity]]></title>

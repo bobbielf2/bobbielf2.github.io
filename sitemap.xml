@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://bobbielf2.github.io/blog/2017/06/07/dancing-with-julia/</loc>
+<lastmod>2017-06-07T16:39:19-04:00</lastmod>
+</url>
+<url>
 <loc>http://bobbielf2.github.io/blog/2017/05/19/the-holy-trinity/</loc>
 <lastmod>2017-05-19T22:03:22-04:00</lastmod>
 </url>
