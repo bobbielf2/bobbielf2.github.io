@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Computation | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/computation/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-06-07T21:57:02-04:00</updated>
+  <updated>2017-06-07T22:00:23-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -309,7 +309,9 @@ julia&gt; function myFun1(value)
     <link href="http://bobbielf2.github.io/blog/2017/05/19/the-holy-trinity/"/>
     <updated>2017-05-19T22:03:22-04:00</updated>
     <id>http://bobbielf2.github.io/blog/2017/05/19/the-holy-trinity</id>
-    <content type="html"><![CDATA[<p>We love the number three. Many of our rules/doctrines consist of three parts. For example, in Christianity, there is the theory of the Holy Trinity, stating that God manifests Himself in three forms: the Father, the Son, and the Holy Spirit. I’d love to cast them into a shamrock diagram:</p>
+    <content type="html"><![CDATA[<p>This isn’t about theology, but I will talk about the number three.</p>
+
+<p>We love the number three. Many of our rules/doctrines consist of three parts. For example, in Christianity, there is the theory of the Holy Trinity, stating that God manifests Himself in three forms: the Father, the Son, and the Holy Spirit. I’d love to cast them into a shamrock diagram:</p>
 
 <p><img class="center" src="/images/blog_figures/shamrock_holy.png" width="300"></p>
 
