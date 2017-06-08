@@ -79,7 +79,7 @@ julia> v = -e; myFun1(v)    #test case 3
 
 This is completely fine with a simple function. But if you are debugging a **high-order function**, i.e. a function whose input (or output) is also a function:
 
-``` julia
+{% codeblock lang:julia %}
 julia> function myFun2(f)
            return f(2)
        end
@@ -97,11 +97,11 @@ WARNING: Method definition f(Any) in module Main at REPL[3]:1 overwritten at REP
 
 julia> println([f(2), myFun2(f)])
 [7.38906,2.0] #both should have returned the same value f(2)!
-```
+{% endcodeblock %}
 
 We see that redefining a function is okay if you just want to evaluate it, but redefining for the testing of another high-order function won't work. Unless you also **redefine that high-order function to update the dependence**:
 
-``` julia
+{% codeblock lang:julia %}
 julia> function myFun2(f)
            return f(2)
        end
@@ -110,7 +110,7 @@ myFun2 (generic function with 1 method)
 
 julia> myFun2(f)
 7.38905609893065
-```
+{% endcodeblock %}
 
 But redefining every high-order function is cumbersome, and even impractical if there is a chain of dependencies among multiple high-order functions.
 
@@ -120,7 +120,7 @@ This issue received a long discussion (started a couple years ago and is still g
 
 * The JIT compiler would compile a custom function (high-order or not) when it is executed for the first time. So you see behavior like this
 
-``` julia
+{% codeblock lang:julia %}
 julia> function f1()
            2;
        end
@@ -139,13 +139,13 @@ f1 (generic function with 1 method)
     
 julia> f2(f1)
 3
-```
+{% endcodeblock %}
 
 * Because `f2` is compiled when `f2(f1)` is called; before the call, `f1` is most recently defined to return `3`, so `f2(f1)` returns `3`; the first definition of `f1` that returned `2` was overwritten. 
 
 * After the `f2(f1)` call, no matter how you overwrite the definition of `f1`, `f2(f1)` will always return `3` since that's how it was when compiled at its first call. 
   
-``` julia
+{% codeblock lang:julia %}
 julia> function f1()
            2;
        end
@@ -154,11 +154,11 @@ f1 (generic function with 1 method)
   
 julia> f2(f1)
 3
-```
+{% endcodeblock %}
   
 * Unless you also redefine `f2`, then `f2` becomes an uncompiled function again. The next time `f2` is called, it will be compiled again and updates its behavior.
   
-``` julia
+{% codeblock lang:julia %}
 julia> function f2(f)
            f()
        end
@@ -167,7 +167,7 @@ f2 (generic function with 1 method)
     
 julia> f2(f1)
 2
-```
+{% endcodeblock %}
 
 * This experiment shows that the compilation is down to the lowest-order function, so if a high-order function is called, the JIT will compile all the functions it calls, until it hits a simple function. (Compilation can also occur when you feed a custom function with variables of different types. This is the subject of **multiple dispatch**, another great advantage of Julia).
 
@@ -175,7 +175,7 @@ julia> f2(f1)
 
 I have found a solution in [a comment of issue #508](https://github.com/JuliaPlots/Plots.jl/issues/508#issuecomment-250200614), which is to use the lambda function notation `->` in Julia to define an anonymous function, and assign the anonymous function to a variable `f`. Then feed this variable into the high-order function you want to test.
 
-``` julia
+{% codeblock lang:julia %}
 julia> function myFun2(f)
            return f(2)
        end
@@ -189,7 +189,7 @@ julia> f = x -> x^2; myFun2(f)
 
 julia> f = x -> exp(x); myFun2(f)
 7.38905609893065
-```
+{% endcodeblock %}
 
 All works well now! This is because the variable `f` is now pointing to an anonymous function. If it is later redefined to point to a different function, this pointer value is updated because every anonymous function receives a unique label. So there are no more confusions!
 
@@ -197,7 +197,7 @@ All works well now! This is because the variable `f` is now pointing to an anony
 
 I have downloaded the pre-released version `julia v0.6.0-rc2` to check if the issue is well handled. Apparently, the issue is well fixed in this new version:
 
-``` julia
+{% codeblock lang:julia %}
 julia> function myFun2(f)
            return f(2)
        end
@@ -211,4 +211,5 @@ julia> f(x) = x^2; myFun2(f)
 
 julia> f(x) = exp(x); myFun2(f)
 7.38905609893065
-```
+{% endcodeblock %}
+
