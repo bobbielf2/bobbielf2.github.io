@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>每天都看见，却视而不见的东西 - Bobbie's Blog</title>
+  <meta name="author" content="Bowei "Bobbie" Wu .">
+
+  
+  <meta name="description" content="今天无聊去搜了一下这个世界上有多少美元在流通，网上的信息来源一般说有超过一兆美金（1 后面 12 个零）。于是又不禁想到，既然最大是这个数，那最小是美元单位是多少呢？ 之所以想到美元的问题，是因为今天玩编程的时候研究了一下 64 位的整数 Int64，看最大能表示多少位数字。Int64 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://bobbielf2.github.io/blog/2017/08/12/mei-tian-du-kan-jian-,que-shi-er-bu-jian-de-dong-xi/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Bobbie's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Bobbie's Blog</a></h1>
+  
+    <h2>Boys be ambitious.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="bobbielf2.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/links/">Links</a></li>
+  <li><a href="/aboutme/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h2 class="entry-title">每天都看见，却视而不见的东西</h2>
+      <h3></h3>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-08-12T17:10:51-04:00'><span class='date'>08-12-17</span> <span class='time'>17:10</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>今天无聊去搜了一下这个世界上有多少美元在流通，网上的信息来源一般说有超过一兆美金（1 后面 12 个零）。于是又不禁想到，既然最大是这个数，那最小是美元单位是多少呢？</p>
+
+<!--more-->
+
+<p>之所以想到美元的问题，是因为今天玩编程的时候研究了一下 64 位的整数 Int64，看最大能表示多少位数字。Int64 是一种专门用来表示整数的数据类型，用到 64 位的 0 和 1 二进制数。因为有一位要表示正负号，剩下 63 位可以表示最大的数是 $2^{63}-1 \approx 9.22
+\times10^{18}$，是一个 19 位的数字。</p>
+
+<p>有趣的是维基百科里面有这个数字的页面，其中有一栏提到了这么一则新闻，说 PayPal 在 2013 年的时候曾经系统出错了一次，给一位客户的账户打了 “$92 quadrillion（9.2 万兆美金）” 。这是一个 17 位数，加上小数点后 2 位，一共刚刚好 19 位，就是最大的 Int64 整数 —— 所以 PayPal 是以 Int64 数据型来记账的，这是一次数据溢出的操作。</p>
+
+<p>我们看到用 Int64 来记账的话，如果小数点后留两位，整数位大约可以记到 9.2 万兆美元的级别，这比起现在全世界流通的 1 兆多的美元高了五个数量级，还是绰绰有余的。</p>
+
+<p>进一步，这个故事告诉我们 PayPal 上的金额最小单位是 1 美分。所以美分就是最小的美元单位了吗？于是跑到美元的维基页面瞧了一下，发现并不是 1 美分。现行最小的美元单位是 1 mill （千分之一美金），小数点后三位。这并没有让我吃惊，我真正吃惊的是，里面有一段这样的说明：</p>
+
+<blockquote><p>... “mill” is largely unknown to the general public, though mills are sometimes used in matters of tax levies, and gasoline prices are usually in the form of \$X.XX9 per gallon, e.g., \$3.599, more commonly written as \$3.59 ⁹⁄₁₀.</p><footer><strong>Wikipedia</strong> <cite><a href="https://en.wikipedia.org/wiki/United_States_dollar">United States Dollar</a></cite></footer></blockquote>
+
+<p>读到这里，我不禁惊叹：这个东西我每天都见到，只不过我又理所当然地把它忽略了。</p>
+
+<p>这段话在说什么呢？说的是我们平时去加油站时看到的价格板，上面的价格都是精确到小数点后三位的，像是这样：</p>
+
+<p><img src="/images/blog_figures/youjia.png" width="400" /></p>
+
+<p>有些天天见的东西，我们也都以为自己知道那是什么意思，直到疑问被提出来。几千年前，苏格拉底式的提问让当时的人开始审视自己的知识，发现自己以往认识的界限。今天我自己经历了一番这样的感受。</p>
+
+<p>–</p>
+
+<h3 id="section">后记：</h3>
+
+<p>1) 如果保留数点后三位而不是两位，那 Int64 还是能表示到千兆美元的级别的，没有太大影响。而且既然 PayPal 只保留两位小数，我有理由相信金融行业实际操作都是用同样的数据贮存方式的。这样保持了业界金融软件的一致性，可以节省成本。而需要用到 mill 这个单位的少数行业，只需要额外记录一位数字就好了。</p>
+
+<p>2) 视而不见（英文可以说 to look without seeing it 吗？）让我想起了那首 50 多年前的经典的歌曲：</p>
+
+<blockquote><p>People talking without speaking  <br />People hearing without listening  <br />People writing songs that voices never share  <br />And no one dared  <br />Disturb the sound of silence.</p><footer><strong>Simon &amp; Garfunkel</strong> <cite>The Sound of Silence</cite></footer></blockquote>
+
+<p>其实这首歌在美国已俨然成为一个恶搞文化的符号了。当一个人在某个情境之下想起不堪回首的过去，陷入沉思与回忆，背景音乐就会响起：“Hello darkness my old friend …” 。网上有大量恶搞视频，都挺搞笑的。</p>
+
+<p>3) 写这篇文章的时候，需要把英文计数单位翻译成中文。比如 billion 翻成十亿，trillion 翻成一兆。在这个过程中，我发现“不可思议”竟然也是一个单位，一个不可思议等于 1 后面加 64 个零。这个单位的起源是一个佛教用语，形容神通很大的意思。真是够不可思议的！</p>
+
+<p><img src="/images/blog_figures/bukesiyi.png" width="400" /></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">波儿比 Bobbie</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2017-08-12T17:10:51-04:00'><span class='date'>08-12-17</span> <span class='time'>17:10</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/thoughts/'>thoughts</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://bobbielf2.github.io/blog/2017/08/12/mei-tian-du-kan-jian-,que-shi-er-bu-jian-de-dong-xi/" data-via="" data-counturl="http://bobbielf2.github.io/blog/2017/08/12/mei-tian-du-kan-jian-,que-shi-er-bu-jian-de-dong-xi/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2017/08/12/se-qing-he-yi-zhu-shi-jin-yi-ci-ma-%3F/" title="Previous Post: 色情和艺术是近义词吗？">&laquo; 色情和艺术是近义词吗？</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/08/12/mei-tian-du-kan-jian-,que-shi-er-bu-jian-de-dong-xi/">每天都看见，却视而不见的东西</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/08/12/se-qing-he-yi-zhu-shi-jin-yi-ci-ma-%3F/">色情和艺术是近义词吗？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/06/07/dancing-with-julia/">Dancing With Julia</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/19/the-holy-trinity/">The Holy Trinity</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/04/11/preserve-the-table-of-contents-when-converting-a-book-from-djvu-to-pdf/">Preserve the Table of Contents When Converting a Book From Djvu to PDF</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - Bowei "Bobbie" Wu . -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'bobbies-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://bobbielf2.github.io/blog/2017/08/12/mei-tian-du-kan-jian-,que-shi-er-bu-jian-de-dong-xi/';
+        var disqus_url = 'http://bobbielf2.github.io/blog/2017/08/12/mei-tian-du-kan-jian-,que-shi-er-bu-jian-de-dong-xi/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
