@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://bobbielf2.github.io/blog/2017/08/12/se-qing-he-yi-zhu-shi-jin-yi-ci-ma-%3F/</loc>
+<lastmod>2017-08-12T15:32:46-04:00</lastmod>
+</url>
+<url>
 <loc>http://bobbielf2.github.io/blog/2017/06/07/dancing-with-julia/</loc>
 <lastmod>2017-06-07T16:39:19-04:00</lastmod>
 </url>
@@ -102,6 +106,6 @@
 <loc>http://bobbielf2.github.io/blog/categories/culture/</loc>
 </url>
 <url>
-<loc>http://bobbielf2.github.io/posts/2/</loc>
+<loc>http://bobbielf2.github.io/blog/categories/thoughts/</loc>
 </url>
 </urlset>
