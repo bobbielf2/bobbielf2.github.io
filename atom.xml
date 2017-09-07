@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-08-12T17:54:19-04:00</updated>
+  <updated>2017-09-07T15:33:04-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,92 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Remote Access to Linux-based Computing Resources With Graphical Interface (for UM Students)]]></title>
+    <link href="http://bobbielf2.github.io/blog/2017/09/07/remote-access-to-linux-based-computing-resources-with-graphical-interface-for-um-students/"/>
+    <updated>2017-09-07T15:25:54-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2017/09/07/remote-access-to-linux-based-computing-resources-with-graphical-interface-for-um-students</id>
+    <content type="html"><![CDATA[<blockquote>
+  <p>Note: this note is about University of Michigan computing resources.</p>
+</blockquote>
+
+<p>People working on numerical analysis often need to develop efficient code by doing multi-language programming, e.g. MATLAB/C++ or MATLAB/Fortran. Linux operating system is needed to have the best programming experience. (Mac OS has all sorts of compatibility issues.) For UM people who are using a Mac, I have explore the following four options for remotely accessing Linux-based computing resources.</p>
+
+<!--more-->
+
+<h3 id="use-the-its-statistics-and-computation-service-scs">1. Use the ITS Statistics and Computation Service (SCS)</h3>
+
+<p>The <a href="http://www.itcs.umich.edu/scs/">ITS SCS</a> provides the easiest way to certain computational resources, no extra permissions/purchases needed. But the software may not be up-to-date, e.g. MATLAB version on this server is relatively old (MATLAB R2012b).</p>
+
+<p>Steps:</p>
+
+<ol>
+  <li>Install <a href="https://www.xquartz.org/">XQuartz</a> on your Mac (See <a href="http://www.itcs.umich.edu/scs/x11.php">info</a>)</li>
+  <li>Connect to server by typing <code>ssh -Y uniqname@scs.dsc.umich.edu</code> in terminal.</li>
+  <li>Upon successful connection, type <code>matlab</code> to run the program. XQuartz graphics will be invoked.</li>
+</ol>
+
+<h3 id="ask-lsa-it-for-help">2. Ask LSA-IT for help</h3>
+
+<p>For math people, we can contact the East Hall Technical Service (EHTS) for help. They offer newer software. (The EHTS is one of the four regional support desks of the <a href="https://lsa.umich.edu/lsait">LSA-IT</a>).</p>
+
+<p>Steps:</p>
+
+<ol>
+  <li>Install <a href="https://www.xquartz.org/">XQuartz</a> on your Mac.</li>
+  <li>Ask EHTS techicians (Room 1069EH) to grant you access to a Linux machine.</li>
+  <li>Download the <a href="https://wiki.x2go.org/doku.php/download:start">X2Go Client</a>.</li>
+  <li>Configure X2Go Client to connect to the <code>vulpix.math.lsa.umich.edu</code> server.</li>
+</ol>
+
+<h3 id="use-the-caen-computers">3. Use the CAEN computers</h3>
+
+<p>The UM Computer-Aided Engineering Network (CAEN) provides the smoothest experience for general users as well as power users. The CAEN computer operates the newest Linux and Windows systems, with newest and most complete software libraries for all sorts of computational work. <strong>But these are only conveniently available to engineering students.</strong></p>
+
+<p>Availability:</p>
+
+<ul>
+  <li>If you are an engineering student, or are currently taking engineering classes, then you can <a href="https://caen.engin.umich.edu/accounts/">access CAEN computing resources anywhere</a>, on-site or remotely.</li>
+  <li>All other non-engineering students have NO remote access to CAEN computers, and can only go to north campus to use the CAEN computers in the Duderstadt Center.</li>
+</ul>
+
+<p>Steps:</p>
+
+<ol>
+  <li>See CAEN <a href="https://caen.engin.umich.edu/connect/linux-login-service/">Linux Login Service</a></li>
+</ol>
+
+<h3 id="use-the-flux-hpc-cluster">4. Use the Flux HPC Cluster</h3>
+
+<p>This option builds connections using <a href="https://en.wikipedia.org/wiki/Virtual_Network_Computing">VNC</a> (instead of XQuartz) is faster and more stable, can disconnect and <strong>resume</strong> right where you left at any time.</p>
+
+<p>Info about Flux:</p>
+
+<ul>
+  <li>The <a href="http://arc-ts.umich.edu/">ARC-TS</a>’s Flux HPC Cluster provides high performance computing service and has its own professional technical help.</li>
+  <li>LSA people can use the <a href="http://arc-ts.umich.edu/document/lsas-public-flux-allocation/">public LSA allocations</a> on Flux. These allocations are free, but take longer for jobs to start.</li>
+  <li>If you or your advisor has purchased <a href="http://arc-ts.umich.edu/flux/managing-a-flux-project/">private allocation</a> on Flux, then there is much <a href="http://arc-ts.umich.edu/document/lsas-public-flux-allocation/">less wait or limitations</a>.</li>
+</ul>
+
+<p>Steps:</p>
+
+<ol>
+  <li><a href="http://arc-ts.umich.edu/flux-user-guide/">Obtain access to Flux</a></li>
+  <li>Follow instructions <a href="http://arc-ts.umich.edu/flux/vnc/">here</a> to configure a VNC server, and use a VNC client to connect.</li>
+  <li>Follow instructions <a href="http://arc-ts.umich.edu/flux-user-guide/#document-14">here</a> to load and use softwares on Flux.</li>
+</ol>
+
+<h3 id="summary">Summary</h3>
+
+<ul>
+  <li>If eligible for a CAEN account, always use CAEN</li>
+  <li>For general use and easy access, ask LSA-IT for help</li>
+  <li>For serious programming, use Flux HPC Cluster</li>
+  <li>For not-so-serious purpose, use the ITS SCS</li>
+</ul>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[每天都看见，却视而不见的东西]]></title>

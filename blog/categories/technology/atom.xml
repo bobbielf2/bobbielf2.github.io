@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-08-12T17:54:19-04:00</updated>
+  <updated>2017-09-07T15:33:04-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,92 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Remote Access to Linux-based Computing Resources With Graphical Interface (for UM Students)]]></title>
+    <link href="http://bobbielf2.github.io/blog/2017/09/07/remote-access-to-linux-based-computing-resources-with-graphical-interface-for-um-students/"/>
+    <updated>2017-09-07T15:25:54-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2017/09/07/remote-access-to-linux-based-computing-resources-with-graphical-interface-for-um-students</id>
+    <content type="html"><![CDATA[<blockquote>
+  <p>Note: this note is about University of Michigan computing resources.</p>
+</blockquote>
+
+<p>People working on numerical analysis often need to develop efficient code by doing multi-language programming, e.g. MATLAB/C++ or MATLAB/Fortran. Linux operating system is needed to have the best programming experience. (Mac OS has all sorts of compatibility issues.) For UM people who are using a Mac, I have explore the following four options for remotely accessing Linux-based computing resources.</p>
+
+<!--more-->
+
+<h3 id="use-the-its-statistics-and-computation-service-scs">1. Use the ITS Statistics and Computation Service (SCS)</h3>
+
+<p>The <a href="http://www.itcs.umich.edu/scs/">ITS SCS</a> provides the easiest way to certain computational resources, no extra permissions/purchases needed. But the software may not be up-to-date, e.g. MATLAB version on this server is relatively old (MATLAB R2012b).</p>
+
+<p>Steps:</p>
+
+<ol>
+  <li>Install <a href="https://www.xquartz.org/">XQuartz</a> on your Mac (See <a href="http://www.itcs.umich.edu/scs/x11.php">info</a>)</li>
+  <li>Connect to server by typing <code>ssh -Y uniqname@scs.dsc.umich.edu</code> in terminal.</li>
+  <li>Upon successful connection, type <code>matlab</code> to run the program. XQuartz graphics will be invoked.</li>
+</ol>
+
+<h3 id="ask-lsa-it-for-help">2. Ask LSA-IT for help</h3>
+
+<p>For math people, we can contact the East Hall Technical Service (EHTS) for help. They offer newer software. (The EHTS is one of the four regional support desks of the <a href="https://lsa.umich.edu/lsait">LSA-IT</a>).</p>
+
+<p>Steps:</p>
+
+<ol>
+  <li>Install <a href="https://www.xquartz.org/">XQuartz</a> on your Mac.</li>
+  <li>Ask EHTS techicians (Room 1069EH) to grant you access to a Linux machine.</li>
+  <li>Download the <a href="https://wiki.x2go.org/doku.php/download:start">X2Go Client</a>.</li>
+  <li>Configure X2Go Client to connect to the <code>vulpix.math.lsa.umich.edu</code> server.</li>
+</ol>
+
+<h3 id="use-the-caen-computers">3. Use the CAEN computers</h3>
+
+<p>The UM Computer-Aided Engineering Network (CAEN) provides the smoothest experience for general users as well as power users. The CAEN computer operates the newest Linux and Windows systems, with newest and most complete software libraries for all sorts of computational work. <strong>But these are only conveniently available to engineering students.</strong></p>
+
+<p>Availability:</p>
+
+<ul>
+  <li>If you are an engineering student, or are currently taking engineering classes, then you can <a href="https://caen.engin.umich.edu/accounts/">access CAEN computing resources anywhere</a>, on-site or remotely.</li>
+  <li>All other non-engineering students have NO remote access to CAEN computers, and can only go to north campus to use the CAEN computers in the Duderstadt Center.</li>
+</ul>
+
+<p>Steps:</p>
+
+<ol>
+  <li>See CAEN <a href="https://caen.engin.umich.edu/connect/linux-login-service/">Linux Login Service</a></li>
+</ol>
+
+<h3 id="use-the-flux-hpc-cluster">4. Use the Flux HPC Cluster</h3>
+
+<p>This option builds connections using <a href="https://en.wikipedia.org/wiki/Virtual_Network_Computing">VNC</a> (instead of XQuartz) is faster and more stable, can disconnect and <strong>resume</strong> right where you left at any time.</p>
+
+<p>Info about Flux:</p>
+
+<ul>
+  <li>The <a href="http://arc-ts.umich.edu/">ARC-TS</a>’s Flux HPC Cluster provides high performance computing service and has its own professional technical help.</li>
+  <li>LSA people can use the <a href="http://arc-ts.umich.edu/document/lsas-public-flux-allocation/">public LSA allocations</a> on Flux. These allocations are free, but take longer for jobs to start.</li>
+  <li>If you or your advisor has purchased <a href="http://arc-ts.umich.edu/flux/managing-a-flux-project/">private allocation</a> on Flux, then there is much <a href="http://arc-ts.umich.edu/document/lsas-public-flux-allocation/">less wait or limitations</a>.</li>
+</ul>
+
+<p>Steps:</p>
+
+<ol>
+  <li><a href="http://arc-ts.umich.edu/flux-user-guide/">Obtain access to Flux</a></li>
+  <li>Follow instructions <a href="http://arc-ts.umich.edu/flux/vnc/">here</a> to configure a VNC server, and use a VNC client to connect.</li>
+  <li>Follow instructions <a href="http://arc-ts.umich.edu/flux-user-guide/#document-14">here</a> to load and use softwares on Flux.</li>
+</ol>
+
+<h3 id="summary">Summary</h3>
+
+<ul>
+  <li>If eligible for a CAEN account, always use CAEN</li>
+  <li>For general use and easy access, ask LSA-IT for help</li>
+  <li>For serious programming, use Flux HPC Cluster</li>
+  <li>For not-so-serious purpose, use the ITS SCS</li>
+</ul>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Dancing With Julia]]></title>
@@ -726,196 +812,6 @@ adsbibdesk 10.1137/S0036144502417715
   <li>数据科学家 Max Masnick 的博客：
 <a href="https://www.maxmasnick.com/2015/02/28/reference-managers/">Thoughts on Reference Management Software</a></li>
 </ul>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[写数学 Blog]]></title>
-    <link href="http://bobbielf2.github.io/blog/2016/08/06/shu-xue-blog/"/>
-    <updated>2016-08-06T19:11:58-04:00</updated>
-    <id>http://bobbielf2.github.io/blog/2016/08/06/shu-xue-blog</id>
-    <content type="html"><![CDATA[<p><a href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html">上一篇文章</a>讲了如何用 Octopress 在 GitHub 上搭建个人主页，今天这篇写给可爱的科研狗们，介绍怎么样让网页兼容 LaTeX！首先看看效果：</p>
-
-<ul>
-  <li>LaTeX 行间模式（displayed math）</li>
-</ul>
-
-<p><code>latex latex
-$$
-\begin{align}
-\mbox{欧拉公式：} &amp; e^{i\pi} + 1 = 0\\
-\mbox{牛顿公式：} &amp; x_{i+1} = \frac{1}{2}\left(x_i+\frac{2}{x_i}\right)
-\end{align}
-$$
-</code></p>
-
-<script type="math/tex; mode=display">% &lt;![CDATA[
-\begin{align}
-\mbox{欧拉公式：} & e^{i\pi} + 1 = 0\\
-\mbox{牛顿公式：} & x_{i+1} = \frac{1}{2}\left(x_i+\frac{2}{x_i}\right)
-\end{align} %]]&gt;</script>
-
-<!--more-->
-
-<ul>
-  <li>LaTeX 内嵌模式（inline math）</li>
-</ul>
-
-<p><code>latex latex
-爱因斯坦说过：$E = mc^2$
-</code></p>
-
-<p>爱因斯坦说过：$E = mc^2$</p>
-
-<h4 id="markdown-kramdown--mathjax">让 Markdown 显示数学公式：kramdown 和 MathJax</h4>
-
-<h5 id="kramdown--rdiscount">1, 用 kramdown 代替 rdiscount</h5>
-
-<p>Octopress 中默认的 rdiscount 不支持把 Markdown 中的 LaTeX 公式呈现出来，所以要换成 <a href="http://kramdown.gettalong.org/">kramdown</a>（这个 Markdown 转换器也是开源的，他家号称全球最快）。</p>
-
-<ul>
-  <li>安装 kramdown（假设你已经有 rbenv，参考<a href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html">上一篇文章</a> ），运行命令</li>
-</ul>
-
-<p><code>bash
-gem install kramdown
-</code></p>
-
-<ul>
-  <li>修改 Octopress 的<code>_config.yml</code>配置文件，把全部<code>rdiscount</code>都改成<code>kramdown</code></li>
-  <li>修改 Octopress 的<code>Gemfile</code>，把里面的<code>gem 'rdiscount', '~&gt; 2.0'</code>改成<code>gem 'kramdown'</code></li>
-</ul>
-
-<h4 id="mathjax">2, 配置 MathJax</h4>
-
-<p>在<code>/source/_includes/custom/head.html</code>文件里添加</p>
-
-<p><code>html head.html
-&lt;!-- mathjax config similar to math.stackexchange --&gt;
-&lt;script type="text/x-mathjax-config"&gt;
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
-&lt;/script&gt;
-&lt;script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"&gt;&lt;/script&gt;
-</code></p>
-
-<p><strong>2017/5/19 update:</strong> MathJax 最近<a href="https://www.mathjax.org/cdn-shutting-down/">更改了他们 CDN 的提供商</a>,所以上面这个 script 里最后一行的 cdn 地址很快就会不适用了，新的地址变成下面这个（注：我还把<code>http</code>改为<code>https</code>，保证在安全模式下看到数学公式）：</p>
-
-<p><code>html
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"&gt;&lt;/script&gt;
-</code></p>
-
-<h4 id="mathjax--bug">3, 修复 MathJax 在页面中右键变白屏的 bug</h4>
-
-<p>修改 Octopress 的<code>/sass/base/_theme.scss</code>文件，把代码中的</p>
-
-<p><code>sass _theme.scss
-//...
-&gt; div {
-     background: $sidebar-bg $noise-bg;
-     border-bottom: 1px solid $page-border-bottom;
-     &gt; div {
-//...
-</code></p>
-
-<p>加入<code>#main</code>，变成</p>
-
-<p><code>sass sass
-//...
-&gt; div#main {
-     background: $sidebar-bg $noise-bg;
-     border-bottom: 1px solid $page-border-bottom;
-     &gt; div {
-//...
-</code></p>
-
-<h4 id="pygments-">4, 修复 Pygments 的问题</h4>
-
-<p>这个是新版本出现的问题。使用 kramdown 之后，以前写的博客突然编译不出来了；当你运行 rake generate 时候，会报错：</p>
-
-<p><code>
-Error: Pygments can't parse unknown language: &lt;/p&gt;
-</code></p>
-
-<p>原因是最新版的 Pygments 这个插件对于 Markdown 的书写要求更严格了。</p>
-
-<p>为了找出原来，可以修改 Pygments 的报错代码，在<code>/plugins/pygments_code.rb</code>文件中:</p>
-
-<p><code>ruby pygments_code.rb
-def self.pygments(code, lang)
-    if defined?(PYGMENTS_CACHE_DIR)
-      path = File.join(PYGMENTS_CACHE_DIR, "#{lang}-#{Digest::MD5.hexdigest(code)}.html")
-      if File.exist?(path)
-        highlighted_code = File.read(path)
-      else
-        begin
-          highlighted_code = Pygments.highlight(code, :lexer =&gt; lang, :formatter =&gt; 'html', :options =&gt; {:encoding =&gt; 'utf-8', :startinline =&gt; true})
-        rescue MentosError
-          raise "Pygments can't parse unknown language: #{lang}."
-        end
-        File.open(path, 'w') {|f| f.print(highlighted_code) }
-      end
-</code></p>
-
-<p>把这里的</p>
-
-<p><code>ruby
-raise "Pygments can't parse unknown language: #{lang}."
-</code></p>
-
-<p>修改成</p>
-
-<p><code>ruby
-raise "Pygments can't parse unknown language: #{lang}#{code}."
-</code></p>
-
-<p>可以使得<code>rake generate</code>编译时，把有问题的部分抛出来。</p>
-
-<p>通过这个方法，我最终确定了我这里的情况是，用来标记 code block 的<code>```</code>符号和段落符号<code>&lt;/p&gt;</code>放在一起时产生某种错误（反正我是试不出怎么回事）。最后我用<code>~~~</code>代替了<code>```</code>（同样是 Markdown 标记代码的符号），终于没有编译错误了。</p>
-
-<p><strong>2017/1/12 update:</strong> 更新到 python 3 之后，pygments 又出错了，不能 parse language。原因就是因为 pygments 只支持 python 2。<strong>解决方法：</strong> 用 anaconda 建立一个 python 2 的 environment:</p>
-
-<p><code>bash 
-conda create -n py27 python=2.7 anaconda
-</code></p>
-
-<p>安装好 python 2.7 后，激活这个 environment:</p>
-
-<p><code>bash 
-source activate py27
-</code></p>
-
-<p>这样就能正常编译了。</p>
-
-<h4 id="section">后记</h4>
-
-<p>写这篇文章的时候，遇到一个问题，就是不知道怎么让 Markdown 显示 <code>`</code>这个符号，后来发现了解决方法：</p>
-
-<p>显示一个撇<code>`</code>，可以用两个撇来包裹</p>
-
-<pre><code>`` ` ``(两撇，空格，一撇，空格，两撇)  
-</code></pre>
-
-<p>显示两个撇<code>``</code>，可以用三个撇来包裹</p>
-
-<pre><code>``` `` ```(三撇，空格，两撇，空格，三撇)
-</code></pre>
-
-<p>以此类推。</p>
-
-<h4 id="section-1">参考：</h4>
-
-<p>构建：<a href="http://dreamrunner.org/blog/2014/03/09/octopresszhong-shi-yong-latexxie-shu-xue-gong-shi/">Octopress中使用Latex写数学公式</a><br />
-修复：<a href="http://lvraikkonen.github.io/blog/2015/08/08/adding-support-for-math-formula/">配置Octopress支持LaTex数学公式</a></p>
 ]]></content>
   </entry>
   
