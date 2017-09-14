@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2017-09-07T15:34:12-04:00</updated>
+  <updated>2017-09-14T13:39:13-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using GNU Screen to Resume an SSH Session]]></title>
+    <link href="http://bobbielf2.github.io/blog/2017/09/14/using-gnu-screen-to-resume-an-ssh-session/"/>
+    <updated>2017-09-14T13:30:46-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2017/09/14/using-gnu-screen-to-resume-an-ssh-session</id>
+    <content type="html"><![CDATA[<h3 id="why-gnu-screen">Why GNU Screen?</h3>
+
+<p><strong>Scenario</strong>: you finish working with an SSH session, you close your laptop to go for lunch or for a tea. Then you come back and open your laptop wanting to resume your job, but the connection is broken or the VPN breaks and forced you to disconnect. You have no choice but setup the connection once again and reopen the documents/apps before you can resume from where you left.</p>
+
+<!--more-->
+
+<p><strong>Solution</strong>: with GNU Screen, you can directly resume from where you left, without having to reopen all the documents/apps you’ve been working on.</p>
+
+<p>The concept of GNU Screen is like turning on and off of a computer screen. You turn off a screen when you are done, let the computer to hang in there; you come back later, turn the screen back on and continue your tasks.</p>
+
+<h3 id="steps-using-gnu-screen">Steps Using GNU Screen</h3>
+
+<ol>
+  <li><strong>Connect</strong>. Connect to a remote server and create a Screen session via <code>ssh -t &lt;server.domain.name&gt; screen -R</code></li>
+  <li><strong>Detach</strong>. When done with the SSH session, use <code>ctrl-a d</code> to detach from the session. This also disconnect with the SSH server.</li>
+  <li><strong>Reconnect</strong>. The SSH session is still running actually. When you are ready to resume working with the session, use <code>ssh -t &lt;server.domain.name&gt; screen -R</code> again to reconnect, then you are right where you left it.</li>
+  <li><strong>Terminate</strong>. To permanently terminate a Screen session, just disconnect from the server the usual way (<code>ctrl-d</code>).</li>
+</ol>
+
+<p><strong>Limitation</strong>: If you are using apps with graphical interface, not just the command line environment, then <code>screen</code> is not suitable for resuming such jobs, and <a href="https://en.wikipedia.org/wiki/Virtual_Network_Computing">VNC</a> instead would be the ideal choice.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Remote Access to Linux-based Computing Resources With Graphical Interface (for UM Students)]]></title>
