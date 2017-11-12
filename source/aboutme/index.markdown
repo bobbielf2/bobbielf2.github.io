@@ -15,4 +15,6 @@ footer: true
 
 联系方式(Contact)：boweiwu[AT]umich[DOT]edu
 
+学术主页(Academic Homepage)：<https://sites.google.com/a/umich.edu/boweiwu/>
+
 微信公众号(WeChat Public Account)：波儿比（boerbee）
