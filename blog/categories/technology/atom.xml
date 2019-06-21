@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2019-06-21T12:50:09-04:00</updated>
+  <updated>2019-06-21T13:14:02-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -24,24 +24,38 @@
 
 <p>Logically, the key concept with Octopress is that it uses a <em>ghost branch</em>. All the source files for my blog is tracked NOT by the master branch, but by a ghost branch (named “source” under the Octopress framework) that is completely unrelated to the master branch in terms of git history – it’s a hanging branch that lives in a parallel world albeit in the same repo, hence the name “ghost branch.”</p>
 
-<p>Apparently, it is not the best practice to use a ghost branch, but that’s how Octopress works.</p>
+<p>Another important thing with Octopress is to find out how the local blog is deployed onto <a href="https://pages.github.com/">GitHub Pages</a>. This also took me a little bit to figure out. It turns out that my blog is first generated under a <code>_deploy</code>  folder, and then that folder is synced to the master branch on the repo.</p>
 
-<p>Once this logic is clear, I only need to do two things to resume blogging:</p>
+<p>Summarizing the two paragraphs above, Octopress is organizing my blog in the following way:</p>
 
-<ol>
-  <li>Clone the ghost branch (instead of master) to my local working directory, e.g.</li>
-</ol>
-
-<p><code>bash
-git clone -b GHOST_BRANCH https://github.com/YOURNAME/YOURNAME.github.io.git
+<p><code>
+MyBlog
+|--source files (tracked by ghost branch)
+|--_deploy
+   |--github page files (tracked by master branch)
 </code></p>
 
-<ol>
-  <li>Re-connect Octopress to my GitHub Page and re-install the plugins for my blog</li>
-</ol>
+<p>Apparently, it is not the best practice to use a ghost branch, also not the best practice to use the master branch to track a sub-folder of the ghost branch. These are some twisted logic puzzles for the mind. But that’s how Octopress works!</p>
+
+<p>Once the logic is clear, I only need to do the following three things to resume blogging:</p>
+
+<p><strong>1. Clone source from ghost branch</strong> (my ghost branch named <code>source</code>)</p>
+
+<p><code>bash
+git clone -b source https://github.com/YOURNAME/YOURNAME.github.io.git
+</code></p>
+
+<p><strong>2. Clone GitHub Page (to a sub-directory <code>_deploy</code>) from master branch</strong></p>
 
 <p><code>bash
 cd YOURNAME.github.io
+mkdir _deploy
+git clone https://github.com/YOURNAME/YOURNAME.github.io.git _deploy
+</code></p>
+
+<p><strong>3. Re-install the plugins for my blog</strong></p>
+
+<p><code>bash
 bundle install --path vendor/bundle
 </code></p>
 

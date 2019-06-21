@@ -110,26 +110,43 @@ MathJax.Hub.Config({
 
 <p>Logically, the key concept with Octopress is that it uses a <em>ghost branch</em>. All the source files for my blog is tracked NOT by the master branch, but by a ghost branch (named “source” under the Octopress framework) that is completely unrelated to the master branch in terms of git history – it’s a hanging branch that lives in a parallel world albeit in the same repo, hence the name “ghost branch.”</p>
 
-<p>Apparently, it is not the best practice to use a ghost branch, but that’s how Octopress works.</p>
+<p>Another important thing with Octopress is to find out how the local blog is deployed onto <a href="https://pages.github.com/">GitHub Pages</a>. This also took me a little bit to figure out. It turns out that my blog is first generated under a <code>_deploy</code>  folder, and then that folder is synced to the master branch on the repo.</p>
 
-<p>Once this logic is clear, I only need to do two things to resume blogging:</p>
+<p>Summarizing the two paragraphs above, Octopress is organizing my blog in the following way:</p>
 
-<ol>
-  <li>Clone the ghost branch (instead of master) to my local working directory, e.g.</li>
-</ol>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">MyBlog
+</span><span class="line">|--source files (tracked by ghost branch)
+</span><span class="line">|--_deploy
+</span><span class="line">   |--github page files (tracked by master branch)</span></code></pre></td></tr></table></div></figure>
+
+<p>Apparently, it is not the best practice to use a ghost branch, also not the best practice to use the master branch to track a sub-folder of the ghost branch. These are some twisted logic puzzles for the mind. But that’s how Octopress works!</p>
+
+<p>Once the logic is clear, I only need to do the following three things to resume blogging:</p>
+
+<p><strong>1. Clone source from ghost branch</strong> (my ghost branch named <code>source</code>)</p>
 
 <figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">git clone -b GHOST_BRANCH https://github.com/YOURNAME/YOURNAME.github.io.git
+</pre></td><td class="code"><pre><code class="bash"><span class="line">git clone -b <span class="nb">source </span>https://github.com/YOURNAME/YOURNAME.github.io.git
 </span></code></pre></td></tr></table></div></figure>
 
-<ol>
-  <li>Re-connect Octopress to my GitHub Page and re-install the plugins for my blog</li>
-</ol>
+<p><strong>2. Clone GitHub Page (to a sub-directory <code>_deploy</code>) from master branch</strong></p>
 
 <figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
+<span class="line-number">3</span>
 </pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nb">cd </span>YOURNAME.github.io
-</span><span class="line">bundle install --path vendor/bundle
+</span><span class="line">mkdir _deploy
+</span><span class="line">git clone https://github.com/YOURNAME/YOURNAME.github.io.git _deploy
+</span></code></pre></td></tr></table></div></figure>
+
+<p><strong>3. Re-install the plugins for my blog</strong></p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">bundle install --path vendor/bundle
 </span></code></pre></td></tr></table></div></figure>
 
 <p>Of course, you need to have installed the <a href="https://bundler.io/">Bundler</a> to use the <code>bundle</code> command, and to do that on a Mac you will probably need to first install <a href="https://github.com/rbenv/rbenv">rbenv</a> for smoothly running your blog by executing Ruby commands. In other word, you will need to set up your environment again for Octopress, which I have covered in my <a href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html">first blog post</a> (in Chinese).</p>
