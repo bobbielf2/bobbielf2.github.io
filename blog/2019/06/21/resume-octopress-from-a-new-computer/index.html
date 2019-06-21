@@ -106,6 +106,8 @@ MathJax.Hub.Config({
 
 <p>One thing I wanted to make sure is that I can still update this blog, which is hosted using Octopress. But to be honest, until recently I am not really good at using git and GitHub, so it took me some time to figure out what I need to do to resume blogging with Octopress.</p>
 
+<!--more-->
+
 <p>Logically, the key concept with Octopress is that it uses a <em>ghost branch</em>. All the source files for my blog is tracked NOT by the master branch, but by a ghost branch (named “source” under the Octopress framework) that is completely unrelated to the master branch in terms of git history – it’s a hanging branch that lives in a parallel world albeit in the same repo, hence the name “ghost branch.”</p>
 
 <p>Another important thing with Octopress is to find out how the local blog is deployed onto <a href="https://pages.github.com/">GitHub Pages</a>. This also took me a little bit to figure out. It turns out that my blog is first generated under a <code>_deploy</code>  folder, and then that folder is synced to the master branch on the repo.</p>

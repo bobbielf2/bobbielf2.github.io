@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2019-06-21T13:17:57-04:00</updated>
+  <updated>2019-06-21T13:23:10-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -21,6 +21,8 @@
     <content type="html"><![CDATA[<p>I recently switched to a new computer. The switch isn’t too messy because I basically have all my data backed up, either on Google Drive or on GitHub.</p>
 
 <p>One thing I wanted to make sure is that I can still update this blog, which is hosted using Octopress. But to be honest, until recently I am not really good at using git and GitHub, so it took me some time to figure out what I need to do to resume blogging with Octopress.</p>
+
+<!--more-->
 
 <p>Logically, the key concept with Octopress is that it uses a <em>ghost branch</em>. All the source files for my blog is tracked NOT by the master branch, but by a ghost branch (named “source” under the Octopress framework) that is completely unrelated to the master branch in terms of git history – it’s a hanging branch that lives in a parallel world albeit in the same repo, hence the name “ghost branch.”</p>
 
