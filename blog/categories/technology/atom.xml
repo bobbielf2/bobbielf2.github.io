@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2018-07-15T22:46:42-04:00</updated>
+  <updated>2019-06-21T12:50:09-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Resume Octopress Blogging From a New Computer]]></title>
+    <link href="http://bobbielf2.github.io/blog/2019/06/21/resume-octopress-from-a-new-computer/"/>
+    <updated>2019-06-21T12:02:54-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2019/06/21/resume-octopress-from-a-new-computer</id>
+    <content type="html"><![CDATA[<p>I recently switched to a new computer. The switch isn’t too messy because I basically have all my data backed up, either on Google Drive or on GitHub.</p>
+
+<p>One thing I wanted to make sure is that I can still update this blog, which is hosted using Octopress. But to be honest, until recently I am not really good at using git and GitHub, so it took me some time to figure out what I need to do to resume blogging with Octopress.</p>
+
+<p>Logically, the key concept with Octopress is that it uses a <em>ghost branch</em>. All the source files for my blog is tracked NOT by the master branch, but by a ghost branch (named “source” under the Octopress framework) that is completely unrelated to the master branch in terms of git history – it’s a hanging branch that lives in a parallel world albeit in the same repo, hence the name “ghost branch.”</p>
+
+<p>Apparently, it is not the best practice to use a ghost branch, but that’s how Octopress works.</p>
+
+<p>Once this logic is clear, I only need to do two things to resume blogging:</p>
+
+<ol>
+  <li>Clone the ghost branch (instead of master) to my local working directory, e.g.</li>
+</ol>
+
+<p><code>bash
+git clone -b GHOST_BRANCH https://github.com/YOURNAME/YOURNAME.github.io.git
+</code></p>
+
+<ol>
+  <li>Re-connect Octopress to my GitHub Page and re-install the plugins for my blog</li>
+</ol>
+
+<p><code>bash
+cd YOURNAME.github.io
+bundle install --path vendor/bundle
+</code></p>
+
+<p>Of course, you need to have installed the <a href="https://bundler.io/">Bundler</a> to use the <code>bundle</code> command, and to do that on a Mac you will probably need to first install <a href="https://github.com/rbenv/rbenv">rbenv</a> for smoothly running your blog by executing Ruby commands. In other word, you will need to set up your environment again for Octopress, which I have covered in my <a href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html">first blog post</a> (in Chinese).</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Using GNU Screen to Resume an SSH Session]]></title>
@@ -608,146 +644,6 @@ pdftk "book.pdf" update_info "pdfmetadata.in" output newbook.pdf
 
 <p>The output <code>newbook.pdf</code> is your new <code>book.pdf</code> equiped with a convenient table of contents. Happy reading!</p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Beamer Video Tutorial]]></title>
-    <link href="http://bobbielf2.github.io/blog/2017/01/12/beamer-video-tutorial/"/>
-    <updated>2017-01-12T16:04:51-05:00</updated>
-    <id>http://bobbielf2.github.io/blog/2017/01/12/beamer-video-tutorial</id>
-    <content type="html"><![CDATA[<p>As a researcher, I often need to make presentation slides, and want to embed movies in my slides for better illustrations. After doing a little research, I converged to the solution described in this article.</p>
-
-<!--more-->
-
-<p>If you want to benefit from this tutorial, here are two most important assumptions:</p>
-
-<p><strong>1</strong>. Slides are made with the <a href="https://en.wikipedia.org/wiki/Beamer_(LaTeX)"><strong>LaTeX beamer</strong></a> package.<br />
-<strong>2</strong>. Movie format is assumed to be <code>.flv</code> (because I can’t play <code>.mp4</code> movies on my Mac).</p>
-
-<p>Accordingly, this tutorial has two parts:</p>
-
-<p><strong>1</strong>. How to embed <code>.flv</code> in beamer.<br />
-<strong>2</strong>. How to convert movie format to <code>.flv</code>.</p>
-
-<h2 id="part-i-embed-flv-movies-in-latex">Part I: Embed <code>.flv</code> movies in LaTeX</h2>
-
-<p><strong>(Update: I have found a better option, please ignore this part and jump to Part III)</strong></p>
-
-<p><strong>Step 1</strong>: Download the <code>flashmovie.sty</code> package file from <a href="http://tug.ctan.org/tex-archive/macros/latex/contrib/flashmovie/">CTAN</a></p>
-
-<blockquote>
-  <p>Remark: The <code>flashmovie.sty</code> package is written by Professor Timo Hartmann from TU Berlin.</p>
-</blockquote>
-
-<p><strong>Step 2</strong>: Download the <a href="https://ia601703.us.archive.org/8/items/JwPlayerFiles/player.swf"><code>player.swf</code></a> file from <a href="https://archive.org/details/JwPlayerFiles">https://archive.org/details/JwPlayerFiles</a>. This file is needed by the JW Player engine in order to correctly compile the <code>.tex</code> file.</p>
-
-<p><strong>Step 3</strong>: Embed the <code>.flv</code> movie in your beamer. Here is an example <code>.tex</code> file.</p>
-
-<p><code>latex 
-\RequirePackage{flashmovie}
-\documentclass{beamer}   
-\begin{document}
-\begin{frame}
-\frametitle{embed a movie}
-\begin{center}
-\flashmovie[width=0.7\textwidth,engine=jw-player,auto=0,image=POSTER.jpg,controlbar=1,loop=0]{YOUR_MOVIE.flv}
-\end{center}    
-\end{frame}
-\end{document}
-</code></p>
-
-<p>Here <code>YOUR_MOVIE.flv</code> is the flv movie you want to embed, and <code>POSTER.jpg</code> is the image shown before the movie is played (note that the poster image is optional).</p>
-
-<p><strong>Step 4</strong>: Compile the <code>.tex</code> file into PDF with all the neccessary files in the same directory (i.e. <code>flashmovie.sty</code>, <code>player.swf</code>, <code>YOUR_MOVIE.flv</code>, <code>POSTER.jpg</code>). Then open the PDF file using <strong>Adobe Reader 9 or above</strong></p>
-
-<blockquote>
-  <p>Remark:<br />
-1. more options of the <code>\flashmovie</code> command can be found in the <code>flashmovie.sty</code> file.<br />
-2. there are more different player options for <code>engine</code> other than the JW Player. For example, you may instead set <code>engine=flv-player</code> which uses an open-source player from <a href="http://flv-player.net">http://flv-player.net</a>. For this player another <code>.swf</code> file, <a href="http://flv-player.net/medias/player_flv_maxi.swf"><code>player_flv_maxi.swf</code></a>, is needed.</p>
-</blockquote>
-
-<h2 id="part-ii-convert-movie-formats-to-flv">Part II: Convert movie formats to <code>.flv</code></h2>
-
-<p>The software used to convert movie formats is <a href="https://ffmpeg.org/"><strong>FFmpeg</strong></a>. This is a free and open-source software.</p>
-
-<p>Assuming you are using Mac OSX like me, here are the steps:</p>
-
-<p><strong>1</strong>. Make sure you installed <strong>Homebrew</strong> on your Mac, for details go to <a href="http://brew.sh/">http://brew.sh/</a>.<br />
-<strong>2</strong>. Install <strong>ffmpeg</strong> by running <code>brew install ffmpeg</code> in command line.<br />
-<strong>3</strong>. Convert movie formats using the <code>ffmpeg</code> command.</p>
-
-<blockquote>
-  <p>An explanation of the <code>ffmpeg</code> options can be found <a href="https://www.virag.si/2012/01/web-video-encoding-tutorial-with-ffmpeg-0-9/">here</a>. (Also a helpful article if your are using Windows or Linux.)</p>
-</blockquote>
-
-<p>An example command that I used to convert an <code>.mp4</code> file to <code>.flv</code>:</p>
-
-<p><code>bash 
-ffmpeg -i input_file.mp4 -c:v libx264 -vf scale=-1:270 -ar 22050 output_file.flv
-</code></p>
-
-<p>Some explanation of the command</p>
-
-<ul>
-  <li><strong><code>-i input_file.mp4</code></strong>: specify the input file</li>
-  <li><strong><code>-c:v libx264</code></strong>: set video codec to be libx264</li>
-  <li><strong><code>-vf scale=-1:270</code></strong>: set resolution of output file, <code>-1</code> means to maintain aspect ratio, <code>270</code> indicates the vertical resolution is 270p. (1080p is Full HD.) If not specified, resolution remains unchanged.</li>
-  <li><strong><code>-ar 22050</code></strong>: set the audio sampling frequency. If don’t want any sound, use <code>-an</code> flag instead.</li>
-  <li><strong><code>output_file.flv</code></strong>: specify output file and format</li>
-</ul>
-
-<h2 id="part-iii-embed-flv-movies-in-latex-to-replace-part-i">Part III: Embed <code>.flv</code> movies in LaTeX (To replace Part I)</h2>
-
-<p><strong>(Updated 1/19/17)</strong></p>
-
-<p>I have used the following movie embedding option a couple times before I posted this article, but I didn’t summarize it back then and forgot about it. Now memory strikes back.</p>
-
-<p>The <a href="https://www.ctan.org/pkg/media9?lang=en"><code>media9</code> package</a> is the best option so far for embedding movies in beamer. Here is an example <code>.tex</code> file to do it:</p>
-
-<p><code>latex 
-\documentclass{beamer}   
-\usepackage{media9}
-\usepackage{graphicx}
-\begin{document}
-\begin{frame}{embed a movie}
-\begin{center}
-\includemedia[
-	width=0.4\linewidth,height=0.3\linewidth,
-	activate=pageopen,
-	addresource=YOUR_MOVIE.flv,
-	flashvars={
-	   source=YOUR_MOVIE.flv
-	}
-]{\includegraphics[height=0.3\linewidth]{POSTER.jpg}{VPlayer9.swf}
-\end{center}
-\end{frame}
-\end{document}
-</code></p>
-
-<p>A couple remarks about this example:</p>
-
-<p><strong>1.</strong> Compile the <code>.tex</code> file into <code>.pdf</code> with all neccesary files (<code>YOUR_MOVIE.flv</code>, <code>POSTER.jpg</code>) in the same folder<br />
-<strong>2.</strong> <code>POSTER.jpg</code> is the image displayed before <code>YOUR_MOVIE.flv</code> is played, and is included using the <code>\includegraphics</code> command from the <code>graphicx</code> package. The poster image is optional, you may intead use a <code>{}</code> (before the <code>{VPlayer9.swf}</code>) to leave it blank.<br />
-<strong>3.</strong> <code>VPlayer9.swf</code> is the video player. You may use a fancier player <code>StrobeMediaPlayback.swf</code> and correspondingly in the <code>flashvars</code> options change <code>source=...</code> into <code>src=...</code>. Or if you are embedding audio, use <code>APlayer9.swf</code>.<br />
-<strong>4.</strong> Embedding YouTube video would be a piece of cake with this package, here is an example given in the official documentation:</p>
-
-<p><code>latex 
-\includemedia[
-  width=0.6\linewidth,height=0.3375\linewidth, % 16:9
-  activate=pageopen,
-  flashvars={
-    modestbranding=1 % no YT logo in control bar
-    &amp;autohide=1 % controlbar autohide
-    &amp;showinfo=0 % no title and other info before start
-    &amp;rel=0      % no related videos after end
-  }
-]{}{http://www.youtube.com/v/r382kfkqAF4?rel=0}
-</code></p>
-
-<p><strong>5.</strong> Go to the <a href="https://www.ctan.org/pkg/media9?lang=en">CTAN</a> page to find the complete <a href="http://mirrors.ctan.org/macros/latex/contrib/media9/doc/media9.pdf">documentation</a> for <code>media9</code>.</p>
-
-<p>Hope this is helpful!</p>
 ]]></content>
   </entry>
   

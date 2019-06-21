@@ -9,7 +9,7 @@
   <meta name="author" content="Bowei "Bobbie" Wu .">
 
   
-  <meta name="description" content="Why GNU Screen? Scenario: you finish working with an SSH session, you close your laptop to go for lunch or for a tea. Then you come back and open &hellip;">
+  <meta name="description" content="I recently switched to a new computer. The switch isn’t too messy because I basically have all my data backed up, either on Google Drive or on GitHub &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +82,63 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h2 class="entry-title"><a href="/blog/2019/06/21/resume-octopress-from-a-new-computer/">Resume Octopress Blogging From a New Computer</a></h2>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2019-06-21T12:02:54-04:00'><span class='date'>06-21-19</span> <span class='time'>12:02</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I recently switched to a new computer. The switch isn’t too messy because I basically have all my data backed up, either on Google Drive or on GitHub.</p>
+
+<p>One thing I wanted to make sure is that I can still update this blog, which is hosted using Octopress. But to be honest, until recently I am not really good at using git and GitHub, so it took me some time to figure out what I need to do to resume blogging with Octopress.</p>
+
+<p>Logically, the key concept with Octopress is that it uses a <em>ghost branch</em>. All the source files for my blog is tracked NOT by the master branch, but by a ghost branch (named “source” under the Octopress framework) that is completely unrelated to the master branch in terms of git history – it’s a hanging branch that lives in a parallel world albeit in the same repo, hence the name “ghost branch.”</p>
+
+<p>Apparently, it is not the best practice to use a ghost branch, but that’s how Octopress works.</p>
+
+<p>Once this logic is clear, I only need to do two things to resume blogging:</p>
+
+<ol>
+  <li>Clone the ghost branch (instead of master) to my local working directory, e.g.</li>
+</ol>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">git clone -b GHOST_BRANCH https://github.com/YOURNAME/YOURNAME.github.io.git
+</span></code></pre></td></tr></table></div></figure>
+
+<ol>
+  <li>Re-connect Octopress to my GitHub Page and re-install the plugins for my blog</li>
+</ol>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nb">cd </span>YOURNAME.github.io
+</span><span class="line">bundle install --path vendor/bundle
+</span></code></pre></td></tr></table></div></figure>
+
+<p>Of course, you need to have installed the <a href="https://bundler.io/">Bundler</a> to use the <code>bundle</code> command, and to do that on a Mac you will probably need to first install <a href="https://github.com/rbenv/rbenv">rbenv</a> for smoothly running your blog by executing Ruby commands. In other word, you will need to set up your environment again for Octopress, which I have covered in my <a href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html">first blog post</a> (in Chinese).</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -405,46 +462,6 @@ MathJax.Hub.Config({
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h2 class="entry-title"><a href="/blog/2016/09/13/fluid-or-solid/">Fluid or Solid?</a></h2>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-09-13T20:26:57-04:00'><span class='date'>09-13-16</span> <span class='time'>20:26</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is something I learned today from the Fluid Mechanics class in the Chemical Engineering department, class number CHE 527.</p>
-
-<p>We have had the intuitive ideas about what a fluid is versus what a solid is. A solid is something that can resist shear stress, and will maintain its shape, while a fluid is something that will deform continuously when a shear is applied to it, without changing back to the original shape.</p>
-
-<p>But there are many substances in the world that cannot be classified into solid or fluid with the above simple and intuitive definitions. Here are some examples:</p>
-
-<h4 id="silly-putty">Silly putty:</h4>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2016/09/13/fluid-or-solid/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -458,6 +475,10 @@ MathJax.Hub.Config({
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2019/06/21/resume-octopress-from-a-new-computer/">Resume Octopress Blogging From a New Computer</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2017/09/14/using-gnu-screen-to-resume-an-ssh-session/">Using GNU Screen to Resume an SSH Session</a>
@@ -475,10 +496,6 @@ MathJax.Hub.Config({
         <a href="/blog/2017/08/12/se-qing-he-yi-zhu-shi-jin-yi-ci-ma-%3F/">色情和艺术是近义词吗？</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2017/06/07/dancing-with-julia/">Dancing With Julia</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -492,7 +509,7 @@ MathJax.Hub.Config({
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2018 - Bowei "Bobbie" Wu . -
+  Copyright &copy; 2019 - Bowei "Bobbie" Wu . -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

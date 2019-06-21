@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2018-07-15T22:46:42-04:00</updated>
+  <updated>2019-06-21T12:50:09-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Resume Octopress Blogging From a New Computer]]></title>
+    <link href="http://bobbielf2.github.io/blog/2019/06/21/resume-octopress-from-a-new-computer/"/>
+    <updated>2019-06-21T12:02:54-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2019/06/21/resume-octopress-from-a-new-computer</id>
+    <content type="html"><![CDATA[<p>I recently switched to a new computer. The switch isn’t too messy because I basically have all my data backed up, either on Google Drive or on GitHub.</p>
+
+<p>One thing I wanted to make sure is that I can still update this blog, which is hosted using Octopress. But to be honest, until recently I am not really good at using git and GitHub, so it took me some time to figure out what I need to do to resume blogging with Octopress.</p>
+
+<p>Logically, the key concept with Octopress is that it uses a <em>ghost branch</em>. All the source files for my blog is tracked NOT by the master branch, but by a ghost branch (named “source” under the Octopress framework) that is completely unrelated to the master branch in terms of git history – it’s a hanging branch that lives in a parallel world albeit in the same repo, hence the name “ghost branch.”</p>
+
+<p>Apparently, it is not the best practice to use a ghost branch, but that’s how Octopress works.</p>
+
+<p>Once this logic is clear, I only need to do two things to resume blogging:</p>
+
+<ol>
+  <li>Clone the ghost branch (instead of master) to my local working directory, e.g.</li>
+</ol>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">git clone -b GHOST_BRANCH https://github.com/YOURNAME/YOURNAME.github.io.git
+</span></code></pre></td></tr></table></div></figure>
+
+<ol>
+  <li>Re-connect Octopress to my GitHub Page and re-install the plugins for my blog</li>
+</ol>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nb">cd </span>YOURNAME.github.io
+</span><span class="line">bundle install --path vendor/bundle
+</span></code></pre></td></tr></table></div></figure>
+
+<p>Of course, you need to have installed the <a href="https://bundler.io/">Bundler</a> to use the <code>bundle</code> command, and to do that on a Mac you will probably need to first install <a href="https://github.com/rbenv/rbenv">rbenv</a> for smoothly running your blog by executing Ruby commands. In other word, you will need to set up your environment again for Octopress, which I have covered in my <a href="http://bobbielf2.github.io/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html">first blog post</a> (in Chinese).</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Using GNU Screen to Resume an SSH Session]]></title>
@@ -623,10 +660,10 @@
 <div class="footnotes">
   <ol>
     <li id="fn:boyd">
-      <p>John P Boyd, <em>Chebyshev and Fourier Spectral Methods</em>, Section 9.3 <a href="#fnref:boyd" class="reversefootnote">&#8617;</a></p>
+      <p>John P Boyd, <em>Chebyshev and Fourier Spectral Methods</em>, Section 9.3 <a href="#fnref:boyd" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:trefethen">
-      <p>Nick Trefethen, <em>Approximation Theory and Approximation Practice</em>, Chapter 3 <a href="#fnref:trefethen" class="reversefootnote">&#8617;</a></p>
+      <p>Nick Trefethen, <em>Approximation Theory and Approximation Practice</em>, Chapter 3 <a href="#fnref:trefethen" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>

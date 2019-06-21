@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Computation | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/computation/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2018-07-15T22:46:42-04:00</updated>
+  <updated>2019-06-21T12:50:09-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -400,10 +400,10 @@ julia&gt; function myFun1(value)
 <div class="footnotes">
   <ol>
     <li id="fn:boyd">
-      <p>John P Boyd, <em>Chebyshev and Fourier Spectral Methods</em>, Section 9.3 <a href="#fnref:boyd" class="reversefootnote">&#8617;</a></p>
+      <p>John P Boyd, <em>Chebyshev and Fourier Spectral Methods</em>, Section 9.3 <a href="#fnref:boyd" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:trefethen">
-      <p>Nick Trefethen, <em>Approximation Theory and Approximation Practice</em>, Chapter 3 <a href="#fnref:trefethen" class="reversefootnote">&#8617;</a></p>
+      <p>Nick Trefethen, <em>Approximation Theory and Approximation Practice</em>, Chapter 3 <a href="#fnref:trefethen" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
