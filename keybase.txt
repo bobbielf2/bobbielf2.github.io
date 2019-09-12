@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/bobbielf2
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://bobbielf2.github.io
+  * I am bobbielf2 (https://keybase.io/bobbielf2) on keybase.
+  * I have a public key ASA5MrMZhkEbNNvXlGPWAF3WwD9RmlE_ndlaio8RyI0WSwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01203932b31986411b34dbd79463d6005dd6c03f519a513f9dd95a8a8f11c88d164b0a",
+      "host": "keybase.io",
+      "kid": "01203932b31986411b34dbd79463d6005dd6c03f519a513f9dd95a8a8f11c88d164b0a",
+      "uid": "e46b2a769a7394d4e0f8c1a589c52b19",
+      "username": "bobbielf2"
+    },
+    "merkle_root": {
+      "ctime": 1568301636,
+      "hash": "9cb6809fbb5be7d536774565b5bd331903bda12d4f9e636ad673642f58879d7cda14e42bcea9fae37f237831ba5a7fd8378287a98f488fcb6ce5c657b712bce5",
+      "hash_meta": "29845e8174ffc85d1ea388f0f321ae2463683ccf651cd0221d53629cd698210e",
+      "seqno": 6987337
+    },
+    "service": {
+      "entropy": "zXTX4PrHWtXHo/y5UeZIiAME",
+      "hostname": "bobbielf2.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.4.0"
+  },
+  "ctime": 1568301662,
+  "expire_in": 504576000,
+  "prev": "a8c2a5e03a84af55fbdde9af0f8944f4c25ed4212695e76f01438a21fdd611da",
+  "seqno": 34,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgOTKzGYZBGzTb15Rj1gBd1sA/UZpRP53ZWoqPEciNFksKp3BheWxvYWTESpcCIsQgqMKl4DqEr1X73emvD4lE9MJe1CEmledvAUOKIf3WEdrEINDo9rpRh4YOAMq9d4Sr8ou6QQ2dVXmCHns2WDMIZhVgAgHCo3NpZ8RAMao6qOnjQcvsf/5ewga25vT2SVKJCL1fy/RUkjrJVx3kudkZvvXb99z7UZxB6T6PonYoTvbFghMlCqrTYzvACqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEILlPbQRMBkSep4dA09C0hjViaX+ZvMmoeqQNthISIhcDo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/bobbielf2
+
+==================================================================
