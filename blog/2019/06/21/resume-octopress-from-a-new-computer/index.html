@@ -150,6 +150,106 @@ MathJax.Hub.Config({
 </span></code></pre></td></tr></table></div></figure>
 
 <p>Of course, you need to have installed the <a href="https://bundler.io/">Bundler</a> to use the <code>bundle</code> command, and to do that on a Mac you will probably need to first install <a href="https://github.com/rbenv/rbenv">rbenv</a> for smoothly running your blog by executing Ruby commands. In other word, you will need to set up your environment again for Octopress, which I have covered in my <a href="/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html">first blog post</a> (in Chinese).</p>
+
+<hr />
+
+<h3 id="updates-on-2019-11-20-using-rbenv-on-macos-catalina">(Updates on 2019-11-20) Using <code>rbenv</code> on MacOS Catalina</h3>
+
+<p>After I upgraded my MacOS to 10.15 Catalina, I encountered troubles again. This time, when I do <code>rake</code> commands, I got the error message:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">You must use Bundler <span class="m">2</span> or greater with this lockfile.
+</span></code></pre></td></tr></table></div></figure>
+
+<p>So I need to update the <code>bundler</code> to version 2 or higher.</p>
+
+<p>However, when I did <code>gem install bundler</code>, I got permission error again – this means that <code>gem</code> is trying to install bundler on Mac’s default system ruby, in other words, <code>rbenv</code> is broken.</p>
+
+<p>So I tried to reinstall <code>rbenv</code> :</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">brew reinstall rbenv
+</span><span class="line">rbenv init
+</span></code></pre></td></tr></table></div></figure>
+
+<p>and then install a custom <code>ruby</code> (version 2.6.5):</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rbenv install 2.6.5
+</span></code></pre></td></tr></table></div></figure>
+
+<p>However, in this last step, I constantly ran into troubles. It was a long debugging process, so I am just going to list the hurdles that I have gone through, which maybe helpful to others.</p>
+
+<p><strong>Hurdle #1</strong>: <code>openssl</code> overhead</p>
+
+<p><code>rbenv</code> keep trying to first install <code>openssl</code> before actually installing <code>ruby 2.6.5</code>, this is taking a lot of time and greatly reducing my debugging efficiency. I checked <code>which openssl</code> and confirmed that my system has already had <code>openssl</code> installed. So I need to tell <code>rbenv</code> to use my system’s <code>openssl</code>. I do this with the command:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nv">RUBY_CONFIGURE_OPTS</span><span class="o">=</span>--with-openssl-dir<span class="o">=</span>/opt/local <span class="nv">CC</span><span class="o">=</span>/usr/bin/gcc rbenv install 2.6.5
+</span></code></pre></td></tr></table></div></figure>
+
+<p><strong>Hurdle #2</strong>: incorrect C compiler</p>
+
+<p>After many fails, I finally found out in the error log that <code>rbenv</code> is using <code>CC=x86_64-apple-darwin13.4.0-clang</code> as C compiler and therefore has not been able to compile and install ruby. This can be resolved by explicitly telling <code>rbenv</code> to use the system compiler <code>/usr/bin/gcc</code>.</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nv">CC</span><span class="o">=</span>/usr/bin/gcc <span class="nv">RUBY_CONFIGURE_OPTS</span><span class="o">=</span>--with-openssl-dir<span class="o">=</span>/opt/local rbenv install 2.6.5
+</span></code></pre></td></tr></table></div></figure>
+
+<p><strong>Hurdle #3</strong>: anaconda gets in the way</p>
+
+<p>After the previous two fixes, I am still unable to install ruby. This time I found the following lines in the error log:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">/anaconda3/bin/x86_64-apple-darwin13.4.0-ar: illegal option -- n
+</span><span class="line">usage:  ar -d <span class="o">[</span>-TLsv<span class="o">]</span> archive file ...
+</span></code></pre></td></tr></table></div></figure>
+
+<p>It turns out that <code>rbenv</code> is using anaconda’s <code>ar</code> function instead of the system’s own <code>ar</code>. So I need to disable anaconda in my system as follows:</p>
+
+<ul>
+  <li>Open the <code>~/.bash_profile</code> file, remove/comment out any lines that have to do with anaconda/conda</li>
+  <li>Restart terminal</li>
+  <li>Try install ruby again:</li>
+</ul>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nv">RUBY_CONFIGURE_OPTS</span><span class="o">=</span>--with-openssl-dir<span class="o">=</span>/opt/local rbenv install 2.6.5
+</span></code></pre></td></tr></table></div></figure>
+
+<p>Finally, I was able to install ruby on <code>rbenv</code>! Notice that in the last command I have removed <code>CC=/usr/bin/gcc</code>, because disabling anaconda also resolves the problem in Hurdle #2.</p>
+
+<h4 id="final-steps">Final Steps</h4>
+
+<p>After installing a custom ruby, I need to first tell the system to use that version of ruby</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rbenv global 2.6.5
+</span></code></pre></td></tr></table></div></figure>
+
+<p>Then I can go back to my Octopress blog folder and install the newest bundler</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">gem install bundler
+</span><span class="line">bundle install
+</span></code></pre></td></tr></table></div></figure>
+
+<p>However, there is still a final small hurdle for me:</p>
+
+<p><strong>Hurdle #4</strong>: rake version</p>
+
+<p>When I tried to create a new blog post via <code>rake new_post['title']</code>, I got the following error message:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rake aborted!
+</span><span class="line">Gem::LoadError: You have already activated rake 12.3.2, but your Gemfile requires rake 10.5.0. Prepending <span class="sb">`</span>bundle <span class="nb">exec</span><span class="sb">`</span> to your <span class="nb">command </span>may solve this.
+</span></code></pre></td></tr></table></div></figure>
+
+<p>So I just open the <code>Gemfile</code> in my Octopress folder, find the line with <code>gem 'rake', '~&gt; 10.5'</code>, change it to <code>gem 'rake', '~&gt; 12.3'</code>, and then <code>bundle install</code> again. Now it’s all set.</p>
 </div>
 
 
