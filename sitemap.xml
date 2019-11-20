@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://bobbielf2.github.io/blog/2019/11/20/dian-gong-debug-xian-chang/</loc>
+<lastmod>2019-11-20T11:00:50-06:00</lastmod>
+</url>
+<url>
 <loc>http://bobbielf2.github.io/blog/2019/06/21/resume-octopress-from-a-new-computer/</loc>
 <lastmod>2019-06-21T12:02:54-04:00</lastmod>
 </url>
@@ -80,13 +84,13 @@
 <loc>http://bobbielf2.github.io/404.html</loc>
 </url>
 <url>
-<loc>http://bobbielf2.github.io/</loc>
+<loc>http://bobbielf2.github.io/aboutme/</loc>
 </url>
 <url>
 <loc>http://bobbielf2.github.io/blog/archives/</loc>
 </url>
 <url>
-<loc>http://bobbielf2.github.io/aboutme/</loc>
+<loc>http://bobbielf2.github.io/</loc>
 </url>
 <url>
 <loc>http://bobbielf2.github.io/aboutme/</loc>
@@ -123,5 +127,8 @@
 </url>
 <url>
 <loc>http://bobbielf2.github.io/blog/categories/thoughts/</loc>
+</url>
+<url>
+<loc>http://bobbielf2.github.io/blog/categories/story/</loc>
 </url>
 </urlset>
