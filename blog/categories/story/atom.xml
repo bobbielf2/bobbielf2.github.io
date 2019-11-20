@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Story | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/story/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2019-11-20T14:02:45-06:00</updated>
+  <updated>2019-11-20T14:06:57-06:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -24,7 +24,7 @@
 
 <p>看起来年纪没那么大的老头说，这个插头不行是因为天花板上的线有问题；天花板上的线有问题呢，又是因为办公室另一头墙里的线有问题；这些问题会发生，可能就是上一个负责线路的人，因为某种原因线没接好就放着不管了。</p>
 
-<p>我听他解释一大轮，只感到不明觉厉。我问，这肯定很难才诊断出来吧？他指着另外一个很老的老头说：”花了一个多小时才找出原因，都是他的功劳，他叫 George。” 我不禁肃然起敬，有种遇见少林扫地僧的感觉。我说：”非常感谢，我一定转告我的室友！”</p>
+<p>我听他解释一大轮，只感到不明觉厉。我问，这肯定很难才诊断出来吧？他指着另外一个很老的老头说：“花了一个多小时才找出原因，都是他的功劳，他叫 George。” 我不禁肃然起敬，有种遇见少林扫地僧的感觉。我说：“非常感谢，我一定转告我的室友！”</p>
 
 <p>他们走后，我一边回味一边感叹，这不就是一次电工版的 debug 吗？前人坏习惯留下的 bug，让后来的优秀程序员几经波折才修好。可见遵从 best practice 的程序员是多么可贵。</p>
 
