@@ -53,3 +53,99 @@ bundle install --path vendor/bundle
 ```
 
 Of course, you need to have installed the [Bundler](https://bundler.io/) to use the `bundle` command, and to do that on a Mac you will probably need to first install [rbenv](https://github.com/rbenv/rbenv) for smoothly running your blog by executing Ruby commands. In other word, you will need to set up your environment again for Octopress, which I have covered in my [first blog post](/blog/2016/08/06/yong-you-ni-de-ge-ren-bo-ke/index.html) (in Chinese).
+
+
+
+----
+
+### (Updates on 2019-11-20) Using `rbenv` on MacOS Catalina
+
+After I upgraded my MacOS to 10.15 Catalina, I encountered troubles again. This time, when I do `rake` commands, I got the error message: 
+
+```
+You must use Bundler 2 or greater with this lockfile.
+```
+
+So I need to update the `bundler` to version 2 or higher. 
+
+However, when I did `gem install bundler`, I got permission error again -- this means that `gem` is trying to install bundler on Mac's default system ruby, in other words, `rbenv` is broken.
+
+So I tried to reinstall `rbenv` :
+
+```bash
+brew reinstall rbenv
+rbenv init
+```
+
+and then install a custom `ruby` (version 2.6.5):
+
+```bash
+rbenv install 2.6.5
+```
+
+However, in this last step, I constantly ran into troubles. It was a long debugging process, so I am just going to list the hurdles that I have gone through, which maybe helpful to others.
+
+**Hurdle #1**: `openssl` overhead
+
+ `rbenv` keep trying to first install `openssl` before actually installing `ruby 2.6.5`, this is taking a lot of time and greatly reducing my debugging efficiency. I checked `which openssl` and confirmed that my system has already had `openssl` installed. So I need to tell `rbenv` to use my system's `openssl`. I do this with the command:
+
+```bash
+RUBY_CONFIGURE_OPTS=--with-openssl-dir=/opt/local CC=/usr/bin/gcc rbenv install 2.6.5
+```
+
+**Hurdle #2**: incorrect C compiler
+
+After many fails, I finally found out in the error log that `rbenv` is using `CC=x86_64-apple-darwin13.4.0-clang` as C compiler and therefore has not been able to compile and install ruby. This can be resolved by explicitly telling `rbenv` to use the system compiler `/usr/bin/gcc`.
+
+```bash
+CC=/usr/bin/gcc RUBY_CONFIGURE_OPTS=--with-openssl-dir=/opt/local rbenv install 2.6.5
+```
+
+**Hurdle #3**: anaconda gets in the way
+
+After the previous two fixes, I am still unable to install ruby. This time I found the following lines in the error log:
+
+```
+/anaconda3/bin/x86_64-apple-darwin13.4.0-ar: illegal option -- n
+usage:  ar -d [-TLsv] archive file ...
+```
+
+It turns out that `rbenv` is using anaconda's `ar` function instead of the system's own `ar`. So I need to disable anaconda in my system as follows:
+
+* Open the `~/.bash_profile` file, remove/comment out any lines that have to do with anaconda/conda
+* Restart terminal
+* Try install ruby again:
+
+```bash
+RUBY_CONFIGURE_OPTS=--with-openssl-dir=/opt/local rbenv install 2.6.5
+```
+
+Finally, I was able to install ruby on `rbenv`! Notice that in the last command I have removed `CC=/usr/bin/gcc`, because disabling anaconda also resolves the problem in Hurdle #2.
+
+#### Final Steps
+
+After installing a custom ruby, I need to first tell the system to use that version of ruby
+
+```bash
+rbenv global 2.6.5
+```
+
+Then I can go back to my Octopress blog folder and install the newest bundler
+
+```bash
+gem install bundler
+bundle install
+```
+
+However, there is still a final small hurdle for me:
+
+**Hurdle #4**: rake version
+
+When I tried to create a new blog post via `rake new_post['title']`, I got the following error message:
+
+```
+rake aborted!
+Gem::LoadError: You have already activated rake 12.3.2, but your Gemfile requires rake 10.5.0. Prepending `bundle exec` to your command may solve this.
+```
+
+So I just open the `Gemfile` in my Octopress folder, find the line with `gem 'rake', '~> 10.5'`, change it to `gem 'rake', '~> 12.3'`, and then `bundle install` again. Now it's all set.
