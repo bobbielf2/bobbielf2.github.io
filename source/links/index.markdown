@@ -28,7 +28,7 @@ This page stores links to some useful websites for myself.
 
 * [DLMF](http://dlmf.nist.gov/) NIST Digital Library of Mathematical Functions
 * [GAMS at NIST](http://gams.nist.gov/) Guide to Available Mathematical Software
-* [Numerical Resources](http://tonic.physics.sunysb.edu/docs/num_meth.html), by the Stony Brook NTG
+* [Numerical Resources](https://people.sc.fsu.edu/~tplewa/Fortran/num_meth.html), by the Tomasz Plewa
 * [MacTutor](http://www-history.mcs.st-andrews.ac.uk/index.html) History of Mathematics
 * [OEIS](http://oeis.org/) The On-Line Encyclopedia of Integer Sequences
 * [ETC](http://faculty.evansville.edu/ck6/encyclopedia/ETC.html) encyclopedia of triangle centers
