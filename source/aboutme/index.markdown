@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "About me"
-date: 2020-08-01 11:05:00
+date: 2020-08-01
 comments: true
 sharing: true
 footer: true

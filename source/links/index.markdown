@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "links"
-date: 2017-03-21 22:01
+date: 2020-08-01
 comments: true
 sharing: true
 footer: true
@@ -28,7 +28,7 @@ This page stores links to some useful websites for myself.
 
 * [DLMF](http://dlmf.nist.gov/) NIST Digital Library of Mathematical Functions
 * [GAMS at NIST](http://gams.nist.gov/) Guide to Available Mathematical Software
-* [Numerical Resources](https://people.sc.fsu.edu/~tplewa/Fortran/num_meth.html), by the Tomasz Plewa
+* [Numerical Resources](https://people.sc.fsu.edu/~tplewa/Fortran/num_meth.html), by Tomasz Plewa
 * [MacTutor](http://www-history.mcs.st-andrews.ac.uk/index.html) History of Mathematics
 * [OEIS](http://oeis.org/) The On-Line Encyclopedia of Integer Sequences
 * [ETC](http://faculty.evansville.edu/ck6/encyclopedia/ETC.html) encyclopedia of triangle centers
