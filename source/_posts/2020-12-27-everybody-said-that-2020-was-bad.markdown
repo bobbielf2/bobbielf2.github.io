@@ -10,7 +10,7 @@ I feel like writing something before 2020 ends. Since this has been a special ye
 
 ### Version I
 
-This has been a special year because everybody said that it was bad. The COVID pandemic suddenly exploded and completely changed our way of living. People may still remember that this is the same year when Koby Bryant died from an accident, but it feels like this happened an eternity ago — as with everything else that happened before lockdown.
+This has been a special year because everybody said that it was bad. The COVID pandemic suddenly exploded and completely changed our way of living. People may still remember that this is the same year when Kobe Bryant died from an accident, but it feels like this happened an eternity ago — as with everything else that happened before lockdown.
 
 <!--more-->
 
