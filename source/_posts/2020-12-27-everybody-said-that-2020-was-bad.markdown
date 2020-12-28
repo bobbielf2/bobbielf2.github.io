@@ -3,7 +3,7 @@ layout: post
 title: "Everybody said that 2020 was bad"
 date: 2020-12-27 16:40:06 -0600
 comments: true
-categories: 
+categories: perspective
 ---
 
 I feel like writing something before 2020 ends. Since this has been a special year, I will write two versions of it.
@@ -35,6 +35,6 @@ This has been a special year for me, because it is meaningful to myself in many 
 
 At the beginning of the COVID pandemic, my parents from China were very worried about my situation in the US. I assured them that I was fine and had things to be busy with; I remember I explicitly told my parents: "This pandemic will one day come to an end and become a past memory. I don't want to wake up that day just to realize that I have wasted my time in the entire year of 2020, doing nothing but doomscrolling through bad news all day long." I would like to thank my past self for delivering this powerful message and staying focused on the more important and meaningful things.
 
-To be fair though, I did take the COVID seriously from early on (maybe even a little paranoid). Back in January when everything was unclear about the disease, and when people in China were still planning to celebrate the Lunar New Year, I already bought my parents some masks and told them to stay away from crowds and wash hands. I recall that just a few days after I bought those masks for my parents, all the masks were sold out on Taobao or any other Chineses e-commerce platforms. No joke, it was frightening. After the pandemic hit the US, "don't let my parents worry for me" had been one of my biggest motivations to stay healthy. I very much hope that the situation would end soon in 2021 that I can be meeting with my family and friends and traveling again.
+To be fair though, I did take the COVID seriously from early on (maybe even a little paranoid). Back in January when everything was unclear about the disease, and when people in China were still planning to celebrate the Lunar New Year, I already bought my parents some masks and told them to stay away from crowds and wash hands. I recall that just a few days after I bought those masks for my parents, all the masks were sold out on Taobao or any other Chinese e-commerce platforms. No joke, it was frightening. After the pandemic hit the US, "don't let my parents worry for me" had been one of my biggest motivations to stay healthy. I very much hope that the situation would end soon in 2021 that I can be meeting with my family and friends and traveling again.
 
 I have not updated my blog for a year now and I would like to get back to writing a little more often. I originally planned to start writing after the New Year. But the lockdown experience made it clear to me that many concepts (such as the "new year") are merely human constructs — they can be sometimes a mental obstruction when you want to start something new. So, to break the "wait after the new year" mantra, I decided to start writing before the new year, making this a part of 2020 as well. (I am sure my future self will thank me for this decision.) I hope that in 2021, I can become a better writer, which also means a better thinker.

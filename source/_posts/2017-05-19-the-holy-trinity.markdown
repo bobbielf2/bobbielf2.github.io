@@ -35,7 +35,7 @@ In the early days of science, machines were invented to help scientists with the
 
 Such leap in computing power has unleashed ideas that were sheer impossible just decades ago. 
 
-With experiment, science have gone a long way tracing back to the ancient Greeks. With computation, science has taken off and is moving ever faster. We can simulate thins that are too far (universe), too small (quantum), too expensive (medicine), or too complex (social network).
+With experiment, science have gone a long way tracing back to the ancient Greeks. With computation, science has taken off and is moving ever faster. We can simulate things that are too far (universe), too small (quantum), too expensive (medicine), or too complex (social network).
 
 ## Mathematics
 
