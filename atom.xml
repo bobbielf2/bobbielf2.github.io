@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2021-01-10T17:03:01-06:00</updated>
+  <updated>2021-01-10T17:58:00-06:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -14,10 +14,10 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Y Combinator's Startup Advice -- the Academic Version]]></title>
-    <link href="http://bobbielf2.github.io/blog/2021/01/10/y-combinators-startup-advice-the-academic-version/"/>
+    <title type="html"><![CDATA[Y Combinator's Startup Advice: An Academic Perspective]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/01/10/y-combinators-startup-advice-an-academic-perspective/"/>
     <updated>2021-01-10T16:33:04-06:00</updated>
-    <id>http://bobbielf2.github.io/blog/2021/01/10/y-combinators-startup-advice-the-academic-version</id>
+    <id>http://bobbielf2.github.io/blog/2021/01/10/y-combinators-startup-advice-an-academic-perspective</id>
     <content type="html"><![CDATA[<p>Y Combinator (YC) is a startup incubator that had launched many successful companies including Airbnb, Coinbase, Dropbox, Reddit, etc. YC’s founder Paul Graham wrote an inspiring article, “<a href="http://paulgraham.com/ds.html">Do Things That Don’t Scale</a>,” that gives solid advice to startup founders on what they should focus on doing at the beginning of their business. I find it interesting that when I read the article through the lens of academia, Graham’s advice for startup founders appears to also be useful for academic people in their early careers, such as myself.</p>
 
 <p>I have noticed that there are a lot of similarities between building a startup comany and building an academic career:</p>
