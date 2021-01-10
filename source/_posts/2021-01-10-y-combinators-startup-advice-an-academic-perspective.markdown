@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Y Combinator's startup advice -- the academic version"
+title: "Y Combinator's startup advice: an academic perspective"
 date: 2021-01-10 16:33:04 -0600
 comments: true
 categories: [perspective, academia]
