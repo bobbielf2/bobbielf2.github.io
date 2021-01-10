@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Perspective | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/perspective/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2021-01-02T02:38:59-06:00</updated>
+  <updated>2021-01-10T17:03:01-06:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,91 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Y Combinator's Startup Advice -- the Academic Version]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/01/10/y-combinators-startup-advice-the-academic-version/"/>
+    <updated>2021-01-10T16:33:04-06:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/01/10/y-combinators-startup-advice-the-academic-version</id>
+    <content type="html"><![CDATA[<p>Y Combinator (YC) is a startup incubator that had launched many successful companies including Airbnb, Coinbase, Dropbox, Reddit, etc. YC’s founder Paul Graham wrote an inspiring article, “<a href="http://paulgraham.com/ds.html">Do Things That Don’t Scale</a>,” that gives solid advice to startup founders on what they should focus on doing at the beginning of their business. I find it interesting that when I read the article through the lens of academia, Graham’s advice for startup founders appears to also be useful for academic people in their early careers, such as myself.</p>
+
+<p>I have noticed that there are a lot of similarities between building a startup comany and building an academic career:</p>
+
+<!--more-->
+
+<ul>
+  <li>Both startups and academics strive for novelty (i.e., being correct is not enough, you must also be different)</li>
+  <li>Both startups and academics get to attach their names on the work (i.e. unlike in the industry, things an employee built are owned by their companies.)</li>
+  <li>Both startups and academics need to promote their work themselves (e.g. founders do marketing, scientists write papers and give presentations)</li>
+  <li>Startup founders and junior academics both have flexible schedules in their workdays, but they both need to work really hard or they fail.</li>
+  <li>Both startups and academia have high probabilities of failure.</li>
+</ul>
+
+<h3 id="ycs-startup-advice-the-academic-version">YC’s startup advice, the academic version</h3>
+
+<p><em>Disclaimer: I am writing these as an exercise for myself to think things through. If you are a junior academic searching for career advice, please take them with a grain of salt.</em></p>
+
+<p>In the business world, people know the economy of scale. But Graham pointed out that in the early stage of a startup, it is actually important to focus on things that don’t scale. Here are a few pieces that I think are also valuable for academic people in their early careers. I will state the original advice from Graham, then map it into the academic context.</p>
+
+<ol>
+  <li><strong>Recruit users manually.</strong> People don’t automatically come to you just because you have built new products. People may have other things to be busy with, or they may not appreciate or trust what you’ve built (e.g. think of Airbnb in 2008). You have to go out to find users, one by one, and help them use your products. Likewise in academia, new ideas don’t just get accepted; you have to go out and discuss with and persuade your colleagues, give seminar talks, present at conferences, so that people can see and may use your work.</li>
+  <li><strong>Act as a consultant</strong> (who builds something just for a particular customer). Sometimes YC would ask founders to pick out a single user, help them solve their particular problem by using your software yourself on their behalf. This can be an effective way to know what it’s like to be using your product, what is lacking, and how it can be improved. Likewise in academia, if you have invented a new method, one thing you could do is to go out and help people (who may be in a different field from yours) solve their problems. This is not only a way to stress test your method, but you are also more likely to get quality feedbacks and get inspired to do further studies.</li>
+  <li><strong>Manually build your prototype from ground up.</strong> Sometimes, YC would advise hardware startups to assemble their machines maually. By going through each tiny step, you get better knowledge and will be able to tweak your design faster in the later stage. In the academia context, “hardware” may correspond to our own brains: you should spend time to understand the fundamentals before doing anything high-level. For example, when writing your own code, try first to write everything from scratch and get better understandings of each component. The knowledge will be helpful when later you adopt existing libraries to develop an optimized version.</li>
+  <li><strong>Go out extra steps to make your users happy as far as you can.</strong> Extraordinary customer service is what startups can do that big companies can’t afford to do. (I happen to know one perfect example: try order a Klein bottle from <a href="https://www.kleinbottle.com/">Cliff Stoll</a>, he will make it a best day of your life.) Another reason is that any products can’t be perfect from the beginning, so spending time to make users happy is also a way to get feedbacks for useful improvements. In academia, your “users” are your collaborators, your peers, your mentors, your students, and people who use your methods. Great “customer service” in academia means to contribute to discussions, to give people their due credit, and to be thoughtful and responsive, etc. At the end of the day, we are human beings and like people who are helpful, respectful, and easy to work with.</li>
+</ol>
+
+<p>The roadmap of startups or academic careers is multi-dimensional: you strive to do novel things, but you also need to do unscalably laborious things, especially in the early stage. Graham suggested to think of this multidimensional task as a vector rather than a scalar. I made a diagram below to illustrate this idea:</p>
+
+<p><img class="center" src="/images/blog_figures/dont_scale.png" width="400"></p>
+
+<p>Some people (including myself) tend to focus solely on doing research and hope everything else will take care of themselves eventually (path A in the diagram), but in reality we often need to also do the unscalable things in the other dimensions, such as improve our skills to present, to communicate, to collaborate, and to help others (path B in the diagram). After all, scientists are humans; <a href="https://www.stevepavlina.com/blog/2020/01/money-and-success-goals-are-social-not-personal/">career goals are social, not just personal</a>. Building a career is not just about personal gains, but also about helping others and making the world better.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Making Small Changes in Life]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/01/02/making-small-changes-in-life/"/>
+    <updated>2021-01-02T02:12:19-06:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/01/02/making-small-changes-in-life</id>
+    <content type="html"><![CDATA[<p>Yesterday was the last day of 2020 and the first day that was cold and rainy and windy all day since I resumed exercising every day. I had been expecting such a day.</p>
+
+<p>At the beginning of December after reading a <a href="https://www.stevepavlina.com/blog/2020/12/pondering-a-365-day-challenge-for-2021/">blog post</a>, I finally decided to do a 365-Day Challenge for the year of 2021: running every day for at least 15 minutes a day. Then I decided to start right away even if it was still 2020, because why not. This may sound like a joke to some people because, seriously, how is this even a “challenge”?</p>
+
+<!--more-->
+
+<p>As someone who has done a few short-term challenges, I know that there are always something unexpected in the way that can ruin your plan. If you do a <a href="https://www.stevepavlina.com/blog/2005/04/30-days-to-success/">30-Day Challenge</a>, one most important point is not that how easy or hard it is to do it on a given day, but that if you skipped even one day, you failed. When a challenge lasts as long as 365 days, there are plenty of bad things that could just happen, say, on the 113th day and then all the things you did during the first 112 days are wasted.</p>
+
+<p>For my own challenge, I have imagined days when I will be too busy and stressful meeting a deadline, or days when the weather is just too bad, or days when I have been driving all day and feel too tired to do anything, or days when I have traveled to a strange place that could be unsafe to run outside. I am sure there are many more situations that I just can’t imagine yet.</p>
+
+<h3 id="short-term-challenges">Short-term challenges</h3>
+
+<p>Since 2018, I have done a few short-term challenges – sometimes with a purpose and sometimes just to bring some new ingredients into life. I started with a 30-Day Vegan challenge; then I went on to do a 30-Day Pescatarian challenge which wound up lasted almost 5 months. Now I am back to omnivorous, but with more knowledge about different dietary options and how it feels to be a practitioner. In general, I become more mindful with how different foods affect my body and mind, and I am eating much healthier than before the dietary challenges.</p>
+
+<p>One thing that was unexpected while eating vegan was the experience of being a minority. Growing up in China I have never been a member of a minority group. After I came to the US, I did meet racist strangers in a few occasions throughout these years, but in general I am in academic environments that have always been welcoming and never made me feel like a minority. But during my 30 days of eating vegan, the restaurants I went to often made me feel that I am a trouble to them through their reactions, including some major restaurants that do provide vegetarian options. In order to feel more comfortable, every time I decided to eat out I had to do more investigations and select appropriate restaurants. Most of the time I just cook my own food. (On the good side, I did discover some vegan friendly cuisines, like Indian and Mediterranean, which are very enjoyable.)</p>
+
+<p>I also did a 30-Day Swimming challenge for which I swam for an hour a day everyday. I did it because there was a year or two during my time at Michigan when I stopped exercising completely. I remember it was one sunny day in the winter in early 2018, I finally went for a swim after a long time. I can never forget the moment when I pushed open the door and came out of the gym, a breeze of cool air flowed into my chest. “How refreshing!” I said to myself. That was a feeling I had missed for so long. At that day, I started and completed the swimming challenge. Then I was motivated enough that I continued to do exercise, either swimming or running for at least an hour, 5 to 6 times every week, until the pandemic hit in the March of 2020.</p>
+
+<p>There is one important lesson I learned from making these small changes in life: you must reinforce these changes by associating them with immediate rewards; never rely on grit and pervseverance since those are guaranteed to wane overtime and you are bound to fail that way; losing weight is such a reward that comes so late that most people with that goal fail. Here are some examples of immediate rewards that worked for me:</p>
+
+<ul>
+  <li>Find shows or programs that you love, and listen to them when working out. I particularly liked listening to podcasts when I am running. (Lately I am listening to NPR’s Hidden Brain and The Numberphile Podcast.)</li>
+  <li>Pay attention to your feelings, however small they are. When I eat more veges and less sugars, I typically feel more agile and can stay focused for longer periods. When I am done exercising, I feel happier, more awaked and alert.</li>
+</ul>
+
+<h3 id="day-challenge">365-Day Challenge</h3>
+
+<p>I have stopped being active for 9 months since the COVID lockdown in March. So finally at the beginning of December, I decided to do the 365-Day Challenge for the year of 2021 and also started running again right away.</p>
+
+<p>All went well for almost a month. Then there came December 31th of 2020, the day that I have so many perfect excuses to skip it.</p>
+
+<p>It was cold and rainy the whole day (even raining hail in the afternoon); I had invited a few people for a gathering that night and had to do grocery shopping during the day; I had planned to work a little on my research in the morning; most “importantly,” it was still 2020 and my 365-Day Challenge did not “officially” start until the next day.</p>
+
+<p>Given all the circumstances, this is a day I have imagined from the beginning. I decided that if I skip this day, I won’t be able to convince myself that I can still complete every single day of the following 365 days. So I kept an eye on the weather forecast and just went out once the rain temporarily stopped. It was freezing and windy outside, the street was empty and quiet. Shortly after I began running, it started to rain again. When I got home, my face and hands were numb but I was very happy. Interestingly, the <a href="https://omny.fm/shows/hidden-brain/a-creature-of-habit">podcast</a> I was listening to that day talked about building habits.</p>
+
+<p>Now, my 365 days begin. Thanks to that rainy day, I am quite confident about completing it this year while working on many different things.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Everybody Said That 2020 Was Bad]]></title>
