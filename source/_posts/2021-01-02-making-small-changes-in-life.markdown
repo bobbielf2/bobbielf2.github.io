@@ -3,7 +3,7 @@ layout: post
 title: "Making small changes in life"
 date: 2021-01-02 02:12:19 -0600
 comments: true
-categories: perspective
+categories: [perspective, life]
 ---
 
 Yesterday was the last day of 2020 and the first day that was cold and rainy and windy all day since I resumed exercising every day. I had been expecting such a day.
@@ -41,3 +41,14 @@ Given all the circumstances, this is a day I have imagined from the beginning. I
 
 Now, my 365 days begin. Thanks to that rainy day, I am quite confident about completing it this year while working on many different things.
 
+
+
+### Update Jan 10, 2021
+
+Today, it snowed in Austin! Going out for a run is actually not hard for me at this point -- I think I have successfully built this into my habit in the past 30 days.
+
+I have taken some photos of the snow. Although such snow is no big deal for someone who has lived in Michigan, it is definitely a rare event in Texas!
+
+{% img center /images/blog_figures/austin_snow1.jpg 400 %}
+
+{% img center /images/blog_figures/austin_snow2.jpg 400 %}
