@@ -3,7 +3,7 @@ layout: post
 title: "Making small changes in life"
 date: 2021-01-02 02:12:19 -0600
 comments: true
-categories: [perspective, life]
+categories: life
 ---
 
 Yesterday was the last day of 2020 and the first day that was cold and rainy and windy all day since I resumed exercising every day. I had been expecting such a day.

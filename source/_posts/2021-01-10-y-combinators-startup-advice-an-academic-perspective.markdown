@@ -3,7 +3,7 @@ layout: post
 title: "Y Combinator's startup advice: an academic perspective"
 date: 2021-01-10 16:33:04 -0600
 comments: true
-categories: [perspective, academia]
+categories: academia
 ---
 
 Y Combinator (YC) is a startup incubator that had launched many successful companies including Airbnb, Coinbase, Dropbox, Reddit, etc. YC's founder Paul Graham wrote an inspiring article, "[Do Things That Don't Scale](http://paulgraham.com/ds.html)," that gives solid advice to startup founders on what they should focus on when starting a business. I find it interesting that when I read the article through the lens of academia, Graham's advice appears to also be useful for people heading into an academic career, such as myself.
