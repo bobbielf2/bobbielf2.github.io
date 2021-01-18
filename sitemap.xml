@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://bobbielf2.github.io/blog/2021/01/17/reaction-and-creation-are-antonyms/</loc>
+<lastmod>2021-01-17T20:06:52-06:00</lastmod>
+</url>
+<url>
 <loc>http://bobbielf2.github.io/blog/2021/01/10/y-combinators-startup-advice-an-academic-perspective/</loc>
 <lastmod>2021-01-10T16:33:04-06:00</lastmod>
 </url>
@@ -144,12 +148,12 @@
 <loc>http://bobbielf2.github.io/blog/categories/story/</loc>
 </url>
 <url>
-<loc>http://bobbielf2.github.io/blog/categories/perspective/</loc>
-</url>
-<url>
 <loc>http://bobbielf2.github.io/blog/categories/life/</loc>
 </url>
 <url>
 <loc>http://bobbielf2.github.io/blog/categories/academia/</loc>
+</url>
+<url>
+<loc>http://bobbielf2.github.io/blog/categories/education/</loc>
 </url>
 </urlset>
