@@ -26,7 +26,7 @@ Taking a reactionary approach is totally fine when the problem you are dealing w
 
 What makes me happy is that more and more creative people are taking on the task of improving education with technology.
 
-An early example is the Khan Academy. Khan started by making videos to teach some of the school classes online. This seemingly simple approach enables what's called the self-paced learning: instead of being forced to sit and listen in class, students can pick their own time to watch the videos; instead of feeling embarrassed to ask questions, students can just replay the part where they were lost. The traditional way of learning is to attend lectures in class and do the homework after. But with the video lectures, students can now watch them at home and do the homework (i.e., tutoring) in class. Learning becomes more engaging and more human.
+An early example is the Khan Academy. Khan started by making videos to teach some of the school classes online. This seemingly simple approach enables what's called the self-paced learning: instead of being forced to sit and listen in class, students can pick their own time to watch the videos; instead of feeling embarrassed to ask questions, students can just replay the part where they were lost. The traditional way of learning is to attend lectures in class and do the homework after. But with the video lectures, students can now watch them at home and do the homework in class (i.e., tutoring). Learning becomes more engaging and more human.
 
 This is what I'd like to call a **creationary approach**. I see "reactionary" and "creationary" as antonyms (and they are anagrams!):
 
