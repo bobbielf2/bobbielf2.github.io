@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://bobbielf2.github.io/blog/2021/02/06/making-sense-of-potential-theory/</loc>
+<lastmod>2021-02-06T18:47:18-06:00</lastmod>
+</url>
+<url>
 <loc>http://bobbielf2.github.io/blog/2021/01/30/audience-under-the-lightcone/</loc>
 <lastmod>2021-01-30T17:13:15-06:00</lastmod>
 </url>
@@ -163,5 +167,11 @@
 </url>
 <url>
 <loc>http://bobbielf2.github.io/blog/categories/education/</loc>
+</url>
+<url>
+<loc>http://bobbielf2.github.io/posts/2/</loc>
+</url>
+<url>
+<loc>http://bobbielf2.github.io/posts/3/</loc>
 </url>
 </urlset>

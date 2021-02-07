@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Making Sense of Potential Theory - Bobbie's Blog</title>
+  <meta name="author" content="Bowei "Bobbie" Wu .">
+
+  
+  <meta name="description" content="Potential theory was developed a few centuries ago in part to solve the boundary value problems for partial differential equations (PDEs). It led to &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://bobbielf2.github.io/blog/2021/02/06/making-sense-of-potential-theory/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Bobbie's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Bobbie's Blog</a></h1>
+  
+    <h2>Boys be ambitious.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="bobbielf2.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/links/">Links</a></li>
+  <li><a href="https://sites.google.com/a/utexas.edu/boweiwu/">Academic</a></li>
+  <li><a href="/aboutme/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h2 class="entry-title">Making Sense of Potential Theory</h2>
+      <h3></h3>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2021-02-06T18:47:18-06:00'><span class='date'>02-06-21</span> <span class='time'>18:47</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Potential theory was developed a few centuries ago in part to solve the boundary value problems for partial differential equations (PDEs). It led to the so-called “indirect approach” to boundary integral equations for elliptic PDEs. The goal of this article is to give this indirect approach some physical meaning. Some basic knowledge of potential theory is assumed. (See the book by R. Kress<sup id="fnref:kress"><a href="#fn:kress" class="footnote">1</a></sup> for more details.)</p>
+
+<p>Consider the classical Laplace equation in a domain $\Omega\subset\mathbb{R}^2$, with Dirichlet boundary condition on the boundary $\Gamma:=\partial\Omega$, written as</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{aligned}
+\Delta u(x) &= 0 & x\in\Omega\\
+u(x) &= f(x) & x\in\Gamma
+\end{aligned} %]]></script>
+
+<p>The theory of integral equations solves a given boundary value problem like this by reformulating it into an integral equation on the boundary of the domain, such that the 2D <em>spatial differential problem</em> in $\Omega$ is reduced to a 1D <em>boundary integral problem</em> on $\Gamma$.</p>
+
+<p>There are two main approaches to integral equations: the <em>direct approach</em> and the <em>indirect approach</em>.</p>
+
+<!--more-->
+
+<p><strong>1.  Green’s representation (direct approach).</strong> The Green’s representation theorem says that the unknown function $u(x)$ can be expressed as</p>
+
+<script type="math/tex; mode=display">u(x) = \int_\Gamma \Big(G(x,y)\frac{\partial u(y)}{\partial n_y} - \frac{\partial G(x,y)}{\partial n_y}u(y)\Big)\,ds_y,\quad x\in\Omega</script>
+
+<p>where</p>
+
+<script type="math/tex; mode=display">G(x,y)=\frac{1}{2\pi}\log\frac{1}{|x-y|}</script>
+
+<p>is the fundamental solution of the Laplace equation. Then by letting $x\to\Gamma$, this representation becomes an integral equation</p>
+
+<script type="math/tex; mode=display">\int_\Gamma G(x,y)\psi(y)\,ds_y = \int_\Gamma\frac{\partial G(x,y)}{\partial n_y}f(y)\,ds_y + \frac{f(x)}{2},\quad x\in\Gamma</script>
+
+<p>where the function $\psi(y) = \frac{\partial u(y)}{\partial n_y}$ is the unknown Neumann data on $\Gamma$, and the $f(x)/2$ term is due to the so-called jump relation<sup id="fnref:kress:1"><a href="#fn:kress" class="footnote">1</a></sup>.</p>
+
+<p><strong>2. Potential theory (indirect approach).</strong> In potential theory, one starts by assuming that the solution has the form</p>
+
+<script type="math/tex; mode=display">u(x) = \int_\Gamma \frac{\partial G(x,y)}{\partial n_y}\varphi(y)\,ds_y,\quad x\in\Omega</script>
+
+<p>where $\varphi$ is a “density function” on $\Gamma$. Then again by letting $x\to\Gamma$ and using the jump relation, we arrive at the integral equation</p>
+
+<script type="math/tex; mode=display">\int_\Gamma \frac{\partial G(x,y)}{\partial n_y}\varphi(y)\,ds_y-\frac{\varphi(x)}{2}=f(x),\quad x\in\Gamma</script>
+
+<p>Comparing these two approaches, we see that the unknown function $\psi=\frac{\partial u}{\partial n}$ in the Green’s representation approach has clear physical meaning (e.g.,  if $u$ is the temperature, then $\psi$ is the heat flux at the boundary), hence the name “direct approach.” On the other hand, the unknown function $\varphi$ in the potential theory approach doesn’t have a direct physical meaning, therefore the name “indirect approach.”</p>
+
+<p>In fact, there are two ways to make sense of this density function $\varphi$.</p>
+
+<p><strong>1. The charge density analogy.</strong> The name “potential theory” comes from the fact that the Laplace equation describes the gravitational potential or electrostatic potential in space. If $G(x,y)$ represents the electric potential generated by a point charge at $y$, then $\frac{\partial G(x,y)}{\partial n_y}$ is the potential generated by a dipole charge at $y$, hence $\varphi$ is the dipole charge density on $\Gamma$. Potential theory then generalizes the concept of charge density to other elliptic PDEs as well, terming $\varphi$ the density function for a variety of potentials. (E.g., velocity potential, traction potential, electromagnetic potential, etc.)</p>
+
+<p><strong>2. The jump of physical quantities.</strong> Another way to give meaning to $\varphi$ is to go through the process of how we arrived at an assumption such as $u(x) = \int_\Gamma \frac{\partial G(x,y)}{\partial n_y}\varphi(y)\,ds_y$. The key fact is that, with such an assumption, one is actually extending the solution $u(x)$ from $\Omega$ to the entire space $\mathbb{R}^2$ based on an underlying continuity assumption on $u$. Specifically, let’s assume a solution $U(x)$ for all $x\in\mathbb{R}^2\setminus\Gamma$, such that</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+U(x) = \begin{cases}
+u(x) & x\in\Omega\\
+u_\mathrm{out}(x) & x\in\mathbb{R}^2\setminus\bar\Omega
+\end{cases} %]]></script>
+
+<p>i.e., $U$ is an extension of $u$ into the whole space by stitching together the field $u$ inside $\Omega$ and some unknown harmonic field $u_\mathrm{out}$ outside $\Omega$ . According to the interior and exterior versions of Green’s representation theorem, we have</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\int_\Gamma \Big(G(x,y)\frac{\partial u(y)}{\partial n_y} - \frac{\partial G(x,y)}{\partial n_y}u(y)\Big)\,ds_y =
+\begin{cases}
+u(x), & x\in\Omega\\
+0, & x\in\mathbb{R}^2\setminus\bar\Omega
+\end{cases} %]]></script>
+
+<p>and</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\int_\Gamma \Big(\frac{\partial G(x,y)}{\partial n_y}u_\mathrm{out}(y) - G(x,y)\frac{\partial u_\mathrm{out}(y)}{\partial n_y}\Big)\,ds_y =
+\begin{cases}
+-u_\infty, & x\in\Omega\\
+u_\mathrm{out}(x)-u_\infty, & x\in\mathbb{R}^2\setminus\bar\Omega
+\end{cases} %]]></script>
+
+<p>where $u_\infty$ is a constant associated to $u_\mathrm{out}$ at $\infty$. Without loss of generality, let’s just assume $u_\infty=0$ and add the above two expressions together, this yields</p>
+
+<script type="math/tex; mode=display">U(x) = \int_\Gamma G(x,y)\Big(\frac{\partial u(y)}{\partial n_y}-\frac{\partial u_\mathrm{out}(y)}{\partial n_y}\Big)\,ds_y - \int_\Gamma\frac{\partial G(x,y)}{\partial n_y}\big(u(y)-u_\mathrm{out}(y)\big)\,ds_y.</script>
+
+<p>If we assume that the normal derivative of $U$ is continuous across the boundary $\Gamma$, i.e. the normal derivative of $u$ matches that of $u_\mathrm{out}$ on $\Gamma$, then the first integral in the above representation vanishes. Therefore, defining the density $\varphi$ as</p>
+
+<script type="math/tex; mode=display">\varphi(y) := u_\mathrm{out}(y) - u(y),\quad y\in\Gamma,</script>
+
+<p>we recover the potential theoretic representation $u(x) = \int_\Gamma \frac{\partial G(x,y)}{\partial n_y}\varphi(y)\,ds_y$ for $x\in\Omega$.</p>
+
+<p>In summary, the density function $\varphi$ physically represents the jump of the extended field $U(x)$ across the boundary $\Gamma$, assuming its normal derivative is continuous across $\Gamma$.</p>
+
+<p>Based on the above idea of field-extension, we consequently obtain an intuitive picture about the solvability relations between the interior and exterior boundary value problems:</p>
+
+<p><strong>1)</strong> When using potential theory to solve the exterior Neumann problem, we assume that the extended field $U(x)$ has matching Dirichlet data across the boundary, and then solve for the unknown jump of the Neumann data $\psi(y):=\frac{\partial u(y)}{\partial n_y}-\frac{\partial u_\mathrm{out}(y)}{\partial n_y}$. Since we know that the interior Dirichlet problem is uniquely solvable, the exterior Neumann problem is also uniquely solvable (with some appropriate behavior at the infinity).</p>
+
+<p><strong>2)</strong> Likewise, the exterior Dirichlet problem is solved by matching the Neumann data of the extended field $U(x)$, and then solve for the jump of Dirichlet data across $\Gamma$.  Because the solution of an interior Neumann problem is only unique up to an arbitrary constant, the naive potential assumption for the exterior field $u_\mathrm{out}(x) = \int_\Gamma \frac{\partial G(x,y)}{\partial n_y}\varphi(y)\,ds_y$ will result in an integral equation with a one-dimensional nullspace. An additional condition is needed, besides the potential theoretic equation, in order to retrieve the unique-solvability of the exterior Dirichlet problem using integral equations.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:kress">
+      <p>Kress, R. (2013). <em>Linear Integral Equations</em> (Vol. 82). Springer Science &amp; Business Media. (Chapter 6: Potential Theory) <a href="#fnref:kress" class="reversefootnote">&#8617;</a> <a href="#fnref:kress:1" class="reversefootnote">&#8617;<sup>2</sup></a></p>
+    </li>
+  </ol>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bowei "Bobbie" Wu .</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2021-02-06T18:47:18-06:00'><span class='date'>02-06-21</span> <span class='time'>18:47</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/math/'>math</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://bobbielf2.github.io/blog/2021/02/06/making-sense-of-potential-theory/" data-via="" data-counturl="http://bobbielf2.github.io/blog/2021/02/06/making-sense-of-potential-theory/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2021/01/30/audience-under-the-lightcone/" title="Previous Post: Audience under the lightcone">&laquo; Audience under the lightcone</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2021/02/06/making-sense-of-potential-theory/">Making Sense of Potential Theory</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/01/30/audience-under-the-lightcone/">Audience Under the Lightcone</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/01/24/regular-and-singular-numerical-integration/">Regular and Singular Numerical Integration</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/01/17/reaction-and-creation-are-antonyms/">Reaction and Creation Are Antonyms</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/01/10/y-combinators-startup-advice-an-academic-perspective/">Y Combinator's Startup Advice: An Academic Perspective</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2021 - Bowei "Bobbie" Wu . -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'bobbies-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://bobbielf2.github.io/blog/2021/02/06/making-sense-of-potential-theory/';
+        var disqus_url = 'http://bobbielf2.github.io/blog/2021/02/06/making-sense-of-potential-theory/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

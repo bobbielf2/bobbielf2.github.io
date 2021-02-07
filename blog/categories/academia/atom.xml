@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Academia | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/academia/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2021-01-30T17:24:49-06:00</updated>
+  <updated>2021-02-06T19:03:30-06:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -34,13 +34,11 @@
 
 <p>For example, if I were to present a piece of math I did to an audience, then for me the audience can be classified as follows, from broader to narrower:</p>
 
-<ol>
-  <li>a general audience that only know very basic math</li>
-  <li>people who are/were in math or science majors</li>
-  <li>math researchers</li>
-  <li>computational math researchers</li>
-  <li>researchers who work on problems related to mine</li>
-</ol>
+<p>(1) a general audience that only know very basic math<br />
+(2) people who are/were in math or science majors<br />
+(3) math researchers<br />
+(4) computational math researchers<br />
+(5) researchers who work on problems related to mine</p>
 
 <p>If I have an audience that sits closer to the top of this list, then I will need to present my ideas from a higher-level viewpoint. This means to provide more context and background stories, to build more bridges between what my audience might know and what I want to convey, to use more appropriate analogies, and to refrain from speaking technical jargons.</p>
 
