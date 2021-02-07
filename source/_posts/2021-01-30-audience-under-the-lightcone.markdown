@@ -22,11 +22,11 @@ In this model, the lightcone coverage is the broadness/narrowness of your audien
 
 For example, if I were to present a piece of math I did to an audience, then for me the audience can be classified as follows, from broader to narrower:
 
-1. a general audience that only know very basic math
-2. people who are/were in math or science majors
-3. math researchers
-4. computational math researchers
-5. researchers who work on problems related to mine
+(1) a general audience that only know very basic math  
+(2) people who are/were in math or science majors  
+(3) math researchers  
+(4) computational math researchers  
+(5) researchers who work on problems related to mine  
 
 If I have an audience that sits closer to the top of this list, then I will need to present my ideas from a higher-level viewpoint. This means to provide more context and background stories, to build more bridges between what my audience might know and what I want to convey, to use more appropriate analogies, and to refrain from speaking technical jargons.
 
