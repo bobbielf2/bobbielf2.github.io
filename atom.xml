@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2021-02-06T19:03:30-06:00</updated>
+  <updated>2021-02-14T22:34:12-06:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Underestimating My Ignorance]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/02/14/underestimating-my-ignorance/"/>
+    <updated>2021-02-14T22:23:50-06:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/02/14/underestimating-my-ignorance</id>
+    <content type="html"><![CDATA[<p>“Being ignorant is bad.” So would most people think. I try hard to be more knowledgeable and I am still ashamed of my own ignorance oftentimes. But I am also learning more and more about the positive power of ignorance — a power that has been underestimated.</p>
+
+<!--more-->
+
+<p>Thanks to last year’s COVID lockdown, I had the chance to concentrate on research without distractions. I was fortunate enough to make some discoveries, which I thought was a huge breakthrough. After submitting some papers, a few months later I found out that I have in fact overlooked some closely related work in the literature. One of my results looked less great given the existing work, although it was still a nice progress.</p>
+
+<p>While this has been a humbling experience, it was also inspiring: I wouldn’t have been so optimistic if I knew how long a journey the pioneers have traveled; I might have lost my faith and given up early if I knew all the failed attempts by other people. It was exactly my ignorance that had given me the courage to attack the open problems and the hope to keep pushing. Luckily, I eventually bumped into paths and territories that others have overlooked which led to my destination.</p>
+
+<p>As Alain Connes once wrote, the initial phase of making new math discoveries “requires a kind of protection of one’s ignorance.” Sometimes, ignorance “frees people from reverence for authority and allows them to rely on their intuition.” In the same spirit, Steve Jobs also told people to “stay hungry, stay foolish.” Perhaps all intellectuals, including academics and industrial innovators, can use some protections of ignorance.</p>
+
+<p>We like to be well-prepared before going into a challenging adventure. But knowing all the failed journeys of other people, knowing that even some brave and strong peers had failed their missions, can actually paralyse you into inaction. In fact, exploring the math world doesn’t require your having “full knowledge” about any field. Nobody ever knew “enough.” Once you know a minimum amount of knowledge that allows you to survive, you can start your journey.</p>
+
+<p>“Whatever the origin of one’s journey, one day, if one walks far enough, one is bound to stumble on a well-known town: for instance, elliptic functions, modular forms, or zeta functions.” This is another quote from Alain Connes, which resonates with me deeply. There is no single path to knowledge, we can be free to explore our own paths and not be ashamed of knowing too little about all other possible paths. Be brave and keep pushing, once in a while we will meet with other adventurers in one of those famous mathematical towns.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Making Sense of Potential Theory]]></title>
@@ -1775,28 +1796,6 @@ u_\mathrm{out}(x)-u_\infty, & x\in\mathbb{R}^2\setminus\bar\Omega
 <p>All these examples remind us that we need to re-think our (intuitive) definitions for fluid and solid. Strictly speaking, nothing in this world is completely a solid or fluid, but there exists a spectrum between the two extreme states, some substances are more fluidlike while some others are more solidlike.</p>
 
 <p>Let’s summarize with a verse in the Bible: “The mountains flowed before the Lord” - prophet Deborah (Judges 5:5).</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Human Brain Works Logarithmically]]></title>
-    <link href="http://bobbielf2.github.io/blog/2016/09/12/human-brain-works-logarithmically/"/>
-    <updated>2016-09-12T11:20:24-04:00</updated>
-    <id>http://bobbielf2.github.io/blog/2016/09/12/human-brain-works-logarithmically</id>
-    <content type="html"><![CDATA[<p><em>Do you know that our brain works logarithmically?</em></p>
-
-<ol>
-  <li>Do this exercise:
-    <ul>
-      <li>Draw a number line</li>
-      <li>Mark $0$ and $1,000,000,000$ on the line.</li>
-      <li>Ask yourself a question: where is $1,000$?</li>
-    </ul>
-  </li>
-  <li>Many people put $1,000$ at the $1/3$ position. Note that $1,000=10^3$, $1,000,000,000=10^9$, where $9$ is triple of $3$. This implies that we perceive number logarithmically!</li>
-  <li>Not only <strong>size</strong> of a number, but also <strong>weight</strong> of an object, <strong>loudness</strong> of a sound, <strong>brightness</strong> of a star, <strong>spiciness</strong> of a chili, all of these are perceived logarithmically by the human brain.</li>
-  <li>Such logarithmic law is known more than 100 years ago, under the name “<a href="https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law"><strong>Weber-Fechner law</strong></a>” in psychophysics.</li>
-</ol>
 ]]></content>
   </entry>
   
