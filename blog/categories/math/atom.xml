@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Math, | Bobbie's Blog]]></title>
+  <title><![CDATA[Category: Math | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/math/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2021-02-14T22:34:12-06:00</updated>
+  <updated>2021-02-14T22:37:22-06:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -31,6 +31,310 @@
 <p>We like to be well-prepared before going into a challenging adventure. But knowing all the failed journeys of other people, knowing that even some brave and strong peers had failed their missions, can actually paralyse you into inaction. In fact, exploring the math world doesn’t require your having “full knowledge” about any field. Nobody ever knew “enough.” Once you know a minimum amount of knowledge that allows you to survive, you can start your journey.</p>
 
 <p>“Whatever the origin of one’s journey, one day, if one walks far enough, one is bound to stumble on a well-known town: for instance, elliptic functions, modular forms, or zeta functions.” This is another quote from Alain Connes, which resonates with me deeply. There is no single path to knowledge, we can be free to explore our own paths and not be ashamed of knowing too little about all other possible paths. Be brave and keep pushing, once in a while we will meet with other adventurers in one of those famous mathematical towns.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Making Sense of Potential Theory]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/02/06/making-sense-of-potential-theory/"/>
+    <updated>2021-02-06T18:47:18-06:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/02/06/making-sense-of-potential-theory</id>
+    <content type="html"><![CDATA[<p>Potential theory was developed a few centuries ago in part to solve the boundary value problems for partial differential equations (PDEs). It led to the so-called “indirect approach” to boundary integral equations for elliptic PDEs. The goal of this article is to give this indirect approach some physical meaning. Some basic knowledge of potential theory is assumed. (See the book by R. Kress<sup id="fnref:kress"><a href="#fn:kress" class="footnote">1</a></sup> for more details.)</p>
+
+<p>Consider the classical Laplace equation in a domain $\Omega\subset\mathbb{R}^2$, with Dirichlet boundary condition on the boundary $\Gamma:=\partial\Omega$, written as</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{aligned}
+\Delta u(x) &= 0 & x\in\Omega\\
+u(x) &= f(x) & x\in\Gamma
+\end{aligned} %]]&gt;</script>
+
+<p>The theory of integral equations solves a given boundary value problem like this by reformulating it into an integral equation on the boundary of the domain, such that the 2D <em>spatial differential problem</em> in $\Omega$ is reduced to a 1D <em>boundary integral problem</em> on $\Gamma$.</p>
+
+<p>There are two main approaches to integral equations: the <em>direct approach</em> and the <em>indirect approach</em>.</p>
+
+<!--more-->
+
+<p><strong>1.  Green’s representation (direct approach).</strong> The Green’s representation theorem says that the unknown function $u(x)$ can be expressed as</p>
+
+<script type="math/tex; mode=display">u(x) = \int_\Gamma \Big(G(x,y)\frac{\partial u(y)}{\partial n_y} - \frac{\partial G(x,y)}{\partial n_y}u(y)\Big)\,ds_y,\quad x\in\Omega</script>
+
+<p>where</p>
+
+<script type="math/tex; mode=display">G(x,y)=\frac{1}{2\pi}\log\frac{1}{|x-y|}</script>
+
+<p>is the fundamental solution of the Laplace equation. Then by letting $x\to\Gamma$, this representation becomes an integral equation</p>
+
+<script type="math/tex; mode=display">\int_\Gamma G(x,y)\psi(y)\,ds_y = \int_\Gamma\frac{\partial G(x,y)}{\partial n_y}f(y)\,ds_y + \frac{f(x)}{2},\quad x\in\Gamma</script>
+
+<p>where the function $\psi(y) = \frac{\partial u(y)}{\partial n_y}$ is the unknown Neumann data on $\Gamma$, and the $f(x)/2$ term is due to the so-called jump relation<sup id="fnref:kress:1"><a href="#fn:kress" class="footnote">1</a></sup>.</p>
+
+<p><strong>2. Potential theory (indirect approach).</strong> In potential theory, one starts by assuming that the solution has the form</p>
+
+<script type="math/tex; mode=display">u(x) = \int_\Gamma \frac{\partial G(x,y)}{\partial n_y}\varphi(y)\,ds_y,\quad x\in\Omega</script>
+
+<p>where $\varphi$ is a “density function” on $\Gamma$. Then again by letting $x\to\Gamma$ and using the jump relation, we arrive at the integral equation</p>
+
+<script type="math/tex; mode=display">\int_\Gamma \frac{\partial G(x,y)}{\partial n_y}\varphi(y)\,ds_y-\frac{\varphi(x)}{2}=f(x),\quad x\in\Gamma</script>
+
+<p>Comparing these two approaches, we see that the unknown function $\psi=\frac{\partial u}{\partial n}$ in the Green’s representation approach has clear physical meaning (e.g.,  if $u$ is the temperature, then $\psi$ is the heat flux at the boundary), hence the name “direct approach.” On the other hand, the unknown function $\varphi$ in the potential theory approach doesn’t have a direct physical meaning, therefore the name “indirect approach.”</p>
+
+<p>In fact, there are two ways to make sense of this density function $\varphi$.</p>
+
+<p><strong>1. The charge density analogy.</strong> The name “potential theory” comes from the fact that the Laplace equation describes the gravitational potential or electrostatic potential in space. If $G(x,y)$ represents the electric potential generated by a point charge at $y$, then $\frac{\partial G(x,y)}{\partial n_y}$ is the potential generated by a dipole charge at $y$, hence $\varphi$ is the dipole charge density on $\Gamma$. Potential theory then generalizes the concept of charge density to other elliptic PDEs as well, terming $\varphi$ the density function for a variety of potentials. (E.g., velocity potential, traction potential, electromagnetic potential, etc.)</p>
+
+<p><strong>2. The jump of physical quantities.</strong> Another way to give meaning to $\varphi$ is to go through the process of how we arrived at an assumption such as $u(x) = \int_\Gamma \frac{\partial G(x,y)}{\partial n_y}\varphi(y)\,ds_y$. The key fact is that, with such an assumption, one is actually extending the solution $u(x)$ from $\Omega$ to the entire space $\mathbb{R}^2$ based on an underlying continuity assumption on $u$. Specifically, let’s assume a solution $U(x)$ for all $x\in\mathbb{R}^2\setminus\Gamma$, such that</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+U(x) = \begin{cases}
+u(x) & x\in\Omega\\
+u_\mathrm{out}(x) & x\in\mathbb{R}^2\setminus\bar\Omega
+\end{cases} %]]&gt;</script>
+
+<p>i.e., $U$ is an extension of $u$ into the whole space by stitching together the field $u$ inside $\Omega$ and some unknown harmonic field $u_\mathrm{out}$ outside $\Omega$ . According to the interior and exterior versions of Green’s representation theorem, we have</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\int_\Gamma \Big(G(x,y)\frac{\partial u(y)}{\partial n_y} - \frac{\partial G(x,y)}{\partial n_y}u(y)\Big)\,ds_y =
+\begin{cases}
+u(x), & x\in\Omega\\
+0, & x\in\mathbb{R}^2\setminus\bar\Omega
+\end{cases} %]]&gt;</script>
+
+<p>and</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\int_\Gamma \Big(\frac{\partial G(x,y)}{\partial n_y}u_\mathrm{out}(y) - G(x,y)\frac{\partial u_\mathrm{out}(y)}{\partial n_y}\Big)\,ds_y =
+\begin{cases}
+-u_\infty, & x\in\Omega\\
+u_\mathrm{out}(x)-u_\infty, & x\in\mathbb{R}^2\setminus\bar\Omega
+\end{cases} %]]&gt;</script>
+
+<p>where $u_\infty$ is a constant associated to $u_\mathrm{out}$ at $\infty$. Without loss of generality, let’s just assume $u_\infty=0$ and add the above two expressions together, this yields</p>
+
+<script type="math/tex; mode=display">U(x) = \int_\Gamma G(x,y)\Big(\frac{\partial u(y)}{\partial n_y}-\frac{\partial u_\mathrm{out}(y)}{\partial n_y}\Big)\,ds_y - \int_\Gamma\frac{\partial G(x,y)}{\partial n_y}\big(u(y)-u_\mathrm{out}(y)\big)\,ds_y.</script>
+
+<p>If we assume that the normal derivative of $U$ is continuous across the boundary $\Gamma$, i.e. the normal derivative of $u$ matches that of $u_\mathrm{out}$ on $\Gamma$, then the first integral in the above representation vanishes. Therefore, defining the density $\varphi$ as</p>
+
+<script type="math/tex; mode=display">\varphi(y) := u_\mathrm{out}(y) - u(y),\quad y\in\Gamma,</script>
+
+<p>we recover the potential theoretic representation $u(x) = \int_\Gamma \frac{\partial G(x,y)}{\partial n_y}\varphi(y)\,ds_y$ for $x\in\Omega$.</p>
+
+<p>In summary, the density function $\varphi$ physically represents the jump of the extended field $U(x)$ across the boundary $\Gamma$, assuming its normal derivative is continuous across $\Gamma$.</p>
+
+<p>Based on the above idea of field-extension, we consequently obtain an intuitive picture about the solvability relations between the interior and exterior boundary value problems:</p>
+
+<p><strong>1)</strong> When using potential theory to solve the exterior Neumann problem, we assume that the extended field $U(x)$ has matching Dirichlet data across the boundary, and then solve for the unknown jump of the Neumann data $\psi(y):=\frac{\partial u(y)}{\partial n_y}-\frac{\partial u_\mathrm{out}(y)}{\partial n_y}$. Since we know that the interior Dirichlet problem is uniquely solvable, the exterior Neumann problem is also uniquely solvable (with some appropriate behavior at the infinity).</p>
+
+<p><strong>2)</strong> Likewise, the exterior Dirichlet problem is solved by matching the Neumann data of the extended field $U(x)$, and then solve for the jump of Dirichlet data across $\Gamma$.  Because the solution of an interior Neumann problem is only unique up to an arbitrary constant, the naive potential assumption for the exterior field $u_\mathrm{out}(x) = \int_\Gamma \frac{\partial G(x,y)}{\partial n_y}\varphi(y)\,ds_y$ will result in an integral equation with a one-dimensional nullspace. An additional condition is needed, besides the potential theoretic equation, in order to retrieve the unique-solvability of the exterior Dirichlet problem using integral equations.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:kress">
+      <p>Kress, R. (2013). <em>Linear Integral Equations</em> (Vol. 82). Springer Science &amp; Business Media. (Chapter 6: Potential Theory) <a href="#fnref:kress" class="reversefootnote">&#8617;</a> <a href="#fnref:kress:1" class="reversefootnote">&#8617;<sup>2</sup></a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Regular and Singular Numerical Integration]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/01/24/regular-and-singular-numerical-integration/"/>
+    <updated>2021-01-24T20:49:12-06:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/01/24/regular-and-singular-numerical-integration</id>
+    <content type="html"><![CDATA[<p>The Pareto principle (a.k.a. 80/20 rule) says that for many outcomes, roughly 80% of consequences come from 20% of the causes. Qualitatively speaking, this also applies to numerical integration: most of the integral can be handled by just a few quadrature rules.</p>
+
+<p>People who have learned numerical analysis all know about the <a href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_quadrature">Gauss quadrature</a> rule: for any integer $n&gt;0$, there exist $n$ nodes $x_1,x_2,\dots,x_n\in[-1,1]$ and $n$ corresponding weights $w_1,w_2,\dots,w_n$, such that the approximation</p>
+
+<script type="math/tex; mode=display">\int_{-1}^1f(x)\,dx\approx \sum_{i=1}^nf(x_i)w_i</script>
+
+<p>is highly accurate for any function $f$ smoothly defined on $[-1,1]$. The error of this approximation typically decays exponentially as $n$ increases. Together with scaling and shifting of variables, the Gauss quadrature efficiently handles all the regular integrals (i.e. integrals involving smooth integrands) on any interval $[a,b]\subset\mathbb{R}$.</p>
+
+<p>What if the integrand is singular? How would you approximate an integral when the integrand is not smooth or even blowing up somewhere on the interval? It turns out that most of the singular integrals in practice can be handled by a few strategies (80/20 rule again!). Here they are:</p>
+
+<!--more-->
+
+<p><strong>1. Integration by parts.</strong> People in calculus classes may have heard the joke: “Integrate by parts whenever you’re not sure what to do.” This is sometimes true for singular integrals. For example:</p>
+
+<script type="math/tex; mode=display">\int_0^1e^x\ln x\,dx = (e^x-1)\ln x\Big|_{x\to0}^1 - \int_0^1\frac{e^x-1}{x}\,dx</script>
+
+<p>then on the right-hand side, the boundary terms evaluate to $0$ while the new integral is in fact regular, so applying the Gauss quadrature will be excellent.</p>
+
+<p><strong>2. Integration by substitution.</strong> Many singular integrals can be made regular after a change of variables. For example, substituting $x=\cos\theta$ in the integral below yields</p>
+
+<script type="math/tex; mode=display">\int_{-1}^1\frac{f(x)}{\sqrt{1-x^2}}dx = \int_0^\pi f(\cos\theta)\,d\theta</script>
+
+<p>then, assuming $f$ is smooth, the Gauss quadrature will just work for the second integral.</p>
+
+<p><strong>3. Product quadratures.</strong> When the integrand is a product of a regular function $f(x)$ and a singular function $w(x)$ (usually refered to as “weight function”), one can often design efficient quadratures of the form</p>
+
+<script type="math/tex; mode=display">\int_{-1}^1f(x)w(x)\,dx\approx\sum_{i=1}^nf(x_i)w_i</script>
+
+<p>For example, the <a href="https://en.wikipedia.org/wiki/Chebyshev%E2%80%93Gauss_quadrature">Chebyshev quadrature</a> works perfectly for the integral in the previous example where $w(x)=(1-x^2)^{-1/2}$. On the other hand, both the Gauss quadrature and the Chebyshev quadrature are particular instances from the <a href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Jacobi_quadrature">Jacobi quadrature</a> family. These example quadrature rules are derived based on the theory of <a href="https://en.wikipedia.org/wiki/Orthogonal_polynomials">orthogonal polynomials</a>, where for each given weight $w(x)$, there is a family of polynomials ${g_0(x),g_1(x),\dots}$ such that any two different polynomials are “orthogonal” to each other in the sense that, for any $i\neq j$,</p>
+
+<script type="math/tex; mode=display">\int_{-1}^1g_i(x)g_j(x)w(x)\,dx=0.</script>
+
+<p><strong>4. Extrapolation.</strong> The <a href="https://en.wikipedia.org/wiki/Romberg%27s_method">Romberg integration</a> is an extrapolation method that can enhance the accuracy of quadrature rules define on equally-spaced nodes. As a simple example, consider the following trapezoidal rule approximation with spacing $h=\frac{\pi}{n}$</p>
+
+<script type="math/tex; mode=display">\int_{-\pi}^\pi\sin|x|\,dx = \sum_{i=-n+1}^{n-1}\sin|ih|h + \frac{\sin|-\pi|+\sin|\pi|}{2}h + E(h)</script>
+
+<p>where the integrand is nonsmooth at $x=0$, and where $E(h)$ is the error that depends on $h$. It turns out that this error can be written as a power series of $h$:</p>
+
+<script type="math/tex; mode=display">E(h) = C_1h^2+C_2h^4+C_3h^6+\dots</script>
+
+<p>The leading error will be canceled if one appropriately combine an $h$-approximation with a $2h$-approxiation:</p>
+
+<script type="math/tex; mode=display">E_2(h):=\frac{4E(h)-E(2h)}{3} = C_2'h^4 + C_3'h^6+\dots</script>
+
+<p>The new error is of size $h^4$ which is much smaller than the original $h^2$. This procedure can be done multiple times to cancel the leading errors in the expansion one at a time, such that the accuracy is substantially improved.</p>
+
+<p><strong>5. Singularity cancellation.</strong> Some singularities are stronger than others. For example, $x\ln x$ is less singular than $\ln x$ because the former is bounded near $x=0$. Let’s consider the first example above again that integrates $e^x\ln x$. It is easy to see that the integrand near $0$ behaves like $\ln x$, so we can subtract $\int_0^1\ln x\,dx$ from the original integral and then add it back, that is</p>
+
+<script type="math/tex; mode=display">\int_0^1e^x\ln x\,dx = \int_0^1(e^x-1)\ln x\,dx+\int_0^1\ln x\,dx</script>
+
+<p>The integral  $\int_0^1\ln x\,dx=-1$ by a simple integration by parts. Then we can apply the $n$-point Gauss quadrature to the remaining integral $\int_0^1(e^x-1)\ln x\,dx$, the error decays roughly like $1/n^4$, much faster than the $1/n^2$ decay rate that you would get if applying the same quadrature to the original integral.</p>
+
+<p>These five strategies, or a combination of them, cover almost all common ways to integrate singular function. One strategy could be more efficiently than another depending on the particular application of interest.</p>
+
+<p><a href="https://www.urbandictionary.com/define.php?term=BOCTAOE">BOCTAOE</a>. There are situations where none of the above strategies are efficient enough. Such marginal cases attract most of the research efforts. (80/20 rule again.) For example, here is one strategy that I recently took in my research:</p>
+
+<p><strong>6. Error correction.</strong> Sometimes, it may be necessary to find an explicit expression for the quadrature error $E(h)$, so that you have the power to develop more sophisticated methods tailored to your application of interest. To give an example, consider the integral of $f(x)=e^{-x^2}\ln x$, its right-hand Riemann sum approximation on $[0,6]$ with $n$ subdivisions is</p>
+
+<script type="math/tex; mode=display">\int_0^6e^{-x^2}\ln x\,dx = \sum_{i=1}^nf(ih)h + E(h) + \epsilon</script>
+
+<p>where $h=\frac{6}{n}$, $\epsilon=\int_6^\infty f(x)\,dx&lt;10^{-16}$ is some small constant that is immaterial in practice. The error $E(h)$ has the following expansion:</p>
+
+<script type="math/tex; mode=display">E(h) = \sum_{m=0}^{M-1}\frac{(-1)^m}{m!}[\zeta(-2m)\log h-\zeta'(-2m)]h^{2m+1} + O(h^{2M+1}\log h)</script>
+
+<p>where $\zeta(z)$ is the famous <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function">Riemann zeta function</a>.  Such formulae could take a lot of effort to derive in general. But once available, they allow you to develop highly efficient numerical methods.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Holy Trinity]]></title>
+    <link href="http://bobbielf2.github.io/blog/2017/05/19/the-holy-trinity/"/>
+    <updated>2017-05-19T22:03:22-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2017/05/19/the-holy-trinity</id>
+    <content type="html"><![CDATA[<p>This isn’t about theology, but I will talk about the number three.</p>
+
+<p>We love the number three. Many of our rules/doctrines consist of three parts. For example, in Christianity, there is the theory of the Holy Trinity, stating that God manifests Himself in three forms: the Father, the Son, and the Holy Spirit. I’d love to cast them into a shamrock diagram:</p>
+
+<p><img class="center" src="/images/blog_figures/shamrock_holy.png" width="300"></p>
+
+<p>The key idea here is that, although there are three forms, there is really only one God.</p>
+
+<!--more-->
+
+<p>While I am not a Theologist, I appreciate the idea that an important concept is broken into three aspects, each of them stems from the same root, and connects with each other to promote deeper understanding of the subject. Let’s call them the “shamrock ideas”.</p>
+
+<p>I happened to have encountered some of the interesting and beautiful shamrock ideas in the realm of science and mathematics. These ideas have given me incredible insights into subjects, helping me see the big pictures of a lot of seemingly scattered knowledge.</p>
+
+<h2 id="science">Science</h2>
+
+<p>Perhaps the most well-known example of a shamrock idea is the three components of science.</p>
+
+<blockquote>
+  <p>There are three great branches of modern science: theory, experiment, and computation.</p>
+</blockquote>
+
+<p><img class="center" src="/images/blog_figures/shamrock_science.png" width="300"></p>
+
+<p>The keyword in this shamrock is <em>computation</em>, it reminds us how computation has influenced science, and has evolved from a mere tool into a full-fledged scientific branch.</p>
+
+<p>In the early days of science, machines were invented to help scientists with their calculations. Searching the internet you will find calculators like Arithmometer (1850s-1910s) and Comptometer (1880s-1970s). Those machines can add, subtract, multiply and divide numbers. They were once very useful to scientists, and are now all gone to museums. In the mid-1900s, electronic computers started to take over, and computing power skyrocketed in the past 60 years. Computer performance evolved from hectoscale computing (~200 operations per second) with the first IBM computer in 1946, to petascale computing in 2009 with modern supercomputers, which is thousands of trillions of operations per second.</p>
+
+<p>Such leap in computing power has unleashed ideas that were sheer impossible just decades ago.</p>
+
+<p>With experiment, science have gone a long way tracing back to the ancient Greeks. With computation, science has taken off and is moving ever faster. We can simulate things that are too far (universe), too small (quantum), too expensive (medicine), or too complex (social network).</p>
+
+<h2 id="mathematics">Mathematics</h2>
+
+<p>I would like to mention more shamrock ideas I found reading math.</p>
+
+<h3 id="functions-boyd">Functions <sup id="fnref:boyd"><a href="#fn:boyd" class="footnote">1</a></sup></h3>
+
+<p>The function shamrock has three leaves respectively labeled formula, spectral coefficients, and grid point values. Together, these three concepts help us better understand and use functions. To see how these three concepts connect to each other, we realize that we go from the symbolic $f(x)$ to values ${f_j}$ by sampling, from $f(x)$ to spectral coefficients ${a_j}$ by integral transforms (e.g. Fourier transform), and from ${f_j}$ to ${a_j}$ by discrete algorithms (e.g. FFT).</p>
+
+<p><img class="center" src="/images/blog_figures/shamrock_function.png" width="300"></p>
+
+<p>When solving a problem that involves a function $f(x)$, the symbolic formula is manipulated with analytical methods, its spectral coefficients are useful for Galerkin methods, and the grid point values are what the convenient pseudospectral methods operate on.</p>
+
+<p>A mathematician would be crippled if failing to understand and to freely switch between any of them.</p>
+
+<h3 id="analysis-trefethen">Analysis <sup id="fnref:trefethen"><a href="#fn:trefethen" class="footnote">2</a></sup></h3>
+
+<p>This probably is my favorite shamrock. In analysis, the three types of series, Fourier, Laurent, and Chebyshev, are really the same series looking from different angles.</p>
+
+<p><img class="center" src="/images/blog_figures/shamrock_analysis.png" width="300"></p>
+
+<p>Let’s consider the substitutions</p>
+
+<script type="math/tex; mode=display">x = \frac{z+z^{-1}}{2} = \cos\theta</script>
+
+<p>they give the equivalent relations</p>
+
+<script type="math/tex; mode=display">T_n(x) = \frac{z^n+z^{-n}}{2} = \cos(n\theta)</script>
+
+<p>where $T_n(x)$ is the Chebyshev polynomial of order $n$. Given a smooth function $f(x)$ on $x\in[-1,1]$, it can be expanded as a Chebyshev series</p>
+
+<script type="math/tex; mode=display">f(x) = \sum^\infty_{n=0}a_nT_n(x)</script>
+
+<p>which under the equivalent relations gives</p>
+
+<script type="math/tex; mode=display">\sum^\infty_{n=0}a_nT_n(x) = \sum^\infty_{n=0} a_n \frac{z^n+z^{-n}}{2} = \sum^\infty_{n=0} a_n \cos(n\theta)</script>
+
+<p>or</p>
+
+<script type="math/tex; mode=display">\sum^\infty_{n=0}a_nT_n(x) = \frac{a_0}{2}+\frac{1}{2}\sum^\infty_{n=-\infty} a_{|n|} z^n = \frac{a_0}{2}+\frac{1}{2}\sum^\infty_{n=-\infty} a_{|n|} e^{in\theta}</script>
+
+<p>The last equalities show the amazing relationships between the three branches of analysis, providing a picture about how viewing from different angles gives you different series expansions:</p>
+
+<ul>
+  <li>If you look at the unit circle in the complex plane (or a periodic interval) $\theta\in[0,2\pi]$, you see Fourier series, the fundamental tool for real analysis</li>
+  <li>If you look at the annulus <span>$\frac{1}{\rho} &lt; |z| &lt; \rho$</span>, you see Laurent series, the fundamental tool for complex analysis</li>
+  <li>If you look at the interval $x\in[-1,1]$, you see Chebyshev series, the fundamental tool for numerical analysis</li>
+</ul>
+
+<p>Such connections are always there, but you need to discover them. Even many math majors know little about the shamrock, and most of them have taken all three courses.</p>
+
+<h2 id="a-final-note">A final note</h2>
+
+<p>I love the shamrocks not because they teach me new concepts; in fact they don’t. I have understood the concepts in the three leaves of each shamrock before I saw them put together. The important thing of these shamrocks is that they provide a unified view, a new prospective that connects and sees things you knew differently. Like Kalid Azad (author of <a href="https://betterexplained.com">BetterExplained</a>) once <a href="https://betterexplained.com/articles/learn-math-like-mega-man/">mentioned in a post</a>, our understandings improve the most not when we’ve learned new concepts, but when mindset shifts happen.</p>
+
+<h3 id="references">References:</h3>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:boyd">
+      <p>John P Boyd, <em>Chebyshev and Fourier Spectral Methods</em>, Section 9.3 <a href="#fnref:boyd" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:trefethen">
+      <p>Nick Trefethen, <em>Approximation Theory and Approximation Practice</em>, Chapter 3 <a href="#fnref:trefethen" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Human Brain Works Logarithmically]]></title>
+    <link href="http://bobbielf2.github.io/blog/2016/09/12/human-brain-works-logarithmically/"/>
+    <updated>2016-09-12T11:20:24-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2016/09/12/human-brain-works-logarithmically</id>
+    <content type="html"><![CDATA[<p><em>Do you know that our brain works logarithmically?</em></p>
+
+<ol>
+  <li>Do this exercise:
+    <ul>
+      <li>Draw a number line</li>
+      <li>Mark $0$ and $1,000,000,000$ on the line.</li>
+      <li>Ask yourself a question: where is $1,000$?</li>
+    </ul>
+  </li>
+  <li>Many people put $1,000$ at the $1/3$ position. Note that $1,000=10^3$, $1,000,000,000=10^9$, where $9$ is triple of $3$. This implies that we perceive number logarithmically!</li>
+  <li>Not only <strong>size</strong> of a number, but also <strong>weight</strong> of an object, <strong>loudness</strong> of a sound, <strong>brightness</strong> of a star, <strong>spiciness</strong> of a chili, all of these are perceived logarithmically by the human brain.</li>
+  <li>Such logarithmic law is known more than 100 years ago, under the name “<a href="https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law"><strong>Weber-Fechner law</strong></a>” in psychophysics.</li>
+</ol>
 ]]></content>
   </entry>
   
