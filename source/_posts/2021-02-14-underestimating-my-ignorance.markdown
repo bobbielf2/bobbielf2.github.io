@@ -3,7 +3,7 @@ layout: post
 title: "Underestimating my ignorance"
 date: 2021-02-14 22:23:50 -0600
 comments: true
-categories: math, life
+categories: [math, life]
 ---
 
 
