@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "One disastrous week in Austin -- we survived"
+title: "One disastrous week in Austin &mdash; we survived"
 date: 2021-02-22 01:51:51 -0600
 comments: true
 categories: life
