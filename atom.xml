@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2021-02-14T22:37:22-06:00</updated>
+  <updated>2021-02-22T02:33:21-06:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[One Disastrous Week in Austin -- We Survived]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/02/22/one-disastrous-week-in-austin/"/>
+    <updated>2021-02-22T01:51:51-06:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/02/22/one-disastrous-week-in-austin</id>
+    <content type="html"><![CDATA[<p>80+ hours. I can’t remember the last time I have been without power at subzero temperature for this long.</p>
+
+<p>Austin (and Texas) just went through a disaster. A winter storm devoured the city, turning it into a frozen world for a week. On Monday, January 15, 2021, temperature dropped below -10°C, coldest over the past century. Snow was thick enough to sink your entire boots in. While such cold weather is nothing special in northern states like Michigan, it is nothing the Texans have ever seen. The electricity infrastructures in Texas were absolutely unprepared for such extreme condition, leaving millions of people out of power throughout the week.</p>
+
+<p>Unfortunately, I am one of the witnesses and sufferers in this historic event. To make things worse, both of the kitchen stove and hot water in my apartment rely on electricity, so we are out of every possible source of energy.</p>
+
+<p>Long story short, we survived. And here is how.</p>
+
+<!--more-->
+
+<p>First of all, I am thankful to have been staying with my girlfriend this year. The support and encouragement we provide to each other is the most important reason that we stayed positive and endured this hardship. It is true that a long-term relationship compounds its value over time and can be your lifesaver in unexpected events.</p>
+
+<p>Second of all, getting helps from our neighbors was the silver lining during the week. After a day without power and heat, I started asking around for help on my phone. Eventually, I was connected to a friend’s friend who lived nearby and was fortunate enough to still have power in their building. It was also important that we could just walk there because you don’t want to <a href="https://www.nytimes.com/2021/02/11/us/fort-worth-wreck.html">drive on icy roads</a> in such weather. So from Wednesday on, we could have something hot to eat for lunch and bring some hot water home. I sent food pictures to my family far away so that they knew I was doing fine.</p>
+
+<p>Preparation also made a difference. We stocked up some food before the week because we paid attention to the weather forecast. This turned out to be one of our best decisions because later in the week we didn’t have to stand in the cold in long lines outside of HEB. Ironically, the freezing temperature helped preserve our food during the week-long power outage.</p>
+
+<p>Daily activities became simple. We went to bed before 9 PM because there is nothing much you can do in a cold dark night. We had more than 12 hours of sleep every day to save energy and stay warm. During the day, when we were not busy surviving, we spent most of our time reading which distracted us from the frigid reality. I also did exercises and lifted weights at home, which I think is an acceptable compromise for my <a href="http://bobbielf2.github.io/blog/2021/01/02/making-small-changes-in-life/">365-day challenge</a> since it was unsafe to be running outside.</p>
+
+<p>The weather warmed up towards the weekend, finally above freezing on Friday. Our building got its electricity back on Friday afternoon and it had been more than 80 hours since we lost power.</p>
+
+<p>Looking back, I think it is equally important to survive both the physical and mental challenges. I can’t imagine what it would be like if I were enduring all this all by myself and had no one to talk to. Staying calm and positive during a hard time can make a huge difference. Once you have hope, the physical challenges look easier to defeat. I wish everybody who suffered the power outage during this brutal week had found someone they can reach out to.</p>
+
+<p>As the driving condition was improved, we went to stay at our friends’ house during the weekend. Because of COVID, it’s been a long time since we could spend a day or two with people we care about. I feel grateful that a harsh situation like this became the best opportunity to bond again.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Underestimating My Ignorance]]></title>
@@ -1749,53 +1781,6 @@ u_\mathrm{out}(x)-u_\infty, & x\in\mathbb{R}^2\setminus\bar\Omega
 </ol>
 
 <p>回想起来，我对付 SC 课和完成一切其他任务所用到的不外乎就是这几种技能了。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Fluid or Solid?]]></title>
-    <link href="http://bobbielf2.github.io/blog/2016/09/13/fluid-or-solid/"/>
-    <updated>2016-09-13T20:26:57-04:00</updated>
-    <id>http://bobbielf2.github.io/blog/2016/09/13/fluid-or-solid</id>
-    <content type="html"><![CDATA[<p>This is something I learned today from the Fluid Mechanics class in the Chemical Engineering department, class number CHE 527.</p>
-
-<p>We have had the intuitive ideas about what a fluid is versus what a solid is. A solid is something that can resist shear stress, and will maintain its shape, while a fluid is something that will deform continuously when a shear is applied to it, without changing back to the original shape.</p>
-
-<p>But there are many substances in the world that cannot be classified into solid or fluid with the above simple and intuitive definitions. Here are some examples:</p>
-
-<h4 id="silly-putty">Silly putty:</h4>
-
-<!--more-->
-
-<p><img src="http://bobbielf2.github.io/images/blog_figures/Silly_Putty.jpg" width="200" /></p>
-
-<p>The silly putty is a moldable toy that you can stretch and shape it into any shapes. With a glance it looks like a solid, does not seem to flow like a fluid, and you may even bounce it like a ball. But this is only true in short term, if you put in a container and give it a rest, in long term it will start to look like a fluid; the piece of silly putty will flow (slowly) and eventually take the shape of the container.</p>
-
-<h4 id="mayonnaise">Mayonnaise:</h4>
-
-<p><img src="http://bobbielf2.github.io/images/blog_figures/mayonnaise.jpg" width="200" /></p>
-
-<p>Mayonnaise is a comment condiment. If a lump of mayo sits there, it won’t flow and will stay as it is, like solid would do. But if the same lump of mayo is sheared by a small (but big enough) stress, it will start to deform continuously like a fluid and never come back to the initial shape. (Toothpaste has the similar property.)</p>
-
-<h4 id="orbitz-a-drink">Orbitz (a drink)</h4>
-
-<p><img src="http://bobbielf2.github.io/images/blog_figures/orbitz.jpg" width="200" /></p>
-
-<p>The Orbitz was once a popular beverage. Inside the transparent drink you can see some little solid “beads” suspended in the fluid. A remarkable fact is that although the “beads” have different density than the fluid, will neither sink nor rise and will just stay in the same position provided the bottle of drink is put stationary. On the other hand, if you simply give the bottle a shake, the beads will start flowing (swimming) around right away, making it obvious that the drink is a fluid. The reason behind this is that, the fluid in the bottle is somehow like the mayonnaise, it requires a certain (small but big enough) shear stress to flow like a fluid, otherwise it just stay put like a solid; the bare gravitational force is not enough to move the fluid.</p>
-
-<p>Glass, on the other hand, is not strictly a solid. The glass has relatively small viscosity in high temperature and can flow like honey, in low temperature the glass will become (much) harder to deform, but nevertheless can be essentially treated as a “fluid” with super high viscosity.</p>
-
-<p>In summary, we have come to the funny conclusion that <strong>the Orbitz beverage technically consists of a fluid container (the glass bottle) holding a solid (the drink) inside.</strong></p>
-
-<h4 id="corn-starch">Corn starch:</h4>
-
-<p><img src="http://bobbielf2.github.io/images/blog_figures/Tara-Corn-Starch.jpg" width="400" /></p>
-
-<p>Like silly putty, the corn starch when subject to sudden and huge impact will behave like a solid; you can even walk on a pool of corn starch (shown in the picture) as long as you move fast enough. But if you move slowly in this pool (i.e. shearing the corn starch slowly), it starts to behave like a fluid and sinks you inside.</p>
-
-<p>All these examples remind us that we need to re-think our (intuitive) definitions for fluid and solid. Strictly speaking, nothing in this world is completely a solid or fluid, but there exists a spectrum between the two extreme states, some substances are more fluidlike while some others are more solidlike.</p>
-
-<p>Let’s summarize with a verse in the Bible: “The mountains flowed before the Lord” - prophet Deborah (Judges 5:5).</p>
 ]]></content>
   </entry>
   
