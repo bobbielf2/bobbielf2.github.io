@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2021-03-05T00:02:19-06:00</updated>
+  <updated>2021-03-12T01:34:03-06:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Lockdown Math]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/03/12/lockdown-math/"/>
+    <updated>2021-03-12T01:28:25-06:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/03/12/lockdown-math</id>
+    <content type="html"><![CDATA[<p>In the <a href="http://bobbielf2.github.io/blog/2021/03/04/your-one-big-desire">previous post</a> I talked about anxiety caused by things that you actually have control over. This time I’d like to also touch on situations that you can’t really change, such as a pandemic.</p>
+
+<p>A pandemic makes people anxious because it freezes life. A lot of activities have to be suspended. You can’t do what you would normally do. You don’t know how long the pandemic would last — probably a few months, probably a few years. All you can do is wait, indefinitely.</p>
+
+<h3 id="mathematicians-in-confinement">Mathematicians in confinement</h3>
+
+<p>Some groups of people seem to be doing quite well in a lockdown situation. Mathematicians happen to be one such group.</p>
+
+<!--more-->
+
+<p>Sophus Lie, who established <a href="https://en.wikipedia.org/wiki/Lie_algebra">Lie algebra</a> during his imprisonment, said that “a mathematician is comparatively well suited to be in prison.” And Lie was not alone, 70 years later another great mathematician, André Weil, who also had a productive time in prison, wondered “if it’s only in prison that I work so well, will I have to arrange to spend two or three months locked up every year?”</p>
+
+<p>According to the fun article <a href="http://www.nieuwarchief.nl/serie5/pdf/naw5-2020-21-2-095.pdf"><em>Lockdown Mathematics</em></a>, both Lie and Weil were mistaken for spies during wartimes “due to their strange habits as eccentric mathematicians who incessantly scribbled some sort of incomprehensible notes and wandered in nature without any credible purpose discernible to outsiders.”</p>
+
+<p>There are many other interesting examples from that article. The bottom line is, many mathematicians have experienced highly productive periods during confinement situations, where they were free of distractions and could focus deeply on their thoughts; although in some cases, this effect only lasted for a month or two, eventually the productivity boost waned. After all, mathematicians are still humans who need some breaks.</p>
+
+<p>I have to say that the above description perfectly summarized my experience during the COVID lockdown. I was super productive and wrote two papers during the first few months of the lockdown, then I started to get distracted and wanted to socialize again. I also thought that maybe I could benefit from setting up a few months of fake lockdown for myself every year.</p>
+
+<h3 id="flow-vs-pandemic">Flow v.s. Pandemic</h3>
+
+<p>According to some <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0242043">recent research</a>, getting in the state of <a href="https://en.wikipedia.org/wiki/Flow_(psychology)">flow</a> might be one best way to cope with lockdown anxieties. When you are experiencing flow, you are deeply focused on something; time seems to slip by quickly, a few hours feel like just a moment to you.</p>
+
+<p>Not just mathematicians, other people find their flow in all sorts of ways: painting, making handicrafts, reading books, writing essays, coding. So when you get into flow, not only that time passes much quicker, but you are also accomplishing something meaningful to you. It just completely flips the lockdown situation around and gives you a positive experience.</p>
+
+<p>In fact, this experience may have deeper implications if we redefine “pandemic” as a state of mind:</p>
+
+<blockquote>
+  <p>A “pandemic” is an extended period during which you are constantly anxious about one thing that you can’t control.</p>
+</blockquote>
+
+<p>By this definition, people are constantly undergoing all kinds of pandemics: losing jobs, struggling to graduate, accumulating debts, being homesick, feeling lonely. In each of these cases, people are stuck in a “personal pandemic” that they can’t easily escape and have to live with it for an uncertain amount of time.</p>
+
+<p>Inspired by the lockdown experience, maybe one solution to a “personal pandemic” is to accept it like we accepted that we would be living under COVID for a few years, and turn to focus on something we truly care about. Oftentimes, the consequence of a “personal pandemic” is not as dire as one might think it would be; a threat might also be an opportunity for growth. So being able to find your flow could carry you through the most difficult time of your “personal pandemic,” giving you the chance to come out stronger and better off.**</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Your One Big Desire]]></title>
@@ -1543,180 +1584,6 @@ u_\mathrm{out}(x)-u_\infty, & x\in\mathbb{R}^2\setminus\bar\Omega
 
 <p>The output <code>newbook.pdf</code> is your new <code>book.pdf</code> equiped with a convenient table of contents. Happy reading!</p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Beamer Video Tutorial]]></title>
-    <link href="http://bobbielf2.github.io/blog/2017/01/12/beamer-video-tutorial/"/>
-    <updated>2017-01-12T16:04:51-05:00</updated>
-    <id>http://bobbielf2.github.io/blog/2017/01/12/beamer-video-tutorial</id>
-    <content type="html"><![CDATA[<p>As a researcher, I often need to make presentation slides, and want to embed movies in my slides for better illustrations. After doing a little research, I converged to the solution described in this article.</p>
-
-<!--more-->
-
-<p>If you want to benefit from this tutorial, here are two most important assumptions:</p>
-
-<p><strong>1</strong>. Slides are made with the <a href="https://en.wikipedia.org/wiki/Beamer_(LaTeX)"><strong>LaTeX beamer</strong></a> package.<br />
-<strong>2</strong>. Movie format is assumed to be <code>.flv</code> (because I can’t play <code>.mp4</code> movies on my Mac).</p>
-
-<p>Accordingly, this tutorial has two parts:</p>
-
-<p><strong>1</strong>. How to embed <code>.flv</code> in beamer.<br />
-<strong>2</strong>. How to convert movie format to <code>.flv</code>.</p>
-
-<h2 id="part-i-embed-flv-movies-in-latex">Part I: Embed <code>.flv</code> movies in LaTeX</h2>
-
-<p><strong>(Update: I have found a better option, please ignore this part and jump to Part III)</strong></p>
-
-<p><strong>Step 1</strong>: Download the <code>flashmovie.sty</code> package file from <a href="http://tug.ctan.org/tex-archive/macros/latex/contrib/flashmovie/">CTAN</a></p>
-
-<blockquote>
-  <p>Remark: The <code>flashmovie.sty</code> package is written by Professor Timo Hartmann from TU Berlin.</p>
-</blockquote>
-
-<p><strong>Step 2</strong>: Download the <a href="https://ia601703.us.archive.org/8/items/JwPlayerFiles/player.swf"><code>player.swf</code></a> file from <a href="https://archive.org/details/JwPlayerFiles">https://archive.org/details/JwPlayerFiles</a>. This file is needed by the JW Player engine in order to correctly compile the <code>.tex</code> file.</p>
-
-<p><strong>Step 3</strong>: Embed the <code>.flv</code> movie in your beamer. Here is an example <code>.tex</code> file.</p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-</pre></td><td class="code"><pre><code class="latex"><span class="line"><span class="k">\RequirePackage</span><span class="nb">{</span>flashmovie<span class="nb">}</span>
-</span><span class="line"><span class="k">\documentclass</span><span class="nb">{</span>beamer<span class="nb">}</span>
-</span><span class="line"><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-</span><span class="line"><span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}</span>
-</span><span class="line"><span class="k">\frametitle</span><span class="nb">{</span>embed a movie<span class="nb">}</span>
-</span><span class="line"><span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
-</span><span class="line"><span class="k">\flashmovie</span><span class="na">[width=0.7\textwidth,engine=jw-player,auto=0,image=POSTER.jpg,controlbar=1,loop=0]</span><span class="nb">{</span>YOUR<span class="nb">_</span>MOVIE.flv<span class="nb">}</span>
-</span><span class="line"><span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
-</span><span class="line"><span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
-</span><span class="line"><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<p>Here <code>YOUR_MOVIE.flv</code> is the flv movie you want to embed, and <code>POSTER.jpg</code> is the image shown before the movie is played (note that the poster image is optional).</p>
-
-<p><strong>Step 4</strong>: Compile the <code>.tex</code> file into PDF with all the neccessary files in the same directory (i.e. <code>flashmovie.sty</code>, <code>player.swf</code>, <code>YOUR_MOVIE.flv</code>, <code>POSTER.jpg</code>). Then open the PDF file using <strong>Adobe Reader 9 or above</strong></p>
-
-<blockquote>
-  <p>Remark:<br />
-1. more options of the <code>\flashmovie</code> command can be found in the <code>flashmovie.sty</code> file.<br />
-2. there are more different player options for <code>engine</code> other than the JW Player. For example, you may instead set <code>engine=flv-player</code> which uses an open-source player from <a href="http://flv-player.net">http://flv-player.net</a>. For this player another <code>.swf</code> file, <a href="http://flv-player.net/medias/player_flv_maxi.swf"><code>player_flv_maxi.swf</code></a>, is needed.</p>
-</blockquote>
-
-<h2 id="part-ii-convert-movie-formats-to-flv">Part II: Convert movie formats to <code>.flv</code></h2>
-
-<p>The software used to convert movie formats is <a href="https://ffmpeg.org/"><strong>FFmpeg</strong></a>. This is a free and open-source software.</p>
-
-<p>Assuming you are using Mac OSX like me, here are the steps:</p>
-
-<p><strong>1</strong>. Make sure you installed <strong>Homebrew</strong> on your Mac, for details go to <a href="http://brew.sh/">http://brew.sh/</a>.<br />
-<strong>2</strong>. Install <strong>ffmpeg</strong> by running <code>brew install ffmpeg</code> in command line.<br />
-<strong>3</strong>. Convert movie formats using the <code>ffmpeg</code> command.</p>
-
-<blockquote>
-  <p>An explanation of the <code>ffmpeg</code> options can be found <a href="https://www.virag.si/2012/01/web-video-encoding-tutorial-with-ffmpeg-0-9/">here</a>. (Also a helpful article if your are using Windows or Linux.)</p>
-</blockquote>
-
-<p>An example command that I used to convert an <code>.mp4</code> file to <code>.flv</code>:</p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">ffmpeg -i input_file.mp4 -c:v libx264 -vf <span class="nv">scale</span><span class="o">=</span>-1:270 -ar <span class="m">22050</span> output_file.flv
-</span></code></pre></td></tr></table></div></figure>
-
-<p>Some explanation of the command</p>
-
-<ul>
-  <li><strong><code>-i input_file.mp4</code></strong>: specify the input file</li>
-  <li><strong><code>-c:v libx264</code></strong>: set video codec to be libx264</li>
-  <li><strong><code>-vf scale=-1:270</code></strong>: set resolution of output file, <code>-1</code> means to maintain aspect ratio, <code>270</code> indicates the vertical resolution is 270p. (1080p is Full HD.) If not specified, resolution remains unchanged.</li>
-  <li><strong><code>-ar 22050</code></strong>: set the audio sampling frequency. If don’t want any sound, use <code>-an</code> flag instead.</li>
-  <li><strong><code>output_file.flv</code></strong>: specify output file and format</li>
-</ul>
-
-<h2 id="part-iii-embed-flv-movies-in-latex-to-replace-part-i">Part III: Embed <code>.flv</code> movies in LaTeX (To replace Part I)</h2>
-
-<p><strong>(Updated 1/19/17)</strong></p>
-
-<p>I have used the following movie embedding option a couple times before I posted this article, but I didn’t summarize it back then and forgot about it. Now memory strikes back.</p>
-
-<p>The <a href="https://www.ctan.org/pkg/media9?lang=en"><code>media9</code> package</a> is the best option so far for embedding movies in beamer. Here is an example <code>.tex</code> file to do it:</p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-</pre></td><td class="code"><pre><code class="latex"><span class="line"><span class="k">\documentclass</span><span class="nb">{</span>beamer<span class="nb">}</span>
-</span><span class="line"><span class="k">\usepackage</span><span class="nb">{</span>media9<span class="nb">}</span>
-</span><span class="line"><span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>
-</span><span class="line"><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-</span><span class="line"><span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}{</span>embed a movie<span class="nb">}</span>
-</span><span class="line"><span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
-</span><span class="line"><span class="k">\includemedia</span>[
-</span><span class="line">	width=0.4<span class="k">\linewidth</span>,height=0.3<span class="k">\linewidth</span>,
-</span><span class="line">	activate=pageopen,
-</span><span class="line">	addresource=YOUR<span class="nb">_</span>MOVIE.flv,
-</span><span class="line">	flashvars=<span class="nb">{</span>
-</span><span class="line">	   source=YOUR<span class="nb">_</span>MOVIE.flv
-</span><span class="line">	<span class="nb">}</span>
-</span><span class="line">]<span class="nb">{</span><span class="k">\includegraphics</span><span class="na">[height=0.3\linewidth]</span><span class="nb">{</span>POSTER.jpg<span class="nb">}{</span>VPlayer9.swf<span class="nb">}</span>
-</span><span class="line"><span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
-</span><span class="line"><span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
-</span><span class="line"><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<p>A couple remarks about this example:</p>
-
-<p><strong>1.</strong> Compile the <code>.tex</code> file into <code>.pdf</code> with all neccesary files (<code>YOUR_MOVIE.flv</code>, <code>POSTER.jpg</code>) in the same folder<br />
-<strong>2.</strong> <code>POSTER.jpg</code> is the image displayed before <code>YOUR_MOVIE.flv</code> is played, and is included using the <code>\includegraphics</code> command from the <code>graphicx</code> package. The poster image is optional, you may intead use a <code>{}</code> (before the <code>{VPlayer9.swf}</code>) to leave it blank.<br />
-<strong>3.</strong> <code>VPlayer9.swf</code> is the video player. You may use a fancier player <code>StrobeMediaPlayback.swf</code> and correspondingly in the <code>flashvars</code> options change <code>source=...</code> into <code>src=...</code>. Or if you are embedding audio, use <code>APlayer9.swf</code>.<br />
-<strong>4.</strong> Embedding YouTube video would be a piece of cake with this package, here is an example given in the official documentation:</p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-</pre></td><td class="code"><pre><code class="latex"><span class="line"><span class="k">\includemedia</span>[
-</span><span class="line">  width=0.6<span class="k">\linewidth</span>,height=0.3375<span class="k">\linewidth</span>, <span class="c">% 16:9</span>
-</span><span class="line">  activate=pageopen,
-</span><span class="line">  flashvars=<span class="nb">{</span>
-</span><span class="line">    modestbranding=1 <span class="c">% no YT logo in control bar</span>
-</span><span class="line">    <span class="nb">&amp;</span>autohide=1 <span class="c">% controlbar autohide</span>
-</span><span class="line">    <span class="nb">&amp;</span>showinfo=0 <span class="c">% no title and other info before start</span>
-</span><span class="line">    <span class="nb">&amp;</span>rel=0      <span class="c">% no related videos after end</span>
-</span><span class="line">  <span class="nb">}</span>
-</span><span class="line">]<span class="nb">{}{</span>http://www.youtube.com/v/r382kfkqAF4?rel=0<span class="nb">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<p><strong>5.</strong> Go to the <a href="https://www.ctan.org/pkg/media9?lang=en">CTAN</a> page to find the complete <a href="http://mirrors.ctan.org/macros/latex/contrib/media9/doc/media9.pdf">documentation</a> for <code>media9</code>.</p>
-
-<p>Hope this is helpful!</p>
 ]]></content>
   </entry>
   
