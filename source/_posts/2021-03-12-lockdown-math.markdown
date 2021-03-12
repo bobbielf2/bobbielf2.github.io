@@ -22,7 +22,9 @@ According to the fun article [*Lockdown Mathematics*](http://www.nieuwarchief.nl
 
 There are many other interesting examples from that article. The bottom line is, many mathematicians have experienced highly productive periods during confinement situations, where they were free of distractions and could focus deeply on their thoughts; although in some cases, this effect only lasted for a month or two, eventually the productivity boost waned. After all, mathematicians are still humans who need some breaks.
 
-I have to say that the above description perfectly summarized my experience during the COVID lockdown. I was super productive and wrote two papers during the first few months of the lockdown, then I started to get distracted and wanted to socialize again. I also thought that maybe I could benefit from setting up a few months of fake lockdown for myself every year.
+I have to say that the above description perfectly summarized my experience during the COVID lockdown. I was super productive and wrote two papers during the first few months of the lockdown, then I started to get distracted and wanted to socialize again.
+
+Now it is March again, an anniversary of the COVID lockdown in the US. Maybe I could also benefit from setting up a few months of faux lockdown for myself every year.
 
 ### Flow v.s. Pandemic
 
