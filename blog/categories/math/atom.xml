@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Math | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/math/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2021-03-12T01:34:03-06:00</updated>
+  <updated>2021-03-12T01:35:55-06:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Lockdown Math]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/03/12/lockdown-math/"/>
+    <updated>2021-03-12T01:28:25-06:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/03/12/lockdown-math</id>
+    <content type="html"><![CDATA[<p>In the <a href="/blog/2021/03/04/your-one-big-desire">previous post</a> I talked about anxiety caused by things that you actually have control over. This time I’d like to also touch on situations that you can’t really change, such as a pandemic.</p>
+
+<p>A pandemic makes people anxious because it freezes life. A lot of activities have to be suspended. You can’t do what you would normally do. You don’t know how long the pandemic would last — probably a few months, probably a few years. All you can do is wait, indefinitely.</p>
+
+<h3 id="mathematicians-in-confinement">Mathematicians in confinement</h3>
+
+<p>Some groups of people seem to be doing quite well in a lockdown situation. Mathematicians happen to be one such group.</p>
+
+<!--more-->
+
+<p>Sophus Lie, who established <a href="https://en.wikipedia.org/wiki/Lie_algebra">Lie algebra</a> during his imprisonment, said that “a mathematician is comparatively well suited to be in prison.” And Lie was not alone, 70 years later another great mathematician, André Weil, who also had a productive time in prison, wondered “if it’s only in prison that I work so well, will I have to arrange to spend two or three months locked up every year?”</p>
+
+<p>According to the fun article <a href="http://www.nieuwarchief.nl/serie5/pdf/naw5-2020-21-2-095.pdf"><em>Lockdown Mathematics</em></a>, both Lie and Weil were mistaken for spies during wartimes “due to their strange habits as eccentric mathematicians who incessantly scribbled some sort of incomprehensible notes and wandered in nature without any credible purpose discernible to outsiders.”</p>
+
+<p>There are many other interesting examples from that article. The bottom line is, many mathematicians have experienced highly productive periods during confinement situations, where they were free of distractions and could focus deeply on their thoughts; although in some cases, this effect only lasted for a month or two, eventually the productivity boost waned. After all, mathematicians are still humans who need some breaks.</p>
+
+<p>I have to say that the above description perfectly summarized my experience during the COVID lockdown. I was super productive and wrote two papers during the first few months of the lockdown, then I started to get distracted and wanted to socialize again. I also thought that maybe I could benefit from setting up a few months of fake lockdown for myself every year.</p>
+
+<h3 id="flow-vs-pandemic">Flow v.s. Pandemic</h3>
+
+<p>According to some <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0242043">recent research</a>, getting in the state of <a href="https://en.wikipedia.org/wiki/Flow_(psychology)">flow</a> might be one best way to cope with lockdown anxieties. When you are experiencing flow, you are deeply focused on something; time seems to slip by quickly, a few hours feel like just a moment to you.</p>
+
+<p>Not just mathematicians, other people find their flow in all sorts of ways: painting, making handicrafts, reading books, writing essays, coding. So when you get into flow, not only that time passes much quicker, but you are also accomplishing something meaningful to you. It just completely flips the lockdown situation around and gives you a positive experience.</p>
+
+<p>In fact, this experience may have deeper implications if we redefine “pandemic” as a state of mind:</p>
+
+<blockquote>
+  <p>A “pandemic” is an extended period during which you are constantly anxious about one thing that you can’t control.</p>
+</blockquote>
+
+<p>By this definition, people are constantly undergoing all kinds of pandemics: losing jobs, struggling to graduate, accumulating debts, being homesick, feeling lonely. In each of these cases, people are stuck in a “personal pandemic” that they can’t easily escape and have to live with it for an uncertain amount of time.</p>
+
+<p>Inspired by the lockdown experience, maybe one solution to a “personal pandemic” is to accept it like we accepted that we would be living under COVID for a few years, and turn to focus on something we truly care about. Oftentimes, the consequence of a “personal pandemic” is not as dire as one might think it would be; a threat might also be an opportunity for growth. So being able to find your flow could carry you through the most difficult time of your “personal pandemic,” giving you the chance to come out stronger and better off.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Underestimating My Ignorance]]></title>
@@ -313,28 +354,6 @@ u_\mathrm{out}(x)-u_\infty, & x\in\mathbb{R}^2\setminus\bar\Omega
     </li>
   </ol>
 </div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Human Brain Works Logarithmically]]></title>
-    <link href="http://bobbielf2.github.io/blog/2016/09/12/human-brain-works-logarithmically/"/>
-    <updated>2016-09-12T11:20:24-04:00</updated>
-    <id>http://bobbielf2.github.io/blog/2016/09/12/human-brain-works-logarithmically</id>
-    <content type="html"><![CDATA[<p><em>Do you know that our brain works logarithmically?</em></p>
-
-<ol>
-  <li>Do this exercise:
-    <ul>
-      <li>Draw a number line</li>
-      <li>Mark $0$ and $1,000,000,000$ on the line.</li>
-      <li>Ask yourself a question: where is $1,000$?</li>
-    </ul>
-  </li>
-  <li>Many people put $1,000$ at the $1/3$ position. Note that $1,000=10^3$, $1,000,000,000=10^9$, where $9$ is triple of $3$. This implies that we perceive number logarithmically!</li>
-  <li>Not only <strong>size</strong> of a number, but also <strong>weight</strong> of an object, <strong>loudness</strong> of a sound, <strong>brightness</strong> of a star, <strong>spiciness</strong> of a chili, all of these are perceived logarithmically by the human brain.</li>
-  <li>Such logarithmic law is known more than 100 years ago, under the name “<a href="https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law"><strong>Weber-Fechner law</strong></a>” in psychophysics.</li>
-</ol>
 ]]></content>
   </entry>
   
