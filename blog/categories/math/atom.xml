@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Math | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/math/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2021-03-12T10:00:52-06:00</updated>
+  <updated>2021-03-21T16:47:00-05:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,75 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Low-rank and Rank Structured Matrices]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/03/21/low-rank-and-rank-structured-matrices/"/>
+    <updated>2021-03-21T15:33:24-05:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/03/21/low-rank-and-rank-structured-matrices</id>
+    <content type="html"><![CDATA[<p>When you begin to research a field of study, you often get overwhelmed by the amount of existing knowledge you have to learn before you could go further. One useful way to bootstrap yourself is to only learn a minimal amount of basic ideas that are enough for you to “survive”  in the field. Such basic ideas are the Minimal Actionable Knowledge &amp; Experience (MAKE) of the field. Here, I will try to present the “MAKE” of the field of fast matrix computations.</p>
+
+<!--more-->
+
+<h3 id="low-rank-matrices-and-important-information">Low-rank matrices and important information</h3>
+
+<p>An $m\times n$  matrix $\mathbf{A}$ is low-rank if its rank, $k\equiv\mathrm{rank}\,\mathbf{A}$, is far less than $m$ and $n$. Then $\mathbf{A}$ has a factorization <script type="math/tex">\mathbf{A} =\mathbf{E}\mathbf{F}</script> where $\mathbf{E}$ is a tall-skinny matrix with $k$ columns and $\mathbf{F}$ a short-fat matrix with $k$ rows.</p>
+
+<p><img class="center" src="/images/blog_figures/lowRankFac.png" width="500"></p>
+
+<p>For example the following $3\times3$ matrix is of rank-$1$ only.</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{bmatrix}
+1 & 2 & 3\\
+1 & 2 & 3\\
+1 & 2 & 3
+\end{bmatrix}
+=
+\begin{bmatrix}
+1\\
+1\\
+1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix} %]]&gt;</script>
+
+<p>Given a matrix $\mathbf{A}$, there are many ways to find $\mathrm{rank}\,\mathbf{A}$. One way is to find the <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">SVD</a></p>
+
+<script type="math/tex; mode=display">\mathbf{A}=\mathbf{U}\mathbf{\Sigma} \mathbf{V}^*</script>
+
+<p>where $\mathbf{\Sigma}=\mathrm{diag}(\sigma_1,\sigma_2,\dots)$ is an $m\times n$ diagonal matrix, whose diagonal elements are called the singular values of $\mathbf{A}$. Then $\mathrm{rank}\,\mathbf{A}$ is the number of nonzero singular values.</p>
+
+<p>The SVD tells you the most important information about a matrix: the <a href="https://en.wikipedia.org/wiki/Low-rank_approximation#Proof_of_Eckart%E2%80%93Young%E2%80%93Mirsky_theorem_(for_spectral_norm)">Eckart-Young theorem</a> says that the best rank-$k$ approximation of $\mathbf{A}=\mathbf{U}\mathbf{\Sigma} \mathbf{V}^*$ can be obtained by only keeping the first $k$ singular values and zeroing out the rest in $\mathbf{\Sigma}$. When the singular values decay quickly, such a low-rank approximation can be very accurate. This is particularly important in practice when we want to solve problems efficiently by ignoring the unimportant information.</p>
+
+<p>An interesting example is the $n\times n$ <a href="https://en.wikipedia.org/wiki/Hilbert_matrix">Hilbert matrix</a> $\mathbf{H}_n$, whose $(i,j)$ entry is defined to be $\frac{1}{i+j-1}$. $\mathbf{H}_n$ is full-rank for any size $n$, but it is <em>numerically low-rank</em>, meaning that its singular values decay rapidly such that given any small threshold $\epsilon$, only a few singular values are above $\epsilon$. For example with $\epsilon=10^{-15}$, the $1000\times1000$ has numerical rank $28$.</p>
+
+<p>Other examples of (numerically) low-rank matrices include the <a href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde</a>, <a href="https://en.wikipedia.org/wiki/Cauchy_matrix">Cauchy</a>, <a href="https://en.wikipedia.org/wiki/Hankel_matrix">Hankel</a>, and <a href="https://en.wikipedia.org/wiki/Toeplitz_matrix">Toeplitz</a> matrices, as well as matrices constructed from smooth data or smooth functions.</p>
+
+<p>As it turns out, a lot of the matrices we encounter in practice are numerically low-rank. So finding low-rank approximation (e.g. in the form of $\mathbf{A}=\mathbf{EF}$ at the beginning) is one of the most important and fundamental subjects in applied math nowadays.</p>
+
+<h3 id="data-sparsity-and-rank-structured-matrices">Data sparsity and rank structured matrices</h3>
+
+<p>Matrix sizes have been growing with technological advancements. Many common matrix algorithms scale cubically with the matrix size, meaning that even if your computing power grows 1000 times, you could only afford to solve problems that are 10 times bigger than before. These common algorithms include matrix multiplication, matrix inversion, and matrix factorizations (e.g. LU, QR, SVD). Therefore, it is important to speed up these matrix computation methods in order to fully exploit the ever growing computing power.</p>
+
+<p>One major strategy to accelerate the computations is to exploit the <strong>data sparsity</strong> of a matrix. Data sparsity is a deliberately vague concept which broadly refers to the kind of internal structures in a matrix that can help make computations faster. Following are some common examples of data-sparse matrices.</p>
+
+<ul>
+  <li>The most classcial data-sparse matrices are the <strong>sparse matrices</strong>, ones with a large number of zero entries. Using <a href="https://en.wikipedia.org/wiki/Sparse_matrix#Compressed_sparse_row_(CSR,_CRS_or_Yale_format)">compressed data formats</a>, you can save a lot of memories by storing only the nonzero entries (together with their positions). You can greatly reduce computation time by only operating on the nonzero entries while maintaining the sparsity of the matrices (i.e., avoid introducing more nonzero entries). Common sparse matrices include diagonal/block-diagonal matrices, banded matrices, permutations, adjacency matrix of graphs, etc.</li>
+  <li><strong>Low-rank matrices</strong>, as we have introduced above, are ones admit low-rank factorizations. Commonly used factorizations include the <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition#Reduced_SVDs">reduced SVDs</a>, <a href="https://en.wikipedia.org/wiki/Interpolative_decomposition">interpolative decomposition</a>, <a href="https://en.wikipedia.org/wiki/CUR_matrix_approximation">CUR decomposition</a>, <a href="https://en.wikipedia.org/wiki/RRQR_factorization">rank-revealing QR factorizations</a>, etc. Normally the SVD algorithms are more expensive, so the other algorithms are more practical; for very large matrices, all the factorization algorithms can be further accelerated by <a href="https://epubs.siam.org/doi/abs/10.1137/090771806">randomization techniques</a>.</li>
+  <li><strong>Rank structured matrices.</strong> These matrices are not necessarily low-rank, but can be split into a relatively small number of submatrices, each of which is low-rank. For example, the picture below shows the structure of a <em>Hierarchically Off-diagonal Low Rank</em> (HODLR) matrix, where all the off-diagonal blocks, big or small, have similar ranks. Such structure can for example arise from gravitational or electrostatic interactions, where the diagonal blocks represent the local interactions and the off-diagonal blocks represent the far interactions; the far interactions are low-rank because they are much smoother than the local interactions. Other rank structured matrices include the <em>Hierarchically Semi-separable</em> (HSS) matrices, the inverse of banded matrices, and the more general <a href="https://en.wikipedia.org/wiki/Hierarchical_matrix">$\mathcal{H}$-matrices</a> and <a href="https://en.wikipedia.org/wiki/Hierarchical_matrix#H2-matrices">$\mathcal{H}^2$-matrices</a>. Rank structured matrices can be efficiently handled using tree structures. Matrix algorithms designed for these matrices can be very fast, with computation time scaling linearly or log-linearly with the matrix size.</li>
+</ul>
+
+<p><img class="center" src="/images/blog_figures/HODLR.png" width="400"></p>
+
+<ul>
+  <li><strong>Complementary low-rank matrices</strong> are a special type of rank structured matrices that can be decomposed by the <em>butterfly factorization</em> (BF). The BF is inspired by ideas of the <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">FFT</a> algorithm (divide-and-conquer and permutations), which can be explained using the <a href="https://en.wikipedia.org/wiki/Butterfly_diagram">butterfly diagram</a>. Butterfly algorithms were initially motivated by solving oscillatory problems such as wave scattering.</li>
+</ul>
+
+<p>With these ideas above, plus a little coding experience with some simple rank structured matrices (a good place to start is with the first two of these <a href="https://amath.colorado.edu/faculty/martinss/2014_CBMS/codes.html">tutorial codes</a>), you are equipped with the “MAKE” that gets you ready for going on an advanture to the fast computations with matrices. All the details and other more advanced topics can be learned later once you dig far enough.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Lockdown Math]]></title>
@@ -250,112 +319,6 @@ u_\mathrm{out}(x)-u_\infty, & x\in\mathbb{R}^2\setminus\bar\Omega
 <script type="math/tex; mode=display">E(h) = \sum_{m=0}^{M-1}\frac{(-1)^m}{m!}[\zeta(-2m)\log h-\zeta'(-2m)]h^{2m+1} + O(h^{2M+1}\log h)</script>
 
 <p>where $\zeta(z)$ is the famous <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function">Riemann zeta function</a>.  Such formulae could take a lot of effort to derive in general. But once available, they allow you to develop highly efficient numerical methods.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[The Holy Trinity]]></title>
-    <link href="http://bobbielf2.github.io/blog/2017/05/19/the-holy-trinity/"/>
-    <updated>2017-05-19T22:03:22-04:00</updated>
-    <id>http://bobbielf2.github.io/blog/2017/05/19/the-holy-trinity</id>
-    <content type="html"><![CDATA[<p>This isn’t about theology, but I will talk about the number three.</p>
-
-<p>We love the number three. Many of our rules/doctrines consist of three parts. For example, in Christianity, there is the theory of the Holy Trinity, stating that God manifests Himself in three forms: the Father, the Son, and the Holy Spirit. I’d love to cast them into a shamrock diagram:</p>
-
-<p><img class="center" src="/images/blog_figures/shamrock_holy.png" width="300"></p>
-
-<p>The key idea here is that, although there are three forms, there is really only one God.</p>
-
-<!--more-->
-
-<p>While I am not a Theologist, I appreciate the idea that an important concept is broken into three aspects, each of them stems from the same root, and connects with each other to promote deeper understanding of the subject. Let’s call them the “shamrock ideas”.</p>
-
-<p>I happened to have encountered some of the interesting and beautiful shamrock ideas in the realm of science and mathematics. These ideas have given me incredible insights into subjects, helping me see the big pictures of a lot of seemingly scattered knowledge.</p>
-
-<h2 id="science">Science</h2>
-
-<p>Perhaps the most well-known example of a shamrock idea is the three components of science.</p>
-
-<blockquote>
-  <p>There are three great branches of modern science: theory, experiment, and computation.</p>
-</blockquote>
-
-<p><img class="center" src="/images/blog_figures/shamrock_science.png" width="300"></p>
-
-<p>The keyword in this shamrock is <em>computation</em>, it reminds us how computation has influenced science, and has evolved from a mere tool into a full-fledged scientific branch.</p>
-
-<p>In the early days of science, machines were invented to help scientists with their calculations. Searching the internet you will find calculators like Arithmometer (1850s-1910s) and Comptometer (1880s-1970s). Those machines can add, subtract, multiply and divide numbers. They were once very useful to scientists, and are now all gone to museums. In the mid-1900s, electronic computers started to take over, and computing power skyrocketed in the past 60 years. Computer performance evolved from hectoscale computing (~200 operations per second) with the first IBM computer in 1946, to petascale computing in 2009 with modern supercomputers, which is thousands of trillions of operations per second.</p>
-
-<p>Such leap in computing power has unleashed ideas that were sheer impossible just decades ago.</p>
-
-<p>With experiment, science have gone a long way tracing back to the ancient Greeks. With computation, science has taken off and is moving ever faster. We can simulate things that are too far (universe), too small (quantum), too expensive (medicine), or too complex (social network).</p>
-
-<h2 id="mathematics">Mathematics</h2>
-
-<p>I would like to mention more shamrock ideas I found reading math.</p>
-
-<h3 id="functions-boyd">Functions <sup id="fnref:boyd"><a href="#fn:boyd" class="footnote">1</a></sup></h3>
-
-<p>The function shamrock has three leaves respectively labeled formula, spectral coefficients, and grid point values. Together, these three concepts help us better understand and use functions. To see how these three concepts connect to each other, we realize that we go from the symbolic $f(x)$ to values ${f_j}$ by sampling, from $f(x)$ to spectral coefficients ${a_j}$ by integral transforms (e.g. Fourier transform), and from ${f_j}$ to ${a_j}$ by discrete algorithms (e.g. FFT).</p>
-
-<p><img class="center" src="/images/blog_figures/shamrock_function.png" width="300"></p>
-
-<p>When solving a problem that involves a function $f(x)$, the symbolic formula is manipulated with analytical methods, its spectral coefficients are useful for Galerkin methods, and the grid point values are what the convenient pseudospectral methods operate on.</p>
-
-<p>A mathematician would be crippled if failing to understand and to freely switch between any of them.</p>
-
-<h3 id="analysis-trefethen">Analysis <sup id="fnref:trefethen"><a href="#fn:trefethen" class="footnote">2</a></sup></h3>
-
-<p>This probably is my favorite shamrock. In analysis, the three types of series, Fourier, Laurent, and Chebyshev, are really the same series looking from different angles.</p>
-
-<p><img class="center" src="/images/blog_figures/shamrock_analysis.png" width="300"></p>
-
-<p>Let’s consider the substitutions</p>
-
-<script type="math/tex; mode=display">x = \frac{z+z^{-1}}{2} = \cos\theta</script>
-
-<p>they give the equivalent relations</p>
-
-<script type="math/tex; mode=display">T_n(x) = \frac{z^n+z^{-n}}{2} = \cos(n\theta)</script>
-
-<p>where $T_n(x)$ is the Chebyshev polynomial of order $n$. Given a smooth function $f(x)$ on $x\in[-1,1]$, it can be expanded as a Chebyshev series</p>
-
-<script type="math/tex; mode=display">f(x) = \sum^\infty_{n=0}a_nT_n(x)</script>
-
-<p>which under the equivalent relations gives</p>
-
-<script type="math/tex; mode=display">\sum^\infty_{n=0}a_nT_n(x) = \sum^\infty_{n=0} a_n \frac{z^n+z^{-n}}{2} = \sum^\infty_{n=0} a_n \cos(n\theta)</script>
-
-<p>or</p>
-
-<script type="math/tex; mode=display">\sum^\infty_{n=0}a_nT_n(x) = \frac{a_0}{2}+\frac{1}{2}\sum^\infty_{n=-\infty} a_{|n|} z^n = \frac{a_0}{2}+\frac{1}{2}\sum^\infty_{n=-\infty} a_{|n|} e^{in\theta}</script>
-
-<p>The last equalities show the amazing relationships between the three branches of analysis, providing a picture about how viewing from different angles gives you different series expansions:</p>
-
-<ul>
-  <li>If you look at the unit circle in the complex plane (or a periodic interval) $\theta\in[0,2\pi]$, you see Fourier series, the fundamental tool for real analysis</li>
-  <li>If you look at the annulus <span>$\frac{1}{\rho} &lt; |z| &lt; \rho$</span>, you see Laurent series, the fundamental tool for complex analysis</li>
-  <li>If you look at the interval $x\in[-1,1]$, you see Chebyshev series, the fundamental tool for numerical analysis</li>
-</ul>
-
-<p>Such connections are always there, but you need to discover them. Even many math majors know little about the shamrock, and most of them have taken all three courses.</p>
-
-<h2 id="a-final-note">A final note</h2>
-
-<p>I love the shamrocks not because they teach me new concepts; in fact they don’t. I have understood the concepts in the three leaves of each shamrock before I saw them put together. The important thing of these shamrocks is that they provide a unified view, a new prospective that connects and sees things you knew differently. Like Kalid Azad (author of <a href="https://betterexplained.com">BetterExplained</a>) once <a href="https://betterexplained.com/articles/learn-math-like-mega-man/">mentioned in a post</a>, our understandings improve the most not when we’ve learned new concepts, but when mindset shifts happen.</p>
-
-<h3 id="references">References:</h3>
-
-<div class="footnotes">
-  <ol>
-    <li id="fn:boyd">
-      <p>John P Boyd, <em>Chebyshev and Fourier Spectral Methods</em>, Section 9.3 <a href="#fnref:boyd" class="reversefootnote">&#8617;</a></p>
-    </li>
-    <li id="fn:trefethen">
-      <p>Nick Trefethen, <em>Approximation Theory and Approximation Practice</em>, Chapter 3 <a href="#fnref:trefethen" class="reversefootnote">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
 ]]></content>
   </entry>
   

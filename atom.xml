@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2021-03-12T10:00:52-06:00</updated>
+  <updated>2021-03-21T16:47:00-05:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,75 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Low-rank and Rank Structured Matrices]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/03/21/low-rank-and-rank-structured-matrices/"/>
+    <updated>2021-03-21T15:33:24-05:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/03/21/low-rank-and-rank-structured-matrices</id>
+    <content type="html"><![CDATA[<p>When you begin to research a field of study, you often get overwhelmed by the amount of existing knowledge you have to learn before you could go further. One useful way to bootstrap yourself is to only learn a minimal amount of basic ideas that are enough for you to “survive”  in the field. Such basic ideas are the Minimal Actionable Knowledge &amp; Experience (MAKE) of the field. Here, I will try to present the “MAKE” of the field of fast matrix computations.</p>
+
+<!--more-->
+
+<h3 id="low-rank-matrices-and-important-information">Low-rank matrices and important information</h3>
+
+<p>An $m\times n$  matrix $\mathbf{A}$ is low-rank if its rank, $k\equiv\mathrm{rank}\,\mathbf{A}$, is far less than $m$ and $n$. Then $\mathbf{A}$ has a factorization <script type="math/tex">\mathbf{A} =\mathbf{E}\mathbf{F}</script> where $\mathbf{E}$ is a tall-skinny matrix with $k$ columns and $\mathbf{F}$ a short-fat matrix with $k$ rows.</p>
+
+<p><img class="center" src="http://bobbielf2.github.io/images/blog_figures/lowRankFac.png" width="500" /></p>
+
+<p>For example the following $3\times3$ matrix is of rank-$1$ only.</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{bmatrix}
+1 & 2 & 3\\
+1 & 2 & 3\\
+1 & 2 & 3
+\end{bmatrix}
+=
+\begin{bmatrix}
+1\\
+1\\
+1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix} %]]&gt;</script>
+
+<p>Given a matrix $\mathbf{A}$, there are many ways to find $\mathrm{rank}\,\mathbf{A}$. One way is to find the <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">SVD</a></p>
+
+<script type="math/tex; mode=display">\mathbf{A}=\mathbf{U}\mathbf{\Sigma} \mathbf{V}^*</script>
+
+<p>where $\mathbf{\Sigma}=\mathrm{diag}(\sigma_1,\sigma_2,\dots)$ is an $m\times n$ diagonal matrix, whose diagonal elements are called the singular values of $\mathbf{A}$. Then $\mathrm{rank}\,\mathbf{A}$ is the number of nonzero singular values.</p>
+
+<p>The SVD tells you the most important information about a matrix: the <a href="https://en.wikipedia.org/wiki/Low-rank_approximation#Proof_of_Eckart%E2%80%93Young%E2%80%93Mirsky_theorem_(for_spectral_norm)">Eckart-Young theorem</a> says that the best rank-$k$ approximation of $\mathbf{A}=\mathbf{U}\mathbf{\Sigma} \mathbf{V}^*$ can be obtained by only keeping the first $k$ singular values and zeroing out the rest in $\mathbf{\Sigma}$. When the singular values decay quickly, such a low-rank approximation can be very accurate. This is particularly important in practice when we want to solve problems efficiently by ignoring the unimportant information.</p>
+
+<p>An interesting example is the $n\times n$ <a href="https://en.wikipedia.org/wiki/Hilbert_matrix">Hilbert matrix</a> $\mathbf{H}_n$, whose $(i,j)$ entry is defined to be $\frac{1}{i+j-1}$. $\mathbf{H}_n$ is full-rank for any size $n$, but it is <em>numerically low-rank</em>, meaning that its singular values decay rapidly such that given any small threshold $\epsilon$, only a few singular values are above $\epsilon$. For example with $\epsilon=10^{-15}$, the $1000\times1000$ has numerical rank $28$.</p>
+
+<p>Other examples of (numerically) low-rank matrices include the <a href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde</a>, <a href="https://en.wikipedia.org/wiki/Cauchy_matrix">Cauchy</a>, <a href="https://en.wikipedia.org/wiki/Hankel_matrix">Hankel</a>, and <a href="https://en.wikipedia.org/wiki/Toeplitz_matrix">Toeplitz</a> matrices, as well as matrices constructed from smooth data or smooth functions.</p>
+
+<p>As it turns out, a lot of the matrices we encounter in practice are numerically low-rank. So finding low-rank approximation (e.g. in the form of $\mathbf{A}=\mathbf{EF}$ at the beginning) is one of the most important and fundamental subjects in applied math nowadays.</p>
+
+<h3 id="data-sparsity-and-rank-structured-matrices">Data sparsity and rank structured matrices</h3>
+
+<p>Matrix sizes have been growing with technological advancements. Many common matrix algorithms scale cubically with the matrix size, meaning that even if your computing power grows 1000 times, you could only afford to solve problems that are 10 times bigger than before. These common algorithms include matrix multiplication, matrix inversion, and matrix factorizations (e.g. LU, QR, SVD). Therefore, it is important to speed up these matrix computation methods in order to fully exploit the ever growing computing power.</p>
+
+<p>One major strategy to accelerate the computations is to exploit the <strong>data sparsity</strong> of a matrix. Data sparsity is a deliberately vague concept which broadly refers to the kind of internal structures in a matrix that can help make computations faster. Following are some common examples of data-sparse matrices.</p>
+
+<ul>
+  <li>The most classcial data-sparse matrices are the <strong>sparse matrices</strong>, ones with a large number of zero entries. Using <a href="https://en.wikipedia.org/wiki/Sparse_matrix#Compressed_sparse_row_(CSR,_CRS_or_Yale_format)">compressed data formats</a>, you can save a lot of memories by storing only the nonzero entries (together with their positions). You can greatly reduce computation time by only operating on the nonzero entries while maintaining the sparsity of the matrices (i.e., avoid introducing more nonzero entries). Common sparse matrices include diagonal/block-diagonal matrices, banded matrices, permutations, adjacency matrix of graphs, etc.</li>
+  <li><strong>Low-rank matrices</strong>, as we have introduced above, are ones admit low-rank factorizations. Commonly used factorizations include the <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition#Reduced_SVDs">reduced SVDs</a>, <a href="https://en.wikipedia.org/wiki/Interpolative_decomposition">interpolative decomposition</a>, <a href="https://en.wikipedia.org/wiki/CUR_matrix_approximation">CUR decomposition</a>, <a href="https://en.wikipedia.org/wiki/RRQR_factorization">rank-revealing QR factorizations</a>, etc. Normally the SVD algorithms are more expensive, so the other algorithms are more practical; for very large matrices, all the factorization algorithms can be further accelerated by <a href="https://epubs.siam.org/doi/abs/10.1137/090771806">randomization techniques</a>.</li>
+  <li><strong>Rank structured matrices.</strong> These matrices are not necessarily low-rank, but can be split into a relatively small number of submatrices, each of which is low-rank. For example, the picture below shows the structure of a <em>Hierarchically Off-diagonal Low Rank</em> (HODLR) matrix, where all the off-diagonal blocks, big or small, have similar ranks. Such structure can for example arise from gravitational or electrostatic interactions, where the diagonal blocks represent the local interactions and the off-diagonal blocks represent the far interactions; the far interactions are low-rank because they are much smoother than the local interactions. Other rank structured matrices include the <em>Hierarchically Semi-separable</em> (HSS) matrices, the inverse of banded matrices, and the more general <a href="https://en.wikipedia.org/wiki/Hierarchical_matrix">$\mathcal{H}$-matrices</a> and <a href="https://en.wikipedia.org/wiki/Hierarchical_matrix#H2-matrices">$\mathcal{H}^2$-matrices</a>. Rank structured matrices can be efficiently handled using tree structures. Matrix algorithms designed for these matrices can be very fast, with computation time scaling linearly or log-linearly with the matrix size.</li>
+</ul>
+
+<p><img class="center" src="http://bobbielf2.github.io/images/blog_figures/HODLR.png" width="400" /></p>
+
+<ul>
+  <li><strong>Complementary low-rank matrices</strong> are a special type of rank structured matrices that can be decomposed by the <em>butterfly factorization</em> (BF). The BF is inspired by ideas of the <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">FFT</a> algorithm (divide-and-conquer and permutations), which can be explained using the <a href="https://en.wikipedia.org/wiki/Butterfly_diagram">butterfly diagram</a>. Butterfly algorithms were initially motivated by solving oscillatory problems such as wave scattering.</li>
+</ul>
+
+<p>With these ideas above, plus a little coding experience with some simple rank structured matrices (a good place to start is with the first two of these <a href="https://amath.colorado.edu/faculty/martinss/2014_CBMS/codes.html">tutorial codes</a>), you are equipped with the “MAKE” that gets you ready for going on an advanture to the fast computations with matrices. All the details and other more advanced topics can be learned later once you dig far enough.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Lockdown Math]]></title>
@@ -1351,241 +1420,6 @@ u_\mathrm{out}(x)-u_\infty, & x\in\mathbb{R}^2\setminus\bar\Omega
     </li>
   </ol>
 </div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Preserve the Table of Contents When Converting a Book From Djvu to PDF]]></title>
-    <link href="http://bobbielf2.github.io/blog/2017/04/11/preserve-the-table-of-contents-when-converting-a-book-from-djvu-to-pdf/"/>
-    <updated>2017-04-11T20:47:57-04:00</updated>
-    <id>http://bobbielf2.github.io/blog/2017/04/11/preserve-the-table-of-contents-when-converting-a-book-from-djvu-to-pdf</id>
-    <content type="html"><![CDATA[<p>There are many readily available softwares (e.g. <a href="https://itunes.apple.com/us/app/djvu2pdf/id629039447?mt=12">DjVu2PDF</a>) for converting a book from <code>.djvu</code> to <code>.pdf</code> format, but none of those will preserve the table of contents in the output PDF.</p>
-
-<!--more-->
-
-<p>Having a table of contents is very handy. For example when viewing a book in Preview, the table of contents works like a multi-level bookmark, you can simply click on any link in the sidebar to jump to any chapter/section of the book.</p>
-
-<p><img src="http://bobbielf2.github.io/images/blog_figures/toc_in_preview.png" width="600" /></p>
-
-<p>So I Googled and found <a href="https://superuser.com/a/915399">this quetion</a> on StackExchange that asked exactly my question. Here is a summary of the accepted answer on how you can preserve (or more precisely, create) the table of contents in a PDF converted from Djvu.</p>
-
-<h2 id="preliminary">1. Preliminary</h2>
-
-<p>You will need to install <a href="https://www.pdflabs.com/tools/pdftk-server/">pdftk</a> (part of PDFtk Server) and <a href="https://sourceforge.net/projects/djvu/">djvused</a> (part of DjVuLibre)</p>
-
-<p><strong>Note 1:</strong> pdftk for Mac OS X 10.11 and above. I found in <a href="http://stackoverflow.com/a/33248310/4608899">this answer</a> on Stack Overflow that the developer of PDFtk provides an installer for PDFtk Server on OS X 10.11 and above. It is kind of strange that the <a href="https://www.pdflabs.com/tools/pdftk-server/">official website</a> only provides the installer for OS X up to 10.8. (This older version can be installed, but won’t run. When you type pdftk commands in the Terminal, it will make you wait forever.)</p>
-
-<p><strong>Note 2:</strong> About djvused command line setup on OS X. After installing DjVuLibre, in order to use djvused in command line, you need to run</p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nb">eval</span> <span class="s1">&#39;/Applications/DjView.app/Contents/setpath.sh&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<p>If this doesn’t add the correct path, you can also manually add the following line into <code>~/.bash_profile</code></p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="vim"><span class="line">PATH<span class="p">=</span><span class="s2">&quot;/Applications/DjView.app/Contents/bin:${PATH}&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<h2 id="convert-the-table-of-contents">2. Convert the Table of Contents</h2>
-
-<p>(Note: all materials in this section follow closely the <a href="https://superuser.com/a/915399">original answer</a> on StackExchange, except I coded a very simple python program in Step 2.)</p>
-
-<p>Suppose now you have converted <code>book.djvu</code> into <code>book.pdf</code>, the former has a table of contents but the latter doesn’t.</p>
-
-<h3 id="step-1-extract-djvu-outline">Step 1. extract Djvu outline</h3>
-
-<p>Use the following command to extract the table of contents from <code>book.djvu</code></p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">djvused <span class="s2">&quot;book.djvu&quot;</span> -e <span class="s1">&#39;print-outline&#39;</span> &gt; bmarks.out
-</span></code></pre></td></tr></table></div></figure>
-
-<p>The output file <code>bmarks.out</code> lists the table of contents in a serialized tree format using <a href="https://en.wikipedia.org/wiki/S-expression">SEXPR</a>, which can be summarized as:</p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">file ::<span class="o">=</span> <span class="o">(</span>bookmarks
-</span><span class="line">           &lt;bookmark&gt;*<span class="o">)</span>
-</span><span class="line">bookmark ::<span class="o">=</span> <span class="o">(</span>name
-</span><span class="line">               page
-</span><span class="line">               &lt;bookmark&gt;*<span class="o">)</span>
-</span><span class="line">name ::<span class="o">=</span> <span class="s2">&quot;&lt;character&gt;*&quot;</span>
-</span><span class="line">page ::<span class="o">=</span> <span class="s2">&quot;#&lt;digit&gt;+&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<p>Notice that under this format, you can append a “child bookmark” inside a “parent bookmark”. For example, a <code>bmarks.out</code> may look like this</p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="o">(</span>bookmarks
-</span><span class="line">  <span class="o">(</span><span class="s2">&quot;bmark1&quot;</span>
-</span><span class="line">    <span class="s2">&quot;#1&quot;</span><span class="o">)</span>
-</span><span class="line">  <span class="o">(</span><span class="s2">&quot;bmark2&quot;</span>
-</span><span class="line">    <span class="s2">&quot;#5&quot;</span>
-</span><span class="line">    <span class="o">(</span><span class="s2">&quot;bmark2subbmark1&quot;</span>
-</span><span class="line">      <span class="s2">&quot;#6&quot;</span><span class="o">)</span>
-</span><span class="line">    <span class="o">(</span><span class="s2">&quot;bmark2subbmark2&quot;</span>
-</span><span class="line">      <span class="s2">&quot;#7&quot;</span><span class="o">))</span>
-</span><span class="line">  <span class="o">(</span><span class="s2">&quot;bmark3&quot;</span>
-</span><span class="line">    <span class="s2">&quot;#9&quot;</span>
-</span><span class="line">    ...<span class="o">))</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<h3 id="step-2-translate-the-djvu-outline-to-pdf-metadata-format">Step 2. translate the Djvu outline to PDF metadata format</h3>
-
-<p>Now, Djvu and PDF store the bookmark data in different formats. While Djvu uses SEXPR, PDF uses metadata, which looks like this:</p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">file ::<span class="o">=</span> &lt;entry&gt;*
-</span><span class="line">entry ::<span class="o">=</span> BookmarkBegin
-</span><span class="line">          BookmarkTitle: &lt;title&gt;
-</span><span class="line">          BookmarkLevel: &lt;number&gt;
-</span><span class="line">          BookmarkPageNumber: &lt;number&gt;
-</span><span class="line">title ::<span class="o">=</span> &lt;character&gt;*
-</span></code></pre></td></tr></table></div></figure>
-
-<p>The example in Step 1 when translated into PDF metadata will look like</p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-<span class="line-number">20</span>
-<span class="line-number">21</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">BookmarkBegin
-</span><span class="line">BookmarkTitle: bmark1
-</span><span class="line">BookmarkLevel: 1
-</span><span class="line">BookmarkPageNumber: 1
-</span><span class="line">BookmarkBegin
-</span><span class="line">BookmarkTitle: bmark2
-</span><span class="line">BookmarkLevel: 1
-</span><span class="line">BookmarkPageNumber: 5
-</span><span class="line">BookmarkBegin
-</span><span class="line">BookmarkTitle: bmark2subbmark1
-</span><span class="line">BookmarkLevel: 2
-</span><span class="line">BookmarkPageNumber: 6
-</span><span class="line">BookmarkBegin
-</span><span class="line">BookmarkTitle: bmark2subbmark2
-</span><span class="line">BookmarkLevel: 2
-</span><span class="line">BookmarkPageNumber: 7
-</span><span class="line">BookmarkBegin
-</span><span class="line">BookmarkTitle: bmark3
-</span><span class="line">BookmarkLevel: 1
-</span><span class="line">BookmarkPageNumber: 9
-</span><span class="line">...
-</span></code></pre></td></tr></table></div></figure>
-
-<p>It is a fun exercise to work out the correspondence of the two formats.</p>
-
-<p><strong>Note:</strong> I have written a python program to automatically convert the Djvu SEXPR <code>bmarks.out</code> into the PDF metadata form and output as <code>bmarks2.txt</code></p>
-
-<figure class="code"><figcaption><span>Convert Djvu outline into PDF metadata (bmarkDjvu2pdf.py)</span> <a href="http://bobbielf2.github.io/downloads/code/bmarkDjvu2pdf.py">download</a></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-<span class="line-number">20</span>
-<span class="line-number">21</span>
-<span class="line-number">22</span>
-<span class="line-number">23</span>
-<span class="line-number">24</span>
-<span class="line-number">25</span>
-<span class="line-number">26</span>
-</pre></td><td class="code"><pre><code class="py"><span class="line"><span class="c">#! /usr/bin/env python</span>
-</span><span class="line"><span class="n">metadata</span> <span class="o">=</span> <span class="s">&#39;&#39;</span> <span class="c"># string to be written into PDF metadata</span>
-</span><span class="line"><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;bmarks.out&quot;</span><span class="p">)</span> <span class="c"># open input file: djvu outline</span>
-</span><span class="line"><span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-</span><span class="line"><span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;(bookmarks&#39;</span><span class="p">):</span>
-</span><span class="line">    <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class="line">
-</span><span class="line"><span class="k">while</span> <span class="p">(</span><span class="n">level</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
-</span><span class="line">    <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-</span><span class="line">    <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;(&quot;&#39;</span><span class="p">):</span>
-</span><span class="line">        <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span>
-</span><span class="line">        <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span> <span class="o">+</span> <span class="s">&quot;BookmarkBegin</span><span class="se">\n</span><span class="s">BookmarkTitle: &quot;</span><span class="o">+</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&#39;(&quot;&#39;</span><span class="p">)</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">BookmarkLevel: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">level</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
-</span><span class="line">        <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-</span><span class="line">        <span class="k">while</span> <span class="n">line</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;)&#39;</span><span class="p">):</span>
-</span><span class="line">            <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">-</span> <span class="mi">1</span>
-</span><span class="line">            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-</span><span class="line">        <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span> <span class="o">+</span> <span class="s">&quot;BookmarkPageNumber: &quot;</span><span class="o">+</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&#39;&quot;#&#39;</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
-</span><span class="line">    <span class="k">else</span><span class="p">:</span>
-</span><span class="line">        <span class="k">while</span> <span class="n">line</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;)&#39;</span><span class="p">):</span>
-</span><span class="line">            <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">-</span> <span class="mi">1</span>
-</span><span class="line">            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-</span><span class="line">
-</span><span class="line"><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span><span class="line"><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;bmarks2.txt&quot;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="c"># output file: for PDF metadata</span>
-</span><span class="line"><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
-</span><span class="line"><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<h3 id="step-3-modify-pdf-metadata-to-include-the-bookmark-data">Step 3. modify PDF metadata to include the bookmark data</h3>
-
-<p>Extract PDF metadata with this command:</p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">pdftk <span class="s2">&quot;book.pdf&quot;</span> dump_data &gt; pdfmetadata.out
-</span></code></pre></td></tr></table></div></figure>
-
-<p>Open the <code>pdfmetadata.out</code> file, and find the line that begins with <code>NumberOfPages:</code>, and insert your list of bookmarks after this line. Save the new file as <code>pdfmetadata.in</code>. Now run this command:</p>
-
-<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">pdftk <span class="s2">&quot;book.pdf&quot;</span> update_info <span class="s2">&quot;pdfmetadata.in&quot;</span> output newbook.pdf
-</span></code></pre></td></tr></table></div></figure>
-
-<p>The output <code>newbook.pdf</code> is your new <code>book.pdf</code> equiped with a convenient table of contents. Happy reading!</p>
-
 ]]></content>
   </entry>
   

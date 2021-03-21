@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Low-rank and Rank Structured Matrices - Bobbie's Blog</title>
+  <meta name="author" content="Bowei "Bobbie" Wu .">
+
+  
+  <meta name="description" content="When you begin to research a field of study, you often get overwhelmed by the amount of existing knowledge you have to learn before you could go &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://bobbielf2.github.io/blog/2021/03/21/low-rank-and-rank-structured-matrices/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Bobbie's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Bobbie's Blog</a></h1>
+  
+    <h2>Boys be ambitious.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="bobbielf2.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/links/">Links</a></li>
+  <li><a href="https://sites.google.com/a/utexas.edu/boweiwu/">Academic</a></li>
+  <li><a href="/aboutme/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h2 class="entry-title">Low-rank and Rank Structured Matrices</h2>
+      <h3></h3>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2021-03-21T15:33:24-05:00'><span class='date'>03-21-21</span> <span class='time'>15:33</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>When you begin to research a field of study, you often get overwhelmed by the amount of existing knowledge you have to learn before you could go further. One useful way to bootstrap yourself is to only learn a minimal amount of basic ideas that are enough for you to “survive”  in the field. Such basic ideas are the Minimal Actionable Knowledge &amp; Experience (MAKE) of the field. Here, I will try to present the “MAKE” of the field of fast matrix computations.</p>
+
+<!--more-->
+
+<h3 id="low-rank-matrices-and-important-information">Low-rank matrices and important information</h3>
+
+<p>An $m\times n$  matrix $\mathbf{A}$ is low-rank if its rank, $k\equiv\mathrm{rank}\,\mathbf{A}$, is far less than $m$ and $n$. Then $\mathbf{A}$ has a factorization <script type="math/tex">\mathbf{A} =\mathbf{E}\mathbf{F}</script> where $\mathbf{E}$ is a tall-skinny matrix with $k$ columns and $\mathbf{F}$ a short-fat matrix with $k$ rows.</p>
+
+<p><img class="center" src="/images/blog_figures/lowRankFac.png" width="500" /></p>
+
+<p>For example the following $3\times3$ matrix is of rank-$1$ only.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{bmatrix}
+1 & 2 & 3\\
+1 & 2 & 3\\
+1 & 2 & 3
+\end{bmatrix}
+=
+\begin{bmatrix}
+1\\
+1\\
+1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix} %]]></script>
+
+<p>Given a matrix $\mathbf{A}$, there are many ways to find $\mathrm{rank}\,\mathbf{A}$. One way is to find the <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">SVD</a></p>
+
+<script type="math/tex; mode=display">\mathbf{A}=\mathbf{U}\mathbf{\Sigma} \mathbf{V}^*</script>
+
+<p>where $\mathbf{\Sigma}=\mathrm{diag}(\sigma_1,\sigma_2,\dots)$ is an $m\times n$ diagonal matrix, whose diagonal elements are called the singular values of $\mathbf{A}$. Then $\mathrm{rank}\,\mathbf{A}$ is the number of nonzero singular values.</p>
+
+<p>The SVD tells you the most important information about a matrix: the <a href="https://en.wikipedia.org/wiki/Low-rank_approximation#Proof_of_Eckart%E2%80%93Young%E2%80%93Mirsky_theorem_(for_spectral_norm)">Eckart-Young theorem</a> says that the best rank-$k$ approximation of $\mathbf{A}=\mathbf{U}\mathbf{\Sigma} \mathbf{V}^*$ can be obtained by only keeping the first $k$ singular values and zeroing out the rest in $\mathbf{\Sigma}$. When the singular values decay quickly, such a low-rank approximation can be very accurate. This is particularly important in practice when we want to solve problems efficiently by ignoring the unimportant information.</p>
+
+<p>An interesting example is the $n\times n$ <a href="https://en.wikipedia.org/wiki/Hilbert_matrix">Hilbert matrix</a> $\mathbf{H}_n$, whose $(i,j)$ entry is defined to be $\frac{1}{i+j-1}$. $\mathbf{H}_n$ is full-rank for any size $n$, but it is <em>numerically low-rank</em>, meaning that its singular values decay rapidly such that given any small threshold $\epsilon$, only a few singular values are above $\epsilon$. For example with $\epsilon=10^{-15}$, the $1000\times1000$ has numerical rank $28$.</p>
+
+<p>Other examples of (numerically) low-rank matrices include the <a href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde</a>, <a href="https://en.wikipedia.org/wiki/Cauchy_matrix">Cauchy</a>, <a href="https://en.wikipedia.org/wiki/Hankel_matrix">Hankel</a>, and <a href="https://en.wikipedia.org/wiki/Toeplitz_matrix">Toeplitz</a> matrices, as well as matrices constructed from smooth data or smooth functions.</p>
+
+<p>As it turns out, a lot of the matrices we encounter in practice are numerically low-rank. So finding low-rank approximation (e.g. in the form of $\mathbf{A}=\mathbf{EF}$ at the beginning) is one of the most important and fundamental subjects in applied math nowadays.</p>
+
+<h3 id="data-sparsity-and-rank-structured-matrices">Data sparsity and rank structured matrices</h3>
+
+<p>Matrix sizes have been growing with technological advancements. Many common matrix algorithms scale cubically with the matrix size, meaning that even if your computing power grows 1000 times, you could only afford to solve problems that are 10 times bigger than before. These common algorithms include matrix multiplication, matrix inversion, and matrix factorizations (e.g. LU, QR, SVD). Therefore, it is important to speed up these matrix computation methods in order to fully exploit the ever growing computing power.</p>
+
+<p>One major strategy to accelerate the computations is to exploit the <strong>data sparsity</strong> of a matrix. Data sparsity is a deliberately vague concept which broadly refers to the kind of internal structures in a matrix that can help make computations faster. Following are some common examples of data-sparse matrices.</p>
+
+<ul>
+  <li>The most classcial data-sparse matrices are the <strong>sparse matrices</strong>, ones with a large number of zero entries. Using <a href="https://en.wikipedia.org/wiki/Sparse_matrix#Compressed_sparse_row_(CSR,_CRS_or_Yale_format)">compressed data formats</a>, you can save a lot of memories by storing only the nonzero entries (together with their positions). You can greatly reduce computation time by only operating on the nonzero entries while maintaining the sparsity of the matrices (i.e., avoid introducing more nonzero entries). Common sparse matrices include diagonal/block-diagonal matrices, banded matrices, permutations, adjacency matrix of graphs, etc.</li>
+  <li><strong>Low-rank matrices</strong>, as we have introduced above, are ones admit low-rank factorizations. Commonly used factorizations include the <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition#Reduced_SVDs">reduced SVDs</a>, <a href="https://en.wikipedia.org/wiki/Interpolative_decomposition">interpolative decomposition</a>, <a href="https://en.wikipedia.org/wiki/CUR_matrix_approximation">CUR decomposition</a>, <a href="https://en.wikipedia.org/wiki/RRQR_factorization">rank-revealing QR factorizations</a>, etc. Normally the SVD algorithms are more expensive, so the other algorithms are more practical; for very large matrices, all the factorization algorithms can be further accelerated by <a href="https://epubs.siam.org/doi/abs/10.1137/090771806">randomization techniques</a>.</li>
+  <li><strong>Rank structured matrices.</strong> These matrices are not necessarily low-rank, but can be split into a relatively small number of submatrices, each of which is low-rank. For example, the picture below shows the structure of a <em>Hierarchically Off-diagonal Low Rank</em> (HODLR) matrix, where all the off-diagonal blocks, big or small, have similar ranks. Such structure can for example arise from gravitational or electrostatic interactions, where the diagonal blocks represent the local interactions and the off-diagonal blocks represent the far interactions; the far interactions are low-rank because they are much smoother than the local interactions. Other rank structured matrices include the <em>Hierarchically Semi-separable</em> (HSS) matrices, the inverse of banded matrices, and the more general <a href="https://en.wikipedia.org/wiki/Hierarchical_matrix">$\mathcal{H}$-matrices</a> and <a href="https://en.wikipedia.org/wiki/Hierarchical_matrix#H2-matrices">$\mathcal{H}^2$-matrices</a>. Rank structured matrices can be efficiently handled using tree structures. Matrix algorithms designed for these matrices can be very fast, with computation time scaling linearly or log-linearly with the matrix size.</li>
+</ul>
+
+<p><img class="center" src="/images/blog_figures/HODLR.png" width="400" /></p>
+
+<ul>
+  <li><strong>Complementary low-rank matrices</strong> are a special type of rank structured matrices that can be decomposed by the <em>butterfly factorization</em> (BF). The BF is inspired by ideas of the <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">FFT</a> algorithm (divide-and-conquer and permutations), which can be explained using the <a href="https://en.wikipedia.org/wiki/Butterfly_diagram">butterfly diagram</a>. Butterfly algorithms were initially motivated by solving oscillatory problems such as wave scattering.</li>
+</ul>
+
+<p>With these ideas above, plus a little coding experience with some simple rank structured matrices (a good place to start is with the first two of these <a href="https://amath.colorado.edu/faculty/martinss/2014_CBMS/codes.html">tutorial codes</a>), you are equipped with the “MAKE” that gets you ready for going on an advanture to the fast computations with matrices. All the details and other more advanced topics can be learned later once you dig far enough.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bowei "Bobbie" Wu .</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2021-03-21T15:33:24-05:00'><span class='date'>03-21-21</span> <span class='time'>15:33</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/math/'>math</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://bobbielf2.github.io/blog/2021/03/21/low-rank-and-rank-structured-matrices/" data-via="" data-counturl="http://bobbielf2.github.io/blog/2021/03/21/low-rank-and-rank-structured-matrices/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2021/03/12/lockdown-math/" title="Previous Post: Lockdown Math">&laquo; Lockdown Math</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2021/03/21/low-rank-and-rank-structured-matrices/">Low-rank and Rank Structured Matrices</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/03/12/lockdown-math/">Lockdown Math</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/03/04/your-one-big-desire/">Your One Big Desire</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/02/22/one-disastrous-week-in-austin/">One Disastrous Week in Austin &mdash; We Survived</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/02/14/underestimating-my-ignorance/">Underestimating My Ignorance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2021 - Bowei "Bobbie" Wu . -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'bobbies-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://bobbielf2.github.io/blog/2021/03/21/low-rank-and-rank-structured-matrices/';
+        var disqus_url = 'http://bobbielf2.github.io/blog/2021/03/21/low-rank-and-rank-structured-matrices/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
