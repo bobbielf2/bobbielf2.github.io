@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Math | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/math/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2021-03-21T16:47:00-05:00</updated>
+  <updated>2021-03-26T01:23:06-05:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[It Is Okay to Speed Up a Little]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/03/26/it-is-okay-to-speed-up-a-little/"/>
+    <updated>2021-03-26T00:57:22-05:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/03/26/it-is-okay-to-speed-up-a-little</id>
+    <content type="html"><![CDATA[<p>We naturally avoid making mistakes. If you were a caveman who survives by hunting, you’d try not to make mistakes that could get you killed by animals.</p>
+
+<p>But in the modern days, we no longer worry about ferocious animals. We now have much safer spaces that are tolerant of our mistakes. So we can afford to make more mistakes. In fact, making mistakes is how we learn.</p>
+
+<p>Yet, people avoid mistakes because it makes you “look bad.” But there is no learning without making mistakes. So how can we gain the courage to learn without worrying about the mistakes we would make?</p>
+
+<p>I think math has the answer.</p>
+
+<!--more-->
+
+<p>In numerical analysis, we design algorithms that solve problems quickly and accurately. One major task when developing such an algorithm is to combat with numerical errors. If you open any classical numerical analysis textbook, you will likely see discussions of error analysis: how to eliminate or reduce roundoff errors, and how to prevent errors from propagating and contaminating the final results.</p>
+
+<p>Talking about errors can sound bad and boring. It may drive beginners away from numerical analysis before they can learn the true beauty of the subject.</p>
+
+<p>In fact, mathematicians know about the bad connotations associated with “errors.” When communicating with fellow mathematicians, we don’t talk about errors as often as one would imagine. For example, instead of saying “the algorithm makes smaller errors” we like to say “the algorithm converges faster.” And instead of “the algorithm prevents error propagation” we like to say “the algorithm is stable and robust.”</p>
+
+<p>“Fast convergence” and “smaller errors” mean the same thing, but the framings are completely different. “Convergence” focuses on the positive effects and makes people excited. If you ask any numerical analyst what makes them love their field, I’ll bet you no one would say they love the error analysis; rather, they would tell you about the lightning computation speeds, the simple ideas behind powerful algorithms, the unexpected connections between ideas from different fields, and more.</p>
+
+<p>Likewise, “making mistakes” gets its own bad rap. I propose replacing it with “speeding up” because making more mistakes allows you to learn quicker. Whenever you are stuck and can’t make any progress because you are afraid of making mistakes, try to tell yourself “I am just going to speed up my learning a little.”</p>
+
+<p>Making mistakes can be embarrassing, but <a href="https://twitter.com/edlatimore/status/1058305553020141570">embarrassment is simply the cost of entry</a>. The embarrassment you feel only exist in your mind, learning is what can actually happen. Once you allow yourself to look stupid and take on the beginner’s mindset, learning will be unstoppable.</p>
+
+<p>Make more mistakes. It is okay to speed up a little, and it feels great.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Low-rank and Rank Structured Matrices]]></title>
@@ -246,79 +278,6 @@ u_\mathrm{out}(x)-u_\infty, & x\in\mathbb{R}^2\setminus\bar\Omega
     </li>
   </ol>
 </div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Regular and Singular Numerical Integration]]></title>
-    <link href="http://bobbielf2.github.io/blog/2021/01/24/regular-and-singular-numerical-integration/"/>
-    <updated>2021-01-24T20:49:12-06:00</updated>
-    <id>http://bobbielf2.github.io/blog/2021/01/24/regular-and-singular-numerical-integration</id>
-    <content type="html"><![CDATA[<p>The Pareto principle (a.k.a. 80/20 rule) says that for many outcomes, roughly 80% of consequences come from 20% of the causes. Qualitatively speaking, this also applies to numerical integration: most of the integral can be handled by just a few quadrature rules.</p>
-
-<p>People who have learned numerical analysis all know about the <a href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_quadrature">Gauss quadrature</a> rule: for any integer $n&gt;0$, there exist $n$ nodes $x_1,x_2,\dots,x_n\in[-1,1]$ and $n$ corresponding weights $w_1,w_2,\dots,w_n$, such that the approximation</p>
-
-<script type="math/tex; mode=display">\int_{-1}^1f(x)\,dx\approx \sum_{i=1}^nf(x_i)w_i</script>
-
-<p>is highly accurate for any function $f$ smoothly defined on $[-1,1]$. The error of this approximation typically decays exponentially as $n$ increases. Together with scaling and shifting of variables, the Gauss quadrature efficiently handles all the regular integrals (i.e. integrals involving smooth integrands) on any interval $[a,b]\subset\mathbb{R}$.</p>
-
-<p>What if the integrand is singular? How would you approximate an integral when the integrand is not smooth or even blowing up somewhere on the interval? It turns out that most of the singular integrals in practice can be handled by a few strategies (80/20 rule again!). Here they are:</p>
-
-<!--more-->
-
-<p><strong>1. Integration by parts.</strong> People in calculus classes may have heard the joke: “Integrate by parts whenever you’re not sure what to do.” This is sometimes true for singular integrals. For example:</p>
-
-<script type="math/tex; mode=display">\int_0^1e^x\ln x\,dx = (e^x-1)\ln x\Big|_{x\to0}^1 - \int_0^1\frac{e^x-1}{x}\,dx</script>
-
-<p>then on the right-hand side, the boundary terms evaluate to $0$ while the new integral is in fact regular, so applying the Gauss quadrature will be excellent.</p>
-
-<p><strong>2. Integration by substitution.</strong> Many singular integrals can be made regular after a change of variables. For example, substituting $x=\cos\theta$ in the integral below yields</p>
-
-<script type="math/tex; mode=display">\int_{-1}^1\frac{f(x)}{\sqrt{1-x^2}}dx = \int_0^\pi f(\cos\theta)\,d\theta</script>
-
-<p>then, assuming $f$ is smooth, the Gauss quadrature will just work for the second integral.</p>
-
-<p><strong>3. Product quadratures.</strong> When the integrand is a product of a regular function $f(x)$ and a singular function $w(x)$ (usually refered to as “weight function”), one can often design efficient quadratures of the form</p>
-
-<script type="math/tex; mode=display">\int_{-1}^1f(x)w(x)\,dx\approx\sum_{i=1}^nf(x_i)w_i</script>
-
-<p>For example, the <a href="https://en.wikipedia.org/wiki/Chebyshev%E2%80%93Gauss_quadrature">Chebyshev quadrature</a> works perfectly for the integral in the previous example where $w(x)=(1-x^2)^{-1/2}$. On the other hand, both the Gauss quadrature and the Chebyshev quadrature are particular instances from the <a href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Jacobi_quadrature">Jacobi quadrature</a> family. These example quadrature rules are derived based on the theory of <a href="https://en.wikipedia.org/wiki/Orthogonal_polynomials">orthogonal polynomials</a>, where for each given weight $w(x)$, there is a family of polynomials ${g_0(x),g_1(x),\dots}$ such that any two different polynomials are “orthogonal” to each other in the sense that, for any $i\neq j$,</p>
-
-<script type="math/tex; mode=display">\int_{-1}^1g_i(x)g_j(x)w(x)\,dx=0.</script>
-
-<p><strong>4. Extrapolation.</strong> The <a href="https://en.wikipedia.org/wiki/Romberg%27s_method">Romberg integration</a> is an extrapolation method that can enhance the accuracy of quadrature rules define on equally-spaced nodes. As a simple example, consider the following trapezoidal rule approximation with spacing $h=\frac{\pi}{n}$</p>
-
-<script type="math/tex; mode=display">\int_{-\pi}^\pi\sin|x|\,dx = \sum_{i=-n+1}^{n-1}\sin|ih|h + \frac{\sin|-\pi|+\sin|\pi|}{2}h + E(h)</script>
-
-<p>where the integrand is nonsmooth at $x=0$, and where $E(h)$ is the error that depends on $h$. It turns out that this error can be written as a power series of $h$:</p>
-
-<script type="math/tex; mode=display">E(h) = C_1h^2+C_2h^4+C_3h^6+\dots</script>
-
-<p>The leading error will be canceled if one appropriately combine an $h$-approximation with a $2h$-approxiation:</p>
-
-<script type="math/tex; mode=display">E_2(h):=\frac{4E(h)-E(2h)}{3} = C_2'h^4 + C_3'h^6+\dots</script>
-
-<p>The new error is of size $h^4$ which is much smaller than the original $h^2$. This procedure can be done multiple times to cancel the leading errors in the expansion one at a time, such that the accuracy is substantially improved.</p>
-
-<p><strong>5. Singularity cancellation.</strong> Some singularities are stronger than others. For example, $x\ln x$ is less singular than $\ln x$ because the former is bounded near $x=0$. Let’s consider the first example above again that integrates $e^x\ln x$. It is easy to see that the integrand near $0$ behaves like $\ln x$, so we can subtract $\int_0^1\ln x\,dx$ from the original integral and then add it back, that is</p>
-
-<script type="math/tex; mode=display">\int_0^1e^x\ln x\,dx = \int_0^1(e^x-1)\ln x\,dx+\int_0^1\ln x\,dx</script>
-
-<p>The integral  $\int_0^1\ln x\,dx=-1$ by a simple integration by parts. Then we can apply the $n$-point Gauss quadrature to the remaining integral $\int_0^1(e^x-1)\ln x\,dx$, the error decays roughly like $1/n^4$, much faster than the $1/n^2$ decay rate that you would get if applying the same quadrature to the original integral.</p>
-
-<p>These five strategies, or a combination of them, cover almost all common ways to integrate singular function. One strategy could be more efficiently than another depending on the particular application of interest.</p>
-
-<p><a href="https://www.urbandictionary.com/define.php?term=BOCTAOE">BOCTAOE</a>. There are situations where none of the above strategies are efficient enough. Such marginal cases attract most of the research efforts. (80/20 rule again.) For example, here is one strategy that I recently took in my research:</p>
-
-<p><strong>6. Error correction.</strong> Sometimes, it may be necessary to find an explicit expression for the quadrature error $E(h)$, so that you have the power to develop more sophisticated methods tailored to your application of interest. To give an example, consider the integral of $f(x)=e^{-x^2}\ln x$, its right-hand Riemann sum approximation on $[0,6]$ with $n$ subdivisions is</p>
-
-<script type="math/tex; mode=display">\int_0^6e^{-x^2}\ln x\,dx = \sum_{i=1}^nf(ih)h + E(h) + \epsilon</script>
-
-<p>where $h=\frac{6}{n}$, $\epsilon=\int_6^\infty f(x)\,dx&lt;10^{-16}$ is some small constant that is immaterial in practice. The error $E(h)$ has the following expansion:</p>
-
-<script type="math/tex; mode=display">E(h) = \sum_{m=0}^{M-1}\frac{(-1)^m}{m!}[\zeta(-2m)\log h-\zeta'(-2m)]h^{2m+1} + O(h^{2M+1}\log h)</script>
-
-<p>where $\zeta(z)$ is the famous <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function">Riemann zeta function</a>.  Such formulae could take a lot of effort to derive in general. But once available, they allow you to develop highly efficient numerical methods.</p>
 ]]></content>
   </entry>
   
