@@ -152,7 +152,7 @@ MathJax.Hub.Config({
 
 <ul>
   <li>The most classcial data-sparse matrices are the <strong>sparse matrices</strong>, ones with a large number of zero entries. Using <a href="https://en.wikipedia.org/wiki/Sparse_matrix#Compressed_sparse_row_(CSR,_CRS_or_Yale_format)">compressed data formats</a>, you can save a lot of memories by storing only the nonzero entries (together with their positions). You can greatly reduce computation time by only operating on the nonzero entries while maintaining the sparsity of the matrices (i.e., avoid introducing more nonzero entries). Common sparse matrices include diagonal/block-diagonal matrices, banded matrices, permutations, adjacency matrix of graphs, etc.</li>
-  <li><strong>Low-rank matrices</strong>, as we have introduced above, are ones admit low-rank factorizations. Commonly used factorizations include the <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition#Reduced_SVDs">reduced SVDs</a>, <a href="https://en.wikipedia.org/wiki/Interpolative_decomposition">interpolative decomposition</a>, <a href="https://en.wikipedia.org/wiki/CUR_matrix_approximation">CUR decomposition</a>, <a href="https://en.wikipedia.org/wiki/RRQR_factorization">rank-revealing QR factorizations</a>, etc. Normally the SVD algorithms are more expensive, so the other algorithms are more practical; for very large matrices, all the factorization algorithms can be further accelerated by <a href="https://epubs.siam.org/doi/abs/10.1137/090771806">randomization techniques</a>.</li>
+  <li><strong>Low-rank matrices</strong>, as we have introduced above, are ones admit low-rank factorizations. Commonly used factorizations include the <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition#Reduced_SVDs">reduced SVDs</a>, <a href="https://en.wikipedia.org/wiki/Interpolative_decomposition">interpolative decomposition</a>, <a href="https://en.wikipedia.org/wiki/CUR_matrix_approximation">CUR decomposition</a>, <a href="https://en.wikipedia.org/wiki/RRQR_factorization">rank-revealing QR factorizations</a>, etc. Normally the SVD algorithms are more expensive, so the other algorithms are preferred when possible; for very large matrices, all the factorization algorithms can be further accelerated by <a href="https://epubs.siam.org/doi/abs/10.1137/090771806">randomization techniques</a>.</li>
   <li><strong>Rank structured matrices.</strong> These matrices are not necessarily low-rank, but can be split into a relatively small number of submatrices, each of which is low-rank. For example, the picture below shows the structure of a <em>Hierarchically Off-diagonal Low Rank</em> (HODLR) matrix, where all the off-diagonal blocks, big or small, have similar ranks. Such structure can for example arise from gravitational or electrostatic interactions, where the diagonal blocks represent the local interactions and the off-diagonal blocks represent the far interactions; the far interactions are low-rank because they are much smoother than the local interactions. Other rank structured matrices include the <em>Hierarchically Semi-separable</em> (HSS) matrices, the inverse of banded matrices, and the more general <a href="https://en.wikipedia.org/wiki/Hierarchical_matrix">$\mathcal{H}$-matrices</a> and <a href="https://en.wikipedia.org/wiki/Hierarchical_matrix#H2-matrices">$\mathcal{H}^2$-matrices</a>. Rank structured matrices can be efficiently handled using tree structures. Matrix algorithms designed for these matrices can be very fast, with computation time scaling linearly or log-linearly with the matrix size.</li>
 </ul>
 
@@ -225,6 +225,10 @@ MathJax.Hub.Config({
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2021/04/04/what-are-operational-calculus/">What Is Operational Calculus? Finite Differences and the Euler-Maclaurin Formula</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2021/03/26/it-is-okay-to-speed-up-a-little/">It Is Okay to Speed Up a Little</a>
       </li>
     
@@ -238,10 +242,6 @@ MathJax.Hub.Config({
     
       <li class="post">
         <a href="/blog/2021/03/04/your-one-big-desire/">Your One Big Desire</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2021/02/22/one-disastrous-week-in-austin/">One Disastrous Week in Austin &mdash; We Survived</a>
       </li>
     
   </ul>

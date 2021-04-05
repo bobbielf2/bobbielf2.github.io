@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://bobbielf2.github.io/blog/2021/04/04/what-are-operational-calculus/</loc>
+<lastmod>2021-04-04T23:45:42-05:00</lastmod>
+</url>
+<url>
 <loc>http://bobbielf2.github.io/blog/2021/03/26/it-is-okay-to-speed-up-a-little/</loc>
 <lastmod>2021-03-26T00:57:22-05:00</lastmod>
 </url>
@@ -191,14 +195,5 @@
 </url>
 <url>
 <loc>http://bobbielf2.github.io/blog/categories/education/</loc>
-</url>
-<url>
-<loc>http://bobbielf2.github.io/posts/2/</loc>
-</url>
-<url>
-<loc>http://bobbielf2.github.io/posts/3/</loc>
-</url>
-<url>
-<loc>http://bobbielf2.github.io/posts/4/</loc>
 </url>
 </urlset>

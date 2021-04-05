@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Math | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/math/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2021-03-26T01:23:06-05:00</updated>
+  <updated>2021-04-05T00:26:10-05:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,113 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[What Is Operational Calculus? Finite Differences and the Euler-Maclaurin Formula]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/04/04/what-are-operational-calculus/"/>
+    <updated>2021-04-04T23:45:42-05:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/04/04/what-are-operational-calculus</id>
+    <content type="html"><![CDATA[<p>When we first learned ordinary differential equations (ODEs) in class, we were told that the solution of</p>
+
+<script type="math/tex; mode=display">f'(x)=f(x)</script>
+
+<p>is $f(x)=Ce^x$ for an arbitrary constant $C$. We were told that this solution can be obtained either by observation and guessing (then it’s easy to verify solution), or by a separation of variable (e.g. integrate $dy/y=dx$). But these approaches don’t tell us what to do for higher-order equations, such as $f’'-3f’+2f=0$.</p>
+
+<p>The <strong>operational calculus</strong> provides a convenient way to algebraically derive the solution to these linear ODEs. The derivation goes as follows.</p>
+
+<!--more-->
+
+<ul>
+  <li>We want to solve the ODE $f’(x)=f(x)$, or equivalently $(\frac{d}{dx}-1)f(x)=0$.</li>
+  <li>Define the differential operator $D:=\frac{d}{dx}$, then the equation becomes $(D-1)f(x)=0$.</li>
+  <li>Define the integral operator $J$ such that $Jf(x):=\int_0^xf(t)dt$. (Therefore by the fundamental theorem of calculus, for any smooth function $g(x)$ we have $DJg(x)= g(x)$ and $JDg(x)=g(x)+C$, where the constant $C=-g(0)$. In particular, if $g(0)=0$ then we have $DJg(x)=JDg(x)=g(x)$, so we can write $J=D^{-1}$.)</li>
+  <li>Rewrite the ODE as $\frac{1-D^{-1}}{D^{-1}}f(x)=0$, so $f(x)=\frac{D^{-1}}{1-D^{-1}}0 = \frac{1}{1-J}(D^{-1}0)$</li>
+  <li>Suppose the above $0$ function is the derivative of some constant $C$, that is, $D^{-1}0=C$, then $f(x)=\frac{1}{1-J}C=C\left(\frac{1}{1-J}1\right)$</li>
+  <li>By the Taylor series we have $\frac{1}{1-J}=1 + J+J^2+\dots=\sum_{n=0}^\infty J^{n}$, we can write $f(x)=C\sum_{n=0}^\infty J^{n}1$</li>
+  <li>By induction, $J1=\int_0^x1\,dt=x,\; J^21=\int_0^xt\,dt=\frac{x^2}{2},\dots,J^n1=\frac{x^n}{n!}$. Therefore $f(x)=C\sum_{n=0}^\infty \frac{x^n}{n!}=C e^x$.</li>
+</ul>
+
+<p>Similarly we can show that $(D-a)f(x)=0$ has a solution $f(x)=Ce^{ax}$. Then for a higher-order equation such as $f’'-3f’+2f=0$, we can rewrite it as $(D^2-3D+2)f=0$ which can be then factored into $(D-1)(D-2)f(x)=0$, implying either $(D-1)f=0$ or $(D-2)f=0$.</p>
+
+<p>Operational calculus reduces a differential equation into an algebraic equation, which is often much easier to solve.</p>
+
+<h3 id="the-calculus-of-finite-differences">The calculus of finite differences</h3>
+
+<p>The calculus of finite differences is a brilliant extension of the operational calculus to discrete quantities. The most important observation is that, given the <em>shift operator</em></p>
+
+<script type="math/tex; mode=display">Ef(x):=f(x+h),</script>
+
+<p>there is this remarkable <em>exponential map</em>, $E=\exp(hD)$, that connects the continuous and discrete worlds. This exponential map is simply a different way of writing the Taylor series expansion:</p>
+
+<script type="math/tex; mode=display">Ef(x)=\exp(hD)f(x)=\left(1+hD+\frac{(hD)^2}{2!}+\frac{(hD)^3}{3!}+\dots\right)f(x)</script>
+
+<p>From here, a lot of the great things can happen. For example, if we want to derive a <em>forward difference</em> formula such as</p>
+
+<script type="math/tex; mode=display">f'(x)\approx \frac{f(x+h)-f(x)}{h},</script>
+
+<p>we can define the forward difference operator</p>
+
+<script type="math/tex; mode=display">\Delta f(x):=f(x+h)-f(x)=(E-1)f(x)</script>
+
+<p>and write down the relationship</p>
+
+<script type="math/tex; mode=display">\Delta+1=E=\exp(hD).</script>
+
+<p>Then it follows naturally that</p>
+
+<script type="math/tex; mode=display">D=\frac{1}{h}\log(1+\Delta)=\frac{1}{h}\left(\Delta - \frac{\Delta^2}{2} + \frac{\Delta^3}{3} - \dots\right)</script>
+
+<p>Truncating this series at the first term gives back the first-order difference formula $f’(x)\approx\frac{1}{h}\Delta f(x)$ as before; truncating at the second term gives the second-order formula</p>
+
+<script type="math/tex; mode=display">f'(x)\approx\frac{1}{h}(\Delta-\Delta^2/2)f(x)=\frac{1}{h}\left(-\frac{1}{2}f(x+2h)+2f(x+h)−\frac{3}{2}f(x)\right)</script>
+
+<p>and so on.</p>
+
+<h3 id="the-euler-maclaurin-formula">The Euler-Maclaurin formula</h3>
+
+<p>Another striking application of such finite difference calculus is to derive the more advanced <a href="https://en.wikipedia.org/wiki/Euler%E2%80%93Maclaurin_formula"><em>Euler-Maclaurin formula</em></a>, which is in some sense a discrete version of the fundamental theorem of calculus.</p>
+
+<p>As we have mentioned in the first part of this article, the fundamental theorem of calculus can be written in terms of operators as</p>
+
+<script type="math/tex; mode=display">D^{-1}f(x)=Jf(x)+C=\int_0^xf(t)\,dt+C</script>
+
+<p>So we would like to know if we replace the differential operator $D$ with the difference operator $\Delta$, how would this relationship change? What is $\Delta^{-1}f(x)$?</p>
+
+<p>We have shown previously that $1+\Delta=\exp(hD)$, so it would be naturaly to write</p>
+
+<script type="math/tex; mode=display">\Delta^{-1}=\frac{1}{\exp(hD)-1}.</script>
+
+<p>However, the above right-hand side corresponds to the function $1/(e^x-1)$ which is singular at the origin, so instead we write</p>
+
+<script type="math/tex; mode=display">\Delta^{-1}=\frac{hD}{\exp(hD)-1}(hD)^{-1}=\sum_{n=0}^{\infty}\frac{B_n}{n!}(hD)^{n}(hD)^{-1}.</script>
+
+<p>Here we have used the fact that</p>
+
+<script type="math/tex; mode=display">\frac{x}{e^x-1}=\sum_{n=0}^{\infty}\frac{B_n}{n!}x^n</script>
+
+<p>where $B_n$ are the <a href="https://en.wikipedia.org/wiki/Bernoulli_numbers">Bernoulli numbers</a>. Notice that with our notations, we have</p>
+
+<script type="math/tex; mode=display">(hD)^{-1}f(x)=\frac{1}{h}\int_0^xf(t)\,dt+C</script>
+
+<p>and</p>
+
+<script type="math/tex; mode=display">(hD)^{n}(hD)^{-1}f(x)=h^{n-1}f^{(n-1)}(x)</script>
+
+<p>therefore</p>
+
+<script type="math/tex; mode=display">\Delta^{-1}f(x)=\frac{1}{h}\int_0^xf(t)\,dt+C+\sum_{n=1}^{\infty}\frac{B_n}{n!}h^{n-1}f^{(n-1)}(x)</script>
+
+<p>Now apply $\Delta$ on both sides, we have</p>
+
+<script type="math/tex; mode=display">f(x)=\frac{1}{h}\int_x^{x+h}f(t)\,dt+\sum_{n=1}^{\infty}\frac{B_n}{n!}h^{n-1}(f^{(n-1)}(x+h)-f^{(n-1)}(x))</script>
+
+<p>This is one version of the Euler-Maclaurin formula. Finally, if we replace $x$ by $a,\;a+h,\;a+2h,\;\dots,\;a+(m-1)h$, one-by-one, and sum all the resulting formulae together, we get</p>
+
+<script type="math/tex; mode=display">\sum_{k=0}^{m-1}f(a+kh)=\frac{1}{h}\int_a^bf(t)\,dt+\sum_{n=1}^{\infty}\frac{B_n}{n!}h^{n-1}\left(f^{(n-1)}(b)-f^{(n-1)}(a)\right)</script>
+
+<p>where $b:=a+mh$. So here we are, this gives us the usual form of the Euler-Maclaurin formula.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[It Is Okay to Speed Up a Little]]></title>
@@ -100,7 +207,7 @@
 
 <ul>
   <li>The most classcial data-sparse matrices are the <strong>sparse matrices</strong>, ones with a large number of zero entries. Using <a href="https://en.wikipedia.org/wiki/Sparse_matrix#Compressed_sparse_row_(CSR,_CRS_or_Yale_format)">compressed data formats</a>, you can save a lot of memories by storing only the nonzero entries (together with their positions). You can greatly reduce computation time by only operating on the nonzero entries while maintaining the sparsity of the matrices (i.e., avoid introducing more nonzero entries). Common sparse matrices include diagonal/block-diagonal matrices, banded matrices, permutations, adjacency matrix of graphs, etc.</li>
-  <li><strong>Low-rank matrices</strong>, as we have introduced above, are ones admit low-rank factorizations. Commonly used factorizations include the <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition#Reduced_SVDs">reduced SVDs</a>, <a href="https://en.wikipedia.org/wiki/Interpolative_decomposition">interpolative decomposition</a>, <a href="https://en.wikipedia.org/wiki/CUR_matrix_approximation">CUR decomposition</a>, <a href="https://en.wikipedia.org/wiki/RRQR_factorization">rank-revealing QR factorizations</a>, etc. Normally the SVD algorithms are more expensive, so the other algorithms are more practical; for very large matrices, all the factorization algorithms can be further accelerated by <a href="https://epubs.siam.org/doi/abs/10.1137/090771806">randomization techniques</a>.</li>
+  <li><strong>Low-rank matrices</strong>, as we have introduced above, are ones admit low-rank factorizations. Commonly used factorizations include the <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition#Reduced_SVDs">reduced SVDs</a>, <a href="https://en.wikipedia.org/wiki/Interpolative_decomposition">interpolative decomposition</a>, <a href="https://en.wikipedia.org/wiki/CUR_matrix_approximation">CUR decomposition</a>, <a href="https://en.wikipedia.org/wiki/RRQR_factorization">rank-revealing QR factorizations</a>, etc. Normally the SVD algorithms are more expensive, so the other algorithms are preferred when possible; for very large matrices, all the factorization algorithms can be further accelerated by <a href="https://epubs.siam.org/doi/abs/10.1137/090771806">randomization techniques</a>.</li>
   <li><strong>Rank structured matrices.</strong> These matrices are not necessarily low-rank, but can be split into a relatively small number of submatrices, each of which is low-rank. For example, the picture below shows the structure of a <em>Hierarchically Off-diagonal Low Rank</em> (HODLR) matrix, where all the off-diagonal blocks, big or small, have similar ranks. Such structure can for example arise from gravitational or electrostatic interactions, where the diagonal blocks represent the local interactions and the off-diagonal blocks represent the far interactions; the far interactions are low-rank because they are much smoother than the local interactions. Other rank structured matrices include the <em>Hierarchically Semi-separable</em> (HSS) matrices, the inverse of banded matrices, and the more general <a href="https://en.wikipedia.org/wiki/Hierarchical_matrix">$\mathcal{H}$-matrices</a> and <a href="https://en.wikipedia.org/wiki/Hierarchical_matrix#H2-matrices">$\mathcal{H}^2$-matrices</a>. Rank structured matrices can be efficiently handled using tree structures. Matrix algorithms designed for these matrices can be very fast, with computation time scaling linearly or log-linearly with the matrix size.</li>
 </ul>
 
@@ -175,109 +282,6 @@
 <p>We like to be well-prepared before going into a challenging adventure. But knowing all the failed journeys of other people, knowing that even some brave and strong peers had failed their missions, can actually paralyse you into inaction. In fact, exploring the math world doesn’t require your having “full knowledge” about any field. Nobody ever knew “enough.” Once you know a minimum amount of knowledge that allows you to survive, you can start your journey.</p>
 
 <p>“Whatever the origin of one’s journey, one day, if one walks far enough, one is bound to stumble on a well-known town: for instance, elliptic functions, modular forms, or zeta functions.” This is another quote from Alain Connes, which resonates with me deeply. There is no single path to knowledge, we can be free to explore our own paths and not be ashamed of knowing too little about all other possible paths. Be brave and keep pushing, once in a while we will meet with other adventurers in one of those famous mathematical towns.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Making Sense of Potential Theory]]></title>
-    <link href="http://bobbielf2.github.io/blog/2021/02/06/making-sense-of-potential-theory/"/>
-    <updated>2021-02-06T18:47:18-06:00</updated>
-    <id>http://bobbielf2.github.io/blog/2021/02/06/making-sense-of-potential-theory</id>
-    <content type="html"><![CDATA[<p>Potential theory was developed a few centuries ago in part to solve the boundary value problems for partial differential equations (PDEs). It led to the so-called “indirect approach” to boundary integral equations for elliptic PDEs. The goal of this article is to give this indirect approach some physical meaning. Some basic knowledge of potential theory is assumed. (See the book by R. Kress<sup id="fnref:kress"><a href="#fn:kress" class="footnote">1</a></sup> for more details.)</p>
-
-<p>Consider the classical Laplace equation in a domain $\Omega\subset\mathbb{R}^2$, with Dirichlet boundary condition on the boundary $\Gamma:=\partial\Omega$, written as</p>
-
-<script type="math/tex; mode=display">% &lt;![CDATA[
-\begin{aligned}
-\Delta u(x) &= 0 & x\in\Omega\\
-u(x) &= f(x) & x\in\Gamma
-\end{aligned} %]]&gt;</script>
-
-<p>The theory of integral equations solves a given boundary value problem like this by reformulating it into an integral equation on the boundary of the domain, such that the 2D <em>spatial differential problem</em> in $\Omega$ is reduced to a 1D <em>boundary integral problem</em> on $\Gamma$.</p>
-
-<p>There are two main approaches to integral equations: the <em>direct approach</em> and the <em>indirect approach</em>.</p>
-
-<!--more-->
-
-<p><strong>1.  Green’s representation (direct approach).</strong> The Green’s representation theorem says that the unknown function $u(x)$ can be expressed as</p>
-
-<script type="math/tex; mode=display">u(x) = \int_\Gamma \Big(G(x,y)\frac{\partial u(y)}{\partial n_y} - \frac{\partial G(x,y)}{\partial n_y}u(y)\Big)\,ds_y,\quad x\in\Omega</script>
-
-<p>where</p>
-
-<script type="math/tex; mode=display">G(x,y)=\frac{1}{2\pi}\log\frac{1}{|x-y|}</script>
-
-<p>is the fundamental solution of the Laplace equation. Then by letting $x\to\Gamma$, this representation becomes an integral equation</p>
-
-<script type="math/tex; mode=display">\int_\Gamma G(x,y)\psi(y)\,ds_y = \int_\Gamma\frac{\partial G(x,y)}{\partial n_y}f(y)\,ds_y + \frac{f(x)}{2},\quad x\in\Gamma</script>
-
-<p>where the function $\psi(y) = \frac{\partial u(y)}{\partial n_y}$ is the unknown Neumann data on $\Gamma$, and the $f(x)/2$ term is due to the so-called jump relation<sup id="fnref:kress:1"><a href="#fn:kress" class="footnote">1</a></sup>.</p>
-
-<p><strong>2. Potential theory (indirect approach).</strong> In potential theory, one starts by assuming that the solution has the form</p>
-
-<script type="math/tex; mode=display">u(x) = \int_\Gamma \frac{\partial G(x,y)}{\partial n_y}\varphi(y)\,ds_y,\quad x\in\Omega</script>
-
-<p>where $\varphi$ is a “density function” on $\Gamma$. Then again by letting $x\to\Gamma$ and using the jump relation, we arrive at the integral equation</p>
-
-<script type="math/tex; mode=display">\int_\Gamma \frac{\partial G(x,y)}{\partial n_y}\varphi(y)\,ds_y-\frac{\varphi(x)}{2}=f(x),\quad x\in\Gamma</script>
-
-<p>Comparing these two approaches, we see that the unknown function $\psi=\frac{\partial u}{\partial n}$ in the Green’s representation approach has clear physical meaning (e.g.,  if $u$ is the temperature, then $\psi$ is the heat flux at the boundary), hence the name “direct approach.” On the other hand, the unknown function $\varphi$ in the potential theory approach doesn’t have a direct physical meaning, therefore the name “indirect approach.”</p>
-
-<p>In fact, there are two ways to make sense of this density function $\varphi$.</p>
-
-<p><strong>1. The charge density analogy.</strong> The name “potential theory” comes from the fact that the Laplace equation describes the gravitational potential or electrostatic potential in space. If $G(x,y)$ represents the electric potential generated by a point charge at $y$, then $\frac{\partial G(x,y)}{\partial n_y}$ is the potential generated by a dipole charge at $y$, hence $\varphi$ is the dipole charge density on $\Gamma$. Potential theory then generalizes the concept of charge density to other elliptic PDEs as well, terming $\varphi$ the density function for a variety of potentials. (E.g., velocity potential, traction potential, electromagnetic potential, etc.)</p>
-
-<p><strong>2. The jump of physical quantities.</strong> Another way to give meaning to $\varphi$ is to go through the process of how we arrived at an assumption such as $u(x) = \int_\Gamma \frac{\partial G(x,y)}{\partial n_y}\varphi(y)\,ds_y$. The key fact is that, with such an assumption, one is actually extending the solution $u(x)$ from $\Omega$ to the entire space $\mathbb{R}^2$ based on an underlying continuity assumption on $u$. Specifically, let’s assume a solution $U(x)$ for all $x\in\mathbb{R}^2\setminus\Gamma$, such that</p>
-
-<script type="math/tex; mode=display">% &lt;![CDATA[
-U(x) = \begin{cases}
-u(x) & x\in\Omega\\
-u_\mathrm{out}(x) & x\in\mathbb{R}^2\setminus\bar\Omega
-\end{cases} %]]&gt;</script>
-
-<p>i.e., $U$ is an extension of $u$ into the whole space by stitching together the field $u$ inside $\Omega$ and some unknown harmonic field $u_\mathrm{out}$ outside $\Omega$ . According to the interior and exterior versions of Green’s representation theorem, we have</p>
-
-<script type="math/tex; mode=display">% &lt;![CDATA[
-\int_\Gamma \Big(G(x,y)\frac{\partial u(y)}{\partial n_y} - \frac{\partial G(x,y)}{\partial n_y}u(y)\Big)\,ds_y =
-\begin{cases}
-u(x), & x\in\Omega\\
-0, & x\in\mathbb{R}^2\setminus\bar\Omega
-\end{cases} %]]&gt;</script>
-
-<p>and</p>
-
-<script type="math/tex; mode=display">% &lt;![CDATA[
-\int_\Gamma \Big(\frac{\partial G(x,y)}{\partial n_y}u_\mathrm{out}(y) - G(x,y)\frac{\partial u_\mathrm{out}(y)}{\partial n_y}\Big)\,ds_y =
-\begin{cases}
--u_\infty, & x\in\Omega\\
-u_\mathrm{out}(x)-u_\infty, & x\in\mathbb{R}^2\setminus\bar\Omega
-\end{cases} %]]&gt;</script>
-
-<p>where $u_\infty$ is a constant associated to $u_\mathrm{out}$ at $\infty$. Without loss of generality, let’s just assume $u_\infty=0$ and add the above two expressions together, this yields</p>
-
-<script type="math/tex; mode=display">U(x) = \int_\Gamma G(x,y)\Big(\frac{\partial u(y)}{\partial n_y}-\frac{\partial u_\mathrm{out}(y)}{\partial n_y}\Big)\,ds_y - \int_\Gamma\frac{\partial G(x,y)}{\partial n_y}\big(u(y)-u_\mathrm{out}(y)\big)\,ds_y.</script>
-
-<p>If we assume that the normal derivative of $U$ is continuous across the boundary $\Gamma$, i.e. the normal derivative of $u$ matches that of $u_\mathrm{out}$ on $\Gamma$, then the first integral in the above representation vanishes. Therefore, defining the density $\varphi$ as</p>
-
-<script type="math/tex; mode=display">\varphi(y) := u_\mathrm{out}(y) - u(y),\quad y\in\Gamma,</script>
-
-<p>we recover the potential theoretic representation $u(x) = \int_\Gamma \frac{\partial G(x,y)}{\partial n_y}\varphi(y)\,ds_y$ for $x\in\Omega$.</p>
-
-<p>In summary, the density function $\varphi$ physically represents the jump of the extended field $U(x)$ across the boundary $\Gamma$, assuming its normal derivative is continuous across $\Gamma$.</p>
-
-<p>Based on the above idea of field-extension, we consequently obtain an intuitive picture about the solvability relations between the interior and exterior boundary value problems:</p>
-
-<p><strong>1)</strong> When using potential theory to solve the exterior Neumann problem, we assume that the extended field $U(x)$ has matching Dirichlet data across the boundary, and then solve for the unknown jump of the Neumann data $\psi(y):=\frac{\partial u(y)}{\partial n_y}-\frac{\partial u_\mathrm{out}(y)}{\partial n_y}$. Since we know that the interior Dirichlet problem is uniquely solvable, the exterior Neumann problem is also uniquely solvable (with some appropriate behavior at the infinity).</p>
-
-<p><strong>2)</strong> Likewise, the exterior Dirichlet problem is solved by matching the Neumann data of the extended field $U(x)$, and then solve for the jump of Dirichlet data across $\Gamma$.  Because the solution of an interior Neumann problem is only unique up to an arbitrary constant, the naive potential assumption for the exterior field $u_\mathrm{out}(x) = \int_\Gamma \frac{\partial G(x,y)}{\partial n_y}\varphi(y)\,ds_y$ will result in an integral equation with a one-dimensional nullspace. An additional condition is needed, besides the potential theoretic equation, in order to retrieve the unique-solvability of the exterior Dirichlet problem using integral equations.</p>
-
-<div class="footnotes">
-  <ol>
-    <li id="fn:kress">
-      <p>Kress, R. (2013). <em>Linear Integral Equations</em> (Vol. 82). Springer Science &amp; Business Media. (Chapter 6: Potential Theory) <a href="#fnref:kress" class="reversefootnote">&#8617;</a> <a href="#fnref:kress:1" class="reversefootnote">&#8617;<sup>2</sup></a></p>
-    </li>
-  </ol>
-</div>
 ]]></content>
   </entry>
   

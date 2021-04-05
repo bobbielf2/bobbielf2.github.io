@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>What Is Operational Calculus? Finite Differences and the Euler-Maclaurin Formula - Bobbie's Blog</title>
+  <meta name="author" content="Bowei "Bobbie" Wu .">
+
+  
+  <meta name="description" content="When we first learned ordinary differential equations (ODEs) in class, we were told that the solution of is $f(x)=Ce^x$ for an arbitrary constant $C &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://bobbielf2.github.io/blog/2021/04/04/what-are-operational-calculus/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Bobbie's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Bobbie's Blog</a></h1>
+  
+    <h2>Boys be ambitious.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="bobbielf2.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/links/">Links</a></li>
+  <li><a href="https://sites.google.com/a/utexas.edu/boweiwu/">Academic</a></li>
+  <li><a href="/aboutme/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h2 class="entry-title">What Is Operational Calculus? Finite Differences and the Euler-Maclaurin Formula</h2>
+      <h3></h3>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2021-04-04T23:45:42-05:00'><span class='date'>04-04-21</span> <span class='time'>23:45</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>When we first learned ordinary differential equations (ODEs) in class, we were told that the solution of</p>
+
+<script type="math/tex; mode=display">f'(x)=f(x)</script>
+
+<p>is $f(x)=Ce^x$ for an arbitrary constant $C$. We were told that this solution can be obtained either by observation and guessing (then it’s easy to verify solution), or by a separation of variable (e.g. integrate $dy/y=dx$). But these approaches don’t tell us what to do for higher-order equations, such as $f’'-3f’+2f=0$.</p>
+
+<p>The <strong>operational calculus</strong> provides a convenient way to algebraically derive the solution to these linear ODEs. The derivation goes as follows.</p>
+
+<!--more-->
+
+<ul>
+  <li>We want to solve the ODE $f’(x)=f(x)$, or equivalently $(\frac{d}{dx}-1)f(x)=0$.</li>
+  <li>Define the differential operator $D:=\frac{d}{dx}$, then the equation becomes $(D-1)f(x)=0$.</li>
+  <li>Define the integral operator $J$ such that $Jf(x):=\int_0^xf(t)dt$. (Therefore by the fundamental theorem of calculus, for any smooth function $g(x)$ we have $DJg(x)= g(x)$ and $JDg(x)=g(x)+C$, where the constant $C=-g(0)$. In particular, if $g(0)=0$ then we have $DJg(x)=JDg(x)=g(x)$, so we can write $J=D^{-1}$.)</li>
+  <li>Rewrite the ODE as $\frac{1-D^{-1}}{D^{-1}}f(x)=0$, so $f(x)=\frac{D^{-1}}{1-D^{-1}}0 = \frac{1}{1-J}(D^{-1}0)$</li>
+  <li>Suppose the above $0$ function is the derivative of some constant $C$, that is, $D^{-1}0=C$, then $f(x)=\frac{1}{1-J}C=C\left(\frac{1}{1-J}1\right)$</li>
+  <li>By the Taylor series we have $\frac{1}{1-J}=1 + J+J^2+\dots=\sum_{n=0}^\infty J^{n}$, we can write $f(x)=C\sum_{n=0}^\infty J^{n}1$</li>
+  <li>By induction, $J1=\int_0^x1\,dt=x,\; J^21=\int_0^xt\,dt=\frac{x^2}{2},\dots,J^n1=\frac{x^n}{n!}$. Therefore $f(x)=C\sum_{n=0}^\infty \frac{x^n}{n!}=C e^x$.</li>
+</ul>
+
+<p>Similarly we can show that $(D-a)f(x)=0$ has a solution $f(x)=Ce^{ax}$. Then for a higher-order equation such as $f’'-3f’+2f=0$, we can rewrite it as $(D^2-3D+2)f=0$ which can be then factored into $(D-1)(D-2)f(x)=0$, implying either $(D-1)f=0$ or $(D-2)f=0$.</p>
+
+<p>Operational calculus reduces a differential equation into an algebraic equation, which is often much easier to solve.</p>
+
+<h3 id="the-calculus-of-finite-differences">The calculus of finite differences</h3>
+
+<p>The calculus of finite differences is a brilliant extension of the operational calculus to discrete quantities. The most important observation is that, given the <em>shift operator</em></p>
+
+<script type="math/tex; mode=display">Ef(x):=f(x+h),</script>
+
+<p>there is this remarkable <em>exponential map</em>, $E=\exp(hD)$, that connects the continuous and discrete worlds. This exponential map is simply a different way of writing the Taylor series expansion:</p>
+
+<script type="math/tex; mode=display">Ef(x)=\exp(hD)f(x)=\left(1+hD+\frac{(hD)^2}{2!}+\frac{(hD)^3}{3!}+\dots\right)f(x)</script>
+
+<p>From here, a lot of the great things can happen. For example, if we want to derive a <em>forward difference</em> formula such as</p>
+
+<script type="math/tex; mode=display">f'(x)\approx \frac{f(x+h)-f(x)}{h},</script>
+
+<p>we can define the forward difference operator</p>
+
+<script type="math/tex; mode=display">\Delta f(x):=f(x+h)-f(x)=(E-1)f(x)</script>
+
+<p>and write down the relationship</p>
+
+<script type="math/tex; mode=display">\Delta+1=E=\exp(hD).</script>
+
+<p>Then it follows naturally that</p>
+
+<script type="math/tex; mode=display">D=\frac{1}{h}\log(1+\Delta)=\frac{1}{h}\left(\Delta - \frac{\Delta^2}{2} + \frac{\Delta^3}{3} - \dots\right)</script>
+
+<p>Truncating this series at the first term gives back the first-order difference formula $f’(x)\approx\frac{1}{h}\Delta f(x)$ as before; truncating at the second term gives the second-order formula</p>
+
+<script type="math/tex; mode=display">f'(x)\approx\frac{1}{h}(\Delta-\Delta^2/2)f(x)=\frac{1}{h}\left(-\frac{1}{2}f(x+2h)+2f(x+h)−\frac{3}{2}f(x)\right)</script>
+
+<p>and so on.</p>
+
+<h3 id="the-euler-maclaurin-formula">The Euler-Maclaurin formula</h3>
+
+<p>Another striking application of such finite difference calculus is to derive the more advanced <a href="https://en.wikipedia.org/wiki/Euler%E2%80%93Maclaurin_formula"><em>Euler-Maclaurin formula</em></a>, which is in some sense a discrete version of the fundamental theorem of calculus.</p>
+
+<p>As we have mentioned in the first part of this article, the fundamental theorem of calculus can be written in terms of operators as</p>
+
+<script type="math/tex; mode=display">D^{-1}f(x)=Jf(x)+C=\int_0^xf(t)\,dt+C</script>
+
+<p>So we would like to know if we replace the differential operator $D$ with the difference operator $\Delta$, how would this relationship change? What is $\Delta^{-1}f(x)$?</p>
+
+<p>We have shown previously that $1+\Delta=\exp(hD)$, so it would be naturaly to write</p>
+
+<script type="math/tex; mode=display">\Delta^{-1}=\frac{1}{\exp(hD)-1}.</script>
+
+<p>However, the above right-hand side corresponds to the function $1/(e^x-1)$ which is singular at the origin, so instead we write</p>
+
+<script type="math/tex; mode=display">\Delta^{-1}=\frac{hD}{\exp(hD)-1}(hD)^{-1}=\sum_{n=0}^{\infty}\frac{B_n}{n!}(hD)^{n}(hD)^{-1}.</script>
+
+<p>Here we have used the fact that</p>
+
+<script type="math/tex; mode=display">\frac{x}{e^x-1}=\sum_{n=0}^{\infty}\frac{B_n}{n!}x^n</script>
+
+<p>where $B_n$ are the <a href="https://en.wikipedia.org/wiki/Bernoulli_numbers">Bernoulli numbers</a>. Notice that with our notations, we have</p>
+
+<script type="math/tex; mode=display">(hD)^{-1}f(x)=\frac{1}{h}\int_0^xf(t)\,dt+C</script>
+
+<p>and</p>
+
+<script type="math/tex; mode=display">(hD)^{n}(hD)^{-1}f(x)=h^{n-1}f^{(n-1)}(x)</script>
+
+<p>therefore</p>
+
+<script type="math/tex; mode=display">\Delta^{-1}f(x)=\frac{1}{h}\int_0^xf(t)\,dt+C+\sum_{n=1}^{\infty}\frac{B_n}{n!}h^{n-1}f^{(n-1)}(x)</script>
+
+<p>Now apply $\Delta$ on both sides, we have</p>
+
+<script type="math/tex; mode=display">f(x)=\frac{1}{h}\int_x^{x+h}f(t)\,dt+\sum_{n=1}^{\infty}\frac{B_n}{n!}h^{n-1}(f^{(n-1)}(x+h)-f^{(n-1)}(x))</script>
+
+<p>This is one version of the Euler-Maclaurin formula. Finally, if we replace $x$ by $a,\;a+h,\;a+2h,\;\dots,\;a+(m-1)h$, one-by-one, and sum all the resulting formulae together, we get</p>
+
+<script type="math/tex; mode=display">\sum_{k=0}^{m-1}f(a+kh)=\frac{1}{h}\int_a^bf(t)\,dt+\sum_{n=1}^{\infty}\frac{B_n}{n!}h^{n-1}\left(f^{(n-1)}(b)-f^{(n-1)}(a)\right)</script>
+
+<p>where $b:=a+mh$. So here we are, this gives us the usual form of the Euler-Maclaurin formula.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bowei "Bobbie" Wu .</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2021-04-04T23:45:42-05:00'><span class='date'>04-04-21</span> <span class='time'>23:45</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/math/'>math</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://bobbielf2.github.io/blog/2021/04/04/what-are-operational-calculus/" data-via="" data-counturl="http://bobbielf2.github.io/blog/2021/04/04/what-are-operational-calculus/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2021/03/26/it-is-okay-to-speed-up-a-little/" title="Previous Post: It is okay to speed up a little">&laquo; It is okay to speed up a little</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2021/04/04/what-are-operational-calculus/">What Is Operational Calculus? Finite Differences and the Euler-Maclaurin Formula</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/03/26/it-is-okay-to-speed-up-a-little/">It Is Okay to Speed Up a Little</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/03/21/low-rank-and-rank-structured-matrices/">Low-rank and Rank Structured Matrices</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/03/12/lockdown-math/">Lockdown Math</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/03/04/your-one-big-desire/">Your One Big Desire</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2021 - Bowei "Bobbie" Wu . -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'bobbies-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://bobbielf2.github.io/blog/2021/04/04/what-are-operational-calculus/';
+        var disqus_url = 'http://bobbielf2.github.io/blog/2021/04/04/what-are-operational-calculus/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
