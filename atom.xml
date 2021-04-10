@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2021-04-05T00:27:21-05:00</updated>
+  <updated>2021-04-10T01:48:07-05:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,73 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Questioning History]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/04/10/questioning-history/"/>
+    <updated>2021-04-10T01:30:19-05:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/04/10/questioning-history</id>
+    <content type="html"><![CDATA[<p>Lately, I have been listening to this <a href="http://intellectualmathematics.com/blog/the-case-against-galileo-s01-overview/">podcast series</a> that has completely changed how I see the history of science.</p>
+
+<p>In the series, Viktor Blåsjö, a professor and an emerging historian of mathematics, told a mind-blowing story about Galileo which is nothing like what we are usually told about. We have been told by the teachers, by the media, and by the mainstream science philosophers, that Galileo was the “father of modern science.” But to the contrary, Galileo was not only poor in mathematics, but also a dilettante physicist. Let me name a few things from the podcast series and you will know how interesting it is:</p>
+
+<!--more-->
+
+<ul>
+  <li>Galileo couldn’t even solve some easier math problems, let alone understanding the new developments in math and physics of his contemporary mathematicians. That was why he tried to gain fame by attacking Aristotle from 2000 years ago, like beating a dead horse.</li>
+  <li>Galileo picked on Aristotle also because he could not understand Archimedes, the true master of math and physics from Aristotle’s time. Framing Aristotle as the great authority of physics makes it easy for Galileo to defeat. Had he picked on Archimedes, his whole arguments would just fall apart.</li>
+  <li>Contrary to the common belief that Galileo took experiements and obervations seriously, he often manipulated the data just to prove his points, made baseless and wrong guesses, and even plagiarized results from other people.</li>
+  <li>Why haven’t the mainstream philosophers and historians debunked Galileo already? Because they also lack the skill to appreciate the great work of the mathematicians since Archimedes. Nowadays, <a href="https://youtu.be/LbbQ8SaYy9M?t=702">20 times more</a> papers about Aristotle than about Archimedes are being published under the category of history of science.</li>
+</ul>
+
+<p>Of course, all of these sound like wild claims if you are hearing them for the first time. So I would encourage any curious minds to go listen to the <a href="http://intellectualmathematics.com/blog/the-case-against-galileo-s01-overview/">podcast</a> or read the corresponding <a href="https://arxiv.org/abs/2102.06595">monograph</a> then judge for themselves.</p>
+
+<p>This new interpretation of Galileo has solved one of my long-standing puzzles for me. In all the serious science textbooks, the most important discoveries are often associated with great mathematicians (such as the principles and laws associated with <a href="https://en.wikipedia.org/wiki/Archimedes%27_principle">Archimedes</a>, <a href="https://en.wikipedia.org/wiki/Kepler%27s_laws_of_planetary_motion">Kepler</a>, <a href="https://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation">Newton</a>, <a href="https://en.wikipedia.org/wiki/Bernoulli%27s_principle">Bernoulli</a>, <a href="https://en.wikipedia.org/wiki/Euler%E2%80%93Lagrange_equation">Euler</a>, <a href="https://en.wikipedia.org/wiki/Gauss%27s_law">Gauss</a>). Why then has Galileo, “the father of modern science,” never been linked to any of those physical laws, other than the folklore of the “Pisa experiment”? Because he lacked the mathematical ability to do serious physics.</p>
+
+<p>Studying the history of mathematics allows us to understand the more true history of science. But there are more reasons to study the history.</p>
+
+<h3 id="why-study-history-of-mathematics">Why study history of mathematics?</h3>
+
+<p>We know that Leibniz was one of the inventors of calculus. But do you know that Leibniz did not actually prove the fundamental theorem of calculus? In fact, he did not worry much about the foundation of calculus, certain not the “rigorous definition” of derivatives.</p>
+
+<p>What Leibniz cared most about was the <em>transcendental curves</em>, that is, the graphs of transcendental functions. According to the inspiring book <a href="https://www.sciencedirect.com/book/9780128132371"><em>Transcendental Curves in the Leibnizian Calculus</em></a>, again by Blåsjö, “the problem of transcendental curves was to him (Leibniz) the guiding star for the better part of his mathematical works throughout his life.”</p>
+
+<p>To Leibniz, functions like $\log(x)$ and $\cosh(x)$ are nothing but notations; the claim that $y=\cosh(x)$ solves the equation $y’'=y$ makes no sense. The important thing to Leibniz was that someone can actually graph a function like $\log(x)$, or calculate its value given any input $x$. After all, what’s the point of writing the symbol “$\log(x)$,” or naming a function “hyperbolic,” if you can’t even find their values? Therefore, to Leibniz, an expression like $\int_1^x \frac{1}{t}\,dt$ makes much more sense than $\log(x)$; being able to draw a <a href="https://en.wikipedia.org/wiki/Catenary">catenary</a> by hanging a chain is more important than simply writing $\cosh(x)=(e^x+e^{-x})/2$.</p>
+
+<p>The same can be said about the other common transcendental functions such as $\sin(x)$ and $\cos(x)$. Indeed, students are being told that sinusoidal functions are “elementary functions,” but how “elementary” is it if you can’t even tell what $\sin(1)$ is right away? People still love to see animations, such as <a href="https://twitter.com/LucasVB/status/1378529237322334208?s=20">this one</a> and <a href="https://twitter.com/mathladyhazel/status/1348876985053958147?s=20">this one</a>, that can help them understand what trigonometric functions are.</p>
+
+<p>The discussions above give us another important reason to study the history of mathematics. History tells us what are the “natural” things to pay attention to when we first teach or learn a mathematical concept. Knowing why we need transendental functions in the first place is <em>understanding</em>; telling people that these functions are elementary is <em>indoctrination</em>.</p>
+
+<p>True education is about understanding. Unfortunately, a lot of the schooling nowadays are about indoctrination (and probably day-care as well).</p>
+
+<h3 id="right-way-to-study-history">Right way to study history</h3>
+
+<p>In Blåsjö’s <a href="http://intellectualmathematics.com/history-of-mathematics/">History of Mathematics</a> course, he contrasted <a href="https://youtu.be/SX0SpjAJJ9M">two ways of studying history of thought</a>:</p>
+
+<ul>
+  <li><strong>The bad way</strong>: to enforce our own beliefs and ways-of-thinking on the people in the past. For example, a bad historian might ask:
+    <ul>
+      <li>Who first discover this thing that I believe in?</li>
+      <li>When did people start thinking like us?</li>
+    </ul>
+  </li>
+  <li><strong>The good way</strong>: to embrace the diversity of thoughts, be curious about different perspectives. For example, a good historian might ask:
+    <ul>
+      <li>Why do people used to think differently?</li>
+      <li>Why did their way of thinking make more sense at their time?</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Historians who enforce their own beliefs on people from the past cannot find out the true history of Galileo, let alone the true history of science. Teachers who enforce their own thoughts on students cannot inspire anyone to understand.</p>
+
+<p>Next time you are told that somethings are conventional or have been the way they are, just remember <a href="https://twitter.com/AmuseChimp/status/906147488582787073?s=20">this powerful quote from an amused chimp</a>:</p>
+
+<blockquote>
+  <p>If the news are fake, imagine history.</p>
+</blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[What Is Operational Calculus? Finite Differences and the Euler-Maclaurin Formula]]></title>
@@ -1100,57 +1167,6 @@ u_\mathrm{out}(x)-u_\infty, & x\in\mathbb{R}^2\setminus\bar\Omega
 
 <p><img src="http://bobbielf2.github.io/images/blog_figures/bukesiyi.png" width="400" /></p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[色情和艺术是近义词吗？]]></title>
-    <link href="http://bobbielf2.github.io/blog/2017/08/12/se-qing-he-yi-zhu-shi-jin-yi-ci-ma-%3F/"/>
-    <updated>2017-08-12T15:32:46-04:00</updated>
-    <id>http://bobbielf2.github.io/blog/2017/08/12/se-qing-he-yi-zhu-shi-jin-yi-ci-ma-?</id>
-    <content type="html"><![CDATA[<p>色情和艺术是不是一线之隔的近义词？热情和沮丧是不是两种相反的情绪？我最近对这一类问题有一些思考，想把它们整理出来。</p>
-
-<!--more-->
-
-<h3 id="section">1. 结果上的反义词，原因上的同义词</h3>
-
-<p>我发觉世上很多反义词其实都是近义词</p>
-
-<p>比如成功和失败是一对经典的反义词。</p>
-
-<p>你去参加一个比赛，比如围棋或者马拉松，你就有可能赢或者输，这取决于你的能力。而有一些事情，比如创业或投资，这种不确定性很大的领域，能力可能也不是决定的因素，有时就是运气不眷顾你，无可避免地会遭遇一些失败。就算你是乔丹，也有投篮不中和输球的时候；就算你是柯洁，也有输给 AI 无力还手的时候；就算你是巴菲特，也有投资项目赔钱的时候。</p>
-
-<p>但是无论成败于否，这其实都是勇于尝试的结果，都表明你曾经勇敢进取过。它的反面应该是无为或者平庸，没有争取过，就无所谓成功失败了。在这个意义上，成功和失败是近义词，平庸才是它们的共同反义词。</p>
-
-<p>这就是为什么有人能够看得开，勇敢地面对失败。他们知道失败无可避免，所以他们的注意力都放在自己能掌控的东西上，继续拼搏不断获得成长。</p>
-
-<p>–</p>
-
-<p>再比如热情和沮丧、热切和厌烦，看起来都是相反的情绪。你喜欢的东西带给你热情，你憎恨的东西让你沮丧。</p>
-
-<p>但其实无论热情还是沮丧，都源于执着，是同样的执着面对不同结果时的自然产物。</p>
-
-<p>你对一份事业抱有热情是因为事业的成功能给你快感，即便是想像中的成功；你对一份事业感到厌烦则是因为事业上的失败让你痛苦，即便失败还没到来而只是你的预期。这两者都是在意与执着的表现，只不过有人最终得到了，有人没有得到。<strong>热情还是沮丧，都只是你踏上了执着这条路之后必将到达的一个分岔路口。</strong>往哪一边走？你可能都无法控制。在这种意义上，热情和沮丧、热切和厌烦都是近义词，它们共同的反义词其实是无为和冷淡——不踏上这条路，就不用到达分岔口。</p>
-
-<p>因此有经验的投资人在审核一个项目时，看重的不是创业者有没有热情，而是他们有没有能力。没有能力的人，热情终将沦为沮丧，热情越高，沮丧越大。</p>
-
-<h3 id="section-1">2. 表像上的近义词，本质上的反义词</h3>
-
-<p>与此同时，很多近义词其实都是反义词</p>
-
-<p>比如艺术和色情，像是近义词。人们会说，艺术与色情就只有一线之隔</p>
-
-<p>你去艺术博物馆，看到各种祼体的画像和雕像。有的人觉得这是色情被美化和合理化之后的公然展示，是人对自己的欲望找一个发泄的借口；有的人却能用细腻的语言描述一件作品想表达和传递的信息，知道作者有什么样的经历激发了这种灵感，以及这种表达的有什么与众不同之处和对后来的人产生了怎样的影响。</p>
-
-<p>同样的作品，是什么样的“一线之隔”让不同的人有天差地别的解读？这要回归到艺术和色情两者的起源。</p>
-
-<p>艺术源于生活的细心观察和思考，它建立在好奇心之上，用最纯粹的眼光去看这个世界，然后再运用创意和技巧把感受和想法表达出来成为一件作品。这是极致的感性和理性共同作用下产生的作品。色情则既非感性也非理性，而是源于最原始的冲动， 是直觉，是本能的反射，是动物的本性。<strong>看似相近的艺术和色情，其实是人性与动物性这两种相反的原动力所生产出来的结果。</strong></p>
-
-<p>所以我们可以看到大众里不断有人站出来，指责艺术家龌龊和势利，博得一片叫好。同时又不断有艺术家屡屡发明新的表达形式，挑战世俗的眼光，引发人们重新思考，甚至不惜为此付出代价。被当代人指责和不被理解，几乎是艺术家的宿命。</p>
-
-<h3 id="section-2">3. 你的想法？</h3>
-
-<p>按照这些思路，很多东西都可以重新思考：理想和妄想，信息和知识，机器和生物，科学和迷信，爱国和排外。 这些到底是近义词还是反义词呢？</p>
 ]]></content>
   </entry>
   
