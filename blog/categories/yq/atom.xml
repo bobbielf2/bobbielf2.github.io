@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Math | Bobbie's Blog]]></title>
-  <link href="http://bobbielf2.github.io/blog/categories/math/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Yq | Bobbie's Blog]]></title>
+  <link href="http://bobbielf2.github.io/blog/categories/yq/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
   <updated>2021-04-15T20:07:19-05:00</updated>
   <id>http://bobbielf2.github.io/</id>
@@ -12,6 +12,70 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Year-long Writing Challenge]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/04/14/year-long-writing-challenge/"/>
+    <updated>2021-04-14T19:15:23-05:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/04/14/year-long-writing-challenge</id>
+    <content type="html"><![CDATA[<p>As a “365-day challenge,” I have been doing exercise every day for at least 15 minutes a day since last December, and will continue to do so throughout this year. I have to admit that this feels almost too easy.<sup id="fnref:tough"><a href="#fn:tough" class="footnote">1</a></sup> This is why I am in fact doing another challenge at the same time: to publish at least 40 blog posts this year.</p>
+
+<p>Of course, I won’t publish anything of bad quality by my standard. So this challenge will definitely stretch me to learn and think more regularly, so that I can create something I am happy with every week or so.</p>
+
+<p>On the other hand, publishing 40 articles doesn’t feel overwhelming, which leaves me enough room to work on research projects. A few years ago, I tried blogging on WeChat by setting too ambitious goals. I eventually stopped posting completely after a little more than 10 months; nevertheless, it was a rewarding experience.</p>
+
+<p>With that, I am writing again this year. So far I have been enjoying it and have learned many new things already. Hopefully I won’t blow up my creative engine this time.</p>
+
+<!--more-->
+
+<h3 id="why-write">Why write?</h3>
+
+<p>For a project that lasts as long as a year (or even just a few months), I never rely on willpower to do it. I know myself well enough that I know willpower can only carry me for a few days at best. So I look for motivations that can carry me for as long as I want.</p>
+
+<p>For this year-long writing and publishing challenge, I have had a variety of reasons and desires to do it. I like that when I have many reasons to do something, I will be motivated by at least a few of them on any given day.</p>
+
+<p>Below, I list my reasons to write. Maybe some of them will resonate with somebody who is (considering) writing regularly.</p>
+
+<p><strong>1 Writing changes your life in many different ways.</strong> This is my general feeling about writing, purely emotional and based on my own experience. Twice in my life I had been transformed by writing, the first time during high school and the second time three years ago blogging on WeChat. I used to believe that why you do something should be based on logic, but not anymore. Oftentimes, your emotion and desire are more important – logic can’t explain why we pick certain axioms as the starting point for a mathematical theory, but experience and taste can.</p>
+
+<p><strong>2 Writing distills your existing ideas and make rooms for the new ones.</strong> Every time I have published an article, I feel like I am saving my organized thoughts to a hard drive, so that my brain has more memories to welcome more new ideas. For example, writing “<a href="/blog/2021/04/04/what-is-operational-calculus/"><em>What Is Operational Calculus?</em></a>” had really given me a new insight into the Euler-Maclaurin formula and prepared me to explore its deeper connections with other fields.<sup id="fnref:write-speak"><a href="#fn:write-speak" class="footnote">2</a></sup></p>
+
+<p><strong>3 Writing gives you a more memorable life.</strong> Do you feel that time slips by so quickly when every day is the same? Writing an essay is like going on an adventure, you will end up changing a lot of your thoughts and discovering ideas you had never expected. When you keep adventuring to different places, at the end of the year you will have so much colorful experience and so many wonderful memories that it feels like you are living a longer life. For example, 2020 might have passed too quick for many people, but it was <a href="/blog/2021/03/12/lockdown-math/">a quality year for me</a>.</p>
+
+<p><strong>4 Writing shifts your focus from <em>problem-solving</em> to <em>understanding</em></strong> because in order to explain something to someone you have to first understand it. Deep understanding is what distinguishes a great mathematician from an okay mathematician.<sup id="fnref:erdos-grothendieck"><a href="#fn:erdos-grothendieck" class="footnote">3</a></sup></p>
+
+<p><strong>5 Writing is embedded in academic lives anyways, why not publish them?</strong> We write research papers, teaching plans, proposals, presentation slides, reviewer reports, email responses. Most of the things we write are unpublished. However, turning some of these writings into publishable articles have generated new ideas for myself. For example, I wrote <a href="/blog/2021/01/30/audience-under-the-lightcone/"><em>Audience Under the Lightcone</em></a> and <a href="/blog/2021/02/14/underestimating-my-ignorance/"><em>Underestimating My Ignorance</em></a> both during my preparations for giving research talks.<sup id="fnref:tao"><a href="#fn:tao" class="footnote">4</a></sup></p>
+
+<p><strong>6 Writing marries different ideas to give birth to new ideas.</strong> For example, <a href="/blog/2021/04/10/questioning-history/"><em>Questioning History</em></a> was a great inspiration to me because it combined education and understanding, two themes I loved to think about, and put them under the framework of history study, which was new to me.</p>
+
+<p><strong>7 Writing absorbs you into a mind-bending field.</strong> Once you start writing, you are transported into an imaginary playground. You will wake up after a writing session realizing that a few hours have passed. It is almost similar to scrolling on social media for a few hours without realizing it; the only difference is that, after a writing session you feel a sense of reward instead of emptyness.</p>
+
+<p><strong>8 Writing regularly gives structure to life.</strong> Doing research alone is not enough for <a href="/blog/2021/01/10/y-combinators-startup-advice-an-academic-perspective/">building an academic career</a>. When I am working on research problems, my mind is often too occupied to think of anything else. Writing regularly gives me the opportunity to ponder on other aspects of my career, such as teaching, networking, and exploring new interests.</p>
+
+<p><strong>9 Writing builds you a radar for detecting good ideas.</strong> Quality input is indispensable to produce quality output. I built the habit of taking notes and jotting down thoughts anytime, so that I don’t lose any sparks that can be turned into an article later. Many of the articles I have written started as quick notes on simple ideas, for example the ideas in <a href="/blog/2021/03/04/your-one-big-desire/"><em>Your One Big Desire</em></a> and <a href="/blog/2021/03/26/it-is-okay-to-speed-up-a-little/"><em>It Is Okay to Speed Up a Little</em></a> both came up when I was focused on unrelated things.</p>
+
+<p>I have more reasons to write than I can list them all here. As I wrote down the list above, more thoughts and inspirations were springing to my mind, I had to put some of them into footnotes so that I didn’t digress. As always, I end up publishing an article with almost no sentence that I originally planned to write. What a journey!</p>
+
+<p>Stay tuned and I will have more to share as I dive into the next adventures.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:tough">
+      <p>Of course, I have had a few tougher days, such as the <a href="/blog/2021/01/02/making-small-changes-in-life/">rainy and snowy days</a> and the <a href="/blog/2021/02/22/one-disastrous-week-in-austin/">one disastrous week in Austin</a>; I managed to still exercise on those days. There will be some upcoming challenges as well, like the days after when I will be getting my second dose of COVID vaccine, and days when I will be driving across states. I will see how things go. <a href="#fnref:tough" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:write-speak">
+      <p>Writing allows you to discover good ideas because you can spend as much time on each sentence as you want and rewrite as many times as you like. Graham explains this point very well in <a href="http://www.paulgraham.com/speak.html"><em>Writing and Speaking</em></a>. <a href="#fnref:write-speak" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:erdos-grothendieck">
+      <p>Regarding <em>problem-solving</em> vs <em>understanding</em> in mathematics, I think it is necessary to develop good problem-solving skills, but eventually deep understanding is what is required to do great math. I came across <a href="https://mathoverflow.net/a/7156/110149">this funny quote</a> that expresses exactly this point: “An excellent Erdös might reach certain limits as a mathematician, while a bad Erdös can still be an okay mathematician. On the other hand, a good Grothendieck can be a truly great mathematician, while a bad Grothendieck is really terrible.” <a href="#fnref:erdos-grothendieck" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:tao">
+      <p>I think Terry Tao apparently uses the same strategy for blog posting. For example, he must have answered a lot of questions from students and colleagues about mathematical writing, so he had summarized his thoughts on this topic by posting the <a href="https://terrytao.wordpress.com/advice-on-writing-papers/"><em>On writing</em></a> series. <a href="#fnref:tao" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Questioning History]]></title>
@@ -285,49 +349,6 @@
 </ul>
 
 <p>With these ideas above, plus a little coding experience with some simple rank structured matrices (a good place to start is with the first two of these <a href="https://amath.colorado.edu/faculty/martinss/2014_CBMS/codes.html">tutorial codes</a>), you are equipped with the “MAKE” that gets you ready for going on an advanture to the fast computations with matrices. All the details and other more advanced topics can be learned later once you dig far enough.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Lockdown Math]]></title>
-    <link href="http://bobbielf2.github.io/blog/2021/03/12/lockdown-math/"/>
-    <updated>2021-03-12T01:28:25-06:00</updated>
-    <id>http://bobbielf2.github.io/blog/2021/03/12/lockdown-math</id>
-    <content type="html"><![CDATA[<p>In the <a href="/blog/2021/03/04/your-one-big-desire">previous post</a> I talked about anxiety caused by things that you actually have control over. This time I’d like to also touch on situations that you can’t really change, such as a pandemic.</p>
-
-<p>A pandemic makes people anxious because it freezes life. A lot of activities have to be suspended. You can’t do what you would normally do. You don’t know how long the pandemic would last — probably a few months, probably a few years. All you can do is wait, indefinitely.</p>
-
-<h3 id="mathematicians-in-confinement">Mathematicians in confinement</h3>
-
-<p>Some groups of people seem to be doing quite well in a lockdown situation. Mathematicians happen to be one such group.</p>
-
-<!--more-->
-
-<p>Sophus Lie, who established <a href="https://en.wikipedia.org/wiki/Lie_algebra">Lie algebra</a> during his imprisonment, said that “a mathematician is comparatively well suited to be in prison.” And Lie was not alone, 70 years later another great mathematician, André Weil, who also had a productive time in prison, wondered “if it’s only in prison that I work so well, will I have to arrange to spend two or three months locked up every year?”</p>
-
-<p>According to the fun article <a href="http://www.nieuwarchief.nl/serie5/pdf/naw5-2020-21-2-095.pdf"><em>Lockdown Mathematics</em></a>, both Lie and Weil were mistaken for spies during wartimes “due to their strange habits as eccentric mathematicians who incessantly scribbled some sort of incomprehensible notes and wandered in nature without any credible purpose discernible to outsiders.”</p>
-
-<p>There are many other interesting examples from that article. The bottom line is, many mathematicians have experienced highly productive periods during confinement situations, where they were free of distractions and could focus deeply on their thoughts; although in some cases, this effect only lasted for a month or two, eventually the productivity boost waned. After all, mathematicians are still humans who need some breaks.</p>
-
-<p>I have to say that the above description perfectly summarized my experience during the COVID lockdown. I was super productive and wrote two papers during the first few months of the lockdown, then I started to get distracted and wanted to socialize again.</p>
-
-<p>Now it is March again, an anniversary of the COVID lockdown in the US. Maybe I could also benefit from setting up a few months of faux lockdown for myself every year.</p>
-
-<h3 id="flow-vs-pandemic">Flow v.s. Pandemic</h3>
-
-<p>According to some <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0242043">recent research</a>, getting in the state of <a href="https://en.wikipedia.org/wiki/Flow_(psychology)">flow</a> might be one best way to cope with lockdown anxieties. When you are experiencing flow, you are deeply focused on something; time seems to slip by quickly, a few hours feel like just a moment to you.</p>
-
-<p>Not just mathematicians, other people find their flow in all sorts of ways: painting, making handicrafts, reading books, writing essays, coding. So when you get into flow, not only that time passes much quicker, but you are also accomplishing something meaningful to you. It just completely flips the lockdown situation around and gives you a positive experience.</p>
-
-<p>In fact, this experience may have deeper implications if we redefine “pandemic” as a state of mind:</p>
-
-<blockquote>
-  <p>A “pandemic” is an extended period during which you are constantly anxious about one thing that you can’t control.</p>
-</blockquote>
-
-<p>By this definition, people are constantly undergoing all kinds of pandemics: losing jobs, struggling to graduate, accumulating debts, being homesick, feeling lonely. In each of these cases, people are stuck in a “personal pandemic” that they can’t easily escape and have to live with it for an uncertain amount of time.</p>
-
-<p>Inspired by the lockdown experience, maybe one solution to a “personal pandemic” is to accept it like we accepted that we would be living under COVID for a few years, and turn to focus on something we truly care about. Oftentimes, the consequence of a “personal pandemic” is not as dire as one might think it would be; a threat might also be an opportunity for growth. So being able to find your flow could carry you through the most difficult time of your “personal pandemic,” giving you the chance to come out stronger and better off.</p>
 ]]></content>
   </entry>
   
