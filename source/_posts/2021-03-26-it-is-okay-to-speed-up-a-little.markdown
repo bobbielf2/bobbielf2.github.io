@@ -3,7 +3,7 @@ layout: post
 title: "It is okay to speed up a little"
 date: 2021-03-26 00:57:22 -0500
 comments: true
-categories: [life, math]
+categories: [life, math, yq]
 ---
 
 

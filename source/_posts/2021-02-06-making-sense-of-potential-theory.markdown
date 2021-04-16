@@ -3,7 +3,7 @@ layout: post
 title: "Making sense of potential theory"
 date: 2021-02-06 18:47:18 -0600
 comments: true
-categories: math
+categories: [math, yq]
 ---
 
 Potential theory was developed a few centuries ago in part to solve the boundary value problems for partial differential equations (PDEs). It led to the so-called "indirect approach" to boundary integral equations for elliptic PDEs. The goal of this article is to give this indirect approach some physical meaning. Some basic knowledge of potential theory is assumed. (See the book by R. Kress[^kress] for more details.)

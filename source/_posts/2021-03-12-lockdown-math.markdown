@@ -3,7 +3,7 @@ layout: post
 title: "Lockdown Math"
 date: 2021-03-12 01:28:25 -0600
 comments: true
-categories: [life, math]
+categories: [life, math, yq]
 ---
 
 In the [previous post](/blog/2021/03/04/your-one-big-desire) I talked about anxiety caused by things that you actually have control over. This time I'd like to also touch on situations that you can't really change, such as a pandemic.

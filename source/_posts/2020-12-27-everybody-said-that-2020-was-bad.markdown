@@ -3,7 +3,7 @@ layout: post
 title: "Everybody said that 2020 was bad"
 date: 2020-12-27 16:40:06 -0600
 comments: true
-categories: life
+categories: [life, yq]
 ---
 
 I feel like writing something before 2020 ends. Since this has been a special year, I will write two versions of it.

@@ -3,7 +3,7 @@ layout: post
 title: "Low-rank and rank structured matrices"
 date: 2021-03-21 15:33:24 -0500
 comments: true
-categories: math
+categories: [math, yq]
 ---
 
 

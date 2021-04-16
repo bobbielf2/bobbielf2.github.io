@@ -3,7 +3,7 @@ layout: post
 title: "Year-long writing challenge"
 date: 2021-04-14 19:15:23 -0500
 comments: true
-categories: [life, thoughts]
+categories: [life, thoughts, yq]
 ---
 
 As a "365-day challenge," I have been doing exercise every day for at least 15 minutes a day since last December, and will continue to do so throughout this year. I have to admit that this feels almost too easy.[^tough] This is why I am in fact doing another challenge at the same time: to publish at least 40 blog posts this year.

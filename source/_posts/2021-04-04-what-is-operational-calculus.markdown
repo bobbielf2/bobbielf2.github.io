@@ -3,7 +3,7 @@ layout: post
 title: "What is operational calculus? Finite differences and the Euler-Maclaurin formula"
 date: 2021-04-04 23:45:42 -0500
 comments: true
-categories: math
+categories: [math, yq]
 ---
 
 

@@ -3,7 +3,7 @@ layout: post
 title: "One disastrous week in Austin &mdash; we survived"
 date: 2021-02-22 01:51:51 -0600
 comments: true
-categories: life
+categories: [life, yq]
 ---
 
 80+ hours. I can't remember the last time I have been without power at subzero temperature for this long.

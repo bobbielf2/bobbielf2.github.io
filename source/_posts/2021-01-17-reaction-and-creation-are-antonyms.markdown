@@ -3,7 +3,7 @@ layout: post
 title: "Reaction and creation are antonyms"
 date: 2021-01-17 20:06:52 -0600
 comments: true
-categories: [education, life]
+categories: [education, life, yq]
 ---
 
 

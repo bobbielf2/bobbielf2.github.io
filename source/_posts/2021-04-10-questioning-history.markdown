@@ -3,7 +3,7 @@ layout: post
 title: "Questioning history"
 date: 2021-04-10 01:30:19 -0500
 comments: true
-categories: [math, history, education]
+categories: [math, history, education, yq]
 ---
 
 

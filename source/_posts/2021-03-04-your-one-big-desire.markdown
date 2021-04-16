@@ -3,7 +3,7 @@ layout: post
 title: "Your One Big Desire"
 date: 2021-03-04 23:23:03 -0600
 comments: true
-categories: life
+categories: [life, yq]
 ---
 
 

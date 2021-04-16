@@ -3,7 +3,7 @@ layout: post
 title: "Audience under the lightcone"
 date: 2021-01-30 17:13:15 -0600
 comments: true
-categories: academia
+categories: [academia, yq]
 ---
 
 Knowledge is information plus understanding. A big part of doing scientific research is to communicate knowledge with others. But knowing how to effectively communicate ideas is to some extend an art that is not so easily acquired.

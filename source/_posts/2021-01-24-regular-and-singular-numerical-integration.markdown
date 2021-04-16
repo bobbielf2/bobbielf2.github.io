@@ -3,7 +3,7 @@ layout: post
 title: "Regular and singular numerical integration"
 date: 2021-01-24 20:49:12 -0600
 comments: true
-categories: math
+categories: [math, yq]
 ---
 
 
