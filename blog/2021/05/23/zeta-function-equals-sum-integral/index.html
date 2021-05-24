@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Zeta Function = Sum - Integral - Bobbie's Blog</title>
+  <meta name="author" content="Bowei "Bobbie" Wu .">
+
+  
+  <meta name="description" content="Recently I saw some memes about the peculiar “sum” These memes are inspired by the Riemann zeta function in which directly substituting $s=-1$ gives &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://bobbielf2.github.io/blog/2021/05/23/zeta-function-equals-sum-integral/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Bobbie's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Bobbie's Blog</a></h1>
+  
+    <h2>Boys be ambitious.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="bobbielf2.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/links/">Links</a></li>
+  <li><a href="https://sites.google.com/a/utexas.edu/boweiwu/">Academic</a></li>
+  <li><a href="/aboutme/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h2 class="entry-title">Zeta Function = Sum - Integral</h2>
+      <h3></h3>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2021-05-23T22:57:33-04:00'><span class='date'>05-23-21</span> <span class='time'>22:57</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Recently I saw some memes about the peculiar “sum”</p>
+
+<script type="math/tex; mode=display">1+2+3+4+\dots = -1/12</script>
+
+<p><img class="center" src="/images/blog_figures/zeta_simpsons.jpeg" width="400" /></p>
+
+<p><img class="center" src="/images/blog_figures/zeta_trolley_problem.jpeg" width="400" /></p>
+
+<p>These memes are inspired by the Riemann zeta function</p>
+
+<script type="math/tex; mode=display">\zeta(s) := \sum_{n=1}^\infty\frac{1}{n^s},\qquad (s>1)</script>
+
+<p>in which directly substituting $s=-1$ gives the $-\tfrac{1}{12}$ “sum” above.</p>
+
+<!--more-->
+
+<p>This $1+2+3+4+\dots = -1/12$ joke was first popularized by the 2014 <a href="https://youtu.be/w-I6XTVZXww">numberphile video</a>. The video went viral and caused a lot of confusions due to the lack of proper explanations.</p>
+
+<p>Indeed, adding $1+2+3+4+\dots$ will blow up to infinity in the usual sense. The definition of $\zeta(s)$ by summing $1/n^s$ only makes sense for $s&gt;1$; when $s&lt;1$, the value $\zeta(s)$ is in fact obtained by <a href="https://en.wikipedia.org/wiki/Analytic_continuation">analytic continuation</a>. Later in 2018, Mathologer gave an <a href="https://youtu.be/YuIIjLr6vUA">accessible clarification</a> which only requires a minimal background in calculus to understand.</p>
+
+<h3 id="a-new-perspective-on-the-zeta-function">A New Perspective on the Zeta Function</h3>
+
+<p>Here, I will provide another interesting perspective on the continuation of $\zeta(s)$, which I think is quite beautiful and deserves more attentions. This is stated in the title of this article:</p>
+
+<blockquote>
+  <p>zeta function $=$ sum $-$ integral.</p>
+</blockquote>
+
+<p>Specifically,</p>
+
+<script type="math/tex; mode=display">\zeta(s) = \sum_{n=1}^\infty\frac{1}{n^s} - \int_0^\infty\frac{1}{x^s}\,dx.</script>
+
+<p>This relationship holds for any $s$ in the complex plane $\mathbb{C}$, provided we define this expression appropriately.</p>
+
+<h3 id="the-proof">The Proof</h3>
+
+<p>For simplicity, let’s start with $-1&lt;\mathrm{Re}(s)&lt;1$, which is a vertical strip in $\mathbb{C}$ where both the sum and the integral diverge. Then an appropriate zeta-sum-integral connection can be written as</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\zeta(s) = \lim_{N\to\infty}\Big(\sum_{n=1}^N\frac{1}{n^s} - \int_0^{N+\frac{1}{2}}\frac{1}{x^s}\,dx\Big),\qquad -1<\mathrm{Re}(s)<1 %]]></script>
+
+<p>To paint a clearer picture, let’s use some visual help and consider the above limit on the real line:</p>
+
+<p><img class="center" src="/images/blog_figures/zeta_proof_visual.png" width="500" /></p>
+
+<p>Here, the red dots are the integer points $n = 1, 2, 3,\dots$, and the blue bars divide the real line into boxes of unit length $[\frac12, \frac32], [\frac32, \frac{5}{2}], [\frac{5}{2}, \frac{7}{2}], \dots$</p>
+
+<p>Based on this picture, let’s first define some quantities of interest:</p>
+
+<ul>
+  <li>Define the partial sum $S_N(s) := \sum_{n=1}^N\frac{1}{n^s}$	which is a sum on the first $N$ red dots in the picture above.</li>
+  <li>Define the finite integral $I_N(s) := \int_{\frac12}^{N+\frac12}\frac{1}{x^s}\,dx$	which is an integral in the first $N$ boxes defined by the blue bars in the picture.</li>
+  <li>Define the difference $Z_N(s) := S_N(s) - I_N(s)$, then</li>
+</ul>
+
+<script type="math/tex; mode=display">Z_N(s) = \sum_{n=1}^N\Big(\frac{1}{n^s} - \int_{n-\frac12}^{n+\frac12}\frac1{x^s}\,dx\Big)</script>
+
+<p>is a sum of $N$ items in the first $N$ boxes. The $n$th item $\Delta Z_n(s):=\frac{1}{n^s} - \int_{n-\frac12}^{n+\frac12}\frac1{x^s}\,dx$ is the difference between a term at the $n$th red dot and an integral over the containing blue box.</p>
+
+<p>Next, we realize some nice properties of the sum $Z_N(s)$</p>
+
+<ul>
+  <li>
+    <p>Looking at each term in the sum $Z_N(s)$</p>
+
+    <script type="math/tex; mode=display">\Delta Z_n(s) := \frac{1}{n^s} - \int_{n-\frac12}^{n+\frac12}\frac1{x^s}\,dx = \int_{-\frac12}^{\frac12}\Big(\frac{1}{n^s}-\frac{1}{(n+x)^s}\Big)dx,</script>
+
+    <p>we find that for any fixed $n$, $\Delta Z_n(s)$ is an analytic function of $s\in\mathbb{C}$.</p>
+  </li>
+  <li>
+    <p>By a comparison with $\sum_{n=1}^\infty\frac{1}{n^{s+2}}$, it is not hard to establish the convergence of $Z_\infty(s) = \sum_{n=1}^\infty\Delta Z_N(s)$ for all $\mathrm{Re}(s)&gt;-1$. This indicates that $Z_\infty(s)$ is an analytic function for all $\mathrm{Re}(s)&gt;-1$.</p>
+  </li>
+</ul>
+
+<p>With these setup, let’s start our proof, which will be very straightforward.</p>
+
+<ul>
+  <li>
+    <p>We first notice that</p>
+
+    <script type="math/tex; mode=display">% <![CDATA[
+\begin{aligned}I_0(s)&:=\int_0^{\frac12}\frac{1}{x^s}\,dx = \frac{2^{s-1}}{1-s},\qquad \mathrm{Re}(s)<1,\\ J_0(s)&:=\int_{\frac12}^\infty\frac{1}{x^s}\,dx = -\frac{2^{s-1}}{1-s},\qquad \mathrm{Re}(s)>1, \end{aligned} %]]></script>
+
+    <p>So $I_0(s)$ and $-J_0(s)$ are analytic continuations of each other to the respective half-planes. Consequently, the following two functions are also analytic continuations of each other</p>
+
+    <script type="math/tex; mode=display">% <![CDATA[
+\begin{cases}Z_\infty(s)-I_0(s), &-1<\mathrm{Re}(s)<1\\ Z_\infty(s) + J_0(s), &\mathrm{Re}(s)>1\end{cases} %]]></script>
+  </li>
+  <li>
+    <p>Our goal is to show that</p>
+
+    <script type="math/tex; mode=display">% <![CDATA[
+\zeta(s) = Z_\infty(s) - I_0(s),\qquad-1<\mathrm{Re}(s)<1, %]]></script>
+
+    <p>therefore we will be done once it is shown that $\zeta(s) = Z_\infty(s) + J_0(s)$ for $\mathrm{Re}(s)&gt;1$. This can be shown simply:</p>
+
+    <script type="math/tex; mode=display">% <![CDATA[
+\begin{aligned}Z_\infty(s) + J_0(s) &= \lim_{N\to\infty}\Big(\sum_{n=1}^N\frac{1}{n^s} - \int_{\frac12}^{N+\frac{1}{2}}\frac{1}{x^s}\,dx\Big)+\int_{\frac12}^\infty\frac{1}{x^s}\,dx \\ &=\sum_{n=1}^\infty\frac{1}{n^s} + \lim_{N\to\infty}\int_{N+\frac{1}{2}}^\infty\frac{1}{x^s}\,dx\\ &=\zeta(s)+0 \end{aligned} %]]></script>
+
+    <p>Q.E.D.</p>
+  </li>
+</ul>
+
+<h3 id="euler-maclaurin-formula-and-the-zeta-function">Euler-Maclaurin Formula and the Zeta Function</h3>
+
+<p>The famous Euler-Maclarin formula is an important tool for approximating integrals on a uniform grid. Probably lesser-known is its connection to the zeta function.</p>
+
+<p>The typical Euler-Maclaurin formula on the integer grid $n=0,1,2,\dots,N$ is</p>
+
+<script type="math/tex; mode=display">\sum_{n=1}^{N-1}f(n)+\frac{f(0)+f(N)}{2} = \int_0^Nf(x)\,dx+\sum_{m=2}^\infty\frac{B_{m}}{m!}\Big(f^{(m-1)}(N)-f^{(m-1)}(0)\Big)</script>
+
+<p>Using the relationship between the the Bernoulli numbers and the zeta function, we can rewrite this as</p>
+
+<script type="math/tex; mode=display">\begin{aligned}
+\sum_{m=0}^\infty\frac{\zeta(-m)}{m!}\Big(f^{(m)}(0)+(-1)^mf^{(m)}(N)\Big) = \sum_{n=1}^{N-1}f(n) - \int_0^Nf(x)\,dx
+\end{aligned}</script>
+
+<p>It is remarkable that we once again return to the “zeta = sum - integral” relation.</p>
+
+<p>Let’s simplify this further. If we substitute $f(x) = x^k$ into the formula, a lot of the terms become zero and we get</p>
+
+<script type="math/tex; mode=display">\begin{aligned}
+\zeta(-k) + \sum_{m=0}^k\frac{\zeta(-m)}{m!}(-1)^mf^{(m)}(N) = \sum_{n=1}^{N-1}n^k - \int_0^Nx^k\,dx
+\end{aligned}</script>
+
+<p>Then we let $N\to\infty$ and think of the limiting integral as a <a href="https://en.wikipedia.org/wiki/Hadamard_regularization">Hadamard finite part integral</a> (f.p.), this yields</p>
+
+<script type="math/tex; mode=display">\begin{aligned}
+\zeta(-k) = \sum_{n=1}^\infty\frac{1}{n^{-k}} - f.p.\int_0^\infty\frac{1}{x^{-k}}\,dx
+\end{aligned}</script>
+
+<p>This is exactly the “zeta = sum - integral” relation! So the Euler-Maclaurin formula is just a special case of this connection after all. (Alternatively, one can think of the finite part integral as two integrals $\int_0^1x^k\,dx$ and $\int_1^\infty x^k\,dx$, then use the analytic continuation idea, like for the $I_0$ and $J_0$ integrals in the above proof, to show that they add to $0$.)</p>
+
+<p>We see that using appropriate notions, the relation</p>
+
+<script type="math/tex; mode=display">\zeta(s) = \sum_{n=1}^\infty\frac{1}{n^s} - \int_0^\infty\frac{1}{x^s}\,dx.</script>
+
+<p>holds for all values of $s\in\mathbb{C}$.</p>
+
+<p>I have written before about <a href="/blog/2021/01/24/regular-and-singular-numerical-integration/">integrating singular functions</a> using this zeta relation, but the Euler-Maclarin formula shows that such relation also works for regular integrals. So, and here is the punchline, an even more beautiful fact is that we can handle both singular and regular integrals categorically using just one zeta relation!<sup id="fnref:sidi"><a href="#fn:sidi" class="footnote">1</a></sup></p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:sidi">
+      <p>For more general zeta function connections, see the recent <a href="http://www.cs.technion.ac.il/~asidi/Sidi_Journal_Papers/P130_AQC.Asymp_Expansions.pdf">book chapter</a> by Avraham Sidi. <a href="#fnref:sidi" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bowei "Bobbie" Wu .</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2021-05-23T22:57:33-04:00'><span class='date'>05-23-21</span> <span class='time'>22:57</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/math/'>math</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://bobbielf2.github.io/blog/2021/05/23/zeta-function-equals-sum-integral/" data-via="" data-counturl="http://bobbielf2.github.io/blog/2021/05/23/zeta-function-equals-sum-integral/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2021/04/14/year-long-writing-challenge/" title="Previous Post: Year-long writing challenge">&laquo; Year-long writing challenge</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2021/05/23/zeta-function-equals-sum-integral/">Zeta Function = Sum - Integral</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/04/14/year-long-writing-challenge/">Year-long Writing Challenge</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/04/10/questioning-history/">Questioning History</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/04/04/what-is-operational-calculus/">What Is Operational Calculus? Finite Differences and the Euler-Maclaurin Formula</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2021/03/26/it-is-okay-to-speed-up-a-little/">It Is Okay to Speed Up a Little</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2021 - Bowei "Bobbie" Wu . -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'bobbies-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://bobbielf2.github.io/blog/2021/05/23/zeta-function-equals-sum-integral/';
+        var disqus_url = 'http://bobbielf2.github.io/blog/2021/05/23/zeta-function-equals-sum-integral/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

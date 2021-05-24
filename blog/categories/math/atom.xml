@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Math | Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/blog/categories/math/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2021-04-15T20:07:19-05:00</updated>
+  <updated>2021-05-24T00:05:24-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,162 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Zeta Function = Sum - Integral]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/05/23/zeta-function-equals-sum-integral/"/>
+    <updated>2021-05-23T22:57:33-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/05/23/zeta-function-equals-sum-integral</id>
+    <content type="html"><![CDATA[<p>Recently I saw some memes about the peculiar “sum”</p>
+
+<script type="math/tex; mode=display">1+2+3+4+\dots = -1/12</script>
+
+<p><img class="center" src="/images/blog_figures/zeta_simpsons.jpeg" width="400"></p>
+
+<p><img class="center" src="/images/blog_figures/zeta_trolley_problem.jpeg" width="400"></p>
+
+<p>These memes are inspired by the Riemann zeta function</p>
+
+<script type="math/tex; mode=display">\zeta(s) := \sum_{n=1}^\infty\frac{1}{n^s},\qquad (s>1)</script>
+
+<p>in which directly substituting $s=-1$ gives the $-\tfrac{1}{12}$ “sum” above.</p>
+
+<!--more-->
+
+<p>This $1+2+3+4+\dots = -1/12$ joke was first popularized by the 2014 <a href="https://youtu.be/w-I6XTVZXww">numberphile video</a>. The video went viral and caused a lot of confusions due to the lack of proper explanations.</p>
+
+<p>Indeed, adding $1+2+3+4+\dots$ will blow up to infinity in the usual sense. The definition of $\zeta(s)$ by summing $1/n^s$ only makes sense for $s&gt;1$; when $s&lt;1$, the value $\zeta(s)$ is in fact obtained by <a href="https://en.wikipedia.org/wiki/Analytic_continuation">analytic continuation</a>. Later in 2018, Mathologer gave an <a href="https://youtu.be/YuIIjLr6vUA">accessible clarification</a> which only requires a minimal background in calculus to understand.</p>
+
+<h3 id="a-new-perspective-on-the-zeta-function">A New Perspective on the Zeta Function</h3>
+
+<p>Here, I will provide another interesting perspective on the continuation of $\zeta(s)$, which I think is quite beautiful and deserves more attentions. This is stated in the title of this article:</p>
+
+<blockquote>
+  <p>zeta function $=$ sum $-$ integral.</p>
+</blockquote>
+
+<p>Specifically,</p>
+
+<script type="math/tex; mode=display">\zeta(s) = \sum_{n=1}^\infty\frac{1}{n^s} - \int_0^\infty\frac{1}{x^s}\,dx.</script>
+
+<p>This relationship holds for any $s$ in the complex plane $\mathbb{C}$, provided we define this expression appropriately.</p>
+
+<h3 id="the-proof">The Proof</h3>
+
+<p>For simplicity, let’s start with $-1&lt;\mathrm{Re}(s)&lt;1$, which is a vertical strip in $\mathbb{C}$ where both the sum and the integral diverge. Then an appropriate zeta-sum-integral connection can be written as</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\zeta(s) = \lim_{N\to\infty}\Big(\sum_{n=1}^N\frac{1}{n^s} - \int_0^{N+\frac{1}{2}}\frac{1}{x^s}\,dx\Big),\qquad -1<\mathrm{Re}(s)<1 %]]&gt;</script>
+
+<p>To paint a clearer picture, let’s use some visual help and consider the above limit on the real line:</p>
+
+<p><img class="center" src="/images/blog_figures/zeta_proof_visual.png" width="500"></p>
+
+<p>Here, the red dots are the integer points $n = 1, 2, 3,\dots$, and the blue bars divide the real line into boxes of unit length $[\frac12, \frac32], [\frac32, \frac{5}{2}], [\frac{5}{2}, \frac{7}{2}], \dots$</p>
+
+<p>Based on this picture, let’s first define some quantities of interest:</p>
+
+<ul>
+  <li>Define the partial sum $S_N(s) := \sum_{n=1}^N\frac{1}{n^s}$	which is a sum on the first $N$ red dots in the picture above.</li>
+  <li>Define the finite integral $I_N(s) := \int_{\frac12}^{N+\frac12}\frac{1}{x^s}\,dx$	which is an integral in the first $N$ boxes defined by the blue bars in the picture.</li>
+  <li>Define the difference $Z_N(s) := S_N(s) - I_N(s)$, then</li>
+</ul>
+
+<script type="math/tex; mode=display">Z_N(s) = \sum_{n=1}^N\Big(\frac{1}{n^s} - \int_{n-\frac12}^{n+\frac12}\frac1{x^s}\,dx\Big)</script>
+
+<p>is a sum of $N$ items in the first $N$ boxes. The $n$th item $\Delta Z_n(s):=\frac{1}{n^s} - \int_{n-\frac12}^{n+\frac12}\frac1{x^s}\,dx$ is the difference between a term at the $n$th red dot and an integral over the containing blue box.</p>
+
+<p>Next, we realize some nice properties of the sum $Z_N(s)$</p>
+
+<ul>
+  <li>
+    <p>Looking at each term in the sum $Z_N(s)$</p>
+
+    <script type="math/tex; mode=display">\Delta Z_n(s) := \frac{1}{n^s} - \int_{n-\frac12}^{n+\frac12}\frac1{x^s}\,dx = \int_{-\frac12}^{\frac12}\Big(\frac{1}{n^s}-\frac{1}{(n+x)^s}\Big)dx,</script>
+
+    <p>we find that for any fixed $n$, $\Delta Z_n(s)$ is an analytic function of $s\in\mathbb{C}$.</p>
+  </li>
+  <li>
+    <p>By a comparison with $\sum_{n=1}^\infty\frac{1}{n^{s+2}}$, it is not hard to establish the convergence of $Z_\infty(s) = \sum_{n=1}^\infty\Delta Z_N(s)$ for all $\mathrm{Re}(s)&gt;-1$. This indicates that $Z_\infty(s)$ is an analytic function for all $\mathrm{Re}(s)&gt;-1$.</p>
+  </li>
+</ul>
+
+<p>With these setup, let’s start our proof, which will be very straightforward.</p>
+
+<ul>
+  <li>
+    <p>We first notice that</p>
+
+    <script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{aligned}I_0(s)&:=\int_0^{\frac12}\frac{1}{x^s}\,dx = \frac{2^{s-1}}{1-s},\qquad \mathrm{Re}(s)<1,\\ J_0(s)&:=\int_{\frac12}^\infty\frac{1}{x^s}\,dx = -\frac{2^{s-1}}{1-s},\qquad \mathrm{Re}(s)>1, \end{aligned} %]]&gt;</script>
+
+    <p>So $I_0(s)$ and $-J_0(s)$ are analytic continuations of each other to the respective half-planes. Consequently, the following two functions are also analytic continuations of each other</p>
+
+    <script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{cases}Z_\infty(s)-I_0(s), &-1<\mathrm{Re}(s)<1\\ Z_\infty(s) + J_0(s), &\mathrm{Re}(s)>1\end{cases} %]]&gt;</script>
+  </li>
+  <li>
+    <p>Our goal is to show that</p>
+
+    <script type="math/tex; mode=display">% &lt;![CDATA[
+\zeta(s) = Z_\infty(s) - I_0(s),\qquad-1<\mathrm{Re}(s)<1, %]]&gt;</script>
+
+    <p>therefore we will be done once it is shown that $\zeta(s) = Z_\infty(s) + J_0(s)$ for $\mathrm{Re}(s)&gt;1$. This can be shown simply:</p>
+
+    <script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{aligned}Z_\infty(s) + J_0(s) &= \lim_{N\to\infty}\Big(\sum_{n=1}^N\frac{1}{n^s} - \int_{\frac12}^{N+\frac{1}{2}}\frac{1}{x^s}\,dx\Big)+\int_{\frac12}^\infty\frac{1}{x^s}\,dx \\ &=\sum_{n=1}^\infty\frac{1}{n^s} + \lim_{N\to\infty}\int_{N+\frac{1}{2}}^\infty\frac{1}{x^s}\,dx\\ &=\zeta(s)+0 \end{aligned} %]]&gt;</script>
+
+    <p>Q.E.D.</p>
+  </li>
+</ul>
+
+<h3 id="euler-maclaurin-formula-and-the-zeta-function">Euler-Maclaurin Formula and the Zeta Function</h3>
+
+<p>The famous Euler-Maclarin formula is an important tool for approximating integrals on a uniform grid. Probably lesser-known is its connection to the zeta function.</p>
+
+<p>The typical Euler-Maclaurin formula on the integer grid $n=0,1,2,\dots,N$ is</p>
+
+<script type="math/tex; mode=display">\sum_{n=1}^{N-1}f(n)+\frac{f(0)+f(N)}{2} = \int_0^Nf(x)\,dx+\sum_{m=2}^\infty\frac{B_{m}}{m!}\Big(f^{(m-1)}(N)-f^{(m-1)}(0)\Big)</script>
+
+<p>Using the relationship between the the Bernoulli numbers and the zeta function, we can rewrite this as</p>
+
+<script type="math/tex; mode=display">\begin{aligned}
+\sum_{m=0}^\infty\frac{\zeta(-m)}{m!}\Big(f^{(m)}(0)+(-1)^mf^{(m)}(N)\Big) = \sum_{n=1}^{N-1}f(n) - \int_0^Nf(x)\,dx
+\end{aligned}</script>
+
+<p>It is remarkable that we once again return to the “zeta = sum - integral” relation.</p>
+
+<p>Let’s simplify this further. If we substitute $f(x) = x^k$ into the formula, a lot of the terms become zero and we get</p>
+
+<script type="math/tex; mode=display">\begin{aligned}
+\zeta(-k) + \sum_{m=0}^k\frac{\zeta(-m)}{m!}(-1)^mf^{(m)}(N) = \sum_{n=1}^{N-1}n^k - \int_0^Nx^k\,dx
+\end{aligned}</script>
+
+<p>Then we let $N\to\infty$ and think of the limiting integral as a <a href="https://en.wikipedia.org/wiki/Hadamard_regularization">Hadamard finite part integral</a> (f.p.), this yields</p>
+
+<script type="math/tex; mode=display">\begin{aligned}
+\zeta(-k) = \sum_{n=1}^\infty\frac{1}{n^{-k}} - f.p.\int_0^\infty\frac{1}{x^{-k}}\,dx
+\end{aligned}</script>
+
+<p>This is exactly the “zeta = sum - integral” relation! So the Euler-Maclaurin formula is just a special case of this connection after all. (Alternatively, one can think of the finite part integral as two integrals $\int_0^1x^k\,dx$ and $\int_1^\infty x^k\,dx$, then use the analytic continuation idea, like for the $I_0$ and $J_0$ integrals in the above proof, to show that they add to $0$.)</p>
+
+<p>We see that using appropriate notions, the relation</p>
+
+<script type="math/tex; mode=display">\zeta(s) = \sum_{n=1}^\infty\frac{1}{n^s} - \int_0^\infty\frac{1}{x^s}\,dx.</script>
+
+<p>holds for all values of $s\in\mathbb{C}$.</p>
+
+<p>I have written before about <a href="/blog/2021/01/24/regular-and-singular-numerical-integration/">integrating singular functions</a> using this zeta relation, but the Euler-Maclarin formula shows that such relation also works for regular integrals. So, and here is the punchline, an even more beautiful fact is that we can handle both singular and regular integrals categorically using just one zeta relation!<sup id="fnref:sidi"><a href="#fn:sidi" class="footnote">1</a></sup></p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:sidi">
+      <p>For more general zeta function connections, see the recent <a href="http://www.cs.technion.ac.il/~asidi/Sidi_Journal_Papers/P130_AQC.Asymp_Expansions.pdf">book chapter</a> by Avraham Sidi. <a href="#fnref:sidi" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Questioning History]]></title>
@@ -285,49 +441,6 @@
 </ul>
 
 <p>With these ideas above, plus a little coding experience with some simple rank structured matrices (a good place to start is with the first two of these <a href="https://amath.colorado.edu/faculty/martinss/2014_CBMS/codes.html">tutorial codes</a>), you are equipped with the “MAKE” that gets you ready for going on an advanture to the fast computations with matrices. All the details and other more advanced topics can be learned later once you dig far enough.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Lockdown Math]]></title>
-    <link href="http://bobbielf2.github.io/blog/2021/03/12/lockdown-math/"/>
-    <updated>2021-03-12T01:28:25-06:00</updated>
-    <id>http://bobbielf2.github.io/blog/2021/03/12/lockdown-math</id>
-    <content type="html"><![CDATA[<p>In the <a href="/blog/2021/03/04/your-one-big-desire">previous post</a> I talked about anxiety caused by things that you actually have control over. This time I’d like to also touch on situations that you can’t really change, such as a pandemic.</p>
-
-<p>A pandemic makes people anxious because it freezes life. A lot of activities have to be suspended. You can’t do what you would normally do. You don’t know how long the pandemic would last — probably a few months, probably a few years. All you can do is wait, indefinitely.</p>
-
-<h3 id="mathematicians-in-confinement">Mathematicians in confinement</h3>
-
-<p>Some groups of people seem to be doing quite well in a lockdown situation. Mathematicians happen to be one such group.</p>
-
-<!--more-->
-
-<p>Sophus Lie, who established <a href="https://en.wikipedia.org/wiki/Lie_algebra">Lie algebra</a> during his imprisonment, said that “a mathematician is comparatively well suited to be in prison.” And Lie was not alone, 70 years later another great mathematician, André Weil, who also had a productive time in prison, wondered “if it’s only in prison that I work so well, will I have to arrange to spend two or three months locked up every year?”</p>
-
-<p>According to the fun article <a href="http://www.nieuwarchief.nl/serie5/pdf/naw5-2020-21-2-095.pdf"><em>Lockdown Mathematics</em></a>, both Lie and Weil were mistaken for spies during wartimes “due to their strange habits as eccentric mathematicians who incessantly scribbled some sort of incomprehensible notes and wandered in nature without any credible purpose discernible to outsiders.”</p>
-
-<p>There are many other interesting examples from that article. The bottom line is, many mathematicians have experienced highly productive periods during confinement situations, where they were free of distractions and could focus deeply on their thoughts; although in some cases, this effect only lasted for a month or two, eventually the productivity boost waned. After all, mathematicians are still humans who need some breaks.</p>
-
-<p>I have to say that the above description perfectly summarized my experience during the COVID lockdown. I was super productive and wrote two papers during the first few months of the lockdown, then I started to get distracted and wanted to socialize again.</p>
-
-<p>Now it is March again, an anniversary of the COVID lockdown in the US. Maybe I could also benefit from setting up a few months of faux lockdown for myself every year.</p>
-
-<h3 id="flow-vs-pandemic">Flow v.s. Pandemic</h3>
-
-<p>According to some <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0242043">recent research</a>, getting in the state of <a href="https://en.wikipedia.org/wiki/Flow_(psychology)">flow</a> might be one best way to cope with lockdown anxieties. When you are experiencing flow, you are deeply focused on something; time seems to slip by quickly, a few hours feel like just a moment to you.</p>
-
-<p>Not just mathematicians, other people find their flow in all sorts of ways: painting, making handicrafts, reading books, writing essays, coding. So when you get into flow, not only that time passes much quicker, but you are also accomplishing something meaningful to you. It just completely flips the lockdown situation around and gives you a positive experience.</p>
-
-<p>In fact, this experience may have deeper implications if we redefine “pandemic” as a state of mind:</p>
-
-<blockquote>
-  <p>A “pandemic” is an extended period during which you are constantly anxious about one thing that you can’t control.</p>
-</blockquote>
-
-<p>By this definition, people are constantly undergoing all kinds of pandemics: losing jobs, struggling to graduate, accumulating debts, being homesick, feeling lonely. In each of these cases, people are stuck in a “personal pandemic” that they can’t easily escape and have to live with it for an uncertain amount of time.</p>
-
-<p>Inspired by the lockdown experience, maybe one solution to a “personal pandemic” is to accept it like we accepted that we would be living under COVID for a few years, and turn to focus on something we truly care about. Oftentimes, the consequence of a “personal pandemic” is not as dire as one might think it would be; a threat might also be an opportunity for growth. So being able to find your flow could carry you through the most difficult time of your “personal pandemic,” giving you the chance to come out stronger and better off.</p>
 ]]></content>
   </entry>
   

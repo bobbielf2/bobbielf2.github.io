@@ -4,7 +4,7 @@
   <title><![CDATA[Bobbie's Blog]]></title>
   <link href="http://bobbielf2.github.io/atom.xml" rel="self"/>
   <link href="http://bobbielf2.github.io/"/>
-  <updated>2021-04-15T20:07:19-05:00</updated>
+  <updated>2021-05-24T00:05:24-04:00</updated>
   <id>http://bobbielf2.github.io/</id>
   <author>
     <name><![CDATA[Bowei "Bobbie" Wu .]]></name>
@@ -12,6 +12,162 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Zeta Function = Sum - Integral]]></title>
+    <link href="http://bobbielf2.github.io/blog/2021/05/23/zeta-function-equals-sum-integral/"/>
+    <updated>2021-05-23T22:57:33-04:00</updated>
+    <id>http://bobbielf2.github.io/blog/2021/05/23/zeta-function-equals-sum-integral</id>
+    <content type="html"><![CDATA[<p>Recently I saw some memes about the peculiar “sum”</p>
+
+<script type="math/tex; mode=display">1+2+3+4+\dots = -1/12</script>
+
+<p><img class="center" src="http://bobbielf2.github.io/images/blog_figures/zeta_simpsons.jpeg" width="400" /></p>
+
+<p><img class="center" src="http://bobbielf2.github.io/images/blog_figures/zeta_trolley_problem.jpeg" width="400" /></p>
+
+<p>These memes are inspired by the Riemann zeta function</p>
+
+<script type="math/tex; mode=display">\zeta(s) := \sum_{n=1}^\infty\frac{1}{n^s},\qquad (s>1)</script>
+
+<p>in which directly substituting $s=-1$ gives the $-\tfrac{1}{12}$ “sum” above.</p>
+
+<!--more-->
+
+<p>This $1+2+3+4+\dots = -1/12$ joke was first popularized by the 2014 <a href="https://youtu.be/w-I6XTVZXww">numberphile video</a>. The video went viral and caused a lot of confusions due to the lack of proper explanations.</p>
+
+<p>Indeed, adding $1+2+3+4+\dots$ will blow up to infinity in the usual sense. The definition of $\zeta(s)$ by summing $1/n^s$ only makes sense for $s&gt;1$; when $s&lt;1$, the value $\zeta(s)$ is in fact obtained by <a href="https://en.wikipedia.org/wiki/Analytic_continuation">analytic continuation</a>. Later in 2018, Mathologer gave an <a href="https://youtu.be/YuIIjLr6vUA">accessible clarification</a> which only requires a minimal background in calculus to understand.</p>
+
+<h3 id="a-new-perspective-on-the-zeta-function">A New Perspective on the Zeta Function</h3>
+
+<p>Here, I will provide another interesting perspective on the continuation of $\zeta(s)$, which I think is quite beautiful and deserves more attentions. This is stated in the title of this article:</p>
+
+<blockquote>
+  <p>zeta function $=$ sum $-$ integral.</p>
+</blockquote>
+
+<p>Specifically,</p>
+
+<script type="math/tex; mode=display">\zeta(s) = \sum_{n=1}^\infty\frac{1}{n^s} - \int_0^\infty\frac{1}{x^s}\,dx.</script>
+
+<p>This relationship holds for any $s$ in the complex plane $\mathbb{C}$, provided we define this expression appropriately.</p>
+
+<h3 id="the-proof">The Proof</h3>
+
+<p>For simplicity, let’s start with $-1&lt;\mathrm{Re}(s)&lt;1$, which is a vertical strip in $\mathbb{C}$ where both the sum and the integral diverge. Then an appropriate zeta-sum-integral connection can be written as</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\zeta(s) = \lim_{N\to\infty}\Big(\sum_{n=1}^N\frac{1}{n^s} - \int_0^{N+\frac{1}{2}}\frac{1}{x^s}\,dx\Big),\qquad -1<\mathrm{Re}(s)<1 %]]&gt;</script>
+
+<p>To paint a clearer picture, let’s use some visual help and consider the above limit on the real line:</p>
+
+<p><img class="center" src="http://bobbielf2.github.io/images/blog_figures/zeta_proof_visual.png" width="500" /></p>
+
+<p>Here, the red dots are the integer points $n = 1, 2, 3,\dots$, and the blue bars divide the real line into boxes of unit length $[\frac12, \frac32], [\frac32, \frac{5}{2}], [\frac{5}{2}, \frac{7}{2}], \dots$</p>
+
+<p>Based on this picture, let’s first define some quantities of interest:</p>
+
+<ul>
+  <li>Define the partial sum $S_N(s) := \sum_{n=1}^N\frac{1}{n^s}$	which is a sum on the first $N$ red dots in the picture above.</li>
+  <li>Define the finite integral $I_N(s) := \int_{\frac12}^{N+\frac12}\frac{1}{x^s}\,dx$	which is an integral in the first $N$ boxes defined by the blue bars in the picture.</li>
+  <li>Define the difference $Z_N(s) := S_N(s) - I_N(s)$, then</li>
+</ul>
+
+<script type="math/tex; mode=display">Z_N(s) = \sum_{n=1}^N\Big(\frac{1}{n^s} - \int_{n-\frac12}^{n+\frac12}\frac1{x^s}\,dx\Big)</script>
+
+<p>is a sum of $N$ items in the first $N$ boxes. The $n$th item $\Delta Z_n(s):=\frac{1}{n^s} - \int_{n-\frac12}^{n+\frac12}\frac1{x^s}\,dx$ is the difference between a term at the $n$th red dot and an integral over the containing blue box.</p>
+
+<p>Next, we realize some nice properties of the sum $Z_N(s)$</p>
+
+<ul>
+  <li>
+    <p>Looking at each term in the sum $Z_N(s)$</p>
+
+    <script type="math/tex; mode=display">\Delta Z_n(s) := \frac{1}{n^s} - \int_{n-\frac12}^{n+\frac12}\frac1{x^s}\,dx = \int_{-\frac12}^{\frac12}\Big(\frac{1}{n^s}-\frac{1}{(n+x)^s}\Big)dx,</script>
+
+    <p>we find that for any fixed $n$, $\Delta Z_n(s)$ is an analytic function of $s\in\mathbb{C}$.</p>
+  </li>
+  <li>
+    <p>By a comparison with $\sum_{n=1}^\infty\frac{1}{n^{s+2}}$, it is not hard to establish the convergence of $Z_\infty(s) = \sum_{n=1}^\infty\Delta Z_N(s)$ for all $\mathrm{Re}(s)&gt;-1$. This indicates that $Z_\infty(s)$ is an analytic function for all $\mathrm{Re}(s)&gt;-1$.</p>
+  </li>
+</ul>
+
+<p>With these setup, let’s start our proof, which will be very straightforward.</p>
+
+<ul>
+  <li>
+    <p>We first notice that</p>
+
+    <script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{aligned}I_0(s)&:=\int_0^{\frac12}\frac{1}{x^s}\,dx = \frac{2^{s-1}}{1-s},\qquad \mathrm{Re}(s)<1,\\ J_0(s)&:=\int_{\frac12}^\infty\frac{1}{x^s}\,dx = -\frac{2^{s-1}}{1-s},\qquad \mathrm{Re}(s)>1, \end{aligned} %]]&gt;</script>
+
+    <p>So $I_0(s)$ and $-J_0(s)$ are analytic continuations of each other to the respective half-planes. Consequently, the following two functions are also analytic continuations of each other</p>
+
+    <script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{cases}Z_\infty(s)-I_0(s), &-1<\mathrm{Re}(s)<1\\ Z_\infty(s) + J_0(s), &\mathrm{Re}(s)>1\end{cases} %]]&gt;</script>
+  </li>
+  <li>
+    <p>Our goal is to show that</p>
+
+    <script type="math/tex; mode=display">% &lt;![CDATA[
+\zeta(s) = Z_\infty(s) - I_0(s),\qquad-1<\mathrm{Re}(s)<1, %]]&gt;</script>
+
+    <p>therefore we will be done once it is shown that $\zeta(s) = Z_\infty(s) + J_0(s)$ for $\mathrm{Re}(s)&gt;1$. This can be shown simply:</p>
+
+    <script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{aligned}Z_\infty(s) + J_0(s) &= \lim_{N\to\infty}\Big(\sum_{n=1}^N\frac{1}{n^s} - \int_{\frac12}^{N+\frac{1}{2}}\frac{1}{x^s}\,dx\Big)+\int_{\frac12}^\infty\frac{1}{x^s}\,dx \\ &=\sum_{n=1}^\infty\frac{1}{n^s} + \lim_{N\to\infty}\int_{N+\frac{1}{2}}^\infty\frac{1}{x^s}\,dx\\ &=\zeta(s)+0 \end{aligned} %]]&gt;</script>
+
+    <p>Q.E.D.</p>
+  </li>
+</ul>
+
+<h3 id="euler-maclaurin-formula-and-the-zeta-function">Euler-Maclaurin Formula and the Zeta Function</h3>
+
+<p>The famous Euler-Maclarin formula is an important tool for approximating integrals on a uniform grid. Probably lesser-known is its connection to the zeta function.</p>
+
+<p>The typical Euler-Maclaurin formula on the integer grid $n=0,1,2,\dots,N$ is</p>
+
+<script type="math/tex; mode=display">\sum_{n=1}^{N-1}f(n)+\frac{f(0)+f(N)}{2} = \int_0^Nf(x)\,dx+\sum_{m=2}^\infty\frac{B_{m}}{m!}\Big(f^{(m-1)}(N)-f^{(m-1)}(0)\Big)</script>
+
+<p>Using the relationship between the the Bernoulli numbers and the zeta function, we can rewrite this as</p>
+
+<script type="math/tex; mode=display">\begin{aligned}
+\sum_{m=0}^\infty\frac{\zeta(-m)}{m!}\Big(f^{(m)}(0)+(-1)^mf^{(m)}(N)\Big) = \sum_{n=1}^{N-1}f(n) - \int_0^Nf(x)\,dx
+\end{aligned}</script>
+
+<p>It is remarkable that we once again return to the “zeta = sum - integral” relation.</p>
+
+<p>Let’s simplify this further. If we substitute $f(x) = x^k$ into the formula, a lot of the terms become zero and we get</p>
+
+<script type="math/tex; mode=display">\begin{aligned}
+\zeta(-k) + \sum_{m=0}^k\frac{\zeta(-m)}{m!}(-1)^mf^{(m)}(N) = \sum_{n=1}^{N-1}n^k - \int_0^Nx^k\,dx
+\end{aligned}</script>
+
+<p>Then we let $N\to\infty$ and think of the limiting integral as a <a href="https://en.wikipedia.org/wiki/Hadamard_regularization">Hadamard finite part integral</a> (f.p.), this yields</p>
+
+<script type="math/tex; mode=display">\begin{aligned}
+\zeta(-k) = \sum_{n=1}^\infty\frac{1}{n^{-k}} - f.p.\int_0^\infty\frac{1}{x^{-k}}\,dx
+\end{aligned}</script>
+
+<p>This is exactly the “zeta = sum - integral” relation! So the Euler-Maclaurin formula is just a special case of this connection after all. (Alternatively, one can think of the finite part integral as two integrals $\int_0^1x^k\,dx$ and $\int_1^\infty x^k\,dx$, then use the analytic continuation idea, like for the $I_0$ and $J_0$ integrals in the above proof, to show that they add to $0$.)</p>
+
+<p>We see that using appropriate notions, the relation</p>
+
+<script type="math/tex; mode=display">\zeta(s) = \sum_{n=1}^\infty\frac{1}{n^s} - \int_0^\infty\frac{1}{x^s}\,dx.</script>
+
+<p>holds for all values of $s\in\mathbb{C}$.</p>
+
+<p>I have written before about <a href="http://bobbielf2.github.io/blog/2021/01/24/regular-and-singular-numerical-integration/">integrating singular functions</a> using this zeta relation, but the Euler-Maclarin formula shows that such relation also works for regular integrals. So, and here is the punchline, an even more beautiful fact is that we can handle both singular and regular integrals categorically using just one zeta relation!<sup id="fnref:sidi"><a href="#fn:sidi" class="footnote">1</a></sup></p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:sidi">
+      <p>For more general zeta function connections, see the recent <a href="http://www.cs.technion.ac.il/~asidi/Sidi_Journal_Papers/P130_AQC.Asymp_Expansions.pdf">book chapter</a> by Avraham Sidi. <a href="#fnref:sidi" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Year-long Writing Challenge]]></title>
@@ -1098,92 +1254,6 @@ u_\mathrm{out}(x)-u_\infty, & x\in\mathbb{R}^2\setminus\bar\Omega
 </ol>
 
 <p><strong>Limitation</strong>: If you are using apps with graphical interface, not just the command line environment, then <code>screen</code> is not suitable for resuming such jobs, and <a href="https://en.wikipedia.org/wiki/Virtual_Network_Computing">VNC</a> instead would be the ideal choice.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Remote Access to Linux-based Computing Resources With Graphical Interface (for UM Students)]]></title>
-    <link href="http://bobbielf2.github.io/blog/2017/09/07/remote-access-to-linux-based-computing-resources-with-graphical-interface-for-um-students/"/>
-    <updated>2017-09-07T15:25:54-04:00</updated>
-    <id>http://bobbielf2.github.io/blog/2017/09/07/remote-access-to-linux-based-computing-resources-with-graphical-interface-for-um-students</id>
-    <content type="html"><![CDATA[<blockquote>
-  <p>Note: this note is about University of Michigan computing resources.</p>
-</blockquote>
-
-<p>People working on numerical analysis often need to develop efficient code by doing multi-language programming, e.g. MATLAB/C++ or MATLAB/Fortran. Linux operating system is needed to have the best programming experience. (Mac OS has all sorts of compatibility issues.) For UM people who are using a Mac, I have explore the following four options for remotely accessing Linux-based computing resources.</p>
-
-<!--more-->
-
-<h3 id="use-the-its-statistics-and-computation-service-scs">1. Use the ITS Statistics and Computation Service (SCS)</h3>
-
-<p>The <a href="http://www.itcs.umich.edu/scs/">ITS SCS</a> provides the easiest way to certain computational resources, no extra permissions/purchases needed. But the software may not be up-to-date, e.g. MATLAB version on this server is relatively old (MATLAB R2012b).</p>
-
-<p>Steps:</p>
-
-<ol>
-  <li>Install <a href="https://www.xquartz.org/">XQuartz</a> on your Mac (See <a href="http://www.itcs.umich.edu/scs/x11.php">info</a>)</li>
-  <li>Connect to server by typing <code>ssh -Y uniqname@scs.dsc.umich.edu</code> in terminal.</li>
-  <li>Upon successful connection, type <code>matlab</code> to run the program. XQuartz graphics will be invoked.</li>
-</ol>
-
-<h3 id="ask-lsa-it-for-help">2. Ask LSA-IT for help</h3>
-
-<p>For math people, we can contact the East Hall Technical Service (EHTS) for help. They offer newer software. (The EHTS is one of the four regional support desks of the <a href="https://lsa.umich.edu/lsait">LSA-IT</a>).</p>
-
-<p>Steps:</p>
-
-<ol>
-  <li>Install <a href="https://www.xquartz.org/">XQuartz</a> on your Mac.</li>
-  <li>Ask EHTS techicians (Room 1069EH) to grant you access to a Linux machine.</li>
-  <li>Download the <a href="https://wiki.x2go.org/doku.php/download:start">X2Go Client</a>.</li>
-  <li>Configure X2Go Client to connect to the <code>vulpix.math.lsa.umich.edu</code> server.</li>
-</ol>
-
-<h3 id="use-the-caen-computers">3. Use the CAEN computers</h3>
-
-<p>The UM Computer-Aided Engineering Network (CAEN) provides the smoothest experience for general users as well as power users. The CAEN computer operates the newest Linux and Windows systems, with newest and most complete software libraries for all sorts of computational work. <strong>But these are only conveniently available to engineering students.</strong></p>
-
-<p>Availability:</p>
-
-<ul>
-  <li>If you are an engineering student, or are currently taking engineering classes, then you can <a href="https://caen.engin.umich.edu/accounts/">access CAEN computing resources anywhere</a>, on-site or remotely.</li>
-  <li>All other non-engineering students have NO remote access to CAEN computers, and can only go to north campus to use the CAEN computers in the Duderstadt Center.</li>
-</ul>
-
-<p>Steps:</p>
-
-<ol>
-  <li>See CAEN <a href="https://caen.engin.umich.edu/connect/linux-login-service/">Linux Login Service</a></li>
-</ol>
-
-<h3 id="use-the-flux-hpc-cluster">4. Use the Flux HPC Cluster</h3>
-
-<p>This option builds connections using <a href="https://en.wikipedia.org/wiki/Virtual_Network_Computing">VNC</a> (instead of XQuartz) is faster and more stable, can disconnect and <strong>resume</strong> right where you left at any time.</p>
-
-<p>Info about Flux:</p>
-
-<ul>
-  <li>The <a href="http://arc-ts.umich.edu/">ARC-TS</a>’s Flux HPC Cluster provides high performance computing service and has its own professional technical help.</li>
-  <li>LSA people can use the <a href="http://arc-ts.umich.edu/document/lsas-public-flux-allocation/">public LSA allocations</a> on Flux. These allocations are free, but take longer for jobs to start.</li>
-  <li>If you or your advisor has purchased <a href="http://arc-ts.umich.edu/flux/managing-a-flux-project/">private allocation</a> on Flux, then there is much <a href="http://arc-ts.umich.edu/document/lsas-public-flux-allocation/">less wait or limitations</a>.</li>
-</ul>
-
-<p>Steps:</p>
-
-<ol>
-  <li><a href="http://arc-ts.umich.edu/flux-user-guide/">Obtain access to Flux</a></li>
-  <li>Follow instructions <a href="http://arc-ts.umich.edu/flux/vnc/">here</a> to configure a VNC server, and use a VNC client to connect.</li>
-  <li>Follow instructions <a href="http://arc-ts.umich.edu/flux-user-guide/#document-14">here</a> to load and use softwares on Flux.</li>
-</ol>
-
-<h3 id="summary">Summary</h3>
-
-<ul>
-  <li>If eligible for a CAEN account, always use CAEN</li>
-  <li>For general use and easy access, ask LSA-IT for help</li>
-  <li>For serious programming, use Flux HPC Cluster</li>
-  <li>For not-so-serious purpose, use the ITS SCS</li>
-</ul>
 ]]></content>
   </entry>
   
